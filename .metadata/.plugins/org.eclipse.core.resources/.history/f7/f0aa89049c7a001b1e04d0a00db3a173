@@ -1,0 +1,2 @@
+-- Insert des Catégorie Aide
+INSERT INTO `categorie_aide`
