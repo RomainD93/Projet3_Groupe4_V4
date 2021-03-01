@@ -2527,3 +2527,30 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact fr.eql.ai108.
 2021-03-01 16:19:04,439 [Worker-287: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
 2021-03-01 16:19:04,451 [Worker-287: Building] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/PandAmiEntity: fr.eql.ai108.projet3:PandAmiEntity:1.0 with classifier  to /PandAmiEntity/target/classes
 2021-03-01 16:19:04,452 [Worker-287: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-03-01 16:19:04,452 [Worker-287: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-03-01 16:19:04,453 [Worker-287: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-03-01 16:19:04,453 [Worker-287: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-03-01 16:19:04,461 [Worker-287: Building] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/PandAmiEntity: fr.eql.ai108.projet3:PandAmiEntity:1.0 with classifier  to /PandAmiEntity/target/classes
+2021-03-01 16:19:04,462 [Worker-287: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-03-01 16:19:04,462 [Worker-287: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-03-01 16:19:04,462 [Worker-287: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-03-01 16:19:04,462 [Worker-287: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-03-01 16:19:04,473 [Worker-287: Building] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/PandAmiEntity: fr.eql.ai108.projet3:PandAmiEntity:1.0 with classifier  to /PandAmiEntity/target/classes
+2021-03-01 16:19:04,473 [Worker-287: Building] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/PandAmiIDao: fr.eql.ai108.projet3:PandAmiIDao:1.0 with classifier  to /PandAmiIDao/target/classes
+2021-03-01 16:19:04,475 [Worker-287: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-03-01 16:19:04,475 [Worker-287: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-03-01 16:19:04,475 [Worker-287: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-03-01 16:19:04,476 [Worker-287: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-03-01 16:19:04,491 [Worker-287: Building] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/PandAmiEntity: fr.eql.ai108.projet3:PandAmiEntity:1.0 with classifier  to /PandAmiEntity/target/classes
+2021-03-01 16:19:04,491 [Worker-287: Building] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/PandAmiIBusiness: fr.eql.ai108.projet3:PandAmiIBusiness:1.0 with classifier  to /PandAmiIBusiness/target/classes
+2021-03-01 16:19:04,491 [Worker-287: Building] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/PandAmiIDao: fr.eql.ai108.projet3:PandAmiIDao:1.0 with classifier  to /PandAmiIDao/target/classes
+2021-03-01 16:19:04,492 [Worker-287: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-03-01 16:19:04,492 [Worker-287: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-03-01 16:19:04,492 [Worker-287: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-03-01 16:19:04,494 [Worker-287: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-03-01 16:19:04,533 [Worker-287: Building] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/PandAmiEntity: fr.eql.ai108.projet3:PandAmiEntity:1.0 with classifier  to /PandAmiEntity/target/classes
+2021-03-01 16:19:04,533 [Worker-287: Building] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/PandAmiIBusiness: fr.eql.ai108.projet3:PandAmiIBusiness:1.0 with classifier  to /PandAmiIBusiness/target/classes
+2021-03-01 16:19:04,538 [Worker-287: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-03-01 16:19:04,538 [Worker-287: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2021-03-01 16:19:04,538 [Worker-287: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2021-03-01 16:19:04,538 [Worker-287: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
