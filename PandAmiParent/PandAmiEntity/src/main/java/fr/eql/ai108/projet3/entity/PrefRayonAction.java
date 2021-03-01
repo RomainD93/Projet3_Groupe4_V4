@@ -25,6 +25,7 @@ public class PrefRayonAction implements Serializable{
 	
 	private Date dateFinPref;
 
+		
 	public Integer getId() {
 		return id;
 	}
