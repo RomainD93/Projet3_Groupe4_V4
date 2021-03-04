@@ -1,7 +1,0 @@
-package fr.eql.ai108.projet3.entity;
-
-public class Service {
-
-	private Integer id;
-	private String name; 
-}

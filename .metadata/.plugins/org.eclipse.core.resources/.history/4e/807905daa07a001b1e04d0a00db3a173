@@ -1,8 +1,0 @@
--- Insert des Catégorie Aide
-INSERT INTO `categorie_aide` (id, nomCategorieAide) VALUES (2, 'Ménage');
-
--- Insert Genre
-INSERT INTO `genre` (id, genre) VALUES (5, 'Mme');
-INSERT INTO `genre` (id, genre) VALUES (6, 'Mr');
-INSERT INTO `genre` (id, genre) VALUES (3, 'Autre');
-

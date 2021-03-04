@@ -1,7 +1,0 @@
-package fr.eql.ai108.projet3.entity;
-
-import java.io.Serializable;
-
-public class TypeLitige implements Serializable{
-
-}
