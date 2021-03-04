@@ -32,11 +32,9 @@ public class Disponibilite implements Serializable{
 	
 	private Date finValiditeDispo;
 	
-	@OneToMany (mappedBy = "disponibilite", fetch = FetchType.EAGER)
-	private Set<JourSemaine> joursDeDispo;
-	
-	
+
 	private Utilisateur utilisateur;
+	private JourSemaine jourSemaine;
 
 	public Disponibilite() {
 		super();
@@ -44,21 +42,75 @@ public class Disponibilite implements Serializable{
 	}
 
 
-
-
 	public Disponibilite(Integer id, Date heureDbtDispo, Date heureFinDispo, Date dbtValiditeDispo,
-			Date finValiditeDispo, Set<JourSemaine> joursDeDispo, Utilisateur utilisateur) {
+			Date finValiditeDispo, Utilisateur utilisateur, JourSemaine jourSemaine) {
 		super();
 		this.id = id;
 		this.heureDbtDispo = heureDbtDispo;
 		this.heureFinDispo = heureFinDispo;
 		this.dbtValiditeDispo = dbtValiditeDispo;
 		this.finValiditeDispo = finValiditeDispo;
-		this.joursDeDispo = joursDeDispo;
 		this.utilisateur = utilisateur;
+		this.jourSemaine = jourSemaine;
 	}
 
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((dbtValiditeDispo == null) ? 0 : dbtValiditeDispo.hashCode());
+		result = prime * result + ((finValiditeDispo == null) ? 0 : finValiditeDispo.hashCode());
+		result = prime * result + ((heureDbtDispo == null) ? 0 : heureDbtDispo.hashCode());
+		result = prime * result + ((heureFinDispo == null) ? 0 : heureFinDispo.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Disponibilite other = (Disponibilite) obj;
+		if (dbtValiditeDispo == null) {
+			if (other.dbtValiditeDispo != null)
+				return false;
+		} else if (!dbtValiditeDispo.equals(other.dbtValiditeDispo))
+			return false;
+		if (finValiditeDispo == null) {
+			if (other.finValiditeDispo != null)
+				return false;
+		} else if (!finValiditeDispo.equals(other.finValiditeDispo))
+			return false;
+		if (heureDbtDispo == null) {
+			if (other.heureDbtDispo != null)
+				return false;
+		} else if (!heureDbtDispo.equals(other.heureDbtDispo))
+			return false;
+		if (heureFinDispo == null) {
+			if (other.heureFinDispo != null)
+				return false;
+		} else if (!heureFinDispo.equals(other.heureFinDispo))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Disponibilite [id=" + id + ", heureDbtDispo=" + heureDbtDispo + ", heureFinDispo=" + heureFinDispo
+				+ ", dbtValiditeDispo=" + dbtValiditeDispo + ", finValiditeDispo=" + finValiditeDispo + "]";
+	}
 
 
 	public Integer getId() {
@@ -102,21 +154,22 @@ public class Disponibilite implements Serializable{
 	}
 
 
-
-	public Set<JourSemaine> getJoursDeDispo() {
-		return joursDeDispo;
-	}
-
-	public void setJoursDeDispo(Set<JourSemaine> joursDeDispo) {
-		this.joursDeDispo = joursDeDispo;
-	}
-
 	public Utilisateur getUtilisateur() {
 		return utilisateur;
 	}
 
 	public void setUtilisateur(Utilisateur utilisateur) {
 		this.utilisateur = utilisateur;
+	}
+
+
+	public JourSemaine getJourSemaine() {
+		return jourSemaine;
+	}
+
+
+	public void setJourSemaine(JourSemaine jourSemaine) {
+		this.jourSemaine = jourSemaine;
 	} 
 	
 	

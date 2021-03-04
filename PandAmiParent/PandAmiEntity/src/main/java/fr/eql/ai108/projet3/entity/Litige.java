@@ -10,46 +10,36 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "type_litige")
-public class TypeLitige implements Serializable{
+@Table(name = "litige")
+public class Litige implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Integer id;
-	
-	private String nomTypeLitige;
 	private Date dateCreation;
 	private Date dateCloture;
 	private String commentaires;
 	
-	private Utilisateur createurLitige;
+	private TypeLitige typeLitige;
 	private Service service;
-	
-	public TypeLitige() {
+	private Utilisateur createurLitige;
+	public Litige() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-
-	
-
-
-	public TypeLitige(Integer id, String nomTypeLitige, Date dateCreation, Date dateCloture, String commentaires,
-			Utilisateur createurLitige, Service service) {
+	public Litige(Integer id, Date dateCreation, Date dateCloture, String commentaires, TypeLitige typeLitige,
+			Service service, Utilisateur createurLitige) {
 		super();
 		this.id = id;
-		this.nomTypeLitige = nomTypeLitige;
 		this.dateCreation = dateCreation;
 		this.dateCloture = dateCloture;
 		this.commentaires = commentaires;
-		this.createurLitige = createurLitige;
+		this.typeLitige = typeLitige;
 		this.service = service;
+		this.createurLitige = createurLitige;
 	}
-
-
-
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -58,13 +48,8 @@ public class TypeLitige implements Serializable{
 		result = prime * result + ((dateCloture == null) ? 0 : dateCloture.hashCode());
 		result = prime * result + ((dateCreation == null) ? 0 : dateCreation.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((nomTypeLitige == null) ? 0 : nomTypeLitige.hashCode());
 		return result;
 	}
-
-
-
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -73,7 +58,7 @@ public class TypeLitige implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		TypeLitige other = (TypeLitige) obj;
+		Litige other = (Litige) obj;
 		if (commentaires == null) {
 			if (other.commentaires != null)
 				return false;
@@ -94,118 +79,55 @@ public class TypeLitige implements Serializable{
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (nomTypeLitige == null) {
-			if (other.nomTypeLitige != null)
-				return false;
-		} else if (!nomTypeLitige.equals(other.nomTypeLitige))
-			return false;
 		return true;
 	}
-
-
-
-
 	@Override
 	public String toString() {
-		return "TypeLitige [id=" + id + ", nomTypeLitige=" + nomTypeLitige + ", dateCreation=" + dateCreation
-				+ ", dateCloture=" + dateCloture + ", commentaires=" + commentaires + "]";
+		return "Litige [id=" + id + ", dateCreation=" + dateCreation + ", dateCloture=" + dateCloture
+				+ ", commentaires=" + commentaires + "]";
 	}
-
-
-
-
 	public Integer getId() {
 		return id;
 	}
-
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
-
-
-
-	public String getNomTypeLitige() {
-		return nomTypeLitige;
-	}
-
-
-
-
-	public void setNomTypeLitige(String nomTypeLitige) {
-		this.nomTypeLitige = nomTypeLitige;
-	}
-
-
-
-
 	public Date getDateCreation() {
 		return dateCreation;
 	}
-
-
-
-
 	public void setDateCreation(Date dateCreation) {
 		this.dateCreation = dateCreation;
 	}
-
-
-
-
 	public Date getDateCloture() {
 		return dateCloture;
 	}
-
-
-
-
 	public void setDateCloture(Date dateCloture) {
 		this.dateCloture = dateCloture;
 	}
-
-
-
-
 	public String getCommentaires() {
 		return commentaires;
 	}
-
-
-
-
 	public void setCommentaires(String commentaires) {
 		this.commentaires = commentaires;
 	}
-
-
-
-
-	public Utilisateur getCreateurLitige() {
-		return createurLitige;
+	public TypeLitige getTypeLitige() {
+		return typeLitige;
 	}
-
-
-
-
-	public void setCreateurLitige(Utilisateur createurLitige) {
-		this.createurLitige = createurLitige;
+	public void setTypeLitige(TypeLitige typeLitige) {
+		this.typeLitige = typeLitige;
 	}
-
-
-
-
 	public Service getService() {
 		return service;
 	}
-
-
-
-
 	public void setService(Service service) {
 		this.service = service;
 	}
-
-
+	public Utilisateur getCreateurLitige() {
+		return createurLitige;
+	}
+	public void setCreateurLitige(Utilisateur createurLitige) {
+		this.createurLitige = createurLitige;
+	}
+	
 	
 }

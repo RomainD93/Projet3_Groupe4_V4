@@ -1,6 +1,7 @@
 package fr.eql.ai108.projet3.entity;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -19,17 +20,22 @@ public class Genre implements Serializable{
 	private Integer id;
 	
 	private String genre;
+	
+	private Set<Utilisateur> utilisateurs;
 
 	public Genre() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Genre(Integer id, String genre) {
+
+	public Genre(Integer id, String genre, Set<Utilisateur> utilisateurs) {
 		super();
 		this.id = id;
 		this.genre = genre;
+		this.utilisateurs = utilisateurs;
 	}
+
 
 	public Integer getId() {
 		return id;
@@ -45,6 +51,16 @@ public class Genre implements Serializable{
 
 	public void setGenre(String genre) {
 		this.genre = genre;
+	}
+
+
+	public Set<Utilisateur> getUtilisateurs() {
+		return utilisateurs;
+	}
+
+
+	public void setUtilisateurs(Set<Utilisateur> utilisateurs) {
+		this.utilisateurs = utilisateurs;
 	}
 	
 	

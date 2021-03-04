@@ -1,6 +1,7 @@
 package fr.eql.ai108.projet3.entity;
 
 import java.io.Serializable;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,18 +19,71 @@ public class TypeAide implements Serializable{
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	private String typeAide;
+	private String nomTypeAide;
+	
+	private CategorieAide categorieAide;
+	private Materiel materiel;
+	private Set<PreferenceAide> preferencesAide;
+	private Set<Service> services;
+	
 
 	public TypeAide() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public TypeAide(Integer id, String typeAide) {
+
+	public TypeAide(Integer id, String nomTypeAide, CategorieAide categorieAide, Materiel materiel,
+			Set<PreferenceAide> preferencesAide, Set<Service> services) {
 		super();
 		this.id = id;
-		this.typeAide = typeAide;
+		this.nomTypeAide = nomTypeAide;
+		this.categorieAide = categorieAide;
+		this.materiel = materiel;
+		this.preferencesAide = preferencesAide;
+		this.services = services;
 	}
+
+	
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((nomTypeAide == null) ? 0 : nomTypeAide.hashCode());
+		return result;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		TypeAide other = (TypeAide) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (nomTypeAide == null) {
+			if (other.nomTypeAide != null)
+				return false;
+		} else if (!nomTypeAide.equals(other.nomTypeAide))
+			return false;
+		return true;
+	}
+
+
+	@Override
+	public String toString() {
+		return "TypeAide [id=" + id + ", nomTypeAide=" + nomTypeAide + "]";
+	}
+
 
 	public Integer getId() {
 		return id;
@@ -39,14 +93,55 @@ public class TypeAide implements Serializable{
 		this.id = id;
 	}
 
-	public String getTypeAide() {
-		return typeAide;
+
+	public String getNomTypeAide() {
+		return nomTypeAide;
 	}
 
-	public void setTypeAide(String typeAide) {
-		this.typeAide = typeAide;
+
+	public void setNomTypeAide(String nomTypeAide) {
+		this.nomTypeAide = nomTypeAide;
 	}
-	
+
+
+	public CategorieAide getCategorieAide() {
+		return categorieAide;
+	}
+
+
+	public void setCategorieAide(CategorieAide categorieAide) {
+		this.categorieAide = categorieAide;
+	}
+
+
+	public Materiel getMateriel() {
+		return materiel;
+	}
+
+
+	public void setMateriel(Materiel materiel) {
+		this.materiel = materiel;
+	}
+
+
+	public Set<PreferenceAide> getPreferencesAide() {
+		return preferencesAide;
+	}
+
+
+	public void setPreferencesAide(Set<PreferenceAide> preferencesAide) {
+		this.preferencesAide = preferencesAide;
+	}
+
+
+	public Set<Service> getServices() {
+		return services;
+	}
+
+
+	public void setServices(Set<Service> services) {
+		this.services = services;
+	}
 	
 	
 }

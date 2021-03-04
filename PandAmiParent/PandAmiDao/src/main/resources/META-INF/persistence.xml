@@ -7,8 +7,11 @@
 	<class>fr.eql.ai108.projet3.entity.Disponibilite</class>
 	<class>fr.eql.ai108.projet3.entity.Genre</class>
 	<class>fr.eql.ai108.projet3.entity.JourSemaine</class>
+	<class>fr.eql.ai108.projet3.entity.Litige</class>
 	<class>fr.eql.ai108.projet3.entity.Materiel</class>
-	<class>fr.eql.ai108.projet3.entity.PrefRayonAction</class>
+	<class>fr.eql.ai108.projet3.entity.Negociation</class>
+	<class>fr.eql.ai108.projet3.entity.PreferenceAide</class>
+	<class>fr.eql.ai108.projet3.entity.ReponseService</class>
 	<class>fr.eql.ai108.projet3.entity.Service</class>
 	<class>fr.eql.ai108.projet3.entity.Suspension</class>
 	<class>fr.eql.ai108.projet3.entity.TypeAide</class>
