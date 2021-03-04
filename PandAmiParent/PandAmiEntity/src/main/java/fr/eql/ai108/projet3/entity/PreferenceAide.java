@@ -3,10 +3,13 @@ package fr.eql.ai108.projet3.entity;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,9 +21,14 @@ public class PreferenceAide implements Serializable {
 
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Integer id;
 	
+	@ManyToOne
+	@JoinColumn(referencedColumnName = "id")
 	private TypeAide typeAide;
+	@ManyToOne
+	@JoinColumn(referencedColumnName = "id")
 	private Utilisateur utilisateur;
 	
 	public PreferenceAide() {

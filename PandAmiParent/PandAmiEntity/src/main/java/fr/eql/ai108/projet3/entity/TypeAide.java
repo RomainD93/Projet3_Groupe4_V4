@@ -3,10 +3,15 @@ package fr.eql.ai108.projet3.entity;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,13 +22,20 @@ public class TypeAide implements Serializable{
 
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Integer id;
 	
 	private String nomTypeAide;
 	
+	@ManyToOne
+	@JoinColumn(referencedColumnName = "id")
 	private CategorieAide categorieAide;
+	@ManyToOne
+	@JoinColumn(referencedColumnName = "id")
 	private Materiel materiel;
+	@OneToMany(mappedBy = "typeAide", cascade = CascadeType.PERSIST)
 	private Set<PreferenceAide> preferencesAide;
+	@OneToMany(mappedBy = "typeAide", cascade = CascadeType.PERSIST)
 	private Set<Service> services;
 	
 

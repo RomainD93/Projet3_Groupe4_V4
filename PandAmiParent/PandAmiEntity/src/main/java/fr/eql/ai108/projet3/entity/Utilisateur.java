@@ -4,10 +4,15 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,6 +23,7 @@ public class Utilisateur implements Serializable{
 	
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Integer id;
 	private String email;
 	private String password;
@@ -29,15 +35,30 @@ public class Utilisateur implements Serializable{
 	private Date dateDesinscription;
 	private Integer rayonAction;
 	
+	@ManyToOne
+	@JoinColumn(referencedColumnName = "id")
 	private Adresse adresse;
+	@OneToMany(mappedBy = "utilisateur")
 	private Set<Suspension> suspensions;
+	@ManyToOne
+	@JoinColumn(referencedColumnName = "id")
 	private TypeUtilisateur typeUtilisateur;
+	@OneToMany(mappedBy = "utilisateur")
 	private Set<Disponibilite> disposUtilisateur;
-	private Genre genreUtilisateur;
-	private Set<Negociation> negosUtilisateur;
+	@ManyToOne
+	@JoinColumn(referencedColumnName = "id")
+	private Genre genre;
+	@OneToMany(mappedBy = "createurNego")
+	private Set<Negociation> negosCreateur;
+	@OneToMany(mappedBy = "repondeurNego")
+	private Set<Negociation> negosRepondeur;
+	@OneToMany(mappedBy = "utilisateur")
 	private Set<Litige> litigesUtilisateur;
+	@OneToMany(mappedBy = "utilisateur")
 	private Set<Service> servicesUtilisateur;
+	@OneToMany(mappedBy = "utilisateur")
 	private Set<ReponseService> reponsesServicesUtilsateur;
+	@OneToMany(mappedBy = "utilisateur")
 	private Set<PreferenceAide> preferencesAideUtlisateur;
 	
 	public Utilisateur() {
@@ -45,12 +66,14 @@ public class Utilisateur implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
+
+
 	public Utilisateur(Integer id, String email, String password, String nom, String prenom, Date dateNaissance,
 			String numTelephone, Date dateInscription, Date dateDesinscription, Integer rayonAction, Adresse adresse,
 			Set<Suspension> suspensions, TypeUtilisateur typeUtilisateur, Set<Disponibilite> disposUtilisateur,
-			Genre genreUtilisateur, Set<Negociation> negosUtilisateur, Set<Litige> litigesUtilisateur,
-			Set<Service> servicesUtilisateur, Set<ReponseService> reponsesServicesUtilsateur,
-			Set<PreferenceAide> preferencesAideUtlisateur) {
+			Genre genre, Set<Negociation> negosCreateur, Set<Negociation> negosRepondeur,
+			Set<Litige> litigesUtilisateur, Set<Service> servicesUtilisateur,
+			Set<ReponseService> reponsesServicesUtilsateur, Set<PreferenceAide> preferencesAideUtlisateur) {
 		super();
 		this.id = id;
 		this.email = email;
@@ -66,13 +89,16 @@ public class Utilisateur implements Serializable{
 		this.suspensions = suspensions;
 		this.typeUtilisateur = typeUtilisateur;
 		this.disposUtilisateur = disposUtilisateur;
-		this.genreUtilisateur = genreUtilisateur;
-		this.negosUtilisateur = negosUtilisateur;
+		this.genre = genre;
+		this.negosCreateur = negosCreateur;
+		this.negosRepondeur = negosRepondeur;
 		this.litigesUtilisateur = litigesUtilisateur;
 		this.servicesUtilisateur = servicesUtilisateur;
 		this.reponsesServicesUtilsateur = reponsesServicesUtilsateur;
 		this.preferencesAideUtlisateur = preferencesAideUtlisateur;
 	}
+
+
 
 	@Override
 	public int hashCode() {
@@ -272,21 +298,42 @@ public class Utilisateur implements Serializable{
 		this.disposUtilisateur = disposUtilisateur;
 	}
 
-	public Genre getGenreUtilisateur() {
-		return genreUtilisateur;
+
+
+	public Genre getGenre() {
+		return genre;
 	}
 
-	public void setGenreUtilisateur(Genre genreUtilisateur) {
-		this.genreUtilisateur = genreUtilisateur;
+
+	public void setGenre(Genre genre) {
+		this.genre = genre;
 	}
 
-	public Set<Negociation> getNegosUtilisateur() {
-		return negosUtilisateur;
+
+
+	public Set<Negociation> getNegosCreateur() {
+		return negosCreateur;
 	}
 
-	public void setNegosUtilisateur(Set<Negociation> negosUtilisateur) {
-		this.negosUtilisateur = negosUtilisateur;
+
+
+	public void setNegosCreateur(Set<Negociation> negosCreateur) {
+		this.negosCreateur = negosCreateur;
 	}
+
+
+
+	public Set<Negociation> getNegosRepondeur() {
+		return negosRepondeur;
+	}
+
+
+
+	public void setNegosRepondeur(Set<Negociation> negosRepondeur) {
+		this.negosRepondeur = negosRepondeur;
+	}
+
+
 
 	public Set<Litige> getLitigesUtilisateur() {
 		return litigesUtilisateur;

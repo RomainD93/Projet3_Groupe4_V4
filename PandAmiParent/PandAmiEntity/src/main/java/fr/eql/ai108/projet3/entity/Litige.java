@@ -3,10 +3,13 @@ package fr.eql.ai108.projet3.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -17,20 +20,30 @@ public class Litige implements Serializable {
 	
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Integer id;
 	private Date dateCreation;
 	private Date dateCloture;
 	private String commentaires;
 	
+	@ManyToOne
+	@JoinColumn(referencedColumnName = "id")
 	private TypeLitige typeLitige;
+	@ManyToOne
+	@JoinColumn(referencedColumnName = "id")
 	private Service service;
-	private Utilisateur createurLitige;
+	@ManyToOne
+	@JoinColumn(referencedColumnName = "id")
+	private Utilisateur utilisateur;
+	
+	
 	public Litige() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+
 	public Litige(Integer id, Date dateCreation, Date dateCloture, String commentaires, TypeLitige typeLitige,
-			Service service, Utilisateur createurLitige) {
+			Service service, Utilisateur utilisateur) {
 		super();
 		this.id = id;
 		this.dateCreation = dateCreation;
@@ -38,8 +51,9 @@ public class Litige implements Serializable {
 		this.commentaires = commentaires;
 		this.typeLitige = typeLitige;
 		this.service = service;
-		this.createurLitige = createurLitige;
+		this.utilisateur = utilisateur;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -122,12 +136,14 @@ public class Litige implements Serializable {
 	public void setService(Service service) {
 		this.service = service;
 	}
-	public Utilisateur getCreateurLitige() {
-		return createurLitige;
+
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
 	}
-	public void setCreateurLitige(Utilisateur createurLitige) {
-		this.createurLitige = createurLitige;
+
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
 	}
-	
+
 	
 }

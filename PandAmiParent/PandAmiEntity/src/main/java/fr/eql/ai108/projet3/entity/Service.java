@@ -4,10 +4,15 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,6 +23,7 @@ public class Service implements Serializable{
 	
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Integer id;
 	private String nom;
 	private Date dateCreation;
@@ -28,21 +34,31 @@ public class Service implements Serializable{
 	private Float sommeAPrevoir;
 	private Date dateAnnulation;
 	
+	@ManyToOne
+	@JoinColumn(referencedColumnName = "id")
 	private Adresse adresse;
+	@ManyToOne
+	@JoinColumn(referencedColumnName = "id")
 	private TypeAide typeAide;
+	@OneToMany(mappedBy = "service", cascade = CascadeType.PERSIST)
 	private Set<ReponseService> reponses;
+	@OneToMany(mappedBy = "service", cascade = CascadeType.PERSIST)
 	private Set<Litige> litiges;
+	@OneToMany(mappedBy = "service", cascade = CascadeType.PERSIST)
 	private Set<Negociation> negociations;
-	private Utilisateur demandeur;
+	@ManyToOne
+	@JoinColumn(referencedColumnName = "id")
+	private Utilisateur utilisateur;
 	
 	public Service() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
+
 	public Service(Integer id, String nom, Date dateCreation, Date dateService, Date heureDbt, Date heureFin,
 			Date dateCloture, Float sommeAPrevoir, Date dateAnnulation, Adresse adresse, TypeAide typeAide,
-			Set<ReponseService> reponses, Set<Litige> litiges, Set<Negociation> negociations, Utilisateur demandeur) {
+			Set<ReponseService> reponses, Set<Litige> litiges, Set<Negociation> negociations, Utilisateur utilisateur) {
 		super();
 		this.id = id;
 		this.nom = nom;
@@ -58,8 +74,9 @@ public class Service implements Serializable{
 		this.reponses = reponses;
 		this.litiges = litiges;
 		this.negociations = negociations;
-		this.demandeur = demandeur;
+		this.utilisateur = utilisateur;
 	}
+
 
 	@Override
 	public int hashCode() {
@@ -253,14 +270,17 @@ public class Service implements Serializable{
 		this.negociations = negociations;
 	}
 
-	public Utilisateur getDemandeur() {
-		return demandeur;
+
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
 	}
 
-	public void setDemandeur(Utilisateur demandeur) {
-		this.demandeur = demandeur;
+
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
 	}
-	
+
+
 	
 	
 }

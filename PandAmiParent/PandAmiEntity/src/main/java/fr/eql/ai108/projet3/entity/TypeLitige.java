@@ -2,11 +2,17 @@ package fr.eql.ai108.projet3.entity;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,6 +23,7 @@ public class TypeLitige implements Serializable{
 	
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Integer id;
 	
 	private String nomTypeLitige;
@@ -24,8 +31,14 @@ public class TypeLitige implements Serializable{
 	private Date dateCloture;
 	private String commentaires;
 	
+	@ManyToOne
+	@JoinColumn(referencedColumnName = "id")
 	private Utilisateur createurLitige;
+	@ManyToOne
+	@JoinColumn(referencedColumnName = "id")
 	private Service service;
+	@OneToMany(mappedBy = "typeLitige", cascade = CascadeType.PERSIST)
+	private Set<Litige> litiges;
 	
 	public TypeLitige() {
 		super();
@@ -35,8 +48,11 @@ public class TypeLitige implements Serializable{
 	
 
 
+
+
+
 	public TypeLitige(Integer id, String nomTypeLitige, Date dateCreation, Date dateCloture, String commentaires,
-			Utilisateur createurLitige, Service service) {
+			Utilisateur createurLitige, Service service, Set<Litige> litiges) {
 		super();
 		this.id = id;
 		this.nomTypeLitige = nomTypeLitige;
@@ -45,7 +61,11 @@ public class TypeLitige implements Serializable{
 		this.commentaires = commentaires;
 		this.createurLitige = createurLitige;
 		this.service = service;
+		this.litiges = litiges;
 	}
+
+
+
 
 
 
@@ -204,6 +224,26 @@ public class TypeLitige implements Serializable{
 
 	public void setService(Service service) {
 		this.service = service;
+	}
+
+
+
+
+
+
+
+	public Set<Litige> getLitiges() {
+		return litiges;
+	}
+
+
+
+
+
+
+
+	public void setLitiges(Set<Litige> litiges) {
+		this.litiges = litiges;
 	}
 
 

@@ -3,10 +3,13 @@ package fr.eql.ai108.projet3.entity;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,6 +20,7 @@ public class Adresse implements Serializable{
 	
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Integer id;
 	
 	private String numeroVoie;
@@ -24,7 +28,9 @@ public class Adresse implements Serializable{
 	private String codePostale;
 	private String ville;
 	
+	@OneToMany(mappedBy = "adresse")
 	private Set<Utilisateur> utilisateurs;
+	@OneToMany(mappedBy = "adresse")
 	private Set<Service> services;
 	
 	public Adresse() {

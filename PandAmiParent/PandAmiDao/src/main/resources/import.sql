@@ -24,11 +24,11 @@ INSERT INTO `materiel` (id, nomMateriel) VALUES (4, 'ordinateur');
 INSERT INTO `materiel` (id, nomMateriel) VALUES (5, 'voiture');
 
 -- Insert Type Aide
-INSERT INTO `type_aide` (id, typeAide) VALUES (1, 'jardinage');
-INSERT INTO `type_aide` (id, typeAide) VALUES (2, 'bricolage');
-INSERT INTO `type_aide` (id, typeAide) VALUES (3, 'ménage');
-INSERT INTO `type_aide` (id, typeAide) VALUES (4, 'soutien scolaire');
-INSERT INTO `type_aide` (id, typeAide) VALUES (5, 'accompagnement RDV médical');
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (1, 'jardinage', 1, null);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (2, 'bricolage', 1, null);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (3, 'ménage', 2, null);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (4, 'soutien scolaire', 2, null);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (5, 'accompagnement RDV médical', 1, null);
 
 -- Insert Type Litige
 INSERT INTO `type_litige` (id, nomTypeLitige) VALUES (1, 'retard');

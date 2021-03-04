@@ -3,10 +3,13 @@ package fr.eql.ai108.projet3.entity;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,10 +20,11 @@ public class Genre implements Serializable{
 
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
+	@Column(name = "id")
 	private Integer id;
 	
 	private String genre;
-	
+	@OneToMany(mappedBy = "genre")
 	private Set<Utilisateur> utilisateurs;
 
 	public Genre() {
