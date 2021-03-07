@@ -42,3 +42,13 @@ INSERT INTO `type_utilisateur` (id, autorisation) VALUES (1, 'utilisateur');
 INSERT INTO `type_utilisateur` (id, autorisation) VALUES (2, 'admin analyste');
 INSERT INTO `type_utilisateur` (id, autorisation) VALUES (3, 'admin modérateur');
 INSERT INTO `type_utilisateur` (id, autorisation) VALUES (4, 'super admin');
+
+-- Insert Adresse
+INSERT INTO `adresse` (id, codePostale, nomVoie, numeroVoie, ville) VALUES (1, '93400', 'rue Emile Zola', '10', 'St-Ouen');
+INSERT INTO `adresse` (id, codePostale, nomVoie, numeroVoie, ville) VALUES (2, '93400', 'rue Alexandre Dumas', '22', 'St-Ouen');
+INSERT INTO `adresse` (id, codePostale, nomVoie, numeroVoie, ville) VALUES (3, '93400', 'rue Pasteur', '5', 'St-Ouen');
+INSERT INTO `adresse` (id, codePostale, nomVoie, numeroVoie, ville) VALUES (4, '93400', 'rue Farcot', '17', 'St-Ouen');
+INSERT INTO `adresse` (id, codePostale, nomVoie, numeroVoie, ville) VALUES (5, '93400', 'rue du Capitaine Glardner', '13', 'St-Ouen');
+
+-- Insert Disponibilite
+INSERT INTO `disponibilite` (id, dbtValiditeDispo, finValiditeDispo, heureDbtDispo, heureFinDispo, jourSemaine_id, utilisateur_id) VALUES (1, '2018-08-12', null, '2011-12-31 14:30:00', '2011-12-31 19:00:00', 1,null);

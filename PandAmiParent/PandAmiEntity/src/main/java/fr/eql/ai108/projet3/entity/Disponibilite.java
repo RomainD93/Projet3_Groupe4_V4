@@ -15,6 +15,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Table(name = "disponibilite")
@@ -26,13 +28,13 @@ public class Disponibilite implements Serializable{
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer id;
-	
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date heureDbtDispo;
-	
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date heureFinDispo;
-	
+	@Temporal(TemporalType.DATE)
 	private Date dbtValiditeDispo;
-	
+	@Temporal(TemporalType.DATE)
 	private Date finValiditeDispo;
 	
 	@ManyToOne
