@@ -6,6 +6,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,18 +25,17 @@ public class TypeAide implements Serializable{
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer id;
-	
 	private String nomTypeAide;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(referencedColumnName = "id")
 	private CategorieAide categorieAide;
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(referencedColumnName = "id")
 	private Materiel materiel;
-	@OneToMany(mappedBy = "typeAide", cascade = CascadeType.PERSIST)
+	@OneToMany(mappedBy = "typeAide", fetch = FetchType.EAGER)
 	private Set<PreferenceAide> preferencesAide;
-	@OneToMany(mappedBy = "typeAide", cascade = CascadeType.PERSIST)
+	@OneToMany(mappedBy = "typeAide", fetch = FetchType.EAGER)
 	private Set<Service> services;
 	
 

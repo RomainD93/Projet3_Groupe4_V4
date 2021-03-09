@@ -37,13 +37,15 @@ public class Disponibilite implements Serializable{
 	@Temporal(TemporalType.DATE)
 	private Date finValiditeDispo;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(referencedColumnName = "id")
 	private Utilisateur utilisateur;
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(referencedColumnName = "id")
 	private JourSemaine jourSemaine;
 
+	
+	
 	public Disponibilite() {
 		super();
 		// TODO Auto-generated constructor stub

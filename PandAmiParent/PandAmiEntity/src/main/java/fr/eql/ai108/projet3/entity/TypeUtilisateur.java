@@ -6,6 +6,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,8 +25,10 @@ public class TypeUtilisateur implements Serializable{
 	private Integer id;
 	private String autorisation;
 	
-	@OneToMany(mappedBy = "typeUtilisateur")
+	@OneToMany(mappedBy = "typeUtilisateur",fetch = FetchType.EAGER)
 	private Set<Utilisateur> utilisateurs;
+	
+	
 	
 	public TypeUtilisateur() {
 		super();

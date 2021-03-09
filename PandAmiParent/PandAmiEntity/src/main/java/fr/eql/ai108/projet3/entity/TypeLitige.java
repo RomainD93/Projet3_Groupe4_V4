@@ -47,10 +47,6 @@ public class TypeLitige implements Serializable{
 
 	
 
-
-
-
-
 	public TypeLitige(Integer id, String nomTypeLitige, Date dateCreation, Date dateCloture, String commentaires,
 			Utilisateur createurLitige, Service service, Set<Litige> litiges) {
 		super();

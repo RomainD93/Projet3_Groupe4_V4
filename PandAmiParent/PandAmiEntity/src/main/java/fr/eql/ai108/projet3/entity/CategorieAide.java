@@ -6,6 +6,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,9 +26,12 @@ public class CategorieAide implements Serializable {
 	@Column(name = "nomCategorieAide")
 	private String nomCategorieAide;
 	
-	@OneToMany(mappedBy = "categorieAide")
+	
+	@OneToMany(mappedBy = "categorieAide", fetch = FetchType.EAGER)
 	private Set<TypeAide> typesAide;
 
+	
+	
 	public CategorieAide() {
 		super();
 		// TODO Auto-generated constructor stub

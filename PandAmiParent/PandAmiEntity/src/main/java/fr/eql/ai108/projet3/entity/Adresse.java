@@ -6,6 +6,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,16 +23,17 @@ public class Adresse implements Serializable{
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer id;
-	
 	private String numeroVoie;
 	private String nomVoie;
 	private String codePostale;
 	private String ville;
 	
-	@OneToMany(mappedBy = "adresse")
+	
+	@OneToMany(mappedBy = "adresse", fetch = FetchType.EAGER)
 	private Set<Utilisateur> utilisateurs;
-	@OneToMany(mappedBy = "adresse")
+	@OneToMany(mappedBy = "adresse", fetch = FetchType.EAGER)
 	private Set<Service> services;
+	
 	
 	public Adresse() {
 		super();

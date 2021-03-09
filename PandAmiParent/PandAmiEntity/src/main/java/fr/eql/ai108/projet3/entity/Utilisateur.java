@@ -7,6 +7,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -35,31 +36,32 @@ public class Utilisateur implements Serializable{
 	private Date dateDesinscription;
 	private Integer rayonAction;
 	
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(referencedColumnName = "id")
 	private Adresse adresse;
-	@OneToMany(mappedBy = "utilisateur")
+	@OneToMany(mappedBy = "utilisateur",fetch = FetchType.EAGER)
 	private Set<Suspension> suspensions;
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(referencedColumnName = "id")
 	private TypeUtilisateur typeUtilisateur;
-	@OneToMany(mappedBy = "utilisateur")
+	@OneToMany(mappedBy = "utilisateur",fetch = FetchType.EAGER)
 	private Set<Disponibilite> disposUtilisateur;
-	@ManyToOne
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(referencedColumnName = "id")
 	private Genre genre;
-	@OneToMany(mappedBy = "createurNego")
+	@OneToMany(mappedBy = "createurNego",fetch = FetchType.EAGER)
 	private Set<Negociation> negosCreateur;
-	@OneToMany(mappedBy = "repondeurNego")
+	@OneToMany(mappedBy = "repondeurNego",fetch = FetchType.EAGER)
 	private Set<Negociation> negosRepondeur;
-	@OneToMany(mappedBy = "utilisateur")
+	@OneToMany(mappedBy = "utilisateur",fetch = FetchType.EAGER)
 	private Set<Litige> litigesUtilisateur;
-	@OneToMany(mappedBy = "utilisateur")
+	@OneToMany(mappedBy = "utilisateur",fetch = FetchType.EAGER)
 	private Set<Service> servicesUtilisateur;
-	@OneToMany(mappedBy = "utilisateur")
+	@OneToMany(mappedBy = "utilisateur",fetch = FetchType.EAGER)
 	private Set<ReponseService> reponsesServicesUtilsateur;
-	@OneToMany(mappedBy = "utilisateur")
+	@OneToMany(mappedBy = "utilisateur",fetch = FetchType.EAGER)
 	private Set<PreferenceAide> preferencesAideUtlisateur;
+	
 	
 	public Utilisateur() {
 		super();

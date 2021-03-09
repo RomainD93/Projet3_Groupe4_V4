@@ -6,6 +6,7 @@ import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,10 +24,12 @@ public class JourSemaine implements Serializable{
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer id;
-	
 	private String nomJour;
-	@OneToMany (mappedBy = "jourSemaine", cascade = CascadeType.ALL)
+	
+	@OneToMany (mappedBy = "jourSemaine", fetch = FetchType.EAGER)
 	private Set<Disponibilite> disponibilites;
+	
+	
 	
 	public JourSemaine() {
 		super();
