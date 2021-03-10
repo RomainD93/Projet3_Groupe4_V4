@@ -1,6 +1,7 @@
 package fr.eql.ai108.projet3.entity;
 
 import java.io.Serializable;
+import java.time.LocalTime;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -25,16 +26,11 @@ public class Negociation implements Serializable {
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer id;
-	@Temporal(TemporalType.DATE)
 	private Date dateCreation;
-	@Temporal(TemporalType.DATE)
 	private Date dateCloture;
-	@Temporal(TemporalType.DATE)
 	private Date dateProposee;
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date heureDbtProposee;
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date heureFinProposee;
+	private LocalTime heureDbtProposee;
+	private LocalTime heureFinProposee;
 	private Boolean isAccepted;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -53,8 +49,9 @@ public class Negociation implements Serializable {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Negociation(Integer id, Date dateCreation, Date dateCloture, Date dateProposee, Date heureDbtProposee,
-			Date heureFinProposee, Boolean isAccepted, Utilisateur createurNego, Utilisateur repondeurNego,
+
+	public Negociation(Integer id, Date dateCreation, Date dateCloture, Date dateProposee, LocalTime heureDbtProposee,
+			LocalTime heureFinProposee, Boolean isAccepted, Utilisateur createurNego, Utilisateur repondeurNego,
 			Service service) {
 		super();
 		this.id = id;
@@ -68,6 +65,7 @@ public class Negociation implements Serializable {
 		this.repondeurNego = repondeurNego;
 		this.service = service;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -157,18 +155,23 @@ public class Negociation implements Serializable {
 	public void setDateProposee(Date dateProposee) {
 		this.dateProposee = dateProposee;
 	}
-	public Date getHeureDbtProposee() {
+
+	public LocalTime getHeureDbtProposee() {
 		return heureDbtProposee;
 	}
-	public void setHeureDbtProposee(Date heureDbtProposee) {
+
+	public void setHeureDbtProposee(LocalTime heureDbtProposee) {
 		this.heureDbtProposee = heureDbtProposee;
 	}
-	public Date getHeureFinProposee() {
+
+	public LocalTime getHeureFinProposee() {
 		return heureFinProposee;
 	}
-	public void setHeureFinProposee(Date heureFinProposee) {
+
+	public void setHeureFinProposee(LocalTime heureFinProposee) {
 		this.heureFinProposee = heureFinProposee;
 	}
+
 	public Boolean getIsAccepted() {
 		return isAccepted;
 	}

@@ -1,0 +1,6 @@
+#header, #footer{
+	border: 1px solid black;
+	background-image: linear-gradient(90deg, black, red);
+	color: white;
+	text-align: center;
+}

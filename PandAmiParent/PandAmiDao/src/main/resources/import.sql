@@ -100,7 +100,7 @@ INSERT INTO `adresse` (id, codePostale, nomVoie, numeroVoie, ville) VALUES (4, '
 INSERT INTO `adresse` (id, codePostale, nomVoie, numeroVoie, ville) VALUES (5, '93400', 'rue du Capitaine Glardner', '13', 'St-Ouen');
 
 -- Insert Disponibilite
-INSERT INTO `disponibilite` (id, dbtValiditeDispo, finValiditeDispo, heureDbtDispo, heureFinDispo, jourSemaine_id, utilisateur_id) VALUES (1, '2018-08-12', null, '2011-12-31 14:30:00', '2011-12-31 19:00:00', 1,null);
+INSERT INTO `disponibilite` (id, dbtValiditeDispo, finValiditeDispo, heureDbtDispo, heureFinDispo, jourSemaine_id, utilisateur_id) VALUES (1, '2018-08-12', null, '14:30:00', '19:00:00', 1,null);
 
 
 -- Insert Utilisateur
@@ -108,13 +108,13 @@ INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissanc
 INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, adresse_id, genre_id, typeUtilisateur_id) VALUES (2, null, '2018-01-12', '1986-01-08', 'ta.tata@ecoleql.fr', 'Tata', '0102030402', 'tata', 'ta', '15', 2, 1, 1);
 
 -- Insert Service
-INSERT INTO `service` (id, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, nom, sommeAPrevoir, adresse_id, typeAide_id, utilisateur_id) VALUES (1, null, null, '2018-08-12', '2021-03-12', '2021-03-12 14:30:00', '2021-03-12 18:30:00', null, null, 1, 2, 1); 
+INSERT INTO `service` (id, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, nom, sommeAPrevoir, adresse_id, typeAide_id, utilisateur_id) VALUES (1, null, null, '2018-08-12', '2021-03-12', '14:30:00', '18:30:00', null, null, 1, 2, 1); 
 
 -- Insert Litige
 INSERT INTO `litige` (id, commentaires, dateCloture, dateCreation, service_id, typeLitige_id, utilisateur_id) VALUES (1, "Je n'ai pas été remboursé", null, '2019-12-31', 1, 2, 1);
 
 -- Insert Négociation
-INSERT INTO `negociation` (id, dateCloture, dateCreation, dateProposee, heureDbtProposee, heureFinProposee, isAccepted, createurNego_id, repondeurNego_id, service_id) VALUES (1, null, '2018-08-15', '2021-03-13', '2021-03-12 15:45:00', '2021-03-12 18:45:00', false, 1, 2, 1);
+INSERT INTO `negociation` (id, dateCloture, dateCreation, dateProposee, heureDbtProposee, heureFinProposee, isAccepted, createurNego_id, repondeurNego_id, service_id) VALUES (1, null, '2018-08-15', '2021-03-13', '15:45:00', '18:45:00', false, 1, 2, 1);
 
 -- Insert Reponse Service
 INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (1, '2018-08-13', null, 1, 2);

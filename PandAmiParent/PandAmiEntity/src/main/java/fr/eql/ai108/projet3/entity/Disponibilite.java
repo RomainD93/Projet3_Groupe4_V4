@@ -1,9 +1,8 @@
 package fr.eql.ai108.projet3.entity;
 
 import java.io.Serializable;
+import java.time.LocalTime;
 import java.util.Date;
-import java.util.List;
-import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,7 +12,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -28,13 +26,13 @@ public class Disponibilite implements Serializable{
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer id;
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date heureDbtDispo;
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date heureFinDispo;
-	@Temporal(TemporalType.DATE)
+
+	private LocalTime heureDbtDispo;
+
+	private LocalTime heureFinDispo;
+
 	private Date dbtValiditeDispo;
-	@Temporal(TemporalType.DATE)
+
 	private Date finValiditeDispo;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -52,7 +50,9 @@ public class Disponibilite implements Serializable{
 	}
 
 
-	public Disponibilite(Integer id, Date heureDbtDispo, Date heureFinDispo, Date dbtValiditeDispo,
+
+
+	public Disponibilite(Integer id, LocalTime heureDbtDispo, LocalTime heureFinDispo, Date dbtValiditeDispo,
 			Date finValiditeDispo, Utilisateur utilisateur, JourSemaine jourSemaine) {
 		super();
 		this.id = id;
@@ -63,6 +63,8 @@ public class Disponibilite implements Serializable{
 		this.utilisateur = utilisateur;
 		this.jourSemaine = jourSemaine;
 	}
+
+
 
 
 	@Override
@@ -131,21 +133,35 @@ public class Disponibilite implements Serializable{
 		this.id = id;
 	}
 
-	public Date getHeureDbtDispo() {
+
+
+	public LocalTime getHeureDbtDispo() {
 		return heureDbtDispo;
 	}
 
-	public void setHeureDbtDispo(Date heureDbtDispo) {
+
+
+
+	public void setHeureDbtDispo(LocalTime heureDbtDispo) {
 		this.heureDbtDispo = heureDbtDispo;
 	}
 
-	public Date getHeureFinDispo() {
+
+
+
+	public LocalTime getHeureFinDispo() {
 		return heureFinDispo;
 	}
 
-	public void setHeureFinDispo(Date heureFinDispo) {
+
+
+
+	public void setHeureFinDispo(LocalTime heureFinDispo) {
 		this.heureFinDispo = heureFinDispo;
 	}
+
+
+
 
 	public Date getDbtValiditeDispo() {
 		return dbtValiditeDispo;

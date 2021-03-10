@@ -1,6 +1,7 @@
 package fr.eql.ai108.projet3.entity;
 
 import java.io.Serializable;
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.Set;
 
@@ -29,15 +30,11 @@ public class Service implements Serializable{
 	@Column(name = "id")
 	private Integer id;
 	private String nom;
-	@Temporal(TemporalType.DATE)
+
 	private Date dateCreation;
-	@Temporal(TemporalType.DATE)
 	private Date dateService;
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date heureDbt;
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date heureFin;	
-	@Temporal(TemporalType.DATE)
+	private LocalTime heureDbt;
+	private LocalTime heureFin;	
 	private Date dateCloture;
 	private Float sommeAPrevoir;
 	private Date dateAnnulation;
@@ -66,7 +63,9 @@ public class Service implements Serializable{
 	}
 
 
-	public Service(Integer id, String nom, Date dateCreation, Date dateService, Date heureDbt, Date heureFin,
+
+
+	public Service(Integer id, String nom, Date dateCreation, Date dateService, LocalTime heureDbt, LocalTime heureFin,
 			Date dateCloture, Float sommeAPrevoir, Date dateAnnulation, Adresse adresse, TypeAide typeAide,
 			Set<ReponseService> reponses, Set<Litige> litiges, Set<Negociation> negociations, Utilisateur utilisateur) {
 		super();
@@ -86,6 +85,8 @@ public class Service implements Serializable{
 		this.negociations = negociations;
 		this.utilisateur = utilisateur;
 	}
+
+
 
 
 	@Override
@@ -200,21 +201,6 @@ public class Service implements Serializable{
 		this.dateService = dateService;
 	}
 
-	public Date getHeureDbt() {
-		return heureDbt;
-	}
-
-	public void setHeureDbt(Date heureDbt) {
-		this.heureDbt = heureDbt;
-	}
-
-	public Date getHeureFin() {
-		return heureFin;
-	}
-
-	public void setHeureFin(Date heureFin) {
-		this.heureFin = heureFin;
-	}
 
 	public Date getDateCloture() {
 		return dateCloture;
@@ -289,6 +275,35 @@ public class Service implements Serializable{
 	public void setUtilisateur(Utilisateur utilisateur) {
 		this.utilisateur = utilisateur;
 	}
+
+
+
+
+	public LocalTime getHeureDbt() {
+		return heureDbt;
+	}
+
+
+
+
+	public void setHeureDbt(LocalTime heureDbt) {
+		this.heureDbt = heureDbt;
+	}
+
+
+
+
+	public LocalTime getHeureFin() {
+		return heureFin;
+	}
+
+
+
+
+	public void setHeureFin(LocalTime heureFin) {
+		this.heureFin = heureFin;
+	}
+
 
 
 	
