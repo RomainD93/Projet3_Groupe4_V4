@@ -9,5 +9,5 @@ public interface UtilisateurIDao extends GenericIDao<Utilisateur> {
 	Utilisateur authenticate(String email, String password);
 	Long getNbUtilisateurs();
 	List<Utilisateur> getAll();
-	
+
 }
