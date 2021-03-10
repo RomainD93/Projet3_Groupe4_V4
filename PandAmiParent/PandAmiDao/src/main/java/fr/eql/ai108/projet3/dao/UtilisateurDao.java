@@ -15,7 +15,7 @@ import fr.eql.ai108.projet3.idao.UtilisateurIDao;
 @Stateless
 public class UtilisateurDao extends GenericDao<Utilisateur> implements UtilisateurIDao{
 
-	@PersistenceContext(unitName ="PUPandami")
+	@PersistenceContext(unitName ="PUPandAmi")
 	private EntityManager em;
 	
 	@Override

@@ -1,4 +1,4 @@
-	package fr.eql.ai108.projet3.idao;
+package fr.eql.ai108.projet3.idao;
 
 import java.util.List;
 
@@ -9,5 +9,5 @@ public interface UtilisateurIDao extends GenericIDao<Utilisateur> {
 	Utilisateur authenticate(String email, String password);
 	Long getNbUtilisateurs();
 	List<Utilisateur> getAll();
-	
+
 }
