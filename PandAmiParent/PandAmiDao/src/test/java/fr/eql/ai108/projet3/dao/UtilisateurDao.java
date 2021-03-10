@@ -28,7 +28,7 @@ public class UtilisateurDao extends GenericDao<Utilisateur> implements Utilisate
 
 	@Override
 	public Utilisateur authenticate(String email, String password) {
-		Query query = em.createQuery("SELECT u FROM Utilisateur u WHERE u.email = :paramEmail AN u.password = :paramPassword");
+		Query query = em.createQuery("SELECT u FROM Utilisateur u WHERE u.email = :paramEmail AND u.password = :paramPassword");
 		Utilisateur utilisateurConnecte =null;
 		query.setParameter("paramEmail", email);
 		query.setParameter("paramPassword", password);
