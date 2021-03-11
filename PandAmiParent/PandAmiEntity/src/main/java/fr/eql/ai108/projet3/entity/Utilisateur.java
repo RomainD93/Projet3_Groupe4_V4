@@ -16,6 +16,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+/**
+ * @author PC
+ *
+ */
 @Entity
 @Table(name = "utilisateur")
 public class Utilisateur implements Serializable{
@@ -35,10 +39,9 @@ public class Utilisateur implements Serializable{
 	private Date dateInscription;
 	private Date dateDesinscription;
 	private Integer rayonAction;
+	private String adresse;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(referencedColumnName = "id")
-	private Adresse adresse;
+
 	@OneToMany(mappedBy = "utilisateur",fetch = FetchType.EAGER)
 	private Set<Suspension> suspensions;
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -61,7 +64,9 @@ public class Utilisateur implements Serializable{
 	private Set<ReponseService> reponsesServicesUtilsateur;
 	@OneToMany(mappedBy = "utilisateur",fetch = FetchType.EAGER)
 	private Set<PreferenceAide> preferencesAideUtlisateur;
-	
+	@OneToMany(mappedBy = "utilisateur",fetch = FetchType.EAGER)
+	private Set<PreferenceVille> preferencesVilleUtilisateur;
+
 	
 	public Utilisateur() {
 		super();
@@ -70,12 +75,16 @@ public class Utilisateur implements Serializable{
 
 
 
+
+
+
 	public Utilisateur(Integer id, String email, String password, String nom, String prenom, Date dateNaissance,
-			String numTelephone, Date dateInscription, Date dateDesinscription, Integer rayonAction, Adresse adresse,
+			String numTelephone, Date dateInscription, Date dateDesinscription, Integer rayonAction, String adresse,
 			Set<Suspension> suspensions, TypeUtilisateur typeUtilisateur, Set<Disponibilite> disposUtilisateur,
 			Genre genre, Set<Negociation> negosCreateur, Set<Negociation> negosRepondeur,
 			Set<Litige> litigesUtilisateur, Set<Service> servicesUtilisateur,
-			Set<ReponseService> reponsesServicesUtilsateur, Set<PreferenceAide> preferencesAideUtlisateur) {
+			Set<ReponseService> reponsesServicesUtilsateur, Set<PreferenceAide> preferencesAideUtlisateur,
+			Set<PreferenceVille> preferencesVilleUtilisateur) {
 		super();
 		this.id = id;
 		this.email = email;
@@ -98,7 +107,11 @@ public class Utilisateur implements Serializable{
 		this.servicesUtilisateur = servicesUtilisateur;
 		this.reponsesServicesUtilsateur = reponsesServicesUtilsateur;
 		this.preferencesAideUtlisateur = preferencesAideUtlisateur;
+		this.preferencesVilleUtilisateur = preferencesVilleUtilisateur;
 	}
+
+
+
 
 
 
@@ -227,6 +240,19 @@ public class Utilisateur implements Serializable{
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
+	
+
+	public String getAdresse() {
+		return adresse;
+	}
+
+
+
+	public void setAdresse(String adresse) {
+		this.adresse = adresse;
+	}
+
+
 
 	public Date getDateNaissance() {
 		return dateNaissance;
@@ -268,13 +294,6 @@ public class Utilisateur implements Serializable{
 		this.rayonAction = rayonAction;
 	}
 
-	public Adresse getAdresse() {
-		return adresse;
-	}
-
-	public void setAdresse(Adresse adresse) {
-		this.adresse = adresse;
-	}
 
 	public Set<Suspension> getSuspensions() {
 		return suspensions;
@@ -368,7 +387,14 @@ public class Utilisateur implements Serializable{
 	public void setPreferencesAideUtlisateur(Set<PreferenceAide> preferencesAideUtlisateur) {
 		this.preferencesAideUtlisateur = preferencesAideUtlisateur;
 	}
-	
-	
+
+	public Set<PreferenceVille> getPreferencesVilleUtilisateur() {
+		return preferencesVilleUtilisateur;
+	}
+
+	public void setPreferencesVilleUtilisateur(Set<PreferenceVille> preferencesVilleUtilisateur) {
+		this.preferencesVilleUtilisateur = preferencesVilleUtilisateur;
+	}
+
 
 }

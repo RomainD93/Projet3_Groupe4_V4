@@ -38,10 +38,9 @@ public class Service implements Serializable{
 	private Date dateCloture;
 	private Float sommeAPrevoir;
 	private Date dateAnnulation;
+	private String adresse;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(referencedColumnName = "id")
-	private Adresse adresse;
+	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(referencedColumnName = "id")
 	private TypeAide typeAide;
@@ -65,8 +64,12 @@ public class Service implements Serializable{
 
 
 
+	
+
+
+
 	public Service(Integer id, String nom, Date dateCreation, Date dateService, LocalTime heureDbt, LocalTime heureFin,
-			Date dateCloture, Float sommeAPrevoir, Date dateAnnulation, Adresse adresse, TypeAide typeAide,
+			Date dateCloture, Float sommeAPrevoir, Date dateAnnulation, String adresse, TypeAide typeAide,
 			Set<ReponseService> reponses, Set<Litige> litiges, Set<Negociation> negociations, Utilisateur utilisateur) {
 		super();
 		this.id = id;
@@ -85,6 +88,10 @@ public class Service implements Serializable{
 		this.negociations = negociations;
 		this.utilisateur = utilisateur;
 	}
+
+
+
+
 
 
 
@@ -226,13 +233,24 @@ public class Service implements Serializable{
 		this.dateAnnulation = dateAnnulation;
 	}
 
-	public Adresse getAdresse() {
+
+
+	public String getAdresse() {
 		return adresse;
 	}
 
-	public void setAdresse(Adresse adresse) {
+
+
+	public void setAdresse(String adresse) {
 		this.adresse = adresse;
 	}
+
+
+
+
+
+
+
 
 	public TypeAide getTypeAide() {
 		return typeAide;

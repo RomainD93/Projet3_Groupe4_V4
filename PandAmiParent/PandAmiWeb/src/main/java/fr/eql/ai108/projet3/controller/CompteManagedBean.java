@@ -26,7 +26,7 @@ public class CompteManagedBean implements Serializable{
 		utilisateur = proxyCompteUtilisateurBu.connection(utilisateur.getEmail(), utilisateur.getPassword());
 		String retour ="";
 		if(utilisateur!= null) {
-			retour = "/connectedView.xhtml?faces-redirect=true";
+			retour = "/home.xhtml?faces-redirect=true";
 		}else {
 			utilisateur = new Utilisateur();
 			message = "Login/Password incorrectes";

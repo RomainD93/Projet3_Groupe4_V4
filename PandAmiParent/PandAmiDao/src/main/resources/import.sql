@@ -93,22 +93,25 @@ INSERT INTO `type_utilisateur` (id, autorisation) VALUES (3, 'admin modérateur'
 INSERT INTO `type_utilisateur` (id, autorisation) VALUES (4, 'super admin');
 
 -- Insert Adresse
-INSERT INTO `adresse` (id, codePostale, nomVoie, numeroVoie, ville) VALUES (1, '93400', 'rue Emile Zola', '10', 'St-Ouen');
-INSERT INTO `adresse` (id, codePostale, nomVoie, numeroVoie, ville) VALUES (2, '93400', 'rue Alexandre Dumas', '22', 'St-Ouen');
-INSERT INTO `adresse` (id, codePostale, nomVoie, numeroVoie, ville) VALUES (3, '93400', 'rue Pasteur', '5', 'St-Ouen');
-INSERT INTO `adresse` (id, codePostale, nomVoie, numeroVoie, ville) VALUES (4, '93400', 'rue Farcot', '17', 'St-Ouen');
-INSERT INTO `adresse` (id, codePostale, nomVoie, numeroVoie, ville) VALUES (5, '93400', 'rue du Capitaine Glardner', '13', 'St-Ouen');
+-- INSERT INTO `adresse` (id, codePostale, nomVoie, numeroVoie, ville) VALUES (1, '93400', 'rue Emile Zola', '10', 'St-Ouen');
+-- INSERT INTO `adresse` (id, codePostale, nomVoie, numeroVoie, ville) VALUES (2, '93400', 'rue Alexandre Dumas', '22', 'St-Ouen');
+-- INSERT INTO `adresse` (id, codePostale, nomVoie, numeroVoie, ville) VALUES (3, '93400', 'rue Pasteur', '5', 'St-Ouen');
+-- INSERT INTO `adresse` (id, codePostale, nomVoie, numeroVoie, ville) VALUES (4, '93400', 'rue Farcot', '17', 'St-Ouen');
+-- INSERT INTO `adresse` (id, codePostale, nomVoie, numeroVoie, ville) VALUES (5, '93400', 'rue du Capitaine Glardner', '13', 'St-Ouen');
 
 -- Insert Disponibilite
 INSERT INTO `disponibilite` (id, dbtValiditeDispo, finValiditeDispo, heureDbtDispo, heureFinDispo, jourSemaine_id, utilisateur_id) VALUES (1, '2018-08-12', null, '14:30:00', '19:00:00', 1,null);
 
 
 -- Insert Utilisateur
-INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, adresse_id, genre_id, typeUtilisateur_id) VALUES (1, null, '2018-01-12', '1985-01-04', 'to.toto@ecoleql.fr', 'Toto', '0102030401', 'toto', 'to', '10', 1, 2, 1);
-INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, adresse_id, genre_id, typeUtilisateur_id) VALUES (2, null, '2018-01-12', '1986-01-08', 'ta.tata@ecoleql.fr', 'Tata', '0102030402', 'tata', 'ta', '15', 2, 1, 1);
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id) VALUES (1, null, '2018-01-12', '1985-01-04', 'to.toto@ecoleql.fr', 'Toto', '0102030401', 'toto', 'to', '10', 2, 1);
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id) VALUES (2, null, '2018-01-12', '1986-01-08', 'ta.tata@ecoleql.fr', 'Tata', '0102030402', 'tata', 'ta', '15', 1, 1);
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id) VALUES (3, null, '2019-01-12', '1987-02-08', 'ti.titi@ecoleql.fr', 'Titi', '0102030403', 'titi', 'ti', '17', 1, 1);
 
 -- Insert Service
-INSERT INTO `service` (id, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, nom, sommeAPrevoir, adresse_id, typeAide_id, utilisateur_id) VALUES (1, null, null, '2018-08-12', '2021-03-12', '14:30:00', '18:30:00', null, null, 1, 2, 1); 
+INSERT INTO `service` (id, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, nom, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (1, null, null, '2018-08-12', '2021-03-12', '14:30:00', '18:30:00', null, null, 2, 1); 
+INSERT INTO `service` (id, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, nom, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (2, null, null, '2019-08-12', '2021-03-11', '15:30:00', '18:30:00', null, null, 18, 2); 
+INSERT INTO `service` (id, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, nom, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (6, null, null, '2020-08-12', '2021-03-17', '08:00:00', '11:00:00', null, null, 35, 3); 
 
 -- Insert Litige
 INSERT INTO `litige` (id, commentaires, dateCloture, dateCreation, service_id, typeLitige_id, utilisateur_id) VALUES (1, "Je n'ai pas été remboursé", null, '2019-12-31', 1, 2, 1);
@@ -122,3 +125,27 @@ INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id,
 -- Insert Suspension Compte
 INSERT INTO `suspension_compte` (id, dateDbtSuspension, dateFinSuspension, utilisateur_id) VALUES (1, '2021-08-15', '2021-08-25', 2);
 
+-- Insert Ville
+INSERT INTO `ville` (id, codePostal, villeNom) VALUES (1, '75001', 'Paris I');
+INSERT INTO `ville` (id, codePostal, villeNom) VALUES (2, '75002', 'Paris II');
+INSERT INTO `ville` (id, codePostal, villeNom) VALUES (3, '75003', 'Paris III');
+INSERT INTO `ville` (id, codePostal, villeNom) VALUES (4, '75004', 'Paris IV');
+INSERT INTO `ville` (id, codePostal, villeNom) VALUES (5, '75005', 'Paris V');
+INSERT INTO `ville` (id, codePostal, villeNom) VALUES (6, '75006', 'Paris VI');
+INSERT INTO `ville` (id, codePostal, villeNom) VALUES (7, '75007', 'Paris VII');
+INSERT INTO `ville` (id, codePostal, villeNom) VALUES (8, '75008', 'Paris VIII');
+INSERT INTO `ville` (id, codePostal, villeNom) VALUES (9, '75009', 'Paris IX');
+INSERT INTO `ville` (id, codePostal, villeNom) VALUES (10, '75010', 'Paris X');
+INSERT INTO `ville` (id, codePostal, villeNom) VALUES (11, '75011', 'Paris XI');
+INSERT INTO `ville` (id, codePostal, villeNom) VALUES (12, '75012', 'Paris XII');
+INSERT INTO `ville` (id, codePostal, villeNom) VALUES (13, '75013', 'Paris XIII');
+INSERT INTO `ville` (id, codePostal, villeNom) VALUES (14, '75014', 'Paris XIV');
+INSERT INTO `ville` (id, codePostal, villeNom) VALUES (15, '75015', 'Paris XV');
+INSERT INTO `ville` (id, codePostal, villeNom) VALUES (16, '75016', 'Paris XVI');
+INSERT INTO `ville` (id, codePostal, villeNom) VALUES (17, '75017', 'Paris XVII');
+INSERT INTO `ville` (id, codePostal, villeNom) VALUES (18, '75018', 'Paris XVIII');
+INSERT INTO `ville` (id, codePostal, villeNom) VALUES (19, '75019', 'Paris XIX');
+INSERT INTO `ville` (id, codePostal, villeNom) VALUES (20, '75020', 'Paris XX');
+INSERT INTO `ville` (id, codePostal, villeNom) VALUES (21, '93400', 'St-Ouen-Sur-Seine');
+INSERT INTO `ville` (id, codePostal, villeNom) VALUES (22, '95380', 'Louvres');
+INSERT INTO `ville` (id, codePostal, villeNom) VALUES (23, '93600', 'Aulnay-sous-Bois');
