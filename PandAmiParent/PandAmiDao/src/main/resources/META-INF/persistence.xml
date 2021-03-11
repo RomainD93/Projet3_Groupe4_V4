@@ -6,7 +6,7 @@
 	<persistence-unit name="PUPandAmi"
 		transaction-type="JTA">
 		<jta-data-source>java:jboss/datasources/PandamiDS</jta-data-source>
-		<class>fr.eql.ai108.projet3.entity.Adresse</class>
+<!-- 		<class>fr.eql.ai108.projet3.entity.Adresse</class> -->
 		<class>fr.eql.ai108.projet3.entity.CategorieAide</class>
 		<class>fr.eql.ai108.projet3.entity.Disponibilite</class>
 		<class>fr.eql.ai108.projet3.entity.Genre</class>
@@ -15,6 +15,7 @@
 		<class>fr.eql.ai108.projet3.entity.Materiel</class>
 		<class>fr.eql.ai108.projet3.entity.Negociation</class>
 		<class>fr.eql.ai108.projet3.entity.PreferenceAide</class>
+		<class>fr.eql.ai108.projet3.entity.PreferenceVille</class>
 		<class>fr.eql.ai108.projet3.entity.ReponseService</class>
 		<class>fr.eql.ai108.projet3.entity.Service</class>
 		<class>fr.eql.ai108.projet3.entity.Suspension</class>
@@ -22,6 +23,7 @@
 		<class>fr.eql.ai108.projet3.entity.TypeLitige</class>
 		<class>fr.eql.ai108.projet3.entity.TypeUtilisateur</class>
 		<class>fr.eql.ai108.projet3.entity.Utilisateur</class>
+		<class>fr.eql.ai108.projet3.entity.Ville</class>
 		<properties>
 			<property name="hibernate-dialect"
 				value="org.hibernate.dialect.MySQL5InnoDBDialect" />
