@@ -35,12 +35,12 @@ public class CompteManagedBean implements Serializable{
 		return retour;
 	}
 
-	private String inscription() {
+	public String inscription() {
 		utilisateur = proxyCompteUtilisateurBu.creerCompte(utilisateur);
 		if(utilisateur == null) {
 			message = "Ce login n'est pas disponible. Choisissez en un autre";
 		}else {
-			message = "Bienvenue ! " + utilisateur.getPrenom() + ". Votre compte a bien été créé.";
+			message = "Bienvenue " + utilisateur.getPrenom() + "! Votre compte a bien été créé.";
 		}
 		utilisateur = new Utilisateur();
 		return message;	//Page à retourner
