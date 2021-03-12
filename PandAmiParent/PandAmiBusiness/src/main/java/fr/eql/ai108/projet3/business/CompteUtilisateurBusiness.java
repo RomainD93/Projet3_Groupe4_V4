@@ -17,6 +17,7 @@ public class CompteUtilisateurBusiness implements CompteUtilisateurIBusiness {
 
 	@EJB
 	private UtilisateurIDao proxyUtilisateur;
+	@EJB
 	private GenreIDao proxyGenre;
 	
 	

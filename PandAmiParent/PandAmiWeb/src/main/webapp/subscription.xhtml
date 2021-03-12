@@ -17,12 +17,16 @@
 			<!-- 				<f:selectItem itemValue="Autre" itemLabel="Autre" /> -->
 			<!-- 			</h:selectOneMenu> -->
 			<p:selectOneMenu value="#{mbCompte.genres}"
-				converter="omnifaces.SelectItemsConverter" panelStyle="width:180px"
-				effect="fade" var="c" filter="true" filterMatchMode="contains">
+				converter="omnifaces.SelectItemsConverter" 
+				effect="fade" var="c"  >
 				<f:selectItem itemValue="" itemLabel="Genres"
 					noSelectionOption="true" />
-				<f:selectItems value="#{mbCompte.genreSelected}" var="genre"
+					<!-- TODO virer var genre et mettre itemvalue=#{genreSelected} -->
+				<f:selectItems value="#{mbCompte.genres}" var="genre"
 					itemLabel="#{genre.genre}" itemValue="#{genre}"></f:selectItems>
+				<p:column>
+					<h:outputText value="#{c.nomTypeAide}" />
+				</p:column>
 			</p:selectOneMenu>
 			<br />
 			<h:outputLabel value="Nom" />
@@ -57,5 +61,5 @@
 		</h:form>
 	</ui:define>
 
-	</ui:composition>
+</ui:composition>
 </html>
