@@ -1,51 +1,61 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
-	<ui:composition template="/masterPage.xhtml">
+<ui:composition template="/masterPage.xhtml">
 	<ui:define name="title">Inscription</ui:define>
 	<ui:define name="content">
 		<h2>INSCRIPTION</h2>
 		<h:form id="myForm">
-			<h:outputLabel value="Genre"/>
-			<h:selectOneMenu>
-				<f:selectItem itemValue="Femme" itemLabel="Mme" />
-				<f:selectItem itemValue="Homme" itemLabel="Mr" />
-				<f:selectItem itemValue="Autre" itemLabel="Autre" />
-			</h:selectOneMenu>
+			<h:outputLabel value="Genre" />
+			<!-- 			<h:selectOneMenu> -->
+			<!-- 				<f:selectItem itemValue="Femme" itemLabel="Mme" /> -->
+			<!-- 				<f:selectItem itemValue="Homme" itemLabel="Mr" /> -->
+			<!-- 				<f:selectItem itemValue="Autre" itemLabel="Autre" /> -->
+			<!-- 			</h:selectOneMenu> -->
+			<p:selectOneMenu value="#{mbCompte.genres}"
+				converter="omnifaces.SelectItemsConverter" panelStyle="width:180px"
+				effect="fade" var="c" filter="true" filterMatchMode="contains">
+				<f:selectItem itemValue="" itemLabel="Genres"
+					noSelectionOption="true" />
+				<f:selectItems value="#{mbCompte.genreSelected}" var="genre"
+					itemLabel="#{genre.genre}" itemValue="#{genre}"></f:selectItems>
+			</p:selectOneMenu>
 			<br />
-			<h:outputLabel value="Nom"/>
+			<h:outputLabel value="Nom" />
 			<h:inputText value=""></h:inputText>
 			<br />
-			<h:outputLabel value="Prénom"/>
+			<h:outputLabel value="Prénom" />
 			<h:inputText value=""></h:inputText>
 			<br />
-			<h:outputLabel value="Date de naissance"/>
+			<h:outputLabel value="Date de naissance" />
 			<h:inputText value=""></h:inputText>
 			<br />
-			<h:outputLabel value="Email"/>
+			<h:outputLabel value="Email" />
 			<h:inputText value=""></h:inputText>
 			<br />
-			<h:outputLabel value="Mot de Passe"/>
+			<h:outputLabel value="Mot de Passe" />
 			<h:inputSecret value=""></h:inputSecret>
 			<br />
-			<h:outputLabel value="Confirmation Mot de Passe"/>
+			<h:outputLabel value="Confirmation Mot de Passe" />
 			<h:inputSecret value=""></h:inputSecret>
 			<br />
-			<h:outputLabel value="Téléphone"/>
+			<h:outputLabel value="Téléphone" />
 			<h:inputText value=""></h:inputText>
 			<br />
-			<h:outputLabel value="Adresse"/>
+			<h:outputLabel value="Adresse" />
 			<script type="text/javascript" src="resources/JS/adresse.js"></script>
-			<div class="autocomplete" style="width:300px;">
-        	<h:inputText id="adresse" type="text" onkeypress="getValuePostSuggest()" placeholder="Entrer une adresse"/>       		
-     		</div>
-     		 <br />
-			<h:commandButton value="Soumettre" action="#{mbCompte.inscription}"/>			
-		</h:form>		
+			<div class="autocomplete" style="width: 300px;">
+				<h:inputText id="adresse" type="text"
+					onkeypress="getValuePostSuggest()" placeholder="Entrer une adresse" />
+			</div>
+			<br />
+			<h:commandButton value="Soumettre" action="#{mbCompte.inscription}" />
+		</h:form>
 	</ui:define>
-	</ui:composition>
-	<h:outputScript library="JS" name="adresse.js"></h:outputScript>
+</ui:composition>
+<h:outputScript library="JS" name="adresse.js"></h:outputScript>
 </html>
