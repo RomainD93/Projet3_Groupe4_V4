@@ -26,8 +26,7 @@ public class Materiel implements Serializable {
 	private String nomMateriel;
 	
 	@OneToMany(mappedBy = "materiel",fetch = FetchType.EAGER)
-	private Set<TypeAide> typesAide;
-
+	private Set<Service> services;
 	
 	
 	public Materiel() {
@@ -36,12 +35,7 @@ public class Materiel implements Serializable {
 	}
 
 
-	public Materiel(Integer id, String nomMateriel, Set<TypeAide> typesAide) {
-		super();
-		this.id = id;
-		this.nomMateriel = nomMateriel;
-		this.typesAide = typesAide;
-	}
+
 
 
 	@Override
@@ -100,15 +94,14 @@ public class Materiel implements Serializable {
 	}
 
 
-	public Set<TypeAide> getTypesAide() {
-		return typesAide;
+	public Set<Service> getServices() {
+		return services;
+	}
+
+	public void setServices(Set<Service> services) {
+		this.services = services;
 	}
 
 
-	public void setTypesAide(Set<TypeAide> typesAide) {
-		this.typesAide = typesAide;
-	}
-	
-	
 
 }
