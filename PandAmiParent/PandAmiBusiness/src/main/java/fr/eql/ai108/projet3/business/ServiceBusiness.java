@@ -7,6 +7,7 @@ import javax.ejb.Remote;
 import javax.ejb.Stateless;
 
 import fr.eql.ai108.projet3.entity.CategorieAide;
+import fr.eql.ai108.projet3.entity.Materiel;
 import fr.eql.ai108.projet3.entity.Service;
 import fr.eql.ai108.projet3.entity.TypeAide;
 import fr.eql.ai108.projet3.ibusiness.ServiceIBusiness;
@@ -39,6 +40,11 @@ public class ServiceBusiness implements ServiceIBusiness {
 	@Override
 	public List<TypeAide> displayTypeAide() {	
 		return proxyServiceDao.typesAide();
+	}
+
+	@Override
+	public List<Materiel> displayMateriel() {
+		return proxyServiceDao.materiels();
 	}
 
 

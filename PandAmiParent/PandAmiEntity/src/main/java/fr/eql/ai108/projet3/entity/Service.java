@@ -53,7 +53,9 @@ public class Service implements Serializable{
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(referencedColumnName = "id")
 	private Utilisateur utilisateur;
-	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(referencedColumnName = "id")
+	private Materiel materiel;
 	
 	
 	public Service() {
@@ -62,15 +64,10 @@ public class Service implements Serializable{
 	}
 
 
-
-
-	
-
-
-
 	public Service(Integer id, String nom, Date dateCreation, Date dateService, LocalTime heureDbt, LocalTime heureFin,
 			Date dateCloture, Float sommeAPrevoir, Date dateAnnulation, String adresse, TypeAide typeAide,
-			Set<ReponseService> reponses, Set<Litige> litiges, Set<Negociation> negociations, Utilisateur utilisateur) {
+			Set<ReponseService> reponses, Set<Litige> litiges, Set<Negociation> negociations, Utilisateur utilisateur,
+			Materiel materiel) {
 		super();
 		this.id = id;
 		this.nom = nom;
@@ -87,7 +84,13 @@ public class Service implements Serializable{
 		this.litiges = litiges;
 		this.negociations = negociations;
 		this.utilisateur = utilisateur;
+		this.materiel = materiel;
 	}
+
+
+
+
+
 
 
 
@@ -324,6 +327,15 @@ public class Service implements Serializable{
 
 
 
-	
+
+	public Materiel getMateriel() {
+		return materiel;
+	}
+
+
+	public void setMateriel(Materiel materiel) {
+		this.materiel = materiel;
+	}
+
 	
 }

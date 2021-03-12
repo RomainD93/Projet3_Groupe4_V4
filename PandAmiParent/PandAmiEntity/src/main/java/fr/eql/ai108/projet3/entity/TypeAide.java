@@ -30,9 +30,6 @@ public class TypeAide implements Serializable{
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(referencedColumnName = "id")
 	private CategorieAide categorieAide;
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(referencedColumnName = "id")
-	private Materiel materiel;
 	@OneToMany(mappedBy = "typeAide", fetch = FetchType.EAGER)
 	private Set<PreferenceAide> preferencesAide;
 	@OneToMany(mappedBy = "typeAide", fetch = FetchType.EAGER)
@@ -45,18 +42,18 @@ public class TypeAide implements Serializable{
 	}
 
 
-	public TypeAide(Integer id, String nomTypeAide, CategorieAide categorieAide, Materiel materiel,
-			Set<PreferenceAide> preferencesAide, Set<Service> services) {
+
+	public TypeAide(Integer id, String nomTypeAide, CategorieAide categorieAide, Set<PreferenceAide> preferencesAide,
+			Set<Service> services) {
 		super();
 		this.id = id;
 		this.nomTypeAide = nomTypeAide;
 		this.categorieAide = categorieAide;
-		this.materiel = materiel;
 		this.preferencesAide = preferencesAide;
 		this.services = services;
 	}
 
-	
+
 
 	@Override
 	public int hashCode() {
@@ -123,16 +120,6 @@ public class TypeAide implements Serializable{
 
 	public void setCategorieAide(CategorieAide categorieAide) {
 		this.categorieAide = categorieAide;
-	}
-
-
-	public Materiel getMateriel() {
-		return materiel;
-	}
-
-
-	public void setMateriel(Materiel materiel) {
-		this.materiel = materiel;
 	}
 
 

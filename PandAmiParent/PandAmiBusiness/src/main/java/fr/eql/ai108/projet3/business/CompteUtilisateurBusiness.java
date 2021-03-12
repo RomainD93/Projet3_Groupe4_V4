@@ -8,6 +8,7 @@ import javax.ejb.Stateless;
 import fr.eql.ai108.projet3.entity.Genre;
 import fr.eql.ai108.projet3.entity.Utilisateur;
 import fr.eql.ai108.projet3.ibusiness.CompteUtilisateurIBusiness;
+import fr.eql.ai108.projet3.idao.GenreIDao;
 import fr.eql.ai108.projet3.idao.UtilisateurIDao;
 
 @Remote (CompteUtilisateurIBusiness.class)
@@ -35,7 +36,7 @@ public class CompteUtilisateurBusiness implements CompteUtilisateurIBusiness {
 
 	@Override
 	public List<Genre> displayGenre() {
-		return proxyUtilisateur.getAll();
+		return proxyGenre.getAll();
 	}
 
 }

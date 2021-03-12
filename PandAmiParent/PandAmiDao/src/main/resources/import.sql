@@ -33,51 +33,51 @@ INSERT INTO `materiel` (id, nomMateriel) VALUES (4, 'ordinateur');
 INSERT INTO `materiel` (id, nomMateriel) VALUES (5, 'voiture');
 
 -- Insert Type Aide
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (1, 'Bricolage - Petits travaux', 1, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (2, 'Montage meubles en kit', 1, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (3, 'Tonte de pelouse', 2, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (4, 'Débroussaillage', 2, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (5, 'Taille de haies - arbuste', 2, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (6, 'Clôture - Grillage', 2, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (7, 'Déplacement cartons', 3, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (8, 'Déplacement meubles - électroménager', 3, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (9, 'Conduite camion', 3, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (10, 'Réparation mobilier', 4, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (11, 'Réparation électroménager', 4, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (12, 'Dépannage informatique', 4, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (13, 'Lavage auto', 5, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (14, 'Réparation vélo', 5, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (15, 'Covoiturage', 6, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (16, 'Livraison – Transport de colis', 6, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (17, 'Promenade et sorties véhiculées', 6, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (18, 'Lingerie – Repassage', 7, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (19, 'Couture', 7, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (20, 'Courses - Livraison de courses', 7, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (21, 'Gardiennage de domicile', 7, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (22, 'Baby Sitting', 8, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (23, 'Garde périscolaire', 8, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (24, 'Aide aux devoirs', 8, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (25, 'Toilettage', 9, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (26, 'Garde chien', 9, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (27, 'Garde chat', 9, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (28, 'Garde animaux (autres)', 9, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (29, 'Assistance Informatique', 10, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (30, 'Maths', 11, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (31, 'Physique', 11, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (32, 'Anglais', 11, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (33, 'Français', 11, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (34, 'Espagnol', 11, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (35, 'Allemand', 11, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (36, 'Arabe', 11, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (37, 'Portugais', 11, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (38, 'Mandarin', 11, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (39, 'Informatique', 11, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (40, 'Musique - Guitare', 11, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (41, 'Musique - Piano', 11, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (42, 'Cuisine', 11, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (43, 'Couture', 11, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (44, 'Dessin', 11, null);
-INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id, materiel_id) VALUES (45, 'Danse', 11, null);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (1, 'Bricolage - Petits travaux', 1);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (2, 'Montage meubles en kit', 1);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (3, 'Tonte de pelouse', 2);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (4, 'Débroussaillage', 2);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (5, 'Taille de haies - arbuste', 2);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (6, 'Clôture - Grillage', 2);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (7, 'Déplacement cartons', 3);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (8, 'Déplacement meubles - électroménager', 3);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (9, 'Conduite camion', 3);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (10, 'Réparation mobilier', 4);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (11, 'Réparation électroménager', 4);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (12, 'Dépannage informatique', 4);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (13, 'Lavage auto', 5);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (14, 'Réparation vélo', 5);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (15, 'Covoiturage', 6);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (16, 'Livraison – Transport de colis', 6);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (17, 'Promenade et sorties véhiculées', 6);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (18, 'Lingerie – Repassage', 7);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (19, 'Couture', 7);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (20, 'Courses - Livraison de courses', 7);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (21, 'Gardiennage de domicile', 7);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (22, 'Baby Sitting', 8);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (23, 'Garde périscolaire', 8);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (24, 'Aide aux devoirs', 8);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (25, 'Toilettage', 9);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (26, 'Garde chien', 9);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (27, 'Garde chat', 9);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (28, 'Garde animaux (autres)', 9);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (29, 'Assistance Informatique', 10);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (30, 'Maths', 11);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (31, 'Physique', 11);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (32, 'Anglais', 11);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (33, 'Français', 11);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (34, 'Espagnol', 11);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (35, 'Allemand', 11);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (36, 'Arabe', 11);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (37, 'Portugais', 11);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (38, 'Mandarin', 11);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (39, 'Informatique', 11);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (40, 'Musique - Guitare', 11);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (41, 'Musique - Piano', 11);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (42, 'Cuisine', 11);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (43, 'Couture', 11);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (44, 'Dessin', 11);
+INSERT INTO `type_aide` (id, nomTypeAide, categorieAide_id) VALUES (45, 'Danse', 11);
 
 -- Insert Type Litige
 INSERT INTO `type_litige` (id, nomTypeLitige) VALUES (1, 'retard');
@@ -104,14 +104,14 @@ INSERT INTO `disponibilite` (id, dbtValiditeDispo, finValiditeDispo, heureDbtDis
 
 
 -- Insert Utilisateur
-INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id) VALUES (1, null, '2018-01-12', '1985-01-04', 'to.toto@ecoleql.fr', 'Toto', '0102030401', 'toto', 'to', '10', 2, 1);
-INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id) VALUES (2, null, '2018-01-12', '1986-01-08', 'ta.tata@ecoleql.fr', 'Tata', '0102030402', 'tata', 'ta', '15', 1, 1);
-INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id) VALUES (3, null, '2019-01-12', '1987-02-08', 'ti.titi@ecoleql.fr', 'Titi', '0102030403', 'titi', 'ti', '17', 1, 1);
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (1, null, '2018-01-12', '1985-01-04', 'to.toto@ecoleql.fr', 'Toto', '0102030401', 'toto', 'to', '10', 2, 1, '76 rue Emile Zola 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (2, null, '2018-01-12', '1986-01-08', 'ta.tata@ecoleql.fr', 'Tata', '0102030402', 'tata', 'ta', '15', 1, 1, '17 rue Alexandre Dumas 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (3, null, '2019-01-12', '1987-02-08', 'ti.titi@ecoleql.fr', 'Titi', '0102030403', 'titi', 'ti', '17', 1, 1, '25 rue Farcot 93400 St Ouen');
 
 -- Insert Service
 INSERT INTO `service` (id, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, nom, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (1, null, null, '2018-08-12', '2021-03-12', '14:30:00', '18:30:00', null, null, 2, 1); 
 INSERT INTO `service` (id, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, nom, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (2, null, null, '2019-08-12', '2021-03-11', '15:30:00', '18:30:00', null, null, 18, 2); 
-INSERT INTO `service` (id, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, nom, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (6, null, null, '2020-08-12', '2021-03-17', '08:00:00', '11:00:00', null, null, 35, 3); 
+INSERT INTO `service` (id, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, nom, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (3, null, null, '2020-08-12', '2021-03-17', '08:00:00', '11:00:00', null, null, 35, 3); 
 
 -- Insert Litige
 INSERT INTO `litige` (id, commentaires, dateCloture, dateCreation, service_id, typeLitige_id, utilisateur_id) VALUES (1, "Je n'ai pas été remboursé", null, '2019-12-31', 1, 2, 1);

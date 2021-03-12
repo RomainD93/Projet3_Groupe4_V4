@@ -11,6 +11,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 
 import fr.eql.ai108.projet3.entity.CategorieAide;
+import fr.eql.ai108.projet3.entity.Materiel;
 import fr.eql.ai108.projet3.entity.Service;
 import fr.eql.ai108.projet3.entity.TypeAide;
 import fr.eql.ai108.projet3.entity.Utilisateur;
@@ -27,6 +28,7 @@ public class ServiceManagedBean {
 	private Service service = new Service();
 	private TypeAide typeAideSelected;
 	private String message;
+	private Materiel materielSelected;
 	
 
 	@ManagedProperty (value = "#{mbCompte.utilisateur}")
@@ -52,6 +54,7 @@ public class ServiceManagedBean {
 			service.setDateCreation(date);
 			service.setUtilisateur(userConnected);
 			service.setTypeAide(typeAideSelected);
+			service.setMateriel(materielSelected);
 			service = proxyServiceBu.creerService(service);
 			message = "Votre demande a été enregistrée";
 			retour = "/home.xhtml?faces-redirect=true";		// Avec filtrage pour afficher services demandeur

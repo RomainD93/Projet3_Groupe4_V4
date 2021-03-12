@@ -37,16 +37,21 @@ PrimeFaces.locales['fr'] = {
         today: 'Aujourd hui',
         clear: 'Clear'
     };
+    
+
 </script>
 		<h2>CREATION SERVICE</h2>
 
 		<div class="card">
-			<h:form>
+			<h:form id="myForm">
 				<p:messages />
 
-				<h:panelGrid columns="3" cellpadding="7" styleClass="p-mb-3">
-<!-- TYPE AIDE -->
-					<p:outputLabel value="Type Aide :" />
+				<h:panelGrid columns="2" cellpadding="7" styleClass="p-mb-3">
+				
+					<h:panelGroup><!-- TYPE AIDE -->											
+					<p:outputLabel value="Type Aide :" />				
+					</h:panelGroup> 
+					
 					<p:selectOneMenu value="#{mbService.typeAideSelected}"
 						converter="omnifaces.SelectItemsConverter"
 						panelStyle="width:180px" effect="fade" var="c" filter="true"
@@ -59,21 +64,44 @@ PrimeFaces.locales['fr'] = {
 							<h:outputText value="#{c.nomTypeAide}" />
 						</p:column>
 					</p:selectOneMenu>
-<!-- DATE SERVICE -->
+					
+					<h:panelGroup>
+					<!-- DATE SERVICE -->	
 					<p:outputLabel for="spanish" value="Date" />
+					</h:panelGroup>
 					<p:datePicker class="p-field p-col-12 p-md-4" id="spanish"
 						value="#{mbService.service.dateService}" locale="fr"
 						monthNavigator="true" pattern="yyyy-MM-dd" />
-<!-- HEURE DEBUT -->
+						
+					<h:panelGroup>
+					<!-- HEURE DEBUT -->
 					<p:outputLabel value="Début du service" />
-					<p:datePicker value="#{mbService.service.heureDbt}"
-						timeOnly="true" pattern="HH:mm" />
-<!-- HEURE FIN -->
+					</h:panelGroup>
+					
+					<p:datePicker value="#{mbService.service.heureDbt}" timeOnly="true"
+						pattern="HH:mm" />
+						
+					<h:panelGroup>
+					<!-- HEURE FIN -->
 					<p:outputLabel value="Fin du service" />
-					<p:datePicker  value="#{mbService.service.heureFin}"
-						timeOnly="true" pattern="HH:mm" />
-<!-- ADRESSE DU SERVICE -->
-					<p:outputLabel value="Adresse du service" />
+					</h:panelGroup>	
+					
+					<p:datePicker value="#{mbService.service.heureFin}" timeOnly="true"
+						pattern="HH:mm" />
+						
+					<h:panelGroup>
+					<!-- ADRESSE DU SERVICE -->
+					<p:outputLabel value="Adresse du service" />							
+					<script type="text/javascript" src="resources/JS/adresse.js"></script>
+					</h:panelGroup>
+					
+        			<p:inputText class="autocomplete" style="width:300px;" id="adresse" type="text" onkeypress="getValuePostSuggest()" placeholder="Entrez une adresse" value="#{mbService.userConnected.adresse}"/>       		
+     		      	
+					<h:panelGroup>
+					<!-- MATERIEL A APPORTER -->
+					<p:outputLabel value="Matériel nécessaire" />
+					</h:panelGroup>	
+					
 					
 				</h:panelGrid>
 

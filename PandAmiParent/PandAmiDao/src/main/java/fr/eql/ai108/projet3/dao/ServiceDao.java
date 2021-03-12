@@ -9,6 +9,8 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import fr.eql.ai108.projet3.entity.CategorieAide;
+import fr.eql.ai108.projet3.entity.JourSemaine;
+import fr.eql.ai108.projet3.entity.Materiel;
 import fr.eql.ai108.projet3.entity.Service;
 import fr.eql.ai108.projet3.entity.TypeAide;
 import fr.eql.ai108.projet3.idao.ServiceIDao;
@@ -40,6 +42,15 @@ public class ServiceDao extends GenericDao<Service> implements ServiceIDao{
 		List<TypeAide> typesAide = query.getResultList();
 		return typesAide;
 	}
+
+	@Override
+	public List<Materiel> materiels() {
+		Query query = em.createQuery("SELECT m FROM Materiel m");
+		List<Materiel> materiels = query.getResultList();
+		return materiels;
+	}
+
+
 
 
 	
