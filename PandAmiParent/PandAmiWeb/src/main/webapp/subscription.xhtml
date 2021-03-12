@@ -8,7 +8,7 @@
 	<ui:define name="title">Inscription</ui:define>
 	<ui:define name="content">
 		<h2>INSCRIPTION</h2>
-		<h:form>
+		<h:form id="myForm">
 			<h:outputLabel value="Genre"/>
 			<h:selectOneMenu>
 				<f:selectItem itemValue="Femme" itemLabel="Mme" />
@@ -38,15 +38,14 @@
 			<h:inputText value=""></h:inputText>
 			<br />
 			<h:outputLabel value="Adresse"/>
-			<div class="autocomplete" style="width: 300px;">
-				<input id="myInput" value="" type="text"
-					placeholder="Entrer une adresse"></input>
-			</div>
-			<label style="display: none"></label>
-			<h:outputScript library="JS" name="adresse.js"></h:outputScript>
-			<h:commandButton action="#{mbCompte.inscription}"/>
-				<br />
-		</h:form>
+			<script type="text/javascript" src="resources/JS/adresse.js"></script>
+			<div class="autocomplete" style="width:300px;">
+        	<h:inputText id="adresse" type="text" onkeypress="getValuePostSuggest()" placeholder="Entrer une adresse"/>       		
+     		</div>
+     		 <br />
+			<h:commandButton value="Soumettre" action="#{mbCompte.inscription}"/>			
+		</h:form>		
 	</ui:define>
 	</ui:composition>
+	<h:outputScript library="JS" name="adresse.js"></h:outputScript>
 </html>

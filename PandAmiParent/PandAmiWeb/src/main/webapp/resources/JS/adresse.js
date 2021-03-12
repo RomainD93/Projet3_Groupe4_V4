@@ -1,7 +1,3 @@
-/**
- * 
- */
-
 function autocomplete(inp, arr) {
     /*the autocomplete function takes two arguments,
     the text field element and an array of possible autocompleted values:*/
@@ -98,37 +94,31 @@ function autocomplete(inp, arr) {
         closeAllLists(e.target);
     });
   }
-
-const text = document.querySelector("input");
-let label = document.querySelector("label");
+  
 var arr = [];
-//let label = "";
-text.addEventListener("keyup", function(event){
-    if (event.key === ' ') {   
-    label.innerHTML += '+';
-}else{
-    label.innerHTML += event.key;
-}
+let adresse = "";
+function getValuePostSuggest() {
+    const xhttp = new XMLHttpRequest();
+    const div = document.getElementById("myForm:adresse");
+    div.addEventListener("keyup", function(event) {
+        adresse = document.getElementById('myForm:adresse').value;
 
-const xhttp = new XMLHttpRequest();
-xhttp.onreadystatechange = function(){
-    if(this.readyState == 4 && this.status == 200) {
-        console.log("this.response" + this.response);
-         const jsonResponse = JSON.parse(this.response);
-         console.log(jsonResponse);
-         jsonResponse.features.map(feature => {
-             console.log("a" + feature.properties.label);          
-             arr.push(feature.properties.label);
-         })             
-     };
-}
-
-let adresse ="";
-adresse = label.innerHTML;
-
-xhttp.open("GET", `https://api-adresse.data.gouv.fr/search/?q=${adresse}` ,true);
+    });
+    xhttp.onreadystatechange = function(){
+        if(this.readyState == 4 && this.status == 200) {
+           console.log(this.response);
+            const jsonResponse = JSON.parse(this.response);
+            console.log(jsonResponse);
+            jsonResponse.features.map(feature => {
+                console.log("a" + feature.properties.label);          
+                arr.push(feature.properties.label)
+            })             
+            };
+        }
+    xhttp.open("GET", `https://api-adresse.data.gouv.fr/search/?q=${adresse}` ,true);
     xhttp.send();
-});
+    autocomplete(document.getElementById('myForm:adresse'), arr);  
+}
+ /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+ 
 
-  /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
-  autocomplete(document.getElementById("myInput"), arr);
