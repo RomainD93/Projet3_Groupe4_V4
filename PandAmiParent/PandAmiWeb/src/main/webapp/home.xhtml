@@ -9,8 +9,12 @@
 	<ui:define name="title">Home</ui:define>
 	<ui:define name="content">
 	<ui:repeat var="service" value="#{mbService.services}">
-		<h4>#{service.typeAide.nomTypeAide}</h4>
-		<h3>#{service.id}</h3>
+		<h5>#{service.typeAide.nomTypeAide} // #{service.id} // #{service.adresse} //
+		#{service.dateService} // 
+		Heure dbt : #{service.heureDbt} //
+		Heure fin : #{service.heureFin} //
+		Somme : #{service.sommeAPrevoir} € // 
+		User : #{service.utilisateur.id}</h5>
 	</ui:repeat>
 
 

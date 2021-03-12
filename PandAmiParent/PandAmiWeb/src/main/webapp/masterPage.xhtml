@@ -7,7 +7,7 @@
 
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<h:outputStylesheet name="CSS/masterStyle.css"/>
+	<h:outputStylesheet name="CSS/masterStyle.css" />
 	<!-- Insert du titre de chaque composition -->
 	<title><ui:insert name="title"></ui:insert></title>
 	<!-- Insert de la feuille de style de chaque composition -->
@@ -18,24 +18,32 @@
 <h:body>
 	<h:form>
 		<div id="header">
-		<p:tabMenu activeIndex="#{param.i}">
-			<p:menuitem value="Accueil" outcome="/index.xhtml" icon="pi pi-fw pi-home">
-				<f:param name="i" value="0"/>
-			</p:menuitem>
-			<p:menuitem value="Mes services (bénéficiaire)" outcome="/index.xhtml">
-				<f:param name="i" value="1"/>
-			</p:menuitem>
-			<p:menuitem value="Mes services (volontaire)" outcome="/index.xhtml">
-				<f:param name="i" value="2"/>
-			</p:menuitem>
-			<p:menuitem value="Mon Profil" outcome="/index.xhtml">
-				<f:param name="i" value="3"/>
-			</p:menuitem>
-			<p:menuitem value="Se déconnecter" outcome="/index.xhtml">
-				<f:param name="i" value="4"/>
-			</p:menuitem>
-		</p:tabMenu>
-	</div>
+
+			<p:toolbar>
+				<f:facet name="left">
+					<p:tabMenu activeIndex="#{param.i}">
+						<p:menuitem value="Accueil" outcome="/home.xhtml"
+							icon="pi pi-fw pi-home">
+							<f:param name="i" value="0" />
+						</p:menuitem>
+						<p:menuitem value="Les services" outcome="/home.xhtml">
+							<f:param name="i" value="1" />
+						</p:menuitem>
+						<p:menuitem value="Mon Profil" outcome="/index.xhtml">
+							<f:param name="i" value="3" />
+						</p:menuitem>
+						<p:menuitem value="Demander un service" outcome="/creationService.xhtml">
+							<f:param name="i" value="3" />
+						</p:menuitem>
+					</p:tabMenu>
+				</f:facet>
+				<f:facet name="right">
+					<p:button value="Logout" icon="pi pi-fw pi-sign-out"
+						styleClass="rounded-button ui-button-info" />
+				</f:facet>
+			</p:toolbar>
+
+		</div>
 	</h:form>
 	<div id="center">
 		<!-- 	Je veux que les autres pages s'affichent ici -->

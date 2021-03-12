@@ -8,7 +8,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import fr.eql.ai108.projet3.entity.CategorieAide;
 import fr.eql.ai108.projet3.entity.Service;
+import fr.eql.ai108.projet3.entity.TypeAide;
 import fr.eql.ai108.projet3.idao.ServiceIDao;
 
 @Remote(ServiceIDao.class)
@@ -31,5 +33,14 @@ public class ServiceDao extends GenericDao<Service> implements ServiceIDao{
 		Long nbServices = (Long) query.getSingleResult();
 		return nbServices;
 	}
+
+	@Override
+	public List<TypeAide> typesAide() {
+		Query query = em.createQuery("SELECT t FROM TypeAide t");
+		List<TypeAide> typesAide = query.getResultList();
+		return typesAide;
+	}
+
+
 	
 }

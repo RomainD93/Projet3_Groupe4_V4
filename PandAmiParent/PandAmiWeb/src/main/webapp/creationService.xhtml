@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/masterPage.xhtml">
+	<ui:define name="title">Index</ui:define>
+	<ui:define name="content">
+
+		<script type="text/javascript">
+PrimeFaces.locales['fr'] = {
+        closeText: 'Fermer',
+        prevText: 'Précédent',
+        nextText: 'Suivant',
+        monthNames: ['Janvier', 'Febrero', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'],
+        monthNamesShort: ['Jan', 'Fev', 'Mar', 'Avr', 'Mai', 'Jui', 'Jui', 'Aou', 'Sep', 'Oct', 'Nov', 'Dec'],
+        dayNames: ['Dimanche', 'Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi'],
+        dayNamesShort: ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'],
+        dayNamesMin: ['D', 'L', 'M', 'M', 'J', 'V', 'S'],
+        weekHeader: 'Semaine',
+        firstDay: 1,
+        isRTL: false,
+        showMonthAfterYear: false,
+        yearSuffix: '',
+        timeOnlyTitle: 'Heure seule',
+        timeText: 'Tiempo',
+        hourText: 'Heure',
+        minuteText: 'Minute',
+        secondText: 'Seconde',
+        currentText: 'Date actuelle',
+        ampm: false,
+        month: 'Mois',
+        week: 'Semaine',
+        day: 'Jour',
+        allDayText: 'Toute la journée',
+        today: 'Aujourd hui',
+        clear: 'Clear'
+    };
+</script>
+		<h2>CREATION SERVICE</h2>
+
+		<div class="card">
+			<h:form>
+				<p:messages />
+
+				<h:panelGrid columns="3" cellpadding="7" styleClass="p-mb-3">
+<!-- TYPE AIDE -->
+					<p:outputLabel value="Type Aide :" />
+					<p:selectOneMenu value="#{mbService.typeAideSelected}"
+						converter="omnifaces.SelectItemsConverter"
+						panelStyle="width:180px" effect="fade" var="c" filter="true"
+						filterMatchMode="contains">
+						<f:selectItem itemValue="" itemLabel="Type d'aide souhaité"
+							noSelectionOption="true" />
+						<f:selectItems value="#{mbService.typesAide}" var="typeAide"
+							itemLabel="#{typeAide.nomTypeAide}" itemValue="#{typeAide}"></f:selectItems>
+						<p:column>
+							<h:outputText value="#{c.nomTypeAide}" />
+						</p:column>
+					</p:selectOneMenu>
+<!-- DATE SERVICE -->
+					<p:outputLabel for="spanish" value="Date" />
+					<p:datePicker class="p-field p-col-12 p-md-4" id="spanish"
+						value="#{mbService.service.dateService}" locale="fr"
+						monthNavigator="true" pattern="yyyy-MM-dd" />
+<!-- HEURE DEBUT -->
+					<p:outputLabel value="Début du service" />
+					<p:datePicker value="#{mbService.service.heureDbt}"
+						timeOnly="true" pattern="HH:mm" />
+<!-- HEURE FIN -->
+					<p:outputLabel value="Fin du service" />
+					<p:datePicker  value="#{mbService.service.heureFin}"
+						timeOnly="true" pattern="HH:mm" />
+<!-- ADRESSE DU SERVICE -->
+					<p:outputLabel value="Adresse du service" />
+					
+				</h:panelGrid>
+
+				<p:commandButton action="#{mbService.demanderService()}"
+					value="Demander service" ajax="false" icon="pi pi-check"
+					validateClient="true" styleClass="p-mr-3"></p:commandButton>
+
+			</h:form>
+		</div>
+	</ui:define>
+	<!-- 	<ui:define name="CSS"></ui:define> -->
+</ui:composition>
+</html>

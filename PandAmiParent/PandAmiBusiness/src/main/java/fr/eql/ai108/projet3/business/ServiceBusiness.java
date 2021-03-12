@@ -6,7 +6,9 @@ import javax.ejb.EJB;
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
 
+import fr.eql.ai108.projet3.entity.CategorieAide;
 import fr.eql.ai108.projet3.entity.Service;
+import fr.eql.ai108.projet3.entity.TypeAide;
 import fr.eql.ai108.projet3.ibusiness.ServiceIBusiness;
 import fr.eql.ai108.projet3.idao.ServiceIDao;
 
@@ -28,5 +30,17 @@ public class ServiceBusiness implements ServiceIBusiness {
 		// TODO Auto-generated method stub
 		return proxyServiceDao.getNbServices();
 	}
+
+	@Override
+	public Service creerService(Service service) {		 
+		return proxyServiceDao.add(service);
+	}
+
+	@Override
+	public List<TypeAide> displayTypeAide() {	
+		return proxyServiceDao.typesAide();
+	}
+
+
 
 }
