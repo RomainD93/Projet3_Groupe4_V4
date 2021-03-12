@@ -15,22 +15,67 @@
 	border: 1px solid hotpink;
 }
 
-body .ui-card {
-  background: #1e1e1e;
-  color: rgba(255, 255, 255, 0.87);
-  box-shadow: 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
-  border-radius: 4px; }
-  body .ui-card .ui-card-body {
-    padding: 1rem; }
-  body .ui-card .ui-card-title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 0.5rem; }
-  body .ui-card .ui-card-subtitle {
-    font-weight: 700;
-    margin-bottom: 0.5rem;
-    color: rgba(255, 255, 255, 0.6); }
-  body .ui-card .ui-card-content {
-    padding: 1rem 0; }
-  body .ui-card .ui-card-footer {
-    padding: 1rem 0 0 0; }
+* {
+    box-sizing: border-box;
+  }
+  
+  
+  
+  body {
+    font: 16px Arial;  
+  }
+  
+  /*the container must be positioned relative:*/
+  .autocomplete {
+    position: relative;
+    display: inline-block;
+  }
+  
+  input {
+    border: 1px solid transparent;
+    background-color: #f1f1f1;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  input[type=text] {
+    background-color: #f1f1f1;
+    width: 100%;
+  }
+  
+  input[type=submit] {
+    background-color: DodgerBlue;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .autocomplete-items {
+    position: absolute;
+    border: 1px solid #d4d4d4;
+    border-bottom: none;
+    border-top: none;
+    z-index: 99;
+    /*position the autocomplete items to be the same width as the container:*/
+    top: 100%;
+    left: 0;
+    right: 0;
+  }
+  
+  .autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff; 
+    border-bottom: 1px solid #d4d4d4; 
+  }
+  
+  /*when hovering an item:*/
+  .autocomplete-items div:hover {
+    background-color: #e9e9e9; 
+  }
+  
+  /*when navigating through the items using the arrow keys:*/
+  .autocomplete-active {
+    background-color: DodgerBlue !important; 
+    color: #ffffff; 
+  }
+>>>>>>> abeab2e1a0571c4279d0c7d39800cd94d0a942df

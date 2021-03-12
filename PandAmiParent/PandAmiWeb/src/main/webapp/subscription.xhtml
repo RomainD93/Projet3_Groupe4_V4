@@ -8,14 +8,44 @@
 	<ui:define name="title">Inscription</ui:define>
 	<ui:define name="content">
 		<h2>INSCRIPTION</h2>
-		<h:form>
-			<label>Nom</label>
-			<label>Prénom</label>
-			<label>Email</label>
-			<label>Confirmation Email</label>
-			<label>Mot de Passe</label>
-			<label>Confirmation Mot de Passe</label>
-		</h:form>
+		<h:form id="myForm">
+			<h:outputLabel value="Genre"/>
+			<h:selectOneMenu>
+				<f:selectItem itemValue="Femme" itemLabel="Mme" />
+				<f:selectItem itemValue="Homme" itemLabel="Mr" />
+				<f:selectItem itemValue="Autre" itemLabel="Autre" />
+			</h:selectOneMenu>
+			<br />
+			<h:outputLabel value="Nom"/>
+			<h:inputText value=""></h:inputText>
+			<br />
+			<h:outputLabel value="Prénom"/>
+			<h:inputText value=""></h:inputText>
+			<br />
+			<h:outputLabel value="Date de naissance"/>
+			<h:inputText value=""></h:inputText>
+			<br />
+			<h:outputLabel value="Email"/>
+			<h:inputText value=""></h:inputText>
+			<br />
+			<h:outputLabel value="Mot de Passe"/>
+			<h:inputSecret value=""></h:inputSecret>
+			<br />
+			<h:outputLabel value="Confirmation Mot de Passe"/>
+			<h:inputSecret value=""></h:inputSecret>
+			<br />
+			<h:outputLabel value="Téléphone"/>
+			<h:inputText value=""></h:inputText>
+			<br />
+			<h:outputLabel value="Adresse"/>
+			<script type="text/javascript" src="resources/JS/adresse.js"></script>
+			<div class="autocomplete" style="width:300px;">
+        	<h:inputText id="adresse" type="text" onkeypress="getValuePostSuggest()" placeholder="Entrer une adresse"/>       		
+     		</div>
+     		 <br />
+			<h:commandButton value="Soumettre" action="#{mbCompte.inscription}"/>			
+		</h:form>		
 	</ui:define>
 	</ui:composition>
+	<h:outputScript library="JS" name="adresse.js"></h:outputScript>
 </html>
