@@ -4,6 +4,7 @@ import java.util.List;
 
 import fr.eql.ai108.projet3.entity.CategorieAide;
 import fr.eql.ai108.projet3.entity.Materiel;
+import fr.eql.ai108.projet3.entity.ReponseService;
 import fr.eql.ai108.projet3.entity.Service;
 import fr.eql.ai108.projet3.entity.TypeAide;
 
@@ -14,4 +15,6 @@ public interface ServiceIBusiness {
 	List<TypeAide> displayTypeAide();
 	List<Materiel> displayMateriel();
 	Service updateService(Service service);
+	ReponseService creerReponseService(ReponseService reponseService);
+	ReponseService updateReponseService(ReponseService reponseService);
 }

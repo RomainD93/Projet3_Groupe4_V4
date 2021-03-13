@@ -12,6 +12,7 @@ import javax.faces.bean.ManagedProperty;
 
 import fr.eql.ai108.projet3.entity.CategorieAide;
 import fr.eql.ai108.projet3.entity.Materiel;
+import fr.eql.ai108.projet3.entity.ReponseService;
 import fr.eql.ai108.projet3.entity.Service;
 import fr.eql.ai108.projet3.entity.TypeAide;
 import fr.eql.ai108.projet3.entity.Utilisateur;
@@ -31,12 +32,18 @@ public class ServiceManagedBean {
 	private String message;
 	private Materiel materielSelected;
 	
+	private ReponseService reponseService = new ReponseService();
+	private Service serviceSelected;
+	
 
 	@ManagedProperty (value = "#{mbCompte.utilisateur}")
 	private Utilisateur userConnected;
 	
 	@EJB
 	private ServiceIBusiness proxyServiceBu;
+	
+	
+	// INITIALISATION DES LISTES AND CO
 	
 	@PostConstruct
 	public void init (){
@@ -45,6 +52,10 @@ public class ServiceManagedBean {
 		materiels = proxyServiceBu.displayMateriel();
 	}
 	
+	
+	// METHODES
+	
+	//CREATION D'UN SERVICE
 	public String demanderService() {
 		String retour ="";
 		Date date = new Date();
@@ -64,24 +75,36 @@ public class ServiceManagedBean {
 		return retour;
 	}
 	
-//	public String accepterService() {
-//		String retour ="";
-//		Date date = new Date();
-//		
-//		if(service == null) {
-//			message = "Désolé, votre demande n'a pas été enregistrée, veuillez réessayer";
-//			retour = "/home.xhtml?faces-redirect=true";
-//		}else {
-//			retour = "/home.xhtml?faces-redirect=true";
-//		}
-//			
-//		return retour;
-//	}
+	//ACCEPTER SERVICE
+	public String accepterService() {
+		String retour ="";
+		Date date = new Date();
+		
+		if(service == null) {
+			message = "Désolé, votre demande n'a pas été enregistrée, veuillez réessayer";
+			retour = "/home.xhtml?faces-redirect=true";
+		}else {
+			reponseService.setService(serviceSelected);
+			reponseService.setDateAcceptation(date);
+			reponseService = proxyServiceBu.creerReponseService(reponseService);
+			retour = "/home.xhtml?faces-redirect=true";
+		}
+			
+		return retour;
+	}
 
+	
+	// NOMBRE DE SERVICES
 	public Long getNbServices() {
 		numServices = proxyServiceBu.numServices();
 		return numServices;
 	}
+	
+	
+	
+	// GETTERS SETTERS 
+	
+	
 	
 	public List<Service> getServices() {
 		return services;
@@ -132,22 +155,24 @@ public class ServiceManagedBean {
 	public void setMateriels(List<Materiel> materiels) {
 		this.materiels = materiels;
 	}
+
+	public ReponseService getReponseService() {
+		return reponseService;
+	}
+
+	public void setReponseService(ReponseService reponseService) {
+		this.reponseService = reponseService;
+	}
+
+	public String getMessage() {
+		return message;
+	}
+
+	public void setMessage(String message) {
+		this.message = message;
+	}
 	
-	
 
-//	public Date getDateServiceSelected() {
-//		return dateServiceSelected;
-//	}
-//
-//	public void setDateServiceSelected(Date dateServiceSelected) {
-//		this.dateServiceSelected = dateServiceSelected;
-//	}
-
-
-
-
-	
-	
 
 
 }

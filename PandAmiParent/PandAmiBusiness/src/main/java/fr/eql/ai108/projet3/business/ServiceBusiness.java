@@ -8,9 +8,11 @@ import javax.ejb.Stateless;
 
 import fr.eql.ai108.projet3.entity.CategorieAide;
 import fr.eql.ai108.projet3.entity.Materiel;
+import fr.eql.ai108.projet3.entity.ReponseService;
 import fr.eql.ai108.projet3.entity.Service;
 import fr.eql.ai108.projet3.entity.TypeAide;
 import fr.eql.ai108.projet3.ibusiness.ServiceIBusiness;
+import fr.eql.ai108.projet3.idao.ReponseServiceIDao;
 import fr.eql.ai108.projet3.idao.ServiceIDao;
 
 @Remote(ServiceIBusiness.class)
@@ -19,6 +21,10 @@ public class ServiceBusiness implements ServiceIBusiness {
 
 	@EJB
 	ServiceIDao proxyServiceDao;
+	
+	@EJB
+	ReponseServiceIDao proxyReponseServiceDao;
+	
 	
 	@Override
 	public List<Service> displayService() {
@@ -52,6 +58,17 @@ public class ServiceBusiness implements ServiceIBusiness {
 		return proxyServiceDao.update(service);
 	}
 
+	@Override
+	public ReponseService creerReponseService(ReponseService reponseService) {
+		return proxyReponseServiceDao.add(reponseService);
+	}
+
+	@Override
+	public ReponseService updateReponseService(ReponseService reponseService) {
+		return proxyReponseServiceDao.update(reponseService);
+	}
+
+	
 
 
 }
