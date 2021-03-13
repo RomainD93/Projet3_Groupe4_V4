@@ -15,7 +15,7 @@ import fr.eql.ai108.projet3.ibusiness.CompteUtilisateurIBusiness;
 
 
 @ManagedBean (name="mbCompte")
-@RequestScoped
+@SessionScoped
 public class CompteManagedBean implements Serializable{
 
 	private static final long serialVersionUID = 1L;

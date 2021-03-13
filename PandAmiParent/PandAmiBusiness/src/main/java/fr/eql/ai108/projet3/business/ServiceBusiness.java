@@ -47,6 +47,11 @@ public class ServiceBusiness implements ServiceIBusiness {
 		return proxyServiceDao.materiels();
 	}
 
+	@Override
+	public Service updateService(Service service) {
+		return proxyServiceDao.update(service);
+	}
+
 
 
 }

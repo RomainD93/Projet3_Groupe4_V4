@@ -47,62 +47,85 @@ PrimeFaces.locales['fr'] = {
 				<p:messages />
 
 				<h:panelGrid columns="2" cellpadding="7" styleClass="p-mb-3">
-				
-					<h:panelGroup><!-- TYPE AIDE -->											
-					<p:outputLabel value="Type Aide :" />				
-					</h:panelGroup> 
-					
+
+					<h:panelGroup>
+						<!-- TYPE AIDE -->
+						<p:outputLabel value="Type Aide :" />
+					</h:panelGroup>
+
 					<p:selectOneMenu value="#{mbService.typeAideSelected}"
 						converter="omnifaces.SelectItemsConverter"
 						panelStyle="width:180px" effect="fade" var="c" filter="true"
-						filterMatchMode="contains">
+						filterMatchMode="contains"	style="width:195px">
 						<f:selectItem itemValue="" itemLabel="Type d'aide souhaité"
-							noSelectionOption="true" />
+							noSelectionOption="true"/>
 						<f:selectItems value="#{mbService.typesAide}" var="typeAide"
 							itemLabel="#{typeAide.nomTypeAide}" itemValue="#{typeAide}"></f:selectItems>
 						<p:column>
 							<h:outputText value="#{c.nomTypeAide}" />
 						</p:column>
 					</p:selectOneMenu>
-					
+
 					<h:panelGroup>
-					<!-- DATE SERVICE -->	
-					<p:outputLabel for="spanish" value="Date" />
+						<!-- DATE SERVICE -->
+						<p:outputLabel for="spanish" value="Date" />
 					</h:panelGroup>
 					<p:datePicker class="p-field p-col-12 p-md-4" id="spanish"
 						value="#{mbService.service.dateService}" locale="fr"
-						monthNavigator="true" pattern="yyyy-MM-dd" />
-						
+						monthNavigator="true" pattern="yyyy-MM-dd"/>
+
 					<h:panelGroup>
-					<!-- HEURE DEBUT -->
-					<p:outputLabel value="Début du service" />
+						<!-- HEURE DEBUT -->
+						<p:outputLabel value="Début du service" />
 					</h:panelGroup>
-					
+
 					<p:datePicker value="#{mbService.service.heureDbt}" timeOnly="true"
 						pattern="HH:mm" />
-						
+
 					<h:panelGroup>
-					<!-- HEURE FIN -->
-					<p:outputLabel value="Fin du service" />
-					</h:panelGroup>	
-					
+						<!-- HEURE FIN -->
+						<p:outputLabel value="Fin du service" />
+					</h:panelGroup>
+
 					<p:datePicker value="#{mbService.service.heureFin}" timeOnly="true"
 						pattern="HH:mm" />
-						
+
 					<h:panelGroup>
-					<!-- ADRESSE DU SERVICE -->
-					<p:outputLabel value="Adresse du service" />							
-					<script type="text/javascript" src="resources/JS/adresse.js"></script>
+						<!-- ADRESSE DU SERVICE -->
+						<p:outputLabel value="Adresse du service" />
+						<script type="text/javascript" src="resources/JS/adresse.js"></script>
+					</h:panelGroup>
+
+					<p:inputText class="autocomplete" style="width:250px;" id="adresse"
+						type="text" onkeypress="getValuePostSuggest()"
+						placeholder="#{mbService.userConnected.adresse}"
+						value="#{mbService.service.adresse}"/>
+
+					<h:panelGroup>
+						<!-- MATERIEL A APPORTER -->
+						<p:outputLabel value="Matériel nécessaire" />
+					</h:panelGroup>
+
+					<p:selectOneMenu value="#{mbService.materielSelected}"
+						converter="omnifaces.SelectItemsConverter"
+						panelStyle="width:180px" effect="fade" var="c" filter="true"
+						filterMatchMode="contains">
+						<f:selectItem itemValue="" itemLabel="Matériel nécessaire"
+							noSelectionOption="true" />
+						<f:selectItems value="#{mbService.materiels}" var="materiel"
+							itemLabel="#{materiel.nomMateriel}" itemValue="#{materiel}"></f:selectItems>
+						<p:column>
+							<h:outputText value="#{c.nomMateriel}" />
+						</p:column>
+					</p:selectOneMenu>
+					
+					<h:panelGroup>
+						<!-- SOMME à PREVOIR -->
+						<p:outputLabel value="Somme à prévoir" />
 					</h:panelGroup>
 					
-        			<p:inputText class="autocomplete" style="width:300px;" id="adresse" type="text" onkeypress="getValuePostSuggest()" placeholder="Entrez une adresse" value="#{mbService.userConnected.adresse}"/>       		
-     		      	
-					<h:panelGroup>
-					<!-- MATERIEL A APPORTER -->
-					<p:outputLabel value="Matériel nécessaire" />
-					</h:panelGroup>	
-					
-					
+					<p:inputText value="#{mbService.service.sommeAPrevoir}" label="Age"/>
+
 				</h:panelGrid>
 
 				<p:commandButton action="#{mbService.demanderService()}"

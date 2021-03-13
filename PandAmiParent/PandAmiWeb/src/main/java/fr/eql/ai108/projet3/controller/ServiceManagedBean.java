@@ -23,6 +23,7 @@ public class ServiceManagedBean {
 	
 	private List<Service> services;
 	private List<TypeAide> typesAide;
+	private List<Materiel> materiels;
 	
 	private Long numServices;
 	private Service service = new Service();
@@ -41,6 +42,7 @@ public class ServiceManagedBean {
 	public void init (){
 		services = proxyServiceBu.displayService();
 		typesAide = proxyServiceBu.displayTypeAide();	
+		materiels = proxyServiceBu.displayMateriel();
 	}
 	
 	public String demanderService() {
@@ -61,6 +63,20 @@ public class ServiceManagedBean {
 		}
 		return retour;
 	}
+	
+//	public String accepterService() {
+//		String retour ="";
+//		Date date = new Date();
+//		
+//		if(service == null) {
+//			message = "Désolé, votre demande n'a pas été enregistrée, veuillez réessayer";
+//			retour = "/home.xhtml?faces-redirect=true";
+//		}else {
+//			retour = "/home.xhtml?faces-redirect=true";
+//		}
+//			
+//		return retour;
+//	}
 
 	public Long getNbServices() {
 		numServices = proxyServiceBu.numServices();
@@ -100,6 +116,24 @@ public class ServiceManagedBean {
 	public List<TypeAide> getTypesAide() {
 		return typesAide;
 	}
+
+	public Materiel getMaterielSelected() {
+		return materielSelected;
+	}
+
+	public void setMaterielSelected(Materiel materielSelected) {
+		this.materielSelected = materielSelected;
+	}
+
+	public List<Materiel> getMateriels() {
+		return materiels;
+	}
+
+	public void setMateriels(List<Materiel> materiels) {
+		this.materiels = materiels;
+	}
+	
+	
 
 //	public Date getDateServiceSelected() {
 //		return dateServiceSelected;

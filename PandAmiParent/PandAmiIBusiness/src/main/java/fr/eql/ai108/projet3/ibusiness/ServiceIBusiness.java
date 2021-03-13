@@ -13,4 +13,5 @@ public interface ServiceIBusiness {
 	Service creerService(Service service);
 	List<TypeAide> displayTypeAide();
 	List<Materiel> displayMateriel();
+	Service updateService(Service service);
 }
