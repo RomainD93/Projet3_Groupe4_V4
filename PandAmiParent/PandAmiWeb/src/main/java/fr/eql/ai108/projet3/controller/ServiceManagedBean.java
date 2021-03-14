@@ -1,16 +1,16 @@
 package fr.eql.ai108.projet3.controller;
 
-import java.time.LocalTime;
+
 import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.enterprise.context.RequestScoped;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.ViewScoped;
 
-import fr.eql.ai108.projet3.entity.CategorieAide;
 import fr.eql.ai108.projet3.entity.Materiel;
 import fr.eql.ai108.projet3.entity.ReponseService;
 import fr.eql.ai108.projet3.entity.Service;
@@ -19,7 +19,7 @@ import fr.eql.ai108.projet3.entity.Utilisateur;
 import fr.eql.ai108.projet3.ibusiness.ServiceIBusiness;
 
 @ManagedBean(name = "mbService")
-@RequestScoped
+@ViewScoped
 public class ServiceManagedBean {
 	
 	private List<Service> services;
@@ -55,6 +55,10 @@ public class ServiceManagedBean {
 	
 	// METHODES
 	
+	public void afficherAllServices() {
+		services = proxyServiceBu.displayService();
+	}
+	
 	//CREATION D'UN SERVICE
 	public String demanderService() {
 		String retour ="";
@@ -74,6 +78,9 @@ public class ServiceManagedBean {
 		}
 		return retour;
 	}
+	//AFFICHER DETAILS DU SERVICE
+	
+	
 	
 	//ACCEPTER SERVICE
 	public String accepterService() {
