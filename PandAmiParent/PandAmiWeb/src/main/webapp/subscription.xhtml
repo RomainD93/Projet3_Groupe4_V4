@@ -36,7 +36,7 @@
 			<p:inputText value="#{mbCompte.utilisateur.prenom}"></p:inputText>
 			<br />
 			<p:outputLabel value="Date de naissance" />
-			<p:inputText value="#{mbCompte.utilisateur.dateNaissance}"></p:inputText>
+			<p:datePicker class="p-field p-col-12 p-md-4" value="#{mbCompte.utilisateur.dateNaissance}"></p:datePicker>
 			<br />
 			<p:outputLabel value="Email" />
 			<p:inputText value="#{mbCompte.utilisateur.email}"></p:inputText>
@@ -44,21 +44,21 @@
 			<p:outputLabel value="Mot de Passe" />
 			<p:password value="#{mbCompte.utilisateur.password}"></p:password>
 			<br />
-<!-- 			<h:outputLabel value="Confirmation Mot de Passe" /> -->
-<!-- 			<h:inputSecret value=""></h:inputSecret> -->
-<!-- 			<br /> -->
+			<p:outputLabel value="Confirmation Mot de Passe" />
+			<p:password value="#{mbCompte.utilisateur.password}"></p:password>
+			<br />
 			<p:outputLabel value="Téléphone" />
 			<p:inputText value="#{mbCompte.utilisateur.numTelephone}"></p:inputText>
 			<br />
 			<p:outputLabel value="Adresse" />
 			<script type="text/javascript" src="resources/JS/adresse.js"></script>
 			<div class="autocomplete" style="width: 300px;">
-				<h:inputText id="adresse" type="text"
+				<p:inputText id="adresse" type="text" value="#{mbCompte.utilisateur.adresse}"
 					onkeypress="getValuePostSuggest()" placeholder="Entrer une adresse" />
 			</div>
 			<br />
-			<h:commandButton action="#{mbCompte.inscription()}" value="Soumettre"  ajax="false" icon="pi pi-check"
-					validateClient="true" styleClass="p-mr-3"/>
+
+			<h:commandButton value="Soumettre" action="#{mbCompte.inscription()}" />
 		</h:form>
 	</ui:define>
 

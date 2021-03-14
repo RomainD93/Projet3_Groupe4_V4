@@ -36,7 +36,7 @@ public class CompteManagedBean implements Serializable{
 
 	public String connection() {
 		utilisateur = proxyCompteUtilisateurBu.connection(utilisateur.getEmail(), utilisateur.getPassword());
-		String retour ="";
+		String retour ="";		
 		if(utilisateur!= null) {
 			retour = "/home.xhtml?faces-redirect=true";
 		}else {
@@ -48,15 +48,17 @@ public class CompteManagedBean implements Serializable{
 	}
 
 	public String inscription() {
-		System.out.println("Entrée dans la méthode");
 		String retour ="";
 		utilisateur.setGenre(genreSelected);
 		utilisateur = proxyCompteUtilisateurBu.creerCompte(utilisateur);
+
 		if(utilisateur == null) {
+			System.out.println(utilisateur);
 			message = "Ce login n'est pas disponible. Choisissez en un autre";
 			retour = "/subscription.xhtml?faces-redirect=true";
-		}else {
-			
+
+		}else {				
+
 			utilisateur = proxyCompteUtilisateurBu.connection(utilisateur.getEmail(), utilisateur.getPassword());
 			message = "Bienvenue " + utilisateur.getPrenom() + "! Votre compte a bien été créé.";
 			retour = "/home.xhtml?faces-redirect=true";
