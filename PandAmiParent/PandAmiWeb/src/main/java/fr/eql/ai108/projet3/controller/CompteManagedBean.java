@@ -47,15 +47,16 @@ public class CompteManagedBean implements Serializable{
 		return retour;
 	}
 
-	public String inscription() {	
+	public String inscription() {
+		System.out.println("Entrée dans la méthode");
 		String retour ="";
-		
+		utilisateur.setGenre(genreSelected);
+		utilisateur = proxyCompteUtilisateurBu.creerCompte(utilisateur);
 		if(utilisateur == null) {
 			message = "Ce login n'est pas disponible. Choisissez en un autre";
 			retour = "/subscription.xhtml?faces-redirect=true";
 		}else {
-			utilisateur.setGenre(genreSelected);
-			utilisateur = proxyCompteUtilisateurBu.creerCompte(utilisateur);
+			
 			utilisateur = proxyCompteUtilisateurBu.connection(utilisateur.getEmail(), utilisateur.getPassword());
 			message = "Bienvenue " + utilisateur.getPrenom() + "! Votre compte a bien été créé.";
 			retour = "/home.xhtml?faces-redirect=true";
