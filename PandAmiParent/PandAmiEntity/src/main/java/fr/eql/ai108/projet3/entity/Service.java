@@ -1,6 +1,7 @@
 package fr.eql.ai108.projet3.entity;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.Date;
 import java.util.Set;
@@ -31,13 +32,13 @@ public class Service implements Serializable{
 	private Integer id;
 	private String nom;
 
-	private Date dateCreation;
-	private Date dateService;
+	private LocalDate dateCreation;
+	private LocalDate dateService;
 	private LocalTime heureDbt;
 	private LocalTime heureFin;	
-	private Date dateCloture;
+	private LocalDate dateCloture;
 	private Float sommeAPrevoir;
-	private Date dateAnnulation;
+	private LocalDate dateAnnulation;
 	private String adresse;
 	
 	
@@ -63,11 +64,10 @@ public class Service implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-
-	public Service(Integer id, String nom, Date dateCreation, Date dateService, LocalTime heureDbt, LocalTime heureFin,
-			Date dateCloture, Float sommeAPrevoir, Date dateAnnulation, String adresse, TypeAide typeAide,
-			Set<ReponseService> reponses, Set<Litige> litiges, Set<Negociation> negociations, Utilisateur utilisateur,
-			Materiel materiel) {
+	public Service(Integer id, String nom, LocalDate dateCreation, LocalDate dateService, LocalTime heureDbt,
+			LocalTime heureFin, LocalDate dateCloture, Float sommeAPrevoir, LocalDate dateAnnulation, String adresse,
+			TypeAide typeAide, Set<ReponseService> reponses, Set<Litige> litiges, Set<Negociation> negociations,
+			Utilisateur utilisateur, Materiel materiel) {
 		super();
 		this.id = id;
 		this.nom = nom;
@@ -86,18 +86,6 @@ public class Service implements Serializable{
 		this.utilisateur = utilisateur;
 		this.materiel = materiel;
 	}
-
-
-
-
-
-
-
-
-
-
-
-
 
 	@Override
 	public int hashCode() {
@@ -195,46 +183,6 @@ public class Service implements Serializable{
 		this.nom = nom;
 	}
 
-	public Date getDateCreation() {
-		return dateCreation;
-	}
-
-	public void setDateCreation(Date dateCreation) {
-		this.dateCreation = dateCreation;
-	}
-
-	public Date getDateService() {
-		return dateService;
-	}
-
-	public void setDateService(Date dateService) {
-		this.dateService = dateService;
-	}
-
-
-	public Date getDateCloture() {
-		return dateCloture;
-	}
-
-	public void setDateCloture(Date dateCloture) {
-		this.dateCloture = dateCloture;
-	}
-
-	public Float getSommeAPrevoir() {
-		return sommeAPrevoir;
-	}
-
-	public void setSommeAPrevoir(Float sommeAPrevoir) {
-		this.sommeAPrevoir = sommeAPrevoir;
-	}
-
-	public Date getDateAnnulation() {
-		return dateAnnulation;
-	}
-
-	public void setDateAnnulation(Date dateAnnulation) {
-		this.dateAnnulation = dateAnnulation;
-	}
 
 
 
@@ -335,6 +283,176 @@ public class Service implements Serializable{
 
 	public void setMateriel(Materiel materiel) {
 		this.materiel = materiel;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public LocalDate getDateCreation() {
+		return dateCreation;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public void setDateCreation(LocalDate dateCreation) {
+		this.dateCreation = dateCreation;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public LocalDate getDateService() {
+		return dateService;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public void setDateService(LocalDate dateService) {
+		this.dateService = dateService;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public LocalDate getDateCloture() {
+		return dateCloture;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public void setDateCloture(LocalDate dateCloture) {
+		this.dateCloture = dateCloture;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public Float getSommeAPrevoir() {
+		return sommeAPrevoir;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public void setSommeAPrevoir(Float sommeAPrevoir) {
+		this.sommeAPrevoir = sommeAPrevoir;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public LocalDate getDateAnnulation() {
+		return dateAnnulation;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	public void setDateAnnulation(LocalDate dateAnnulation) {
+		this.dateAnnulation = dateAnnulation;
 	}
 
 	
