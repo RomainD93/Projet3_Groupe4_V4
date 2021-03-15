@@ -97,9 +97,9 @@ public class ServiceManagedBean {
 			message = "Désolé, votre demande n'a pas été enregistrée, veuillez réessayer";
 			retour = "/creationService.xhtml?faces-redirect=true";
 		}else{
-//			if(service.getAdresse() == null) {
-//				service.setAdresse(userConnected.getAdresse());
-//			}
+			if(service.getAdresse().toString() == "") {
+				service.setAdresse(userConnected.getAdresse());
+			}
 			service.setDateCreation(date);
 			service.setUtilisateur(userConnected);
 			service.setTypeAide(typeAideSelected);
