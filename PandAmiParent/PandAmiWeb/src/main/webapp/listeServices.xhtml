@@ -18,16 +18,25 @@
 		</ui:repeat>
 
 		<div>
-		<h5>List PrimeFaces</h5>
+			<h5>List PrimeFaces</h5>
 			<h:form>
-				<p:dataTable var="services" value="#{mbService.services}">
+				<p:dataTable var="service" value="#{mbService.services}"
+					filteredValue="#{mbService.filteredServices}"
+					filterBy="#{mbService.filterBy}">
 
 					<f:facet name="header">
 						<span>Liste des services</span>
 					</f:facet>
+					<p:column headerText="Nom" sortBy="#{service.utilisateur.nom}"
+						filterBy="#{service.utilisateur.nom}">
 
-					<p:column headerText="Service" >
-						<h:outputText value="#{service.nomTypeAide}" />
+						<h:outputText style="vertical-align: middle; margin-left: .5rem"
+							value="#{service.utilisateur.nom}" />
+					</p:column>
+					<p:column headerText="Service"
+						sortBy="#{service.typeAide.nomTypeAide}"
+						filterBy="#{service.typeAide.nomTypeAide}">
+						<h:outputText value="#{service.typeAide.nomTypeAide}" />
 					</p:column>
 
 					<p:column headerText="Lieu" sortBy="#{service.adresse}"
@@ -36,68 +45,25 @@
 						<h:outputText style="vertical-align: middle; margin-left: .5rem"
 							value="#{service.adresse}" />
 					</p:column>
-					<p:column headerText="Matériel"
-						sortBy="#{service.materiel.nomMateriel}"
-						filterBy="#{service.materiel.nomMateriel}">
+					<p:column field="dateService" headerText="DateService"
+						filterMatchMode="range">
 
-						<h:outputText style="vertical-align: middle; margin-left: .5rem"
-							value="#{service.materiel.nomMateriel}" />
+						<f:facet name="filter">
+							<p:datePicker selectionMode="range"
+								onchange="PF('servicesTable').filter()" />
+						</f:facet>
+					</p:column>
+					<p:column field="heureDbt" headerText="HeureDebut"
+						filterMatchMode="contains">
+						
+						<f:facet name="filter">
+							<p:datePicker selectionMode="contains"
+								onchange="PF('serviceTable2').filter()" timeOnly="true" />
+						</f:facet>
 					</p:column>
 				</p:dataTable>
 			</h:form>
 		</div>
-		
-		<!-- Test 2 avec autre liste 
-		<div>
-    <h:form>
-        <p:dataScroller value="#{mbService.services}" var="service" chunkSize="10">
-            <f:facet name="header">
-                Scroll Down to Load More Products
-            </f:facet>
-
-            <div >
-                <div >
-                    <div >
-                        <div >#{service.typeAide.nomTypeAide}</div>
-                        <div >#{service.materiel.nomMateriel}</div>
-                    </div>
-                    <div >
-                        <h:outputText value="#{service.dateService}" >
-                        </h:outputText>
-                        <p:commandButton value="Se porter volontaire" icon="pi pi-toys">
-                        </p:commandButton>
-                    </div>
-                </div>
-            </div>
-        </p:dataScroller>
-    </h:form>
-</div>
--->
-<!-- Test 3 -->
-
-<h:form>
-    <div >
-        <p:dataTable var="service" value="#{mbService.services}">
-            <p:column headerText="Service">
-                <h:outputText value="#{service.typeAide.nomTypeAide}" />
-            </p:column>
-
-            <p:column headerText="Adresse">
-                <h:outputText value="#{service.adresse}" />
-            </p:column>
-
-            <p:column headerText="Date">
-                <h:outputText value="#{service.dateService}" />
-            </p:column>
-
-            <p:column headerText="Matéiel">
-                <h:outputText value="#{service.materiel.nomMateriel}" />
-            </p:column>
-        </p:dataTable>
-    </div>
-</h:form>
-
-		
 	</ui:define>
 </ui:composition>
 </html>

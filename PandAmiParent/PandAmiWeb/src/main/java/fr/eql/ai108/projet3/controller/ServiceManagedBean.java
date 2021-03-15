@@ -1,16 +1,21 @@
 package fr.eql.ai108.projet3.controller;
 
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+
+import org.primefaces.model.FilterMeta;
+import org.primefaces.model.MatchMode;
 
 import fr.eql.ai108.projet3.entity.Materiel;
 import fr.eql.ai108.projet3.entity.ReponseService;
@@ -36,6 +41,10 @@ public class ServiceManagedBean {
 	private ReponseService reponseService = new ReponseService();
 	private Service serviceSelected;
 	
+	//Filtrage de la liste
+	private List<FilterMeta> filterBy;
+	private List<Service> filteredServices;
+	
 
 	@ManagedProperty (value = "#{mbCompte.utilisateur}")
 	private Utilisateur userConnected;
@@ -48,9 +57,24 @@ public class ServiceManagedBean {
 	
 	@PostConstruct
 	public void init (){
-		services = proxyServiceBu.displayServiceSsVolontaire();
+		services = proxyServiceBu.displayService();
 		typesAide = proxyServiceBu.displayTypeAide();	
 		materiels = proxyServiceBu.displayMateriel();
+		
+		filterBy = new ArrayList<>();
+
+        filterBy.add(FilterMeta.builder()
+                .field("dateService")
+                .filterValue(Arrays.asList(LocalDate.now(), LocalDate.now().plusDays(14)))
+                .matchMode(MatchMode.RANGE)
+                .build());
+        
+        filterBy.add(FilterMeta.builder()
+                .field("heureDbt")
+                .filterValue(Arrays.asList(LocalTime.now(), LocalTime.now().plusHours(2)))
+                .matchMode(MatchMode.STARTS_WITH)
+                .build());
+
 	}
 	
 	
@@ -66,7 +90,6 @@ public class ServiceManagedBean {
 	//CREATION D'UN SERVICE
 	public String demanderService() {
 		String retour ="";
-		Date date = new Date();
 		
 		if(service == null) {
 			message = "Désolé, votre demande n'a pas été enregistrée, veuillez réessayer";
@@ -75,7 +98,7 @@ public class ServiceManagedBean {
 //			if(service.getAdresse() == null) {
 //				service.setAdresse(userConnected.getAdresse());
 //			}
-			service.setDateCreation(date);
+			service.setDateCreation(LocalDate.now());
 			service.setUtilisateur(userConnected);
 			service.setTypeAide(typeAideSelected);
 			service.setMateriel(materielSelected);
@@ -184,6 +207,26 @@ public class ServiceManagedBean {
 
 	public void setMessage(String message) {
 		this.message = message;
+	}
+
+
+	public List<FilterMeta> getFilterBy() {
+		return filterBy;
+	}
+
+
+	public void setFilterBy(List<FilterMeta> filterBy) {
+		this.filterBy = filterBy;
+	}
+
+
+	public List<Service> getFilteredServices() {
+		return filteredServices;
+	}
+
+
+	public void setFilteredServices(List<Service> filteredServices) {
+		this.filteredServices = filteredServices;
 	}
 	
 
