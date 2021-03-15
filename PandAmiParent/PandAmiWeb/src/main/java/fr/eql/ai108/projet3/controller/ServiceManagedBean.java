@@ -1,12 +1,13 @@
 package fr.eql.ai108.projet3.controller;
 
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-
+import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
@@ -22,7 +23,7 @@ import fr.eql.ai108.projet3.ibusiness.ServiceIBusiness;
 @ViewScoped
 public class ServiceManagedBean {
 	
-	private List<Service> services;
+	private List<Service> services = new ArrayList<Service>();
 	private List<TypeAide> typesAide;
 	private List<Materiel> materiels;
 	
@@ -47,7 +48,7 @@ public class ServiceManagedBean {
 	
 	@PostConstruct
 	public void init (){
-		services = proxyServiceBu.displayService();
+		services = proxyServiceBu.displayServiceSsVolontaire();
 		typesAide = proxyServiceBu.displayTypeAide();	
 		materiels = proxyServiceBu.displayMateriel();
 	}
@@ -55,8 +56,11 @@ public class ServiceManagedBean {
 	
 	// METHODES
 	
-	public void afficherAllServices() {
-		services = proxyServiceBu.displayService();
+	//AFFICHER SERVICES SS VOLONTAIRES
+	public void afficherServicesSsVolontaire() {
+		System.out.println("****** METHODE SS VOLONTAIRES");
+		services = proxyServiceBu.displayServiceSsVolontaire();		
+		//return "/testListe.xhtml?faces-redirect=true";
 	}
 	
 	//CREATION D'UN SERVICE
@@ -68,6 +72,9 @@ public class ServiceManagedBean {
 			message = "Désolé, votre demande n'a pas été enregistrée, veuillez réessayer";
 			retour = "/creationService.xhtml?faces-redirect=true";
 		}else{
+//			if(service.getAdresse() == null) {
+//				service.setAdresse(userConnected.getAdresse());
+//			}
 			service.setDateCreation(date);
 			service.setUtilisateur(userConnected);
 			service.setTypeAide(typeAideSelected);

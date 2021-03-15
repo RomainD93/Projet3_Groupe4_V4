@@ -50,6 +50,14 @@ public class ServiceDao extends GenericDao<Service> implements ServiceIDao{
 		return materiels;
 	}
 
+	@Override
+	public List<Service> getAllNoVolontaire() {
+		System.out.println("**** REQUETE");
+		Query query = em.createQuery("SELECT s FROM Service s WHERE id=1");
+		List<Service> servicesSsVolontaires = query.getResultList();
+		return servicesSsVolontaires;
+	}
+
 
 
 

@@ -31,6 +31,11 @@ public class ServiceBusiness implements ServiceIBusiness {
 		
 		return proxyServiceDao.getAll();
 	}
+	
+	@Override
+	public List<Service> displayServiceSsVolontaire() {
+		return proxyServiceDao.getAllNoVolontaire();
+	}
 
 	@Override
 	public Long numServices() {
@@ -67,6 +72,8 @@ public class ServiceBusiness implements ServiceIBusiness {
 	public ReponseService updateReponseService(ReponseService reponseService) {
 		return proxyReponseServiceDao.update(reponseService);
 	}
+
+
 
 	
 
