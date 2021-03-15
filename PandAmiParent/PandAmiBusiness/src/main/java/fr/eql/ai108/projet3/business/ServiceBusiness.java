@@ -73,6 +73,21 @@ public class ServiceBusiness implements ServiceIBusiness {
 		return proxyReponseServiceDao.update(reponseService);
 	}
 
+	@Override
+	public List<CategorieAide> displayCategorieAide() {
+		return proxyServiceDao.getCategoriesAide();
+	}
+
+	@Override
+	public List<TypeAide> displayTypesAideCat1() {
+		return proxyServiceDao.getTypesAideCat1();
+	}
+
+	@Override
+	public List<TypeAide> displayTypesAideCat2() {
+		return proxyServiceDao.getTypesAideCat2();
+	}
+
 
 
 	

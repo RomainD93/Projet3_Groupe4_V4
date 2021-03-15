@@ -50,20 +50,33 @@ PrimeFaces.locales['fr'] = {
 
 					<h:panelGroup>
 						<!-- TYPE AIDE -->
-						<p:outputLabel value="Type Aide :" />
+						<p:outputLabel value="Catégorie Aide :" />
+											<p:selectOneMenu value="#{mbService.typeAideSelected}"
+												converter="omnifaces.SelectItemsConverter"
+												panelStyle="width:180px" effect="fade" var="c" filter="true"
+												filterMatchMode="contains"	style="width:195px">
+												<f:selectItem itemValue="" itemLabel="Type d'aide souhaité"
+													noSelectionOption="true"/>
+												<f:selectItems value="#{mbService.typesAide}" var="typeAide"
+													itemLabel="#{typeAide.nomTypeAide}" itemValue="#{typeAide}"></f:selectItems>
+												<p:column>
+													<h:outputText value="#{c.nomTypeAide}" />
+												</p:column>
+											</p:selectOneMenu>
 					</h:panelGroup>
 
-					<p:selectOneMenu value="#{mbService.typeAideSelected}"
-						converter="omnifaces.SelectItemsConverter"
-						panelStyle="width:180px" effect="fade" var="c" filter="true"
-						filterMatchMode="contains"	style="width:195px">
-						<f:selectItem itemValue="" itemLabel="Type d'aide souhaité"
-							noSelectionOption="true"/>
+
+					<p:selectOneMenu id="categorie__aide" value="#{mbService.categorieSelected}" style="width: 150px">
+						<p:ajax listener="#{mbService.onCategorieChange()}" update="myForm:type__aide"/>
+						<f:selectItem itemLabel="Select Catégorie" itemValue="" noSelectionOption="True"/>
+						<f:selectItems value="#{mbService.categoriesAide}" var="categorieAide" 
+						itemLabel="#{categorieAide.nomCategorieAide}" itemValue="#{categorieAide.id}"/>
+					</p:selectOneMenu>
+					<p:outputLabel for="type__aide" value="Tye d'aide :  "/>
+					<p:selectOneMenu id="type__aide" value="#{mbService.typeAideSelected}" style="width: 150px">
+						<f:selectItem itemLabel="Select Type Aide" itemValue="" noSelectionOption="true"/>
 						<f:selectItems value="#{mbService.typesAide}" var="typeAide"
-							itemLabel="#{typeAide.nomTypeAide}" itemValue="#{typeAide}"></f:selectItems>
-						<p:column>
-							<h:outputText value="#{c.nomTypeAide}" />
-						</p:column>
+						itemLabel="#{typeAide.nomTypeAide}" itemValue="#{typeAide}" />
 					</p:selectOneMenu>
 
 					<h:panelGroup>
@@ -72,7 +85,7 @@ PrimeFaces.locales['fr'] = {
 					</h:panelGroup>
 					<p:datePicker class="p-field p-col-12 p-md-4" id="spanish"
 						value="#{mbService.service.dateService}" locale="fr"
-						monthNavigator="true" pattern="yyyy-MM-dd"/>
+						monthNavigator="true" pattern="yyyy-MM-dd" />
 
 					<h:panelGroup>
 						<!-- HEURE DEBUT -->
@@ -99,7 +112,7 @@ PrimeFaces.locales['fr'] = {
 					<p:inputText class="autocomplete" style="width:250px;" id="adresse"
 						type="text" onkeypress="getValuePostSuggest()"
 						placeholder="#{mbService.userConnected.adresse}"
-						value="#{mbService.service.adresse}"/>
+						value="#{mbService.service.adresse}" />
 
 					<h:panelGroup>
 						<!-- MATERIEL A APPORTER -->
@@ -118,13 +131,13 @@ PrimeFaces.locales['fr'] = {
 							<h:outputText value="#{c.nomMateriel}" />
 						</p:column>
 					</p:selectOneMenu>
-					
+
 					<h:panelGroup>
 						<!-- SOMME à PREVOIR -->
 						<p:outputLabel value="Somme à prévoir" />
 					</h:panelGroup>
-					
-					<p:inputText value="#{mbService.service.sommeAPrevoir}" label="Age"/>
+
+					<p:inputText value="#{mbService.service.sommeAPrevoir}" label="Age" />
 
 				</h:panelGrid>
 

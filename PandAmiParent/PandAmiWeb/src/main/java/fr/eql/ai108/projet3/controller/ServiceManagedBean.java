@@ -3,15 +3,17 @@ package fr.eql.ai108.projet3.controller;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
-import javax.enterprise.context.RequestScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
+import fr.eql.ai108.projet3.entity.CategorieAide;
 import fr.eql.ai108.projet3.entity.Materiel;
 import fr.eql.ai108.projet3.entity.ReponseService;
 import fr.eql.ai108.projet3.entity.Service;
@@ -24,15 +26,19 @@ import fr.eql.ai108.projet3.ibusiness.ServiceIBusiness;
 public class ServiceManagedBean {
 	
 	private List<Service> services = new ArrayList<Service>();
-	private List<TypeAide> typesAide;
+	private List<TypeAide> typesAide = new ArrayList<TypeAide>();
 	private List<Materiel> materiels;
-	
+	private List<CategorieAide> categoriesAide;
+	private List<TypeAide> typesAideCat1;
+	private List<TypeAide> typesAideCat2;
+	private CategorieAide categorieSelected;
 	private Long numServices;
 	private Service service = new Service();
 	private TypeAide typeAideSelected;
 	private String message;
 	private Materiel materielSelected;
-	
+	private Map<Integer, List<TypeAide>> mapTypesAide = new HashMap<Integer, List<TypeAide>>();
+ 	
 	private ReponseService reponseService = new ReponseService();
 	private Service serviceSelected;
 	
@@ -49,12 +55,29 @@ public class ServiceManagedBean {
 	@PostConstruct
 	public void init (){
 		services = proxyServiceBu.displayServiceSsVolontaire();
-		typesAide = proxyServiceBu.displayTypeAide();	
+		//typesAide = proxyServiceBu.displayTypeAide();	
 		materiels = proxyServiceBu.displayMateriel();
+		categoriesAide = proxyServiceBu.displayCategorieAide();
+		typesAideCat1 = proxyServiceBu.displayTypesAideCat1();
+		typesAideCat2 = proxyServiceBu.displayTypesAideCat2();
+		mapTypesAide.put(1, typesAideCat1);
+		mapTypesAide.put(2, typesAideCat2);
 	}
 	
 	
 	// METHODES
+	
+	//AFFICHER TYPES AIDE SELON CATEGORIE AIDE
+	public void onCategorieChange() {
+		System.out.println("Entrée Mathode Type Aide Catégorie");
+		if(categorieSelected != null) {
+			System.out.println("MAP METHODE");
+			typesAide = mapTypesAide.get(categorieSelected.getId());
+			System.out.println("MAP METHODE DONE");
+		}else {
+			typesAide = new ArrayList<TypeAide>();
+		}
+	}
 	
 	//AFFICHER SERVICES SS VOLONTAIRES
 	public void afficherServicesSsVolontaire() {
@@ -62,6 +85,8 @@ public class ServiceManagedBean {
 		services = proxyServiceBu.displayServiceSsVolontaire();		
 		//return "/testListe.xhtml?faces-redirect=true";
 	}
+	
+	
 	
 	//CREATION D'UN SERVICE
 	public String demanderService() {
@@ -185,7 +210,59 @@ public class ServiceManagedBean {
 	public void setMessage(String message) {
 		this.message = message;
 	}
-	
+
+
+	public List<CategorieAide> getCategoriesAide() {
+		return categoriesAide;
+	}
+
+
+	public void setCategoriesAide(List<CategorieAide> categoriesAide) {
+		this.categoriesAide = categoriesAide;
+	}
+
+
+	public List<TypeAide> getTypesAideCat1() {
+		return typesAideCat1;
+	}
+
+
+	public void setTypesAideCat1(List<TypeAide> typesAideCat1) {
+		this.typesAideCat1 = typesAideCat1;
+	}
+
+
+	public List<TypeAide> getTypesAideCat2() {
+		return typesAideCat2;
+	}
+
+
+	public void setTypesAideCat2(List<TypeAide> typesAideCat2) {
+		this.typesAideCat2 = typesAideCat2;
+	}
+
+
+	public CategorieAide getCategorieSelected() {
+		return categorieSelected;
+	}
+
+
+	public void setCategorieSelected(CategorieAide categorieSelected) {
+		this.categorieSelected = categorieSelected;
+	}
+
+
+	public Map<Integer, List<TypeAide>> getMapTypesAide() {
+		return mapTypesAide;
+	}
+
+
+	public void setMapTypesAide(Map<Integer, List<TypeAide>> mapTypesAide) {
+		this.mapTypesAide = mapTypesAide;
+	}
+
+
+
 
 
 
