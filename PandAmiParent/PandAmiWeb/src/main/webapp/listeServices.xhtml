@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/masterPage.xhtml">
+	<ui:define name="title">Index</ui:define>
+	<ui:define name="content">
+
+		<ui:repeat var="service" value="#{mbService.services}">
+			<h5>#{service.typeAide.nomTypeAide} // #{service.id} //
+				#{service.adresse} // #{service.dateService} // Heure dbt :
+				#{service.heureDbt} // Heure fin : #{service.heureFin} // Somme :
+				#{service.sommeAPrevoir} € // User : #{service.utilisateur.id}</h5>
+
+		</ui:repeat>
+
+		<div>
+		<h5>List PrimeFaces</h5>
+			<h:form>
+				<p:dataTable var="services" value="#{mbService.services}">
+
+					<f:facet name="header">
+						<span>Liste des services</span>
+					</f:facet>
+
+					<p:column headerText="Service" >
+						<h:outputText value="#{service.nomTypeAide}" />
+					</p:column>
+
+					<p:column headerText="Lieu" sortBy="#{service.adresse}"
+						filterBy="#{service.adresse}">
+
+						<h:outputText style="vertical-align: middle; margin-left: .5rem"
+							value="#{service.adresse}" />
+					</p:column>
+					<p:column headerText="Matériel"
+						sortBy="#{service.materiel.nomMateriel}"
+						filterBy="#{service.materiel.nomMateriel}">
+
+						<h:outputText style="vertical-align: middle; margin-left: .5rem"
+							value="#{service.materiel.nomMateriel}" />
+					</p:column>
+				</p:dataTable>
+			</h:form>
+		</div>
+		
+		<!-- Test 2 avec autre liste 
+		<div>
+    <h:form>
+        <p:dataScroller value="#{mbService.services}" var="service" chunkSize="10">
+            <f:facet name="header">
+                Scroll Down to Load More Products
+            </f:facet>
+
+            <div >
+                <div >
+                    <div >
+                        <div >#{service.typeAide.nomTypeAide}</div>
+                        <div >#{service.materiel.nomMateriel}</div>
+                    </div>
+                    <div >
+                        <h:outputText value="#{service.dateService}" >
+                        </h:outputText>
+                        <p:commandButton value="Se porter volontaire" icon="pi pi-toys">
+                        </p:commandButton>
+                    </div>
+                </div>
+            </div>
+        </p:dataScroller>
+    </h:form>
+</div>
+-->
+<!-- Test 3 -->
+
+<h:form>
+    <div >
+        <p:dataTable var="service" value="#{mbService.services}">
+            <p:column headerText="Service">
+                <h:outputText value="#{service.typeAide.nomTypeAide}" />
+            </p:column>
+
+            <p:column headerText="Adresse">
+                <h:outputText value="#{service.adresse}" />
+            </p:column>
+
+            <p:column headerText="Date">
+                <h:outputText value="#{service.dateService}" />
+            </p:column>
+
+            <p:column headerText="Matéiel">
+                <h:outputText value="#{service.materiel.nomMateriel}" />
+            </p:column>
+        </p:dataTable>
+    </div>
+</h:form>
+
+		
+	</ui:define>
+</ui:composition>
+</html>
