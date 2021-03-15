@@ -14,5 +14,16 @@ public interface ServiceIDao extends GenericIDao<Service> {
 	Long getNbServices();
 	List<TypeAide> typesAide();
 	List<Materiel> materiels();
-
+	List<CategorieAide> getCategoriesAide();
+	List<TypeAide> getTypesAideCat1();
+	List<TypeAide> getTypesAideCat2();
+	List<TypeAide> getTypesAideCat3();
+	List<TypeAide> getTypesAideCat4();
+	List<TypeAide> getTypesAideCat5();
+	List<TypeAide> getTypesAideCat6();
+	List<TypeAide> getTypesAideCat7();
+	List<TypeAide> getTypesAideCat8();
+	List<TypeAide> getTypesAideCat9();
+	List<TypeAide> getTypesAideCat10();
+	List<TypeAide> getTypesAideCat11();
 }
