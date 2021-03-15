@@ -51,29 +51,30 @@ PrimeFaces.locales['fr'] = {
 					<h:panelGroup>
 						<!-- TYPE AIDE -->
 						<p:outputLabel value="Catégorie Aide :" />
-											<p:selectOneMenu value="#{mbService.typeAideSelected}"
-												converter="omnifaces.SelectItemsConverter"
-												panelStyle="width:180px" effect="fade" var="c" filter="true"
-												filterMatchMode="contains"	style="width:195px">
-												<f:selectItem itemValue="" itemLabel="Type d'aide souhaité"
-													noSelectionOption="true"/>
-												<f:selectItems value="#{mbService.typesAide}" var="typeAide"
-													itemLabel="#{typeAide.nomTypeAide}" itemValue="#{typeAide}"></f:selectItems>
-												<p:column>
-													<h:outputText value="#{c.nomTypeAide}" />
-												</p:column>
-											</p:selectOneMenu>
+<!-- 											<p:selectOneMenu value="#{mbService.typeAideSelected}" -->
+<!-- 												converter="omnifaces.SelectItemsConverter" -->
+<!-- 												panelStyle="width:180px" effect="fade" var="c" filter="true" -->
+<!-- 												filterMatchMode="contains"	style="width:195px"> -->
+<!-- 												<f:selectItem itemValue="" itemLabel="Type d'aide souhaité" -->
+<!-- 													noSelectionOption="true"/> -->
+<!-- 												<f:selectItems value="#{mbService.typesAide}" var="typeAide" -->
+<!-- 													itemLabel="#{typeAide.nomTypeAide}" itemValue="#{typeAide}"></f:selectItems> -->
+<!-- 												<p:column> -->
+<!-- 													<h:outputText value="#{c.nomTypeAide}" /> -->
+<!-- 												</p:column> -->
+<!-- 											</p:selectOneMenu> -->
 					</h:panelGroup>
 
 
-					<p:selectOneMenu id="categorie__aide" value="#{mbService.categorieSelected}" style="width: 150px">
-						<p:ajax listener="#{mbService.onCategorieChange()}" update="myForm:type__aide"/>
+					<p:selectOneMenu id="categorie__aide" value="#{mbService.categorieSelected}" style="width: 150px" converter="omnifaces.SelectItemsConverter">
+						<p:ajax listener="#{mbService.onCategorieChange()}" update="type__aide"/>
 						<f:selectItem itemLabel="Select Catégorie" itemValue="" noSelectionOption="True"/>
 						<f:selectItems value="#{mbService.categoriesAide}" var="categorieAide" 
-						itemLabel="#{categorieAide.nomCategorieAide}" itemValue="#{categorieAide.id}"/>
+						itemLabel="#{categorieAide.nomCategorieAide}" itemValue="#{categorieAide}"/>
+						
 					</p:selectOneMenu>
 					<p:outputLabel for="type__aide" value="Tye d'aide :  "/>
-					<p:selectOneMenu id="type__aide" value="#{mbService.typeAideSelected}" style="width: 150px">
+					<p:selectOneMenu id="type__aide" value="#{mbService.typeAideSelected}" style="width: 150px" converter="omnifaces.SelectItemsConverter">
 						<f:selectItem itemLabel="Select Type Aide" itemValue="" noSelectionOption="true"/>
 						<f:selectItems value="#{mbService.typesAide}" var="typeAide"
 						itemLabel="#{typeAide.nomTypeAide}" itemValue="#{typeAide}" />

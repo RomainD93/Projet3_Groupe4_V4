@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/masterPage.xhtml">
+	<ui:define name="title">Index</ui:define>
+	<ui:define name="content">
+
+		<script type="text/javascript">
+        //<!--
+                function change_onglet(name)
+                {
+                        document.getElementById('onglet_'+anc_onglet).className = 'onglet_0 onglet';
+                        document.getElementById('onglet_'+name).className = 'onglet_1 onglet';
+                        document.getElementById('contenu_onglet_'+anc_onglet).style.display = 'none';
+                        document.getElementById('contenu_onglet_'+name).style.display = 'block';
+                        anc_onglet = name;
+                }
+        //-->
+        </script>
+
+		<div class="onglets">
+			<span class="onglet_0 onglet" id="onglet_infos"
+				onclick="javascript:change_onglet('infos');">Mes Infos</span> <span
+				class="onglet_0 onglet" id="onglet_dispos"
+				onclick="javascript:change_onglet('dispos');">Mes Dispos</span> <span
+				class="onglet_0 onglet" id="onglet_prefs"
+				onclick="javascript:change_onglet('prefs');">Mes Préférences</span>
+		</div>
+
+		<div class="contenu_onglets">
+			<div class="contenu_onglet" id="contenu_onglet_infos">
+				<h:panelGrid columns="2" cellpadding="7" styleClass="p-mb-3">
+
+					<h:panelGroup>
+						<!-- 			GENRE -->
+						<h:outputLabel value="Genre : " />
+					</h:panelGroup>
+					<h:outputLabel value="#{mbUtilisateur.userConnected.genre.genre}" />
+
+					<h:panelGroup>
+						<!-- 				PRENOM -->
+						<h:outputLabel value="Prénom : " />
+					</h:panelGroup>
+					<h:outputLabel value="#{mbUtilisateur.userConnected.prenom}" />
+
+					<h:panelGroup>
+						<!-- 				NOM -->
+						<h:outputLabel value="Nom : " />
+					</h:panelGroup>
+					<h:outputLabel value="#{mbUtilisateur.userConnected.nom}" />
+
+					<h:panelGroup>
+						<!-- 				DATE NAISSANCE -->
+						<h:outputLabel value="Date de naissance  : " />
+					</h:panelGroup>
+					<h:outputLabel value="#{mbUtilisateur.userConnected.dateNaissance}" />
+
+					<h:panelGroup>
+						<!-- 				EMAIL -->
+						<h:outputLabel value="Identifiant / Mail : " />
+					</h:panelGroup>
+					<h:outputLabel value="#{mbUtilisateur.userConnected.email}" />
+
+					<h:panelGroup>
+						<!-- 				PASSWORD -->
+						<h:outputLabel value="Mot de passe : " />
+					</h:panelGroup>
+					<h:outputLabel value="#{mbUtilisateur.userConnected.password}" />
+
+					<h:panelGroup>
+						<!-- 				ADRESSE -->
+						<h:outputLabel value="Adresse : " />
+					</h:panelGroup>
+					<h:outputLabel value="#{mbUtilisateur.userConnected.adresse}" />
+
+					<h:panelGroup>
+						<!-- 				TELEPHONE -->
+						<h:outputLabel value="Tél  : " />
+					</h:panelGroup>
+					<h:outputLabel value="#{mbUtilisateur.userConnected.numTelephone}" />
+
+					<h:panelGroup>
+						<!-- 				INSCRIPTION -->
+						<h:outputLabel value="Inscrit-e depuis : " />
+					</h:panelGroup>
+					<h:outputLabel
+						value="#{mbUtilisateur.userConnected.dateInscription}" />
+
+				</h:panelGrid>
+				<p:commandButton action="#{mbUtilisateur.modifierInfos()}"
+					value="Modifier" styleClass="p-mr-3"></p:commandButton>
+			</div>
+			
+			<div class="contenu_onglet" id="contenu_onglet_dispos">
+			<h:panelGrid>
+							DISPOS
+			
+			</h:panelGrid>
+			
+				<p:commandButton action="#{mbUtilisateur.modifierDispos()}"
+					value="Modifier" styleClass="p-mr-3"></p:commandButton>
+			</div>
+			
+			
+			<div class="contenu_onglet" id="contenu_onglet_prefs">
+			<h:panelGrid>
+							PREFS
+			
+			</h:panelGrid>
+			
+				<p:commandButton action="#{mbUtilisateur.modifierPrefs()}"
+					value="Modifier" styleClass="p-mr-3"></p:commandButton>
+			</div>
+			
+		</div>
+    <script type="text/javascript">
+        //<!--
+                var anc_onglet = 'dispos';
+                change_onglet(anc_onglet);
+        //-->
+        </script>
+
+
+
+
+
+	</ui:define>
+	<!-- 	<ui:define name="CSS"></ui:define> -->
+</ui:composition>
+</html>

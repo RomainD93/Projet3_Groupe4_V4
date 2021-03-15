@@ -88,6 +88,60 @@ public class ServiceBusiness implements ServiceIBusiness {
 		return proxyServiceDao.getTypesAideCat2();
 	}
 
+	@Override
+	public List<TypeAide> displayTypesAideCat3() {
+		// TODO Auto-generated method stub
+		return proxyServiceDao.getTypesAideCat3();
+	}
+
+	@Override
+	public List<TypeAide> displayTypesAideCat4() {
+		// TODO Auto-generated method stub
+		return proxyServiceDao.getTypesAideCat4();
+	}
+
+	@Override
+	public List<TypeAide> displayTypesAideCat5() {
+		// TODO Auto-generated method stub
+		return proxyServiceDao.getTypesAideCat5();
+	}
+
+	@Override
+	public List<TypeAide> displayTypesAideCat6() {
+		// TODO Auto-generated method stub
+		return proxyServiceDao.getTypesAideCat6();
+	}
+
+	@Override
+	public List<TypeAide> displayTypesAideCat7() {
+		// TODO Auto-generated method stub
+		return proxyServiceDao.getTypesAideCat7();
+	}
+
+	@Override
+	public List<TypeAide> displayTypesAideCat8() {
+		// TODO Auto-generated method stub
+		return proxyServiceDao.getTypesAideCat8();
+	}
+
+	@Override
+	public List<TypeAide> displayTypesAideCat9() {
+		// TODO Auto-generated method stub
+		return proxyServiceDao.getTypesAideCat9();
+	}
+
+	@Override
+	public List<TypeAide> displayTypesAideCat10() {
+		// TODO Auto-generated method stub
+		return proxyServiceDao.getTypesAideCat10();
+	}
+
+	@Override
+	public List<TypeAide> displayTypesAideCat11() {
+		// TODO Auto-generated method stub
+		return proxyServiceDao.getTypesAideCat11();
+	}
+
 
 
 	
