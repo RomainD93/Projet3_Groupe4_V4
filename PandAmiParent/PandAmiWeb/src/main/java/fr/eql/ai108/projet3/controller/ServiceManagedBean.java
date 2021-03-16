@@ -48,6 +48,7 @@ public class ServiceManagedBean {
  	
 	private ReponseService reponseService = new ReponseService();
 	private Service serviceSelected;
+	private Service detailService;
 	
 	//Filtrage de la liste
 	private List<FilterMeta> filterBy;
@@ -69,14 +70,10 @@ public class ServiceManagedBean {
 	
 	@ManagedProperty (value = "#{mbCompte.utilisateur}")
 	private Utilisateur userConnected;
-	
-
-	
 
 	@EJB
 	private ServiceIBusiness proxyServiceBu;
-	
-	
+		
 	// INITIALISATION DES LISTES AND CO
 	
 	@PostConstruct
@@ -116,13 +113,13 @@ public class ServiceManagedBean {
 
         filterBy.add(FilterMeta.builder()
                 .field("dateService")
-                .filterValue(Arrays.asList(LocalDate.now(), LocalDate.now().plusDays(14)))
+                .filterValue(Arrays.asList(LocalDate.now().minusDays(24), LocalDate.now().plusDays(14)))
                 .matchMode(MatchMode.RANGE)
                 .build());
         
         filterBy.add(FilterMeta.builder()
                 .field("heureDbt")
-                .filterValue(Arrays.asList(LocalTime.now(), LocalTime.now().plusHours(2)))
+                .filterValue(Arrays.asList(LocalTime.now(), LocalTime.now()))
                 .matchMode(MatchMode.RANGE)
                 .build());
 		
@@ -199,8 +196,13 @@ public class ServiceManagedBean {
 		return numServices;
 	}
 	
-	public void load(Service service) {
-		
+	public String load(Service service) {	
+		System.out.println("methode load");
+		String retour = "";
+		detailService = new Service();
+		this.detailService = service;
+		System.out.println("detailService" + detailService);
+		return retour = "/detailsService.xhtml?faces-redirect=true";	
 	}
 	// GETTERS SETTERS 
 	
@@ -416,6 +418,16 @@ public class ServiceManagedBean {
 
 	public void setTypesAideCat11(List<TypeAide> typesAideCat11) {
 		this.typesAideCat11 = typesAideCat11;
+	}
+
+
+	public Service getDetailService() {
+		return detailService;
+	}
+
+
+	public void setDetailService(Service detailService) {
+		this.detailService = detailService;
 	}
 
 

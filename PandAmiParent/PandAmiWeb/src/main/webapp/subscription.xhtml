@@ -11,11 +11,6 @@
 		<h2>INSCRIPTION</h2>
 		<h:form id="myForm">
 			<p:outputLabel value="Genre" />
-			<!-- 			<h:selectOneMenu> -->
-			<!-- 				<f:selectItem itemValue="Femme" itemLabel="Mme" /> -->
-			<!-- 				<f:selectItem itemValue="Homme" itemLabel="Mr" /> -->
-			<!-- 				<f:selectItem itemValue="Autre" itemLabel="Autre" /> -->
-			<!-- 			</h:selectOneMenu> -->
 			<p:selectOneMenu value="#{mbCompte.genreSelected}"
 				converter="omnifaces.SelectItemsConverter" 
 				effect="fade" var="c"  >

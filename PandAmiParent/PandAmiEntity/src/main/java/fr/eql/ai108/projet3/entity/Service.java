@@ -30,7 +30,6 @@ public class Service implements Serializable{
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer id;
-	private String nom;
 
 	private LocalDate dateCreation;
 	private LocalDate dateService;
@@ -64,13 +63,12 @@ public class Service implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Service(Integer id, String nom, LocalDate dateCreation, LocalDate dateService, LocalTime heureDbt,
-			LocalTime heureFin, LocalDate dateCloture, Float sommeAPrevoir, LocalDate dateAnnulation, String adresse,
-			TypeAide typeAide, Set<ReponseService> reponses, Set<Litige> litiges, Set<Negociation> negociations,
-			Utilisateur utilisateur, Materiel materiel) {
+	public Service(Integer id, LocalDate dateCreation, LocalDate dateService, LocalTime heureDbt, LocalTime heureFin,
+			LocalDate dateCloture, Float sommeAPrevoir, LocalDate dateAnnulation, String adresse, TypeAide typeAide,
+			Set<ReponseService> reponses, Set<Litige> litiges, Set<Negociation> negociations, Utilisateur utilisateur,
+			Materiel materiel) {
 		super();
 		this.id = id;
-		this.nom = nom;
 		this.dateCreation = dateCreation;
 		this.dateService = dateService;
 		this.heureDbt = heureDbt;
@@ -86,11 +84,22 @@ public class Service implements Serializable{
 		this.utilisateur = utilisateur;
 		this.materiel = materiel;
 	}
+	
+
+	@Override
+	public String toString() {
+		return "Service [id=" + id + ", dateCreation=" + dateCreation + ", dateService=" + dateService + ", heureDbt="
+				+ heureDbt + ", heureFin=" + heureFin + ", dateCloture=" + dateCloture + ", sommeAPrevoir="
+				+ sommeAPrevoir + ", dateAnnulation=" + dateAnnulation + ", adresse=" + adresse + ", typeAide="
+				+ typeAide + ", reponses=" + reponses + ", litiges=" + litiges + ", negociations=" + negociations
+				+ ", utilisateur=" + utilisateur + ", materiel=" + materiel + "]";
+	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((adresse == null) ? 0 : adresse.hashCode());
 		result = prime * result + ((dateAnnulation == null) ? 0 : dateAnnulation.hashCode());
 		result = prime * result + ((dateCloture == null) ? 0 : dateCloture.hashCode());
 		result = prime * result + ((dateCreation == null) ? 0 : dateCreation.hashCode());
@@ -98,8 +107,13 @@ public class Service implements Serializable{
 		result = prime * result + ((heureDbt == null) ? 0 : heureDbt.hashCode());
 		result = prime * result + ((heureFin == null) ? 0 : heureFin.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((nom == null) ? 0 : nom.hashCode());
+		result = prime * result + ((litiges == null) ? 0 : litiges.hashCode());
+		result = prime * result + ((materiel == null) ? 0 : materiel.hashCode());
+		result = prime * result + ((negociations == null) ? 0 : negociations.hashCode());
+		result = prime * result + ((reponses == null) ? 0 : reponses.hashCode());
 		result = prime * result + ((sommeAPrevoir == null) ? 0 : sommeAPrevoir.hashCode());
+		result = prime * result + ((typeAide == null) ? 0 : typeAide.hashCode());
+		result = prime * result + ((utilisateur == null) ? 0 : utilisateur.hashCode());
 		return result;
 	}
 
@@ -112,6 +126,11 @@ public class Service implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Service other = (Service) obj;
+		if (adresse == null) {
+			if (other.adresse != null)
+				return false;
+		} else if (!adresse.equals(other.adresse))
+			return false;
 		if (dateAnnulation == null) {
 			if (other.dateAnnulation != null)
 				return false;
@@ -147,24 +166,42 @@ public class Service implements Serializable{
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (nom == null) {
-			if (other.nom != null)
+		if (litiges == null) {
+			if (other.litiges != null)
 				return false;
-		} else if (!nom.equals(other.nom))
+		} else if (!litiges.equals(other.litiges))
+			return false;
+		if (materiel == null) {
+			if (other.materiel != null)
+				return false;
+		} else if (!materiel.equals(other.materiel))
+			return false;
+		if (negociations == null) {
+			if (other.negociations != null)
+				return false;
+		} else if (!negociations.equals(other.negociations))
+			return false;
+		if (reponses == null) {
+			if (other.reponses != null)
+				return false;
+		} else if (!reponses.equals(other.reponses))
 			return false;
 		if (sommeAPrevoir == null) {
 			if (other.sommeAPrevoir != null)
 				return false;
 		} else if (!sommeAPrevoir.equals(other.sommeAPrevoir))
 			return false;
+		if (typeAide == null) {
+			if (other.typeAide != null)
+				return false;
+		} else if (!typeAide.equals(other.typeAide))
+			return false;
+		if (utilisateur == null) {
+			if (other.utilisateur != null)
+				return false;
+		} else if (!utilisateur.equals(other.utilisateur))
+			return false;
 		return true;
-	}
-
-	@Override
-	public String toString() {
-		return "Service [id=" + id + ", nom=" + nom + ", dateCreation=" + dateCreation + ", dateService=" + dateService
-				+ ", heureDbt=" + heureDbt + ", heureFin=" + heureFin + ", dateCloture=" + dateCloture
-				+ ", sommeAPrevoir=" + sommeAPrevoir + ", dateAnnulation=" + dateAnnulation + "]";
 	}
 
 	public Integer getId() {
@@ -175,33 +212,13 @@ public class Service implements Serializable{
 		this.id = id;
 	}
 
-	public String getNom() {
-		return nom;
-	}
-
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-
-
-
-
 	public String getAdresse() {
 		return adresse;
 	}
 
-
-
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
 	}
-
-
-
-
-
-
-
 
 	public TypeAide getTypeAide() {
 		return typeAide;
@@ -235,46 +252,29 @@ public class Service implements Serializable{
 		this.negociations = negociations;
 	}
 
-
 	public Utilisateur getUtilisateur() {
 		return utilisateur;
 	}
-
 
 	public void setUtilisateur(Utilisateur utilisateur) {
 		this.utilisateur = utilisateur;
 	}
 
-
-
-
 	public LocalTime getHeureDbt() {
 		return heureDbt;
 	}
-
-
-
 
 	public void setHeureDbt(LocalTime heureDbt) {
 		this.heureDbt = heureDbt;
 	}
 
-
-
-
 	public LocalTime getHeureFin() {
 		return heureFin;
 	}
 
-
-
-
 	public void setHeureFin(LocalTime heureFin) {
 		this.heureFin = heureFin;
 	}
-
-
-
 
 	public Materiel getMateriel() {
 		return materiel;
@@ -285,171 +285,41 @@ public class Service implements Serializable{
 		this.materiel = materiel;
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 	public LocalDate getDateCreation() {
 		return dateCreation;
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	public void setDateCreation(LocalDate dateCreation) {
 		this.dateCreation = dateCreation;
 	}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 	public LocalDate getDateService() {
 		return dateService;
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	public void setDateService(LocalDate dateService) {
 		this.dateService = dateService;
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 	public LocalDate getDateCloture() {
 		return dateCloture;
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	public void setDateCloture(LocalDate dateCloture) {
 		this.dateCloture = dateCloture;
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	public Float getSommeAPrevoir() {
 		return sommeAPrevoir;
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 	public void setSommeAPrevoir(Float sommeAPrevoir) {
 		this.sommeAPrevoir = sommeAPrevoir;
 	}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 	public LocalDate getDateAnnulation() {
 		return dateAnnulation;
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	public void setDateAnnulation(LocalDate dateAnnulation) {
 		this.dateAnnulation = dateAnnulation;

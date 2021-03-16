@@ -9,14 +9,11 @@
 <ui:composition template="/masterPage.xhtml">
 	<ui:define name="title">Index</ui:define>
 	<ui:define name="content">
-
 		<div>
 			<h:form id="form">
 				<p:dataTable var="service" value="#{mbService.services}"
 					filteredValue="#{mbService.filteredServices}"
-					filterBy="#{mbService.filterBy}" widgetVar="servicesTable"
-					rowKey="#{service.id}" rowSelectMode="add" row="10">
-
+					filterBy="#{mbService.filterBy}" widgetVar="servicesTable">				
 					<f:facet name="header">
 						<span>Liste des services</span>
 					</f:facet>
@@ -67,7 +64,7 @@
 								<p:resetInput target=":form:manage-product-content" />
 							</p:commandButton>
 						</p:column>
-						<p:commandButton value="load(service)"></p:commandButton>
+						<p:commandButton value="Détails" action="#{mbService.load(service)}"></p:commandButton>
 					</p:column>
 				</p:dataTable>
 				<!-- POPUP DETAILS -->

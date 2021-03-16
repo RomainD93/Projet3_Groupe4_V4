@@ -113,9 +113,9 @@ INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissanc
 INSERT INTO `disponibilite` (id, dbtValiditeDispo, finValiditeDispo, heureDbtDispo, heureFinDispo, jourSemaine_id, utilisateur_id) VALUES (1, '2018-08-12', null, '14:30:00', '19:00:00', 1, 1);
 
 -- Insert Service
-INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, nom, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (1, 'rue de toto', null, null, '2018-08-12', '2021-03-12', '14:30:00', '18:30:00', null, null, 2, 1); 
-INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, nom, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (2, 'rue de tata', null, null, '2019-08-12', '2021-03-11', '15:30:00', '18:30:00', null, null, 18, 2); 
-INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, nom, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (3, 'rue de titi', null, null, '2020-08-12', '2021-03-17', '08:00:00', '11:00:00', null, null, 35, 3); 
+INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (1, 'rue de toto', null, null, '2018-08-12', '2021-03-12', '14:30:00', '18:30:00', null, 2, 1); 
+INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (2, 'rue de tata', null, null, '2019-08-12', '2021-03-11', '15:30:00', '18:30:00', null, 18, 2); 
+INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (3, 'rue de titi', null, null, '2020-08-12', '2021-03-17', '08:00:00', '11:00:00', null, 35, 3); 
 
 -- Insert Litige
 INSERT INTO `litige` (id, commentaires, dateCloture, dateCreation, service_id, typeLitige_id, utilisateur_id) VALUES (1, "Je n'ai pas été remboursé", null, '2019-12-31', 1, 2, 1);
