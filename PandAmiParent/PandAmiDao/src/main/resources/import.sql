@@ -110,6 +110,7 @@ INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissanc
 INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (3, null, '2019-01-12', '1987-02-08', 'ti.titi@ecoleql.fr', 'Titi', '0102030403', 'titi', 'ti', '17', 1, 1, '25 rue Farcot 93400 St Ouen');
 INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (4, null, '2020-01-12', '1987-02-08', 'tutu', 'Tutu', '0102030405', 'tutu', 'tu', '27', 1, 1, '25 rue Pasteur 93400 St Ouen');
 INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (5, null, '2019-01-12', '1987-02-08', 'tete', 'Tete', '0102030406', 'tete', 'te', '32', 1, 1, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (6, null, '2018-01-01', '1987-02-08', 'analyste.admin@pandami.fr', 'admin', '0102030406', 'admin', 'ad', null, 3, 2, 'Adresse IFOP');
 
 -- Insert Disponibilite
 INSERT INTO `disponibilite` (id, dbtValiditeDispo, finValiditeDispo, heureDbtDispo, heureFinDispo, jourSemaine_id, utilisateur_id) VALUES (1, '2018-08-12', null, '14:30:00', '19:00:00', 1, 1);

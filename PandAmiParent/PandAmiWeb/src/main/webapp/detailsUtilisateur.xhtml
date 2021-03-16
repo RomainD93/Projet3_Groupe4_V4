@@ -130,10 +130,16 @@
 
 			<div class="contenu_onglet" id="contenu_onglet_villes"
 				style="display: none;">
-				<h:panelGrid>
-							VILLES
-			
-			</h:panelGrid>
+				<h:dataTable var="preferencesVille"
+					value="#{mbUtilisateur.preferencesVilleUserConnected}">
+					<f:facet name="header">
+						<span>Villes d'action</span>
+					</f:facet>
+					<p:column headerText="Villes où je peux rendre service">
+						<h:outputText value="#{preferencesVille.ville.villeNom}" />
+					</p:column>
+
+				</h:dataTable>
 
 				<p:commandButton action="#{mbUtilisateur.modifierPrefsVille()}"
 					value="Modifier" styleClass="p-mr-3"></p:commandButton>

@@ -118,7 +118,8 @@ public class UtilisateurManagedBean {
 		
 		villes = proxyUtilisateurBu.displayVille();
 		
-		disposUserConnected = proxyUtilisateurBu.displayDisposUser(userConnected);
+		disposUserConnected = proxyUtilisateurBu.displayDisposUser(userConnected);		
+		preferencesVilleUserConnected = proxyUtilisateurBu.displayPrefsVilleUser(userConnected);
 		
 	}
 	

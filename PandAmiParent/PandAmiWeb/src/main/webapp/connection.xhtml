@@ -8,9 +8,11 @@
 <h:body> 
 	<h:form>
 		Email / Login <h:inputText value="#{mbCompte.utilisateur.email}" /><br/>
-		Password <h:inputText value="#{mbCompte.utilisateur.password}"></h:inputText><br/>
-		<h:commandButton action="#{mbCompte.connection()}" value="Connexion" />
+		Password <h:inputSecret value="#{mbCompte.utilisateur.password}"/><br/>
+		<h:commandButton action="#{mbCompte.connection()}" value="Connexion" styleClass="p-mr-3"/>
 		<h:outputText value="#{mbCompte.message}" />
+		<h:commandButton action="#{mbCompte.afficherSubscription()}" value="Création d'un compte" styleClass="p-mr-3" />
 	</h:form>
+	
 </h:body> 
 </html>
