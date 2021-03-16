@@ -18,6 +18,7 @@ public abstract class GenericDao<T> implements GenericIDao<T> {
 	@Override
 	public T add(T t) {
 		try {
+			t = em.merge(t);
 			em.persist(t);
 		} catch (Exception e) {
 			e.printStackTrace();

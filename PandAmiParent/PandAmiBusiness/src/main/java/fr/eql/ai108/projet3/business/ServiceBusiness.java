@@ -65,6 +65,7 @@ public class ServiceBusiness implements ServiceIBusiness {
 
 	@Override
 	public ReponseService creerReponseService(ReponseService reponseService) {
+		System.out.println(reponseService.getUtilisateur().getNom() + reponseService.getService().getId());
 		return proxyReponseServiceDao.add(reponseService);
 	}
 

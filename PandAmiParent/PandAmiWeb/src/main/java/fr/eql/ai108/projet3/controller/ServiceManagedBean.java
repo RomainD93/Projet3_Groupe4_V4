@@ -14,8 +14,9 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
-
+import javax.faces.context.FacesContext;
 
 import org.primefaces.model.FilterMeta;
 import org.primefaces.model.MatchMode;
@@ -66,13 +67,10 @@ public class ServiceManagedBean {
 	private List<TypeAide> typesAideCat10;
 	private List<TypeAide> typesAideCat11;
 	
-	
-
 	@ManagedProperty (value = "#{mbCompte.utilisateur}")
 	private Utilisateur userConnected;
 	
-	@ManagedProperty (value = "#{mbServiceSession.service}")
-	private Service serviceSelection;
+
 	
 
 	@EJB
@@ -125,12 +123,12 @@ public class ServiceManagedBean {
         filterBy.add(FilterMeta.builder()
                 .field("heureDbt")
                 .filterValue(Arrays.asList(LocalTime.now(), LocalTime.now().plusHours(2)))
-                .matchMode(MatchMode.STARTS_WITH)
+                .matchMode(MatchMode.RANGE)
                 .build());
 		
 	}
 	
-	//METHODES3
+
 	//AFFICHER TYPES AIDE SELON CATEGORIE AIDE
 	public void onCategorieChange() {
 		if(categorieSelected != null) {
@@ -171,32 +169,27 @@ public class ServiceManagedBean {
 		return retour;
 	}
 	//AFFICHER DETAILS DU SERVICE TEST
-	public String detailsRedirectionTest() {
-		String retour ="";
-		service=serviceSelection;
-		retour = "/home.xhtml?faces-redirect=true";
-		return retour;
-	}
 
 	
 	
 	
 	//ACCEPTER SERVICE
-	public String accepterService() {
-		String retour ="";
-		Date date = new Date();
+	public void accepterService() {
+
 		
 		if(service == null) {
 			message = "Désolé, votre demande n'a pas été enregistrée, veuillez réessayer";
-			retour = "/home.xhtml?faces-redirect=true";
+			 //retour = "/home.xhtml?faces-redirect=true";
 		}else {
+			reponseService.setUtilisateur(userConnected);
 			reponseService.setService(serviceSelected);
-			reponseService.setDateAcceptation(date);
+			reponseService.setDateAcceptation(LocalDate.now());
 			reponseService = proxyServiceBu.creerReponseService(reponseService);
-			retour = "/home.xhtml?faces-redirect=true";
+			reponseService = new ReponseService();
+			//retour = "/home.xhtml?faces-redirect=true";
 		}
 			
-		return retour;
+		//return retour;
 	}
 
 	
@@ -206,8 +199,9 @@ public class ServiceManagedBean {
 		return numServices;
 	}
 	
-	
-	
+	public void load(Service service) {
+		
+	}
 	// GETTERS SETTERS 
 	
 	public List<Service> getServices() {
@@ -345,6 +339,13 @@ public class ServiceManagedBean {
 		this.mapTypesAide = mapTypesAide;
 	}
 
+	public Service getServiceSelected() {
+		return serviceSelected;
+	}
+
+	public void setServiceSelected(Service serviceSelected) {
+		this.serviceSelected = serviceSelected;
+	}
 	public List<TypeAide> getTypesAideCat3() {
 		return typesAideCat3;
 	}
@@ -417,15 +418,5 @@ public class ServiceManagedBean {
 		this.typesAideCat11 = typesAideCat11;
 	}
 
-	public Service getServiceSelection() {
-		return serviceSelection;
-	}
 
-	public void setServiceSelection(Service serviceSelection) {
-		this.serviceSelection = serviceSelection;
-	}
-
-
-	
-	
 }
