@@ -71,6 +71,10 @@ public class ServiceManagedBean {
 	@ManagedProperty (value = "#{mbCompte.utilisateur}")
 	private Utilisateur userConnected;
 	
+	@ManagedProperty (value = "#{mbServiceSession.service}")
+	private Service serviceSelection;
+	
+
 	@EJB
 	private ServiceIBusiness proxyServiceBu;
 	
@@ -126,15 +130,11 @@ public class ServiceManagedBean {
 		
 	}
 	
-	// METHODES
-	
+	//METHODES3
 	//AFFICHER TYPES AIDE SELON CATEGORIE AIDE
 	public void onCategorieChange() {
-		System.out.println("Entrée Mathode Type Aide Catégorie");
 		if(categorieSelected != null) {
-			System.out.println("MAP METHODE");
 			typesAide = mapTypesAide.get(categorieSelected.getId());
-			System.out.println("MAP METHODE DONE");
 		}else {
 			typesAide = new ArrayList<TypeAide>();
 		}
@@ -170,7 +170,14 @@ public class ServiceManagedBean {
 		}
 		return retour;
 	}
-	//AFFICHER DETAILS DU SERVICE
+	//AFFICHER DETAILS DU SERVICE TEST
+	public String detailsRedirectionTest() {
+		String retour ="";
+		service=serviceSelection;
+		retour = "/home.xhtml?faces-redirect=true";
+		return retour;
+	}
+
 	
 	
 	
@@ -409,7 +416,16 @@ public class ServiceManagedBean {
 	public void setTypesAideCat11(List<TypeAide> typesAideCat11) {
 		this.typesAideCat11 = typesAideCat11;
 	}
-	
+
+	public Service getServiceSelection() {
+		return serviceSelection;
+	}
+
+	public void setServiceSelection(Service serviceSelection) {
+		this.serviceSelection = serviceSelection;
+	}
+
+
 	
 	
 }

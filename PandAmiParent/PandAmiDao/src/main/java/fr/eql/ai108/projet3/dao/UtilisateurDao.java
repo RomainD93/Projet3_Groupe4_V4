@@ -8,6 +8,8 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import fr.eql.ai108.projet3.entity.Disponibilite;
+import fr.eql.ai108.projet3.entity.JourSemaine;
 import fr.eql.ai108.projet3.entity.Utilisateur;
 import fr.eql.ai108.projet3.idao.UtilisateurIDao;
 
@@ -51,6 +53,19 @@ public class UtilisateurDao extends GenericDao<Utilisateur> implements Utilisate
 		Query query = em.createQuery("SELECT u FROM Utilisateur u");
 		List<Utilisateur> utilisateurs = query.getResultList();
 		return utilisateurs;
+	}
+
+	@Override
+	public List<JourSemaine> getJoursSemaine() {
+		Query query = em.createQuery("SELECT j FROM JourSemaine j");
+		List<JourSemaine> joursSemaine = query.getResultList();
+		return joursSemaine;
+	}
+
+	@Override
+	public List<Disponibilite> getDisponibilites() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

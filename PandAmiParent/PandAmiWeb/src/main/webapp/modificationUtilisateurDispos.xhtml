@@ -6,15 +6,43 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="/masterPage.xhtml">
-	<ui:define name="title">Index</ui:define>
+	<ui:define name="title">Disponibilites</ui:define>
 	<ui:define name="content">
 
-<h1>DISPOS</h1>
+		<h1>DISPOS</h1>
+		<div class="card">
+			<h:form id="myForm">
+				<p:messages />
+				<h:panelGrid>
 
+					<h:panelGroup>
+						<!-- JOURS DE LA SEMAINE -->
+						<p:outputLabel value="Jours : " />
+					</h:panelGroup>
+
+					<p:selectManyCheckbox id="jours"
+						value="#{mbUtilisateur.joursSemaineSelected}" layout="grid"
+						converter="omnifaces.SelectItemsConverter" columns="3"
+						styleClass="grid-checkbox">
+						<f:selectItems value="#{mbUtilisateur.joursSemaine}" var="jourSemaine"
+							itemLabel="#{jourSemaine.id}" itemValue="#{jourSemaine}" />
+					</p:selectManyCheckbox>
+					
+					
+
+				</h:panelGrid>
+
+				<p:commandButton action="#{mbUtilisateur.validerDispos()}"
+					value="Valider Dispos" ajax="false" icon="pi pi-check"
+					validateClient="true" styleClass="p-mr-3" />
+
+
+			</h:form>
+		</div>
 
 
 
 	</ui:define>
-<!-- 	<ui:define name="CSS"></ui:define> -->
+	<!-- 	<ui:define name="CSS"></ui:define> -->
 </ui:composition>
 </html>
