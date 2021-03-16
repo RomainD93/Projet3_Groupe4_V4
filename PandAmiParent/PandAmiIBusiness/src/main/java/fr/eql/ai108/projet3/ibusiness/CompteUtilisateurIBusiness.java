@@ -14,4 +14,5 @@ public interface CompteUtilisateurIBusiness {
 	Disponibilite creerDisponibilite(Disponibilite disponibilite);
 	List<Disponibilite> creerListeDisponibilites(List<Disponibilite> disponibilites);
 	void supprimerDisposUser (Utilisateur utilisateur);
+	List<Disponibilite> displayDisposUser (Utilisateur utilisateur);
 }

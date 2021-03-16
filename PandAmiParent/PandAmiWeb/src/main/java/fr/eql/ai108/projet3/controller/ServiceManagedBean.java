@@ -15,6 +15,7 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
@@ -31,7 +32,7 @@ import fr.eql.ai108.projet3.entity.Utilisateur;
 import fr.eql.ai108.projet3.ibusiness.ServiceIBusiness;
 
 @ManagedBean(name = "mbService")
-@ViewScoped
+@SessionScoped
 public class ServiceManagedBean {
 	
 	private List<Service> services = new ArrayList<Service>();

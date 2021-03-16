@@ -10,18 +10,19 @@
 	<ui:define name="content">
 
 
-<script type="text/javascript" src="resources/JS/onglet.js"></script>
+		<script type="text/javascript" src="resources/JS/onglet.js"></script>
 		<div class="onglets">
 			<span class="onglet_0 onglet" id="onglet_infos"
-				onclick="change_onglet('infos')">Mes Infos</span> 
-				<span class="onglet_0 onglet" id="onglet_dispos"
-				onclick="change_onglet('dispos')">Mes Dispos</span> 
-				<span class="onglet_0 onglet" id="onglet_prefs"
+				onclick="change_onglet('infos')">Mes Infos</span> <span
+				class="onglet_0 onglet" id="onglet_dispos"
+				onclick="change_onglet('dispos')">Mes Dispos</span> <span
+				class="onglet_0 onglet" id="onglet_prefs"
 				onclick="change_onglet('prefs')">Mes Préférences</span>
 		</div>
 
 		<div class="contenu_onglets">
-			<div class="contenu_onglet" id="contenu_onglet_infos" style="display:none;">
+			<div class="contenu_onglet" id="contenu_onglet_infos"
+				style="display: none;">
 				<h:panelGrid columns="2" cellpadding="7" styleClass="p-mb-3">
 
 					<h:panelGroup>
@@ -83,32 +84,48 @@
 				<p:commandButton action="#{mbUtilisateur.modifierInfos()}"
 					value="Modifier" styleClass="p-mr-3"></p:commandButton>
 			</div>
-			
-			<div class="contenu_onglet" id="contenu_onglet_dispos" style="display:none;">
-			<h:panelGrid>
-							DISPOS
-			
-			</h:panelGrid>
-			
+
+
+
+
+<!-- ONGLET DISPOS -->
+
+
+			<div class="contenu_onglet" id="contenu_onglet_dispos"
+				style="display: none;">
+				<h:dataTable var="disponibilites" value="#{mbUtilisateur.disposUserConnected}">
+					<f:facet name="header">
+						<span>Je suis disponible le(s)</span>
+					</f:facet>
+					<p:column headerText="Jour de la semaine">
+						<h:outputText value="#{disponibilites.jourSemaine.nomJour}" />
+					</p:column>
+
+				</h:dataTable>
 				<p:commandButton action="#{mbUtilisateur.modifierDispos()}"
 					value="Modifier" styleClass="p-mr-3"></p:commandButton>
 			</div>
-			
-			
-			<div class="contenu_onglet" id="contenu_onglet_prefs" style="display:none;">
-			<h:panelGrid>
+
+
+
+<!-- ONGLET PREFS -->
+
+
+			<div class="contenu_onglet" id="contenu_onglet_prefs"
+				style="display: none;">
+				<h:panelGrid>
 							PREFS
 			
 			</h:panelGrid>
-			
+
 				<p:commandButton action="#{mbUtilisateur.modifierPrefs()}"
 					value="Modifier" styleClass="p-mr-3"></p:commandButton>
 			</div>
-			
+
 		</div>
 
 
-<script>
+		<script>
 var anc_onglet = 'infos';
 change_onglet(anc_onglet);
 </script>

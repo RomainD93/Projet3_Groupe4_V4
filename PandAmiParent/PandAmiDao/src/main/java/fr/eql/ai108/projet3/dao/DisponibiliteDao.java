@@ -44,4 +44,12 @@ public class DisponibiliteDao extends GenericDao<Disponibilite> implements Dispo
 		}		
 	}
 
+	@Override
+	public List<Disponibilite> getDisposByUser(Utilisateur utilisateurConnected) {
+		Query query = em.createQuery("SELECT d FROM Disponibilite d WHERE d.utilisateur.id = :paramUserId");
+		query.setParameter("paramUserId", utilisateurConnected.getId());
+		List<Disponibilite> disposUserId = query.getResultList();
+		return disposUserId;
+	}
+
 }

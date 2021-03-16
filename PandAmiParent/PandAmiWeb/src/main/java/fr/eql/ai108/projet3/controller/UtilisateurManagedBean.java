@@ -14,8 +14,10 @@ import javax.faces.bean.ViewScoped;
 import fr.eql.ai108.projet3.entity.CategorieAide;
 import fr.eql.ai108.projet3.entity.Disponibilite;
 import fr.eql.ai108.projet3.entity.JourSemaine;
+import fr.eql.ai108.projet3.entity.PreferenceVille;
 import fr.eql.ai108.projet3.entity.TypeAide;
 import fr.eql.ai108.projet3.entity.Utilisateur;
+import fr.eql.ai108.projet3.entity.Ville;
 import fr.eql.ai108.projet3.ibusiness.CompteUtilisateurIBusiness;
 import fr.eql.ai108.projet3.ibusiness.ServiceIBusiness;
 
@@ -25,15 +27,24 @@ public class UtilisateurManagedBean {
 	
 	
 	
-	
+	//Dispos
 	private List<JourSemaine> joursSemaine;
 	private JourSemaine jourSemaineSelected;
 	private List<JourSemaine> joursSemaineSelected;
-	
 	private Disponibilite disponibilite = new Disponibilite();
 	private Disponibilite disponibiliteSelected;
 	private List<Disponibilite> disponibilites = new ArrayList<Disponibilite>();
 	private List<Disponibilite> disponibilitesSelected;
+	private List<Disponibilite> disposUserConnected;
+	
+	
+	//Prefs ville
+	private List<Ville> villes;
+	private Ville villeSelected;
+	private List<Ville> villesSelected;
+	
+	
+	
 	
 	
 	//Categorie __ Type Aide
@@ -99,6 +110,8 @@ public class UtilisateurManagedBean {
 		
 		joursSemaine = proxyUtilisateurBu.displayJourSemaine();
 		
+		disposUserConnected = proxyUtilisateurBu.displayDisposUser(userConnected);
+		
 	}
 	
 	
@@ -140,12 +153,18 @@ public class UtilisateurManagedBean {
 				disponibilite = new Disponibilite();
 			}
 			
-			retour = "/home.xhtml?faces-redirect=true";	
+			retour = "/detailsUtilisateur.xhtml?faces-redirect=true";	
 		}
 		return retour;
 	}
 	
-	
+	public String validerPrefsVille() {
+		String retour ="";
+		
+		
+		
+		return retour;
+	}
 	
 	
 	
@@ -359,6 +378,14 @@ public class UtilisateurManagedBean {
 
 	public void setDisponibilitesSelected(List<Disponibilite> disponibilitesSelected) {
 		this.disponibilitesSelected = disponibilitesSelected;
+	}
+
+	public List<Disponibilite> getDisposUserConnected() {
+		return disposUserConnected;
+	}
+
+	public void setDisposUserConnected(List<Disponibilite> disposUserConnected) {
+		this.disposUserConnected = disposUserConnected;
 	}
 
 	

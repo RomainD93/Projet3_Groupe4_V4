@@ -10,18 +10,22 @@
 	<ui:define name="title">Index</ui:define>
 	<ui:define name="content">
 		<div>
+		<h:form>
 			<p:dataTable var="service" value="#{mbService.services}"
 				widgetVar="servicesTable">
-				<h:form>
+				
 					<p:column headerText="Nom">
 						<h:outputText style="vertical-align: middle; margin-left: .5rem"
 							value="#{service.utilisateur.nom}" />
 					</p:column>
+					<p:column>
 					<p:commandButton value="Détails"
 						action="#{mbService.load(service)}"></p:commandButton>
 					</p:column>
-				</h:form>
+				
 			</p:dataTable>
+			</h:form>
+			
 		</div>
 	</ui:define>
 </ui:composition>

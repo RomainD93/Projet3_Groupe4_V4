@@ -65,6 +65,12 @@ public class CompteUtilisateurBusiness implements CompteUtilisateurIBusiness {
 		proxyDisponibilite.deleteDisposByUser(utilisateur);
 		
 	}
+
+	@Override
+	public List<Disponibilite> displayDisposUser(Utilisateur utilisateur) {
+		
+		return proxyDisponibilite.getDisposByUser(utilisateur);
+	}
 	
 	
 
