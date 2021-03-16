@@ -9,31 +9,31 @@
 	<ui:define name="title">Disponibilites</ui:define>
 	<ui:define name="content">
 
-		<h1>DISPOS</h1>
+
+		<h1>VILLES</h1>
 		<div class="card">
 			<h:form id="myForm">
 				<p:messages />
 				<h:panelGrid>
-
 					<h:panelGroup>
-						<!-- JOURS DE LA SEMAINE -->
-						<p:outputLabel value="Jours : " />
+						<!-- VILLES -->
+						<p:outputLabel value="Villes : " />
 					</h:panelGroup>
 
-					<p:selectManyCheckbox id="jours"
-						value="#{mbUtilisateur.joursSemaineSelected}" layout="grid"
+					<p:selectManyCheckbox id="villes"
+						value="#{mbUtilisateur.villesSelected}" layout="grid"
 						converter="omnifaces.SelectItemsConverter" columns="3"
 						styleClass="grid-checkbox">
-						<f:selectItems value="#{mbUtilisateur.joursSemaine}"
-							var="jourSemaine" itemLabel="#{jourSemaine.nomJour}"
-							itemValue="#{jourSemaine}" />
+						<f:selectItems value="#{mbUtilisateur.villes}" var="ville"
+							itemLabel="#{ville.villeNom}" itemValue="#{ville}" />
+
 					</p:selectManyCheckbox>
 				</h:panelGrid>
-
-				<p:commandButton action="#{mbUtilisateur.validerDispos()}"
-					value="Valider Dispos" ajax="false" icon="pi pi-check"
+				<p:commandButton action="#{mbUtilisateur.validerPrefsVille()}"
+					value="Valider Villes" ajax="false" icon="pi pi-check"
 					validateClient="true" styleClass="p-mr-3" />
 			</h:form>
+
 		</div>
 
 

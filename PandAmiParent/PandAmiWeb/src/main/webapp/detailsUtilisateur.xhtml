@@ -18,6 +18,8 @@
 				onclick="change_onglet('dispos')">Mes Dispos</span> <span
 				class="onglet_0 onglet" id="onglet_prefs"
 				onclick="change_onglet('prefs')">Mes Préférences</span>
+				<span class="onglet_0 onglet" id="onglet_villes"
+				onclick="change_onglet('villes')">Mes Préférences Ville</span>
 		</div>
 
 		<div class="contenu_onglets">
@@ -88,12 +90,13 @@
 
 
 
-<!-- ONGLET DISPOS -->
+			<!-- ONGLET DISPOS -->
 
 
 			<div class="contenu_onglet" id="contenu_onglet_dispos"
 				style="display: none;">
-				<h:dataTable var="disponibilites" value="#{mbUtilisateur.disposUserConnected}">
+				<h:dataTable var="disponibilites"
+					value="#{mbUtilisateur.disposUserConnected}">
 					<f:facet name="header">
 						<span>Je suis disponible le(s)</span>
 					</f:facet>
@@ -108,7 +111,7 @@
 
 
 
-<!-- ONGLET PREFS -->
+			<!-- ONGLET PREFS -->
 
 
 			<div class="contenu_onglet" id="contenu_onglet_prefs"
@@ -119,6 +122,20 @@
 			</h:panelGrid>
 
 				<p:commandButton action="#{mbUtilisateur.modifierPrefs()}"
+					value="Modifier" styleClass="p-mr-3"></p:commandButton>
+			</div>
+			
+				<!-- ONGLET VILLES -->
+
+
+			<div class="contenu_onglet" id="contenu_onglet_villes"
+				style="display: none;">
+				<h:panelGrid>
+							VILLES
+			
+			</h:panelGrid>
+
+				<p:commandButton action="#{mbUtilisateur.modifierPrefsVille()}"
 					value="Modifier" styleClass="p-mr-3"></p:commandButton>
 			</div>
 

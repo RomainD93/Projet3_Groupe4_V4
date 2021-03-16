@@ -42,6 +42,12 @@ public class UtilisateurManagedBean {
 	private List<Ville> villes;
 	private Ville villeSelected;
 	private List<Ville> villesSelected;
+	private PreferenceVille preferenceVille = new PreferenceVille();
+	private PreferenceVille preferenceVilleSelected;
+	private List<PreferenceVille> preferencesVille = new ArrayList<PreferenceVille>();
+	private List<PreferenceVille> preferencesVilleSelected;
+	private List<PreferenceVille> preferencesVilleUserConnected;
+	
 	
 	
 	
@@ -110,6 +116,8 @@ public class UtilisateurManagedBean {
 		
 		joursSemaine = proxyUtilisateurBu.displayJourSemaine();
 		
+		villes = proxyUtilisateurBu.displayVille();
+		
 		disposUserConnected = proxyUtilisateurBu.displayDisposUser(userConnected);
 		
 	}
@@ -136,17 +144,20 @@ public class UtilisateurManagedBean {
 		return retour;
 	}
 	
-	public String validerDispos() {
-
+	public String modifierPrefsVille() {
 		String retour ="";
-		
+		retour = "/modificationUtilisateurPrefsVille.xhtml?faces-redirect=true";
+		return retour;
+	}
+	
+	
+	public String validerDispos() {
+		String retour ="";		
 		if(joursSemaineSelected == null) {
 			retour = "/home.xhtml?faces-redirect=true";	
-		}else{
-			
+		}else{			
 			proxyUtilisateurBu.supprimerDisposUser(userConnected);
 			for (JourSemaine jourSemaine : joursSemaineSelected) {
-				System.out.println(jourSemaine.getNomJour());
 				disponibilite.setJourSemaine(jourSemaine);
 				disponibilite.setUtilisateur(userConnected);
 				disponibilite = proxyUtilisateurBu.creerDisponibilite(disponibilite);
@@ -159,8 +170,22 @@ public class UtilisateurManagedBean {
 	}
 	
 	public String validerPrefsVille() {
+		System.out.println("Entrée Méthode");
 		String retour ="";
-		
+		if(villesSelected == null) {
+			retour = "/home.xhtml?faces-redirect=true";	
+		}else {
+			System.out.println("ENTREE ELSE ON EST Là");
+			proxyUtilisateurBu.supprimerPrefsVilleUser(userConnected);
+			for (Ville ville : villesSelected) {
+				System.out.println(ville);
+				preferenceVille.setVille(ville);
+				preferenceVille.setUtilisateur(userConnected);
+				preferenceVille = proxyUtilisateurBu.creerPrefVille(preferenceVille);
+				preferenceVille = new PreferenceVille();
+			}
+			retour = "/detailsUtilisateur.xhtml?faces-redirect=true";	
+		}
 		
 		
 		return retour;
@@ -386,6 +411,118 @@ public class UtilisateurManagedBean {
 
 	public void setDisposUserConnected(List<Disponibilite> disposUserConnected) {
 		this.disposUserConnected = disposUserConnected;
+	}
+
+
+
+
+	public List<Ville> getVilles() {
+		return villes;
+	}
+
+
+
+
+	public void setVilles(List<Ville> villes) {
+		this.villes = villes;
+	}
+
+
+
+
+	public Ville getVilleSelected() {
+		return villeSelected;
+	}
+
+
+
+
+	public void setVilleSelected(Ville villeSelected) {
+		this.villeSelected = villeSelected;
+	}
+
+
+
+
+	public List<Ville> getVillesSelected() {
+		return villesSelected;
+	}
+
+
+
+
+	public void setVillesSelected(List<Ville> villesSelected) {
+		this.villesSelected = villesSelected;
+	}
+
+
+
+
+	public PreferenceVille getPreferenceVille() {
+		return preferenceVille;
+	}
+
+
+
+
+	public void setPreferenceVille(PreferenceVille preferenceVille) {
+		this.preferenceVille = preferenceVille;
+	}
+
+
+
+
+	public PreferenceVille getPreferenceVilleSelected() {
+		return preferenceVilleSelected;
+	}
+
+
+
+
+	public void setPreferenceVilleSelected(PreferenceVille preferenceVilleSelected) {
+		this.preferenceVilleSelected = preferenceVilleSelected;
+	}
+
+
+
+
+	public List<PreferenceVille> getPreferencesVille() {
+		return preferencesVille;
+	}
+
+
+
+
+	public void setPreferencesVille(List<PreferenceVille> preferencesVille) {
+		this.preferencesVille = preferencesVille;
+	}
+
+
+
+
+	public List<PreferenceVille> getPreferencesVilleSelected() {
+		return preferencesVilleSelected;
+	}
+
+
+
+
+	public void setPreferencesVilleSelected(List<PreferenceVille> preferencesVilleSelected) {
+		this.preferencesVilleSelected = preferencesVilleSelected;
+	}
+
+
+
+
+	public List<PreferenceVille> getPreferencesVilleUserConnected() {
+		return preferencesVilleUserConnected;
+	}
+
+
+
+
+	public void setPreferencesVilleUserConnected(List<PreferenceVille> preferencesVilleUserConnected) {
+		this.preferencesVilleUserConnected = preferencesVilleUserConnected;
 	}
 
 	

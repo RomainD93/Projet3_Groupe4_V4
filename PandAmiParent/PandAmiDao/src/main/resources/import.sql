@@ -92,6 +92,8 @@ INSERT INTO `type_utilisateur` (id, autorisation) VALUES (2, 'admin analyste');
 INSERT INTO `type_utilisateur` (id, autorisation) VALUES (3, 'admin modérateur');
 INSERT INTO `type_utilisateur` (id, autorisation) VALUES (4, 'super admin');
 
+
+
 -- Insert Adresse
 -- INSERT INTO `adresse` (id, codePostale, nomVoie, numeroVoie, ville) VALUES (1, '93400', 'rue Emile Zola', '10', 'St-Ouen');
 -- INSERT INTO `adresse` (id, codePostale, nomVoie, numeroVoie, ville) VALUES (2, '93400', 'rue Alexandre Dumas', '22', 'St-Ouen');
@@ -153,3 +155,7 @@ INSERT INTO `ville` (id, codePostal, villeNom) VALUES (20, '75020', 'Paris XX');
 INSERT INTO `ville` (id, codePostal, villeNom) VALUES (21, '93400', 'St-Ouen-Sur-Seine');
 INSERT INTO `ville` (id, codePostal, villeNom) VALUES (22, '95380', 'Louvres');
 INSERT INTO `ville` (id, codePostal, villeNom) VALUES (23, '93600', 'Aulnay-sous-Bois');
+
+
+-- Insert Preference Ville
+INSERT INTO `preference_ville` (id, utilisateur_id, ville_id) VALUES (1, 1, 1);

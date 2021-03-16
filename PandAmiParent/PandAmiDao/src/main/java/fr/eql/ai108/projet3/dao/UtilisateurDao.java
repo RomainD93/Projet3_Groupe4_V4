@@ -10,7 +10,9 @@ import javax.persistence.Query;
 
 import fr.eql.ai108.projet3.entity.Disponibilite;
 import fr.eql.ai108.projet3.entity.JourSemaine;
+import fr.eql.ai108.projet3.entity.PreferenceVille;
 import fr.eql.ai108.projet3.entity.Utilisateur;
+import fr.eql.ai108.projet3.entity.Ville;
 import fr.eql.ai108.projet3.idao.UtilisateurIDao;
 
 @Remote(UtilisateurIDao.class)
@@ -64,6 +66,19 @@ public class UtilisateurDao extends GenericDao<Utilisateur> implements Utilisate
 
 	@Override
 	public List<Disponibilite> getDisponibilites() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Ville> getVilles() {
+		Query query = em.createQuery("SELECT v FROM Ville v");
+		List<Ville> villes = query.getResultList();
+		return villes;
+	}
+
+	@Override
+	public List<PreferenceVille> getPrefsVille() {
 		// TODO Auto-generated method stub
 		return null;
 	}
