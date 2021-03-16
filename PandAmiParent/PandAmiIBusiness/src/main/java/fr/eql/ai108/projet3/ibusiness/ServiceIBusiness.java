@@ -21,4 +21,13 @@ public interface ServiceIBusiness {
 	List<CategorieAide> displayCategorieAide();
 	List<TypeAide> displayTypesAideCat1();
 	List<TypeAide> displayTypesAideCat2();
+	List<TypeAide> displayTypesAideCat3();
+	List<TypeAide> displayTypesAideCat4();
+	List<TypeAide> displayTypesAideCat5();
+	List<TypeAide> displayTypesAideCat6();
+	List<TypeAide> displayTypesAideCat7();
+	List<TypeAide> displayTypesAideCat8();
+	List<TypeAide> displayTypesAideCat9();
+	List<TypeAide> displayTypesAideCat10();
+	List<TypeAide> displayTypesAideCat11();
 }

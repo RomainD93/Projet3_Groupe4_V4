@@ -37,9 +37,7 @@ public class ServiceManagedBean {
 	private List<Service> services = new ArrayList<Service>();
 	private List<TypeAide> typesAide = new ArrayList<TypeAide>();
 	private List<Materiel> materiels;
-	private List<CategorieAide> categoriesAide;
-	private List<TypeAide> typesAideCat1;
-	private List<TypeAide> typesAideCat2;
+
 	private CategorieAide categorieSelected;
 	private Long numServices;
 	private Service service = new Service();
@@ -54,6 +52,20 @@ public class ServiceManagedBean {
 	//Filtrage de la liste
 	private List<FilterMeta> filterBy;
 	private List<Service> filteredServices;
+	
+	//Categorie __ Type Aide
+	private List<CategorieAide> categoriesAide;
+	private List<TypeAide> typesAideCat1;
+	private List<TypeAide> typesAideCat2;
+	private List<TypeAide> typesAideCat3;
+	private List<TypeAide> typesAideCat4;
+	private List<TypeAide> typesAideCat5;
+	private List<TypeAide> typesAideCat6;
+	private List<TypeAide> typesAideCat7;
+	private List<TypeAide> typesAideCat8;
+	private List<TypeAide> typesAideCat9;
+	private List<TypeAide> typesAideCat10;
+	private List<TypeAide> typesAideCat11;
 	
 	@ManagedProperty (value = "#{mbCompte.utilisateur}")
 	private Utilisateur userConnected;
@@ -70,11 +82,32 @@ public class ServiceManagedBean {
 		services = proxyServiceBu.displayService();
 //		typesAide = proxyServiceBu.displayTypeAide();	
 		materiels = proxyServiceBu.displayMateriel();
+		
+		
 		categoriesAide = proxyServiceBu.displayCategorieAide();
 		typesAideCat1 = proxyServiceBu.displayTypesAideCat1();
 		typesAideCat2 = proxyServiceBu.displayTypesAideCat2();
+		typesAideCat3 = proxyServiceBu.displayTypesAideCat3();
+		typesAideCat4 = proxyServiceBu.displayTypesAideCat4();
+		typesAideCat5 = proxyServiceBu.displayTypesAideCat5();
+		typesAideCat6 = proxyServiceBu.displayTypesAideCat6();
+		typesAideCat7 = proxyServiceBu.displayTypesAideCat7();
+		typesAideCat8 = proxyServiceBu.displayTypesAideCat8();
+		typesAideCat9 = proxyServiceBu.displayTypesAideCat9();
+		typesAideCat10 = proxyServiceBu.displayTypesAideCat10();
+		typesAideCat11 = proxyServiceBu.displayTypesAideCat11();
+
 		mapTypesAide.put(1, typesAideCat1);
 		mapTypesAide.put(2, typesAideCat2);
+		mapTypesAide.put(3, typesAideCat3);
+		mapTypesAide.put(4, typesAideCat4);
+		mapTypesAide.put(5, typesAideCat5);
+		mapTypesAide.put(6, typesAideCat6);
+		mapTypesAide.put(7, typesAideCat7);
+		mapTypesAide.put(8, typesAideCat8);
+		mapTypesAide.put(9, typesAideCat9);
+		mapTypesAide.put(10, typesAideCat10);
+		mapTypesAide.put(11, typesAideCat11);
 		
 		filterBy = new ArrayList<>();
 
@@ -127,9 +160,9 @@ public class ServiceManagedBean {
 			message = "Désolé, votre demande n'a pas été enregistrée, veuillez réessayer";
 			retour = "/creationService.xhtml?faces-redirect=true";
 		}else{
-//			if(service.getAdresse() == null) {
-//				service.setAdresse(userConnected.getAdresse());
-//			}
+			if(service.getAdresse().length() == 0) {
+				service.setAdresse(userConnected.getAdresse());
+			}
 			service.setDateCreation(LocalDate.now());
 			service.setUtilisateur(userConnected);
 			service.setTypeAide(typeAideSelected);
@@ -317,4 +350,76 @@ public class ServiceManagedBean {
 	public void setServiceSelected(Service serviceSelected) {
 		this.serviceSelected = serviceSelected;
 	}
+	public List<TypeAide> getTypesAideCat3() {
+		return typesAideCat3;
+	}
+
+	public void setTypesAideCat3(List<TypeAide> typesAideCat3) {
+		this.typesAideCat3 = typesAideCat3;
+	}
+
+	public List<TypeAide> getTypesAideCat4() {
+		return typesAideCat4;
+	}
+
+	public void setTypesAideCat4(List<TypeAide> typesAideCat4) {
+		this.typesAideCat4 = typesAideCat4;
+	}
+
+	public List<TypeAide> getTypesAideCat5() {
+		return typesAideCat5;
+	}
+
+	public void setTypesAideCat5(List<TypeAide> typesAideCat5) {
+		this.typesAideCat5 = typesAideCat5;
+	}
+
+	public List<TypeAide> getTypesAideCat6() {
+		return typesAideCat6;
+	}
+
+	public void setTypesAideCat6(List<TypeAide> typesAideCat6) {
+		this.typesAideCat6 = typesAideCat6;
+	}
+
+	public List<TypeAide> getTypesAideCat7() {
+		return typesAideCat7;
+	}
+
+	public void setTypesAideCat7(List<TypeAide> typesAideCat7) {
+		this.typesAideCat7 = typesAideCat7;
+	}
+
+	public List<TypeAide> getTypesAideCat8() {
+		return typesAideCat8;
+	}
+
+	public void setTypesAideCat8(List<TypeAide> typesAideCat8) {
+		this.typesAideCat8 = typesAideCat8;
+	}
+
+	public List<TypeAide> getTypesAideCat9() {
+		return typesAideCat9;
+	}
+
+	public void setTypesAideCat9(List<TypeAide> typesAideCat9) {
+		this.typesAideCat9 = typesAideCat9;
+	}
+
+	public List<TypeAide> getTypesAideCat10() {
+		return typesAideCat10;
+	}
+
+	public void setTypesAideCat10(List<TypeAide> typesAideCat10) {
+		this.typesAideCat10 = typesAideCat10;
+	}
+
+	public List<TypeAide> getTypesAideCat11() {
+		return typesAideCat11;
+	}
+
+	public void setTypesAideCat11(List<TypeAide> typesAideCat11) {
+		this.typesAideCat11 = typesAideCat11;
+	}
+
 }

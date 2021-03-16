@@ -81,55 +81,64 @@ public class ServiceDao extends GenericDao<Service> implements ServiceIDao{
 
 	@Override
 	public List<TypeAide> getTypesAideCat3() {
-		// TODO Auto-generated method stub
-		return null;
+		Query query = em.createQuery("SELECT t FROM TypeAide t WHERE t.categorieAide.id = 3");
+		List<TypeAide> typesAideCat3 = query.getResultList();
+		return typesAideCat3;
 	}
 
 	@Override
 	public List<TypeAide> getTypesAideCat4() {
-		// TODO Auto-generated method stub
-		return null;
+		Query query = em.createQuery("SELECT t FROM TypeAide t WHERE t.categorieAide.id = 4");
+		List<TypeAide> typesAideCat4 = query.getResultList();
+		return typesAideCat4;
 	}
 
 	@Override
 	public List<TypeAide> getTypesAideCat5() {
-		// TODO Auto-generated method stub
-		return null;
+		Query query = em.createQuery("SELECT t FROM TypeAide t WHERE t.categorieAide.id = 5");
+		List<TypeAide> typesAideCat5 = query.getResultList();
+		return typesAideCat5;
 	}
 
 	@Override
 	public List<TypeAide> getTypesAideCat6() {
-		// TODO Auto-generated method stub
-		return null;
+		Query query = em.createQuery("SELECT t FROM TypeAide t WHERE t.categorieAide.id = 6");
+		List<TypeAide> typesAideCat6 = query.getResultList();
+		return typesAideCat6;
 	}
 
 	@Override
 	public List<TypeAide> getTypesAideCat7() {
-		// TODO Auto-generated method stub
-		return null;
+		Query query = em.createQuery("SELECT t FROM TypeAide t WHERE t.categorieAide.id = 7");
+		List<TypeAide> typesAideCat7 = query.getResultList();
+		return typesAideCat7;
 	}
 
 	@Override
 	public List<TypeAide> getTypesAideCat8() {
-		// TODO Auto-generated method stub
-		return null;
+		Query query = em.createQuery("SELECT t FROM TypeAide t WHERE t.categorieAide.id = 8");
+		List<TypeAide> typesAideCat8 = query.getResultList();
+		return typesAideCat8;
 	}
 
 	@Override
 	public List<TypeAide> getTypesAideCat9() {
-		// TODO Auto-generated method stub
-		return null;
+		Query query = em.createQuery("SELECT t FROM TypeAide t WHERE t.categorieAide.id = 9");
+		List<TypeAide> typesAideCat9 = query.getResultList();
+		return typesAideCat9;
 	}
 
 	@Override
 	public List<TypeAide> getTypesAideCat10() {
-		// TODO Auto-generated method stub
-		return null;
+		Query query = em.createQuery("SELECT t FROM TypeAide t WHERE t.categorieAide.id = 10");
+		List<TypeAide> typesAideCat10 = query.getResultList();
+		return typesAideCat10;
 	}
 
 	@Override
 	public List<TypeAide> getTypesAideCat11() {
-		// TODO Auto-generated method stub
-		return null;
+		Query query = em.createQuery("SELECT t FROM TypeAide t WHERE t.categorieAide.id = 11");
+		List<TypeAide> typesAideCat11 = query.getResultList();
+		return typesAideCat11;
 	}	
 }
