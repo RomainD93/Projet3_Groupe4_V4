@@ -5,25 +5,120 @@
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:p="http://primefaces.org/ui">
 
+
 <ui:composition template="/masterPage.xhtml">
-	<ui:define name="title">Home</ui:define>
+	<ui:define name="title">Index</ui:define>
 	<ui:define name="content">
-	<ui:repeat var="service" value="#{mbService.services}">
-		<h5>#{service.typeAide.nomTypeAide} // #{service.id} // #{service.adresse} //
-		#{service.dateService} // 
-		Heure dbt : #{service.heureDbt} //
-		Heure fin : #{service.heureFin} //
-		Somme : #{service.sommeAPrevoir} € // 
-		User : #{service.utilisateur.id}</h5>
-		<a href="/serviceSelected.xhtml"></a>
-		
-	</ui:repeat>
+		<div>
+			<h:form id="form">
+				<p:dataTable var="service" value="#{mbService.services}"
+					filteredValue="#{mbService.filteredServices}"
+					filterBy="#{mbService.filterBy}" widgetVar="servicesTable"
+					rowKey="#{service.id}" rowSelectMode="add" row="10">
 
-	<p:commandButton value="Page Test Listes" action="#{mbService.afficherServicesSsVolontaire()}"/>
+					<f:facet name="header">
+						<span>Liste des services</span>
+					</f:facet>
+					<p:column headerText="Nom" sortBy="#{service.utilisateur.nom}"
+						filterBy="#{service.utilisateur.nom}">
 
+						<h:outputText style="vertical-align: middle; margin-left: .5rem"
+							value="#{service.utilisateur.nom}" />
+					</p:column>
+					<p:column headerText="Service"
+						sortBy="#{service.typeAide.nomTypeAide}"
+						filterBy="#{service.typeAide.nomTypeAide}">
+						<h:outputText value="#{service.typeAide.nomTypeAide}" />
+					</p:column>
 
+					<p:column headerText="Lieu" sortBy="#{service.adresse}"
+						filterBy="#{service.adresse}">
 
+						<h:outputText style="vertical-align: middle; margin-left: .5rem"
+							value="#{service.adresse}" />
+					</p:column>
+					<p:column field="dateService" headerText="DateService"
+						filterMatchMode="range">
+
+						<f:facet name="filter">
+							<p:datePicker selectionMode="range"
+								onchange="PF('servicesTable').filter()" />
+						</f:facet>
+					</p:column>
+					<p:column field="heureDbt" headerText="HeureDebut"
+						filterMatchMode="range">
+
+						<f:facet name="filter">
+							<p:datePicker selectionMode="range"
+								onchange="PF('servicesTable').filter()" timeOnly="true" />
+						</f:facet>
+					</p:column>
+					<p:column>
+						<p:column exportable="false">
+							<p:commandButton value="Accepter"
+								update=":form:manage-product-content"
+								oncomplete="PF('manageProductDialog').show()"
+								styleClass="edit-button rounded-button ui-button-success"
+								process="@this">
+								<f:setPropertyActionListener value="#{service}"
+									target="#{mbService.serviceSelected}" />
+								<p:resetInput target=":form:manage-product-content" />
+							</p:commandButton>
+						</p:column>
+						<p:commandButton value="load(service)"></p:commandButton>
+					</p:column>
+				</p:dataTable>
+				<!-- POPUP DETAILS -->
+				<p:dialog header="Service Details" showEffect="fade" modal="true"
+					widgetVar="manageProductDialog" responsive="true">
+					<p:outputPanel id="manage-product-content" class="ui-fluid">
+						<p:outputPanel rendered="#{not empty mbService.serviceSelected}">
+							<div class="p-field">
+								<p:outputLabel value="Nom" />
+								<p:outputLabel
+									value="#{mbService.serviceSelected.utilisateur.nom}" />
+							</div>
+							<div class="p-field">
+								<p:outputLabel value="Type de service" />
+								<p:outputLabel
+									value="#{mbService.serviceSelected.typeAide.nomTypeAide}" />
+							</div>
+
+							<div class="p-field p-col">
+								<p:outputLabel value="Date du service" />
+								<p:outputLabel value="#{mbService.serviceSelected.dateService}" />
+							</div>
+							<div class="p-field p-col">
+								<p:outputLabel value="Heure de début" />
+								<p:outputLabel value="#{mbService.serviceSelected.heureDbt}" />
+							</div>
+							<div class="p-field p-col">
+								<p:outputLabel value="Heure de fin" />
+								<p:outputLabel value="#{mbService.serviceSelected.heureFin}" />
+							</div>
+							<div class="p-field p-col">
+								<p:outputLabel value="Adresse" />
+								<p:outputLabel value="#{mbService.serviceSelected.adresse}" />
+							</div>
+							<div class="p-field p-col">
+								<p:outputLabel value="Heure de début" />
+								<p:outputLabel value="#{mbService.serviceSelected.heureDbt}" />
+							</div>
+							<div class="p-field p-col">
+								<p:outputLabel value="Somme à prévoir" />
+								<p:outputLabel
+									value="#{mbService.serviceSelected.sommeAPrevoir}" />
+							</div>
+						</p:outputPanel>
+					</p:outputPanel>
+					<f:facet name="footer">
+						<p:commandButton value="Accepter le service" icon="pi pi-check"
+							actionListener="#{mbService.accepterService()}"
+							onsuccess="PF('manageProductDialog').hide()" />
+					</f:facet>
+				</p:dialog>
+			</h:form>
+		</div>
 	</ui:define>
-<!-- 	<ui:define name="CSS"></ui:define> -->
 </ui:composition>
 </html>

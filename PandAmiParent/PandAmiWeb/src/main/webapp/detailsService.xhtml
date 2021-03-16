@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/masterPage.xhtml">
+	<ui:define name="title">Details</ui:define>
+	<ui:define name="content">
+		<h:panelGrid columns="2" cellpadding="7" styleClass="p-mb-3">
+			<h:panelGroup>
+				<p:outputLabel value="Nom du demandeur" />
+				<p:commandButton value="Test" action="#{mbService.test(service)}"></p:commandButton>
+				<p:outputLabel value="#{getParameterByName(serviceId)}"></p:outputLabel>
+			</h:panelGroup>
+
+			<h:panelGroup>
+				<p:commandButton type="button" value="Modifier le service" />
+				<p:commandButton type="button" value="Se désister du service" />
+				<p:commandButton type="button" value="Annuler le service" />
+				<p:commandButton type="button" value="Litige" />
+			</h:panelGroup>
+		</h:panelGrid>
+	</ui:define>
+</ui:composition>
+</html>

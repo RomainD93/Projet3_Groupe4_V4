@@ -1,8 +1,10 @@
 package fr.eql.ai108.projet3.entity;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -22,8 +24,8 @@ public class ReponseService implements Serializable{
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer id;
-	private Date dateAcceptation;
-	private Date dateDesistement;
+	private LocalDate dateAcceptation;
+	private LocalDate dateDesistement;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(referencedColumnName = "id")
@@ -38,7 +40,9 @@ public class ReponseService implements Serializable{
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public ReponseService(Integer id, Date dateAcceptation, Date dateDesistement, Utilisateur utilisateur,
+	
+	
+	public ReponseService(Integer id, LocalDate dateAcceptation, LocalDate dateDesistement, Utilisateur utilisateur,
 			Service service) {
 		super();
 		this.id = id;
@@ -47,6 +51,8 @@ public class ReponseService implements Serializable{
 		this.utilisateur = utilisateur;
 		this.service = service;
 	}
+
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -93,18 +99,23 @@ public class ReponseService implements Serializable{
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Date getDateAcceptation() {
+	
+	public LocalDate getDateAcceptation() {
 		return dateAcceptation;
 	}
-	public void setDateAcceptation(Date dateAcceptation) {
+
+	public void setDateAcceptation(LocalDate dateAcceptation) {
 		this.dateAcceptation = dateAcceptation;
 	}
-	public Date getDateDesistement() {
+
+	public LocalDate getDateDesistement() {
 		return dateDesistement;
 	}
-	public void setDateDesistement(Date dateDesistement) {
+
+	public void setDateDesistement(LocalDate dateDesistement) {
 		this.dateDesistement = dateDesistement;
 	}
+
 	public Utilisateur getUtilisateur() {
 		return utilisateur;
 	}
