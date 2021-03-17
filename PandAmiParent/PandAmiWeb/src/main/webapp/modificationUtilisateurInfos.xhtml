@@ -18,9 +18,10 @@
 						<!-- 			GENRE -->
 						<h:outputLabel value="Genre : " />
 					</h:panelGroup>
-		 			<p:selectOneMenu value="#{mbCompte.genreSelected}"
+					<p:selectOneMenu value="#{mbCompte.genreSelected}"
 						converter="omnifaces.SelectItemsConverter" effect="fade" var="c">
-						<f:selectItem itemValue="" itemLabel="Genres"
+						<f:selectItem itemValue=""
+							itemLabel="#{mbCompte.utilisateur.genre.genre}"
 							noSelectionOption="true" />
 						<!-- TODO virer var genre et mettre itemvalue=#{genreSelected} -->
 						<f:selectItems value="#{mbCompte.genres}" var="genre"
@@ -72,13 +73,13 @@
 						<h:outputLabel value="Adresse : " />
 					</h:panelGroup>
 					<h:panelGroup>
-					<script type="text/javascript" src="resources/JS/adresse.js"></script>
-					<div class="autocomplete" style="width: 300px;">
-						<p:inputText id="adresse" type="text"
-							value="#{mbCompte.utilisateur.adresse}"
-							onkeypress="getValuePostSuggest()"
-							placeholder="#{mbCompte.utilisateur.adresse}" />
-					</div>
+						<script type="text/javascript" src="resources/JS/adresse.js"></script>
+						<div class="autocomplete" style="width: 300px;">
+							<p:inputText id="adresse" type="text"
+								value="#{mbCompte.utilisateur.adresse}"
+								onkeypress="getValuePostSuggest()"
+								placeholder="#{mbCompte.utilisateur.adresse}" />
+						</div>
 					</h:panelGroup>
 
 					<h:panelGroup>
@@ -86,6 +87,8 @@
 						<h:outputLabel value="Tél  : " />
 					</h:panelGroup>
 					<p:inputText value="#{mbCompte.utilisateur.numTelephone}"></p:inputText>
+
+					<p:commandButton value="Modifier" />
 
 
 				</h:panelGrid>
