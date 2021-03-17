@@ -10,7 +10,7 @@
 	<ui:define name="title">Index</ui:define>
 	<ui:define name="content">
 		<div>
-			<h:form id="form">
+			<h:form id="homeform">
 				<p:dataTable var="service" value="#{mbService.services}"
 					filteredValue="#{mbService.filteredServices}"
 					filterBy="#{mbService.filterBy}" widgetVar="servicesTable">				
@@ -55,13 +55,13 @@
 					<p:column>
 						<p:column exportable="false">
 							<p:commandButton value="Accepter"
-								update=":form:manage-product-content"
+								update=":homeform:manage-product-content"
 								oncomplete="PF('manageProductDialog').show()"
 								styleClass="edit-button rounded-button ui-button-success"
 								process="@this">
 								<f:setPropertyActionListener value="#{service}"
 									target="#{mbService.serviceSelected}" />
-								<p:resetInput target=":form:manage-product-content" />
+								<p:resetInput target=":homeform:manage-product-content" />
 							</p:commandButton>
 						</p:column>
 						<p:commandButton value="Détails" action="#{mbService.load(service)}"></p:commandButton>

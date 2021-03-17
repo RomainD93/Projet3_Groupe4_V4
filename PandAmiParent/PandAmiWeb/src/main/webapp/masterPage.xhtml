@@ -27,7 +27,7 @@
 							icon="pi pi-fw pi-home">
 							<f:param name="i" value="0" />
 						</p:menuitem>
-						<p:menuitem value="Les services" outcome="/home.xhtml">
+						<p:menuitem value="Mes services" action="#{mbService.recupListeServicePropose()}"  outcome="/mesServices.xhtml">
 							<f:param name="i" value="1" />
 						</p:menuitem>
 						<p:menuitem value="Mon Profil" outcome="/detailsUtilisateur.xhtml">

@@ -1,0 +1,265 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<ui:composition template="/masterPage.xhtml">
+	<ui:define name="title">Index</ui:define>
+	<ui:define name="content">
+	
+		<script type="text/javascript" src="resources/JS/onglet.js"></script>
+		<div class="onglets">
+			<span class="onglet_0 onglet" id="onglet_mesServicesDemandes"
+				onclick="change_onglet('mesServicesDemandes')">Mes services
+				demandés</span> <span class="onglet_0 onglet"
+				id="onglet_mesServicesProposes"
+				onclick="change_onglet('mesServicesProposes')">Mes services
+				proposés</span>
+		</div>
+
+		<div class="contenu_onglets">
+							<!-- LISTE DES SERVICES DEMANDES-->	
+			<div class="contenu_onglet" id="contenu_onglet_mesServicesDemandes"
+				style="display: none;">
+				<h:form id="ServiceDemandeform">
+					<p:dataTable var="service" value="#{mbService.serviceBeneficiaire}"
+						filteredValue="#{mbService.filteredServices}"
+						filterBy="#{mbService.filterBy}" widgetVar="servicesTable">
+						<f:facet name="header">
+							<span>Liste des services</span>
+						</f:facet>
+						<p:column headerText="Nom" sortBy="#{service.utilisateur.nom}"
+							filterBy="#{service.utilisateur.nom}">
+
+							<h:outputText style="vertical-align: middle; margin-left: .5rem"
+								value="#{service.utilisateur.nom}" />
+						</p:column>
+						<p:column headerText="Service"
+							sortBy="#{service.typeAide.nomTypeAide}"
+							filterBy="#{service.typeAide.nomTypeAide}">
+							<h:outputText value="#{service.typeAide.nomTypeAide}" />
+						</p:column>
+
+						<p:column headerText="Lieu" sortBy="#{service.adresse}"
+							filterBy="#{service.adresse}">
+
+							<h:outputText style="vertical-align: middle; margin-left: .5rem"
+								value="#{service.adresse}" />
+						</p:column>
+						<p:column field="dateService" headerText="DateService"
+							filterMatchMode="range">
+
+
+							<f:facet name="filter">
+								<p:datePicker selectionMode="range"
+									onchange="PF('servicesTable').filter()" />
+							</f:facet>
+						</p:column>
+						<p:column field="heureDbt" headerText="HeureDebut"
+							filterMatchMode="range">
+
+							<f:facet name="filter">
+								<p:datePicker selectionMode="range"
+									onchange="PF('servicesTable').filter()" timeOnly="true" />
+							</f:facet>
+						</p:column>
+						<p:column>
+							<p:column exportable="false">
+								<p:commandButton value="Accepter"
+									update=":ServiceDemandeform:manage-product-content"
+									oncomplete="PF('manageProductDialog').show()"
+									styleClass="edit-button rounded-button ui-button-success"
+									process="@this">
+									<f:setPropertyActionListener value="#{service}"
+										target="#{mbService.serviceSelected}" />
+									<p:resetInput target=":ServiceDemandeform:manage-product-content" />
+								</p:commandButton>
+							</p:column>
+							<p:commandButton value="Détails"
+								action="#{mbService.load(service)}"></p:commandButton>
+						</p:column>
+					</p:dataTable>
+					<!-- POPUP DETAILS -->
+					<p:dialog header="Service Details" showEffect="fade" modal="true"
+						widgetVar="manageProductDialog" responsive="true">
+						<p:outputPanel id="manage-product-content" class="ui-fluid">
+							<p:outputPanel rendered="#{not empty mbService.serviceSelected}">
+								<div class="p-field">
+									<p:outputLabel value="Nom" />
+									<p:outputLabel
+										value="#{mbService.serviceSelected.utilisateur.nom}" />
+								</div>
+								<div class="p-field">
+									<p:outputLabel value="Type de service" />
+									<p:outputLabel
+										value="#{mbService.serviceSelected.typeAide.nomTypeAide}" />
+								</div>
+
+								<div class="p-field p-col">
+									<p:outputLabel value="Date du service" />
+									<p:outputLabel value="#{mbService.serviceSelected.dateService}" />
+								</div>
+								<div class="p-field p-col">
+									<p:outputLabel value="Heure de début" />
+									<p:outputLabel value="#{mbService.serviceSelected.heureDbt}" />
+								</div>
+								<div class="p-field p-col">
+									<p:outputLabel value="Heure de fin" />
+									<p:outputLabel value="#{mbService.serviceSelected.heureFin}" />
+								</div>
+								<div class="p-field p-col">
+									<p:outputLabel value="Adresse" />
+									<p:outputLabel value="#{mbService.serviceSelected.adresse}" />
+								</div>
+								<div class="p-field p-col">
+									<p:outputLabel value="Heure de début" />
+									<p:outputLabel value="#{mbService.serviceSelected.heureDbt}" />
+								</div>
+								<div class="p-field p-col">
+									<p:outputLabel value="Matériel à prévoir" />
+									<p:outputLabel
+										value="#{mbService.serviceSelected.materiel.nomMateriel}" />
+								</div>
+								<div class="p-field p-col">
+									<p:outputLabel value="Somme à prévoir" />
+									<p:outputLabel
+										value="#{mbService.serviceSelected.sommeAPrevoir}" />
+								</div>
+							</p:outputPanel>
+						</p:outputPanel>
+						<f:facet name="footer">
+							<p:commandButton value="Accepter le service" icon="pi pi-check"
+								actionListener="#{mbService.accepterService()}"
+								onsuccess="PF('manageProductDialog').hide()" />
+						</f:facet>
+					</p:dialog>
+				</h:form>
+			</div>
+									<!-- LISTE DES SERVICES PROPOSES -->
+			<div class="contenu_onglet" id="contenu_onglet_mesServicesProposes"
+				style="display: none;">
+				<h:form id="ServiceProposeform">
+					<p:dataTable var="service" value="#{mbService.serviceVolontaire}"
+						filteredValue="#{mbService.filteredServices}"
+						filterBy="#{mbService.filterBy}" widgetVar="servicesTable">
+						<f:facet name="header">
+							<span>Liste des services</span>
+						</f:facet>
+						<p:column headerText="Nom" sortBy="#{service.utilisateur.nom}"
+							filterBy="#{service.utilisateur.nom}">
+
+							<h:outputText style="vertical-align: middle; margin-left: .5rem"
+								value="#{service.utilisateur.nom}" />
+						</p:column>
+						<p:column headerText="Service"
+							sortBy="#{service.typeAide.nomTypeAide}"
+							filterBy="#{service.typeAide.nomTypeAide}">
+							<h:outputText value="#{service.typeAide.nomTypeAide}" />
+						</p:column>
+
+						<p:column headerText="Lieu" sortBy="#{service.adresse}"
+							filterBy="#{service.adresse}">
+
+							<h:outputText style="vertical-align: middle; margin-left: .5rem"
+								value="#{service.adresse}" />
+						</p:column>
+						<p:column field="dateService" headerText="DateService"
+							filterMatchMode="range">
+
+
+							<f:facet name="filter">
+								<p:datePicker selectionMode="range"
+									onchange="PF('servicesTable').filter()" />
+							</f:facet>
+						</p:column>
+						<p:column field="heureDbt" headerText="HeureDebut"
+							filterMatchMode="range">
+
+							<f:facet name="filter">
+								<p:datePicker selectionMode="range"
+									onchange="PF('servicesTable').filter()" timeOnly="true" />
+							</f:facet>
+						</p:column>
+						<p:column>
+							<p:column exportable="false">
+								<p:commandButton value="Accepter"
+									update=":ServiceProposeform:manage-product-content"
+									oncomplete="PF('manageProductDialog').show()"
+									styleClass="edit-button rounded-button ui-button-success"
+									process="@this">
+									<f:setPropertyActionListener value="#{service}"
+										target="#{mbService.serviceSelected}" />
+									<p:resetInput target=":ServiceProposeform:manage-product-content" />
+								</p:commandButton>
+							</p:column>
+							<p:commandButton value="Détails"
+								action="#{mbService.load(service)}"></p:commandButton>
+						</p:column>
+					</p:dataTable>
+					<!-- POPUP DETAILS -->
+					<p:dialog header="Service Details" showEffect="fade" modal="true"
+						widgetVar="manageProductDialog" responsive="true">
+						<p:outputPanel id="manage-product-content" class="ui-fluid">
+							<p:outputPanel rendered="#{not empty mbService.serviceSelected}">
+								<div class="p-field">
+									<p:outputLabel value="Nom" />
+									<p:outputLabel
+										value="#{mbService.serviceSelected.utilisateur.nom}" />
+								</div>
+								<div class="p-field">
+									<p:outputLabel value="Type de service" />
+									<p:outputLabel
+										value="#{mbService.serviceSelected.typeAide.nomTypeAide}" />
+								</div>
+
+								<div class="p-field p-col">
+									<p:outputLabel value="Date du service" />
+									<p:outputLabel value="#{mbService.serviceSelected.dateService}" />
+								</div>
+								<div class="p-field p-col">
+									<p:outputLabel value="Heure de début" />
+									<p:outputLabel value="#{mbService.serviceSelected.heureDbt}" />
+								</div>
+								<div class="p-field p-col">
+									<p:outputLabel value="Heure de fin" />
+									<p:outputLabel value="#{mbService.serviceSelected.heureFin}" />
+								</div>
+								<div class="p-field p-col">
+									<p:outputLabel value="Adresse" />
+									<p:outputLabel value="#{mbService.serviceSelected.adresse}" />
+								</div>
+								<div class="p-field p-col">
+									<p:outputLabel value="Heure de début" />
+									<p:outputLabel value="#{mbService.serviceSelected.heureDbt}" />
+								</div>
+								<div class="p-field p-col">
+									<p:outputLabel value="Matériel à prévoir" />
+									<p:outputLabel
+										value="#{mbService.serviceSelected.materiel.nomMateriel}" />
+								</div>
+								<div class="p-field p-col">
+									<p:outputLabel value="Somme à prévoir" />
+									<p:outputLabel
+										value="#{mbService.serviceSelected.sommeAPrevoir}" />
+								</div>
+							</p:outputPanel>
+						</p:outputPanel>
+						<f:facet name="footer">
+							<p:commandButton value="Accepter le service" icon="pi pi-check"
+								actionListener="#{mbService.accepterService()}"
+								onsuccess="PF('manageProductDialog').hide()" />
+						</f:facet>
+					</p:dialog>
+				</h:form>
+			</div>
+		</div>
+				<script>
+var anc_onglet = 'mesServicesDemandes';
+change_onglet(anc_onglet);
+</script>
+	</ui:define>
+</ui:composition>
+</html>
