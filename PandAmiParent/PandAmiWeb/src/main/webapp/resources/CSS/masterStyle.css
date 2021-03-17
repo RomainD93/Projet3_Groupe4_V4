@@ -79,4 +79,35 @@
     color: #ffffff; 
   }
   
-  
+    .onglets{
+    display: table;
+background: linear-gradient(deepskyblue, dodgerblue);
+    padding: 0.2em;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .3),
+                0 3px 5px rgba(0, 0, 0, .2),
+                0 5px 10px rgba(0, 0, 0, .2),
+                0 20px 20px rgba(0, 0, 0, .15);
+}
+
+.onglet{
+    display: table-cell;
+text-shadow: 0 1px 0 rgba(255, 255, 255, .4);
+    text-align: center;
+    color: rgba(0, 0, 0, .7); 
+ 
+    padding: 8px 8px 17px 8px;
+    
+}
+ 
+li:hover{
+ background: rgba(255,255,255,.2);
+    box-shadow: 0 1px 0 rgba(255, 255, 255, .7) inset, 
+                0 -1px 0 hsl(210, 100%, 42%) inset, 
+                0 -2px 0 hsl(210, 100%, 48%) inset, 
+                0 -3px 0 hsl(210, 100%, 54%) inset, 
+                0 -4px 0 hsl(210, 100%, 60%) inset, 
+                0 -5px 0 hsl(210, 100%, 70%) inset;
+     padding: 0px 25px 0px 25px;
+ }
+ 
