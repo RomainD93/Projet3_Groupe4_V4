@@ -1,6 +1,8 @@
 package fr.eql.ai108.projet3.controller;
 
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -37,8 +39,10 @@ public class CompteManagedBean implements Serializable{
 	public String connection() {
 		utilisateur = proxyCompteUtilisateurBu.connection(utilisateur.getEmail(), utilisateur.getPassword());
 		String retour ="";		
-		if(utilisateur!= null) {
+		if(utilisateur.getTypeUtilisateur().getId() == 1) {
 			retour = "/home.xhtml?faces-redirect=true";
+		}else if(utilisateur.getTypeUtilisateur().getId() == 2) {
+			retour = "/analysteHomePage.xhtml?faces-redirect=true";
 		}else {
 			utilisateur = new Utilisateur();
 			message = "Login/Password incorrectes";
@@ -46,10 +50,22 @@ public class CompteManagedBean implements Serializable{
 		}
 		return retour;
 	}
+	
+	public String logout() {
+		utilisateur = new Utilisateur();
+		return "/connection.xhtml?faces-redirect=true";
+	}
+	
+	public String afficherSubscription() {
+		
+		return "/subscription.xhtml?faces-redirect=true";
+	}
 
 	public String inscription() {
 		String retour ="";
 		utilisateur.setGenre(genreSelected);
+		utilisateur.getTypeUtilisateur().setId(1);
+		utilisateur.setDateInscription(new Date());
 		utilisateur = proxyCompteUtilisateurBu.creerCompte(utilisateur);
 
 		if(utilisateur == null) {

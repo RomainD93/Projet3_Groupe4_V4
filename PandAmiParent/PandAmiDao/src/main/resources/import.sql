@@ -92,6 +92,8 @@ INSERT INTO `type_utilisateur` (id, autorisation) VALUES (2, 'admin analyste');
 INSERT INTO `type_utilisateur` (id, autorisation) VALUES (3, 'admin modérateur');
 INSERT INTO `type_utilisateur` (id, autorisation) VALUES (4, 'super admin');
 
+
+
 -- Insert Adresse
 -- INSERT INTO `adresse` (id, codePostale, nomVoie, numeroVoie, ville) VALUES (1, '93400', 'rue Emile Zola', '10', 'St-Ouen');
 -- INSERT INTO `adresse` (id, codePostale, nomVoie, numeroVoie, ville) VALUES (2, '93400', 'rue Alexandre Dumas', '22', 'St-Ouen');
@@ -108,6 +110,7 @@ INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissanc
 INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (3, null, '2019-01-12', '1987-02-08', 'ti.titi@ecoleql.fr', 'Titi', '0102030403', 'titi', 'ti', '17', 1, 1, '25 rue Farcot 93400 St Ouen');
 INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (4, null, '2020-01-12', '1987-02-08', 'tutu', 'Tutu', '0102030405', 'tutu', 'tu', '27', 1, 1, '25 rue Pasteur 93400 St Ouen');
 INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (5, null, '2019-01-12', '1987-02-08', 'tete', 'Tete', '0102030406', 'tete', 'te', '32', 1, 1, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (6, null, '2018-01-01', '1987-02-08', 'analyste.admin@pandami.fr', 'admin', '0102030406', 'admin', 'ad', null, 3, 2, 'Adresse IFOP');
 
 -- Insert Disponibilite
 INSERT INTO `disponibilite` (id, dbtValiditeDispo, finValiditeDispo, heureDbtDispo, heureFinDispo, jourSemaine_id, utilisateur_id) VALUES (1, '2018-08-12', null, '14:30:00', '19:00:00', 1, 1);
@@ -153,3 +156,7 @@ INSERT INTO `ville` (id, codePostal, villeNom) VALUES (20, '75020', 'Paris XX');
 INSERT INTO `ville` (id, codePostal, villeNom) VALUES (21, '93400', 'St-Ouen-Sur-Seine');
 INSERT INTO `ville` (id, codePostal, villeNom) VALUES (22, '95380', 'Louvres');
 INSERT INTO `ville` (id, codePostal, villeNom) VALUES (23, '93600', 'Aulnay-sous-Bois');
+
+
+-- Insert Preference Ville
+INSERT INTO `preference_ville` (id, utilisateur_id, ville_id) VALUES (1, 1, 1);

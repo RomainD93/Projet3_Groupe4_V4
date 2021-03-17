@@ -8,10 +8,14 @@ import javax.ejb.Stateless;
 import fr.eql.ai108.projet3.entity.Disponibilite;
 import fr.eql.ai108.projet3.entity.Genre;
 import fr.eql.ai108.projet3.entity.JourSemaine;
+import fr.eql.ai108.projet3.entity.PreferenceVille;
 import fr.eql.ai108.projet3.entity.Utilisateur;
+import fr.eql.ai108.projet3.entity.Ville;
 import fr.eql.ai108.projet3.ibusiness.CompteUtilisateurIBusiness;
 import fr.eql.ai108.projet3.idao.DisponibiliteIDao;
 import fr.eql.ai108.projet3.idao.GenreIDao;
+import fr.eql.ai108.projet3.idao.PreferenceAideIDao;
+import fr.eql.ai108.projet3.idao.PreferenceVilleIDao;
 import fr.eql.ai108.projet3.idao.UtilisateurIDao;
 
 @Remote (CompteUtilisateurIBusiness.class)
@@ -24,6 +28,8 @@ public class CompteUtilisateurBusiness implements CompteUtilisateurIBusiness {
 	private GenreIDao proxyGenre;
 	@EJB
 	private DisponibiliteIDao proxyDisponibilite;
+	@EJB
+	private PreferenceVilleIDao proxyPreferenceVille;
 	
 	@Override
 	public Utilisateur creerCompte(Utilisateur utilisateur) {
@@ -55,8 +61,7 @@ public class CompteUtilisateurBusiness implements CompteUtilisateurIBusiness {
 	}
 
 	@Override
-	public List<Disponibilite> creerListeDisponibilites(List<Disponibilite> disponibilites) {
-		
+	public List<Disponibilite> creerListeDisponibilites(List<Disponibilite> disponibilites) {		
 		return proxyDisponibilite.addList(disponibilites);
 	}
 
@@ -67,9 +72,30 @@ public class CompteUtilisateurBusiness implements CompteUtilisateurIBusiness {
 	}
 
 	@Override
-	public List<Disponibilite> displayDisposUser(Utilisateur utilisateur) {
-		
+	public List<Disponibilite> displayDisposUser(Utilisateur utilisateur) {	
 		return proxyDisponibilite.getDisposByUser(utilisateur);
+	}
+
+	@Override
+	public void supprimerPrefsVilleUser(Utilisateur utilisateur) {
+		proxyPreferenceVille.deletePreferencesVilleByUser(utilisateur);
+		
+	}
+
+	@Override
+	public List<PreferenceVille> displayPrefsVilleUser(Utilisateur utilisateur) {
+		return proxyPreferenceVille.getPrefsVilleByUser(utilisateur);
+	}
+
+	@Override
+	public List<Ville> displayVille() {
+		return proxyUtilisateur.getVilles();
+	}
+
+	@Override
+	public PreferenceVille creerPrefVille(PreferenceVille preferenceVille) {
+		
+		return proxyPreferenceVille.add(preferenceVille);
 	}
 	
 	
