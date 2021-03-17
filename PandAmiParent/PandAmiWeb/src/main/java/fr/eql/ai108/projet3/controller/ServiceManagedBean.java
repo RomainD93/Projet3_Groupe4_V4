@@ -12,6 +12,7 @@ import java.util.Map;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
@@ -19,6 +20,8 @@ import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 
+import org.primefaces.event.CellEditEvent;
+import org.primefaces.event.RowEditEvent;
 import org.primefaces.model.FilterMeta;
 import org.primefaces.model.MatchMode;
 
@@ -34,7 +37,7 @@ import fr.eql.ai108.projet3.ibusiness.ServiceIBusiness;
 @ManagedBean(name = "mbService")
 @SessionScoped
 public class ServiceManagedBean {
-	
+
 	private List<Service> services = new ArrayList<Service>();
 	private List<TypeAide> typesAide = new ArrayList<TypeAide>();
 	private List<Materiel> materiels;
@@ -46,15 +49,15 @@ public class ServiceManagedBean {
 	private String message;
 	private Materiel materielSelected;
 	private Map<Integer, List<TypeAide>> mapTypesAide = new HashMap<Integer, List<TypeAide>>();
- 	
+
 	private ReponseService reponseService = new ReponseService();
 	private Service serviceSelected;
 	private Service detailService;
-	
+
 	//Filtrage de la liste
 	private List<FilterMeta> filterBy;
 	private List<Service> filteredServices;
-	
+
 	//Categorie __ Type Aide
 	private List<CategorieAide> categoriesAide;
 	private List<TypeAide> typesAideCat1;
@@ -68,23 +71,22 @@ public class ServiceManagedBean {
 	private List<TypeAide> typesAideCat9;
 	private List<TypeAide> typesAideCat10;
 	private List<TypeAide> typesAideCat11;
-	
+
 	@ManagedProperty (value = "#{mbCompte.utilisateur}")
 	private Utilisateur userConnected;
 
 	@EJB
 	private ServiceIBusiness proxyServiceBu;
-		
+
 	// INITIALISATION DES LISTES AND CO
-	
+
 	@PostConstruct
 	public void init (){
 
 		services = proxyServiceBu.displayService();
-//		typesAide = proxyServiceBu.displayTypeAide();	
-		materiels = proxyServiceBu.displayMateriel();
-		
-		
+		//		typesAide = proxyServiceBu.displayTypeAide();	
+		materiels = proxyServiceBu.displayMateriel();		
+
 		categoriesAide = proxyServiceBu.displayCategorieAide();
 		typesAideCat1 = proxyServiceBu.displayTypesAideCat1();
 		typesAideCat2 = proxyServiceBu.displayTypesAideCat2();
@@ -109,23 +111,23 @@ public class ServiceManagedBean {
 		mapTypesAide.put(9, typesAideCat9);
 		mapTypesAide.put(10, typesAideCat10);
 		mapTypesAide.put(11, typesAideCat11);
-		
+
 		filterBy = new ArrayList<>();
 
-        filterBy.add(FilterMeta.builder()
-                .field("dateService")
-                .filterValue(Arrays.asList(LocalDate.now().minusDays(24), LocalDate.now().plusDays(14)))
-                .matchMode(MatchMode.RANGE)
-                .build());
-        
-        filterBy.add(FilterMeta.builder()
-                .field("heureDbt")
-                .filterValue(Arrays.asList(LocalTime.now(), LocalTime.now()))
-                .matchMode(MatchMode.RANGE)
-                .build());
-		
+		filterBy.add(FilterMeta.builder()
+				.field("dateService")
+				.filterValue(Arrays.asList(LocalDate.now().minusDays(24), LocalDate.now().plusDays(14)))
+				.matchMode(MatchMode.RANGE)
+				.build());
+
+		filterBy.add(FilterMeta.builder()
+				.field("heureDbt")
+				.filterValue(Arrays.asList(LocalTime.now(), LocalTime.now()))
+				.matchMode(MatchMode.RANGE)
+				.build());
+
 	}
-	
+
 
 	//AFFICHER TYPES AIDE SELON CATEGORIE AIDE
 	public void onCategorieChange() {
@@ -135,20 +137,20 @@ public class ServiceManagedBean {
 			typesAide = new ArrayList<TypeAide>();
 		}
 	}
-	
+
 	//AFFICHER SERVICES SS VOLONTAIRES
 	public void afficherServicesSsVolontaire() {
 		System.out.println("****** METHODE SS VOLONTAIRES");
 		services = proxyServiceBu.displayServiceSsVolontaire();		
 		//return "/testListe.xhtml?faces-redirect=true";
 	}
-	
-	
-	
+
+
+
 	//CREATION D'UN SERVICE
 	public String demanderService() {
 		String retour ="";
-		
+
 		if(service == null) {
 			message = "Désolé, votre demande n'a pas été enregistrée, veuillez réessayer";
 			retour = "/creationService.xhtml?faces-redirect=true";
@@ -166,37 +168,29 @@ public class ServiceManagedBean {
 		}
 		return retour;
 	}
-	//AFFICHER DETAILS DU SERVICE TEST
 
-	
-	
-	
 	//ACCEPTER SERVICE
 	public void accepterService() {
 
-		
 		if(service == null) {
 			message = "Désolé, votre demande n'a pas été enregistrée, veuillez réessayer";
-			 //retour = "/home.xhtml?faces-redirect=true";
 		}else {
 			reponseService.setUtilisateur(userConnected);
 			reponseService.setService(serviceSelected);
 			reponseService.setDateAcceptation(LocalDate.now());
 			reponseService = proxyServiceBu.creerReponseService(reponseService);
 			reponseService = new ReponseService();
-			//retour = "/home.xhtml?faces-redirect=true";
 		}
-			
-		//return retour;
 	}
 
-	
+
 	// NOMBRE DE SERVICES
 	public Long getNbServices() {
 		numServices = proxyServiceBu.numServices();
 		return numServices;
 	}
-	
+
+	// LOAD UN SERVICE DE LA PAGE HOME A DETAILS SERVICE
 	public String load(Service service) {	
 		System.out.println("methode load");
 		String retour = "";
@@ -205,13 +199,19 @@ public class ServiceManagedBean {
 		System.out.println("detailService" + detailService);
 		return retour = "/detailsService.xhtml?faces-redirect=true";	
 	}
+
+	//	MODIFIER LE SERVICE
+	public void modifierService() {
+		System.out.println("Modifier service ");
+	}
+
 	// GETTERS SETTERS 
-	
+
 	public List<Service> getServices() {
 		return services;
 	}
 
-	
+
 	public void setServices(List<Service> services) {
 		this.services = services;
 	}
@@ -291,7 +291,7 @@ public class ServiceManagedBean {
 	public void setFilteredServices(List<Service> filteredServices) {
 		this.filteredServices = filteredServices;
 	}
-	
+
 
 	public List<CategorieAide> getCategoriesAide() {
 		return categoriesAide;
