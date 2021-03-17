@@ -22,7 +22,8 @@
   
   
   body {
-    font: 16px Arial;  
+    font-family:"Helvetica";
+    font-size: 20px;
   }
   
   /*the container must be positioned relative:*/
