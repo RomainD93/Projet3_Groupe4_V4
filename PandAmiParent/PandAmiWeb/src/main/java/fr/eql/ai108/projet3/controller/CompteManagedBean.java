@@ -12,6 +12,7 @@ import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 
 import fr.eql.ai108.projet3.entity.Genre;
+import fr.eql.ai108.projet3.entity.TypeUtilisateur;
 import fr.eql.ai108.projet3.entity.Utilisateur;
 import fr.eql.ai108.projet3.ibusiness.CompteUtilisateurIBusiness;
 
@@ -27,6 +28,9 @@ public class CompteManagedBean implements Serializable{
 	
 	private Utilisateur utilisateur = new Utilisateur();
 	private String message;
+	
+	private TypeUtilisateur typeUtilisateur = new TypeUtilisateur();
+	
 
 	@EJB
 	private CompteUtilisateurIBusiness proxyCompteUtilisateurBu;
@@ -43,7 +47,9 @@ public class CompteManagedBean implements Serializable{
 			retour = "/home.xhtml?faces-redirect=true";
 		}else if(utilisateur.getTypeUtilisateur().getId() == 2) {
 			retour = "/analysteHomePage.xhtml?faces-redirect=true";
-		}else {
+		}else if(utilisateur.getTypeUtilisateur().getId() == 3) {
+			retour = "/moderateurHomePage.xhtml?faces-redirect=true";
+		}else{
 			utilisateur = new Utilisateur();
 			message = "Login/Password incorrectes";
 			retour = "/connection.xhtml?faces-redirect=true";
@@ -53,18 +59,19 @@ public class CompteManagedBean implements Serializable{
 	
 	public String logout() {
 		utilisateur = new Utilisateur();
+		System.out.println(utilisateur.getNom());
 		return "/connection.xhtml?faces-redirect=true";
 	}
 	
-	public String afficherSubscription() {
-		
+	public String afficherSubscription() {	
 		return "/subscription.xhtml?faces-redirect=true";
 	}
 
 	public String inscription() {
 		String retour ="";
 		utilisateur.setGenre(genreSelected);
-		utilisateur.getTypeUtilisateur().setId(1);
+		typeUtilisateur.setId(1);
+		utilisateur.setTypeUtilisateur(typeUtilisateur);
 		utilisateur.setDateInscription(new Date());
 		utilisateur = proxyCompteUtilisateurBu.creerCompte(utilisateur);
 
@@ -76,7 +83,8 @@ public class CompteManagedBean implements Serializable{
 		}else {				
 
 			utilisateur = proxyCompteUtilisateurBu.connection(utilisateur.getEmail(), utilisateur.getPassword());
-			message = "Bienvenue " + utilisateur.getPrenom() + "! Votre compte a bien été créé.";
+			//message = "Bienvenue " + utilisateur.getPrenom() + "! Votre compte a bien été créé.";
+			message = "";
 			retour = "/home.xhtml?faces-redirect=true";
 		}
 		return retour;
@@ -113,6 +121,23 @@ public class CompteManagedBean implements Serializable{
 	public void setGenreSelected(Genre genreSelected) {
 		this.genreSelected = genreSelected;
 	}
+
+	public TypeUtilisateur getTypeUtilisateur() {
+		return typeUtilisateur;
+	}
+
+	public void setTypeUtilisateur(TypeUtilisateur typeUtilisateur) {
+		this.typeUtilisateur = typeUtilisateur;
+	}
+
+	public CompteUtilisateurIBusiness getProxyCompteUtilisateurBu() {
+		return proxyCompteUtilisateurBu;
+	}
+
+	public void setProxyCompteUtilisateurBu(CompteUtilisateurIBusiness proxyCompteUtilisateurBu) {
+		this.proxyCompteUtilisateurBu = proxyCompteUtilisateurBu;
+	}
+	
 
 
 
