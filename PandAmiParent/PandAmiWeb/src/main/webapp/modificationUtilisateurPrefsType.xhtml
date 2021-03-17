@@ -33,7 +33,7 @@
 					</p:selectManyCheckbox>
 
 					<h:panelGroup>
-						CATEGORIE 2
+						<!-- CATEGORIE 2 -->
 						<p:outputLabel value="Jardinage : " />
 					</h:panelGroup>
 
@@ -42,6 +42,132 @@
 						converter="omnifaces.SelectItemsConverter" columns="3"
 						styleClass="grid-checkbox">
 						<f:selectItems value="#{mbUtilisateur.typesAideCat2}"
+							var="typeAide" itemLabel="#{typeAide.nomTypeAide}"
+							itemValue="#{typeAide}" />
+					</p:selectManyCheckbox>
+
+					<h:panelGroup>
+						<!-- CATEGORIE 3 -->
+						<p:outputLabel value="Déménagement : " />
+					</h:panelGroup>
+
+					<p:selectManyCheckbox id="categorie3"
+						value="#{mbUtilisateur.typesAideSelected3}" layout="grid"
+						converter="omnifaces.SelectItemsConverter" columns="3"
+						styleClass="grid-checkbox">
+						<f:selectItems value="#{mbUtilisateur.typesAideCat3}"
+							var="typeAide" itemLabel="#{typeAide.nomTypeAide}"
+							itemValue="#{typeAide}" />
+					</p:selectManyCheckbox>
+
+					<h:panelGroup>
+						<!-- CATEGORIE 4 -->
+						<p:outputLabel value="Dépannage : " />
+					</h:panelGroup>
+
+					<p:selectManyCheckbox id="categorie4"
+						value="#{mbUtilisateur.typesAideSelected4}" layout="grid"
+						converter="omnifaces.SelectItemsConverter" columns="3"
+						styleClass="grid-checkbox">
+						<f:selectItems value="#{mbUtilisateur.typesAideCat4}"
+							var="typeAide" itemLabel="#{typeAide.nomTypeAide}"
+							itemValue="#{typeAide}" />
+					</p:selectManyCheckbox>
+
+					<h:panelGroup>
+						<!-- CATEGORIE 5 -->
+						<p:outputLabel value="Entretien / Réparation Véhicules : " />
+					</h:panelGroup>
+
+					<p:selectManyCheckbox id="categorie5"
+						value="#{mbUtilisateur.typesAideSelected5}" layout="grid"
+						converter="omnifaces.SelectItemsConverter" columns="3"
+						styleClass="grid-checkbox">
+						<f:selectItems value="#{mbUtilisateur.typesAideCat5}"
+							var="typeAide" itemLabel="#{typeAide.nomTypeAide}"
+							itemValue="#{typeAide}" />
+					</p:selectManyCheckbox>
+
+					<h:panelGroup>
+						<!-- CATEGORIE 6 -->
+						<p:outputLabel value="Services véhiculés : " />
+					</h:panelGroup>
+
+					<p:selectManyCheckbox id="categorie6"
+						value="#{mbUtilisateur.typesAideSelected6}" layout="grid"
+						converter="omnifaces.SelectItemsConverter" columns="3"
+						styleClass="grid-checkbox">
+						<f:selectItems value="#{mbUtilisateur.typesAideCat6}"
+							var="typeAide" itemLabel="#{typeAide.nomTypeAide}"
+							itemValue="#{typeAide}" />
+					</p:selectManyCheckbox>
+
+					<h:panelGroup>
+						<!-- CATEGORIE 7 -->
+						<p:outputLabel value="Services à la personne : " />
+					</h:panelGroup>
+
+					<p:selectManyCheckbox id="categorie7"
+						value="#{mbUtilisateur.typesAideSelected7}" layout="grid"
+						converter="omnifaces.SelectItemsConverter" columns="3"
+						styleClass="grid-checkbox">
+						<f:selectItems value="#{mbUtilisateur.typesAideCat7}"
+							var="typeAide" itemLabel="#{typeAide.nomTypeAide}"
+							itemValue="#{typeAide}" />
+					</p:selectManyCheckbox>
+
+					<h:panelGroup>
+						<!-- CATEGORIE 8 -->
+						<p:outputLabel value="Enfants : " />
+					</h:panelGroup>
+
+					<p:selectManyCheckbox id="categorie8"
+						value="#{mbUtilisateur.typesAideSelected8}" layout="grid"
+						converter="omnifaces.SelectItemsConverter" columns="3"
+						styleClass="grid-checkbox">
+						<f:selectItems value="#{mbUtilisateur.typesAideCat8}"
+							var="typeAide" itemLabel="#{typeAide.nomTypeAide}"
+							itemValue="#{typeAide}" />
+					</p:selectManyCheckbox>
+
+					<h:panelGroup>
+						<!-- CATEGORIE 9 -->
+						<p:outputLabel value="Animaux : " />
+					</h:panelGroup>
+
+					<p:selectManyCheckbox id="categorie9"
+						value="#{mbUtilisateur.typesAideSelected9}" layout="grid"
+						converter="omnifaces.SelectItemsConverter" columns="3"
+						styleClass="grid-checkbox">
+						<f:selectItems value="#{mbUtilisateur.typesAideCat9}"
+							var="typeAide" itemLabel="#{typeAide.nomTypeAide}"
+							itemValue="#{typeAide}" />
+					</p:selectManyCheckbox>
+
+					<h:panelGroup>
+						<!-- CATEGORIE 10 -->
+						<p:outputLabel value="Informatique - Web : " />
+					</h:panelGroup>
+
+					<p:selectManyCheckbox id="categorie10"
+						value="#{mbUtilisateur.typesAideSelected10}" layout="grid"
+						converter="omnifaces.SelectItemsConverter" columns="3"
+						styleClass="grid-checkbox">
+						<f:selectItems value="#{mbUtilisateur.typesAideCat10}"
+							var="typeAide" itemLabel="#{typeAide.nomTypeAide}"
+							itemValue="#{typeAide}" />
+					</p:selectManyCheckbox>
+
+					<h:panelGroup>
+						<!-- CATEGORIE 11 -->
+						<p:outputLabel value="Cours - Formations : " />
+					</h:panelGroup>
+
+					<p:selectManyCheckbox id="categorie11"
+						value="#{mbUtilisateur.typesAideSelected11}" layout="grid"
+						converter="omnifaces.SelectItemsConverter" columns="3"
+						styleClass="grid-checkbox">
+						<f:selectItems value="#{mbUtilisateur.typesAideCat11}"
 							var="typeAide" itemLabel="#{typeAide.nomTypeAide}"
 							itemValue="#{typeAide}" />
 					</p:selectManyCheckbox>

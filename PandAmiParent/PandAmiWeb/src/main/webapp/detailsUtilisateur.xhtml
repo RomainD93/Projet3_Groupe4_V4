@@ -116,10 +116,15 @@
 
 			<div class="contenu_onglet" id="contenu_onglet_prefs"
 				style="display: none;">
-				<h:panelGrid>
-							PREFS
-			
-			</h:panelGrid>
+				<h:dataTable var="preferencesTypeAide" 
+				value="#{mbUtilisateur.preferencesAideUserConnected}">
+					<f:facet name="header">
+						<span>Types d'aide</span>
+					</f:facet>
+					<p:column headerText="Type de service que je rends">
+						<h:outputText value="#{preferencesTypeAide.typeAide.nomTypeAide}" />
+					</p:column>
+				</h:dataTable>
 
 				<p:commandButton action="#{mbUtilisateur.modifierPrefsType()}"
 					value="Modifier" styleClass="p-mr-3"></p:commandButton>
