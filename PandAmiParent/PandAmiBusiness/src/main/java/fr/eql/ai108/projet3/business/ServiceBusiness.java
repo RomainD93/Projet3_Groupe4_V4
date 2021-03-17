@@ -11,6 +11,7 @@ import fr.eql.ai108.projet3.entity.Materiel;
 import fr.eql.ai108.projet3.entity.ReponseService;
 import fr.eql.ai108.projet3.entity.Service;
 import fr.eql.ai108.projet3.entity.TypeAide;
+import fr.eql.ai108.projet3.entity.Utilisateur;
 import fr.eql.ai108.projet3.ibusiness.ServiceIBusiness;
 import fr.eql.ai108.projet3.idao.ReponseServiceIDao;
 import fr.eql.ai108.projet3.idao.ServiceIDao;
@@ -141,6 +142,22 @@ public class ServiceBusiness implements ServiceIBusiness {
 	public List<TypeAide> displayTypesAideCat11() {
 		// TODO Auto-generated method stub
 		return proxyServiceDao.getTypesAideCat11();
+	}
+
+	@Override
+	public ReponseService updateDesistementService(Service service, Utilisateur userConnected) {
+		// TODO Auto-generated method stub
+		return proxyServiceDao.getReponseService(service, userConnected);
+	}
+
+	@Override
+	public List<Service> displayServiceBeneficiaire(Utilisateur userConnected) {
+		return proxyServiceDao.getServiceByBeneficiaire(userConnected);
+	}
+
+	@Override
+	public List<Service> displayServiceVolontaire(Utilisateur userConnected) {		
+		return proxyServiceDao.getServiceByVolontaire(userConnected);
 	}
 
 

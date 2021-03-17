@@ -7,6 +7,7 @@ import fr.eql.ai108.projet3.entity.Materiel;
 import fr.eql.ai108.projet3.entity.ReponseService;
 import fr.eql.ai108.projet3.entity.Service;
 import fr.eql.ai108.projet3.entity.TypeAide;
+import fr.eql.ai108.projet3.entity.Utilisateur;
 
 public interface ServiceIBusiness {
 	List<Service> displayService();
@@ -30,4 +31,8 @@ public interface ServiceIBusiness {
 	List<TypeAide> displayTypesAideCat9();
 	List<TypeAide> displayTypesAideCat10();
 	List<TypeAide> displayTypesAideCat11();
+	ReponseService updateDesistementService(Service service, Utilisateur userConnected);
+	List<Service> displayServiceBeneficiaire(Utilisateur userConnected);
+	List<Service> displayServiceVolontaire(Utilisateur userConnected);
+	
 }
