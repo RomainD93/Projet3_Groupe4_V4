@@ -92,46 +92,6 @@ INSERT INTO `type_utilisateur` (id, autorisation) VALUES (2, 'admin analyste');
 INSERT INTO `type_utilisateur` (id, autorisation) VALUES (3, 'admin modérateur');
 INSERT INTO `type_utilisateur` (id, autorisation) VALUES (4, 'super admin');
 
-
-
--- Insert Adresse
--- INSERT INTO `adresse` (id, codePostale, nomVoie, numeroVoie, ville) VALUES (1, '93400', 'rue Emile Zola', '10', 'St-Ouen');
--- INSERT INTO `adresse` (id, codePostale, nomVoie, numeroVoie, ville) VALUES (2, '93400', 'rue Alexandre Dumas', '22', 'St-Ouen');
--- INSERT INTO `adresse` (id, codePostale, nomVoie, numeroVoie, ville) VALUES (3, '93400', 'rue Pasteur', '5', 'St-Ouen');
--- INSERT INTO `adresse` (id, codePostale, nomVoie, numeroVoie, ville) VALUES (4, '93400', 'rue Farcot', '17', 'St-Ouen');
--- INSERT INTO `adresse` (id, codePostale, nomVoie, numeroVoie, ville) VALUES (5, '93400', 'rue du Capitaine Glardner', '13', 'St-Ouen');
-
-
-
-
--- Insert Utilisateur
-INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (1, null, '2018-01-12', '1985-01-04', 'to.toto@ecoleql.fr', 'Toto', '0102030401', 'toto', 'to', '10', 2, 1, '76 rue Emile Zola 93400 St Ouen');
-INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (2, null, '2018-01-12', '1986-01-08', 'ta.tata@ecoleql.fr', 'Tata', '0102030402', 'tata', 'ta', '15', 1, 1, '17 rue Alexandre Dumas 93400 St Ouen');
-INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (3, null, '2019-01-12', '1987-02-08', 'ti.titi@ecoleql.fr', 'Titi', '0102030403', 'titi', 'ti', '17', 1, 1, '25 rue Farcot 93400 St Ouen');
-INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (4, null, '2020-01-12', '1987-02-08', 'tutu', 'Tutu', '0102030405', 'tutu', 'tu', '27', 1, 1, '25 rue Pasteur 93400 St Ouen');
-INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (5, null, '2019-01-12', '1987-02-08', 'tete', 'Tete', '0102030406', 'tete', 'te', '32', 1, 1, '18 rue Arago 93400 St Ouen');
-INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (6, null, '2018-01-01', '1987-02-08', 'analyste.admin@pandami.fr', 'admin', '0102030406', 'admin', 'ad', null, 3, 2, 'Adresse IFOP');
-
--- Insert Disponibilite
-INSERT INTO `disponibilite` (id, dbtValiditeDispo, finValiditeDispo, heureDbtDispo, heureFinDispo, jourSemaine_id, utilisateur_id) VALUES (1, '2018-08-12', null, '14:30:00', '19:00:00', 1, 1);
-
--- Insert Service
-INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (1, 'rue de toto', null, null, '2018-08-12', '2021-03-12', '14:30:00', '18:30:00', null, 2, 1); 
-INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (2, 'rue de tata', null, null, '2019-08-12', '2021-03-11', '15:30:00', '18:30:00', null, 18, 2); 
-INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (3, 'rue de titi', null, null, '2020-08-12', '2021-03-17', '08:00:00', '11:00:00', null, 35, 3); 
-
--- Insert Litige
-INSERT INTO `litige` (id, commentaires, dateCloture, dateCreation, service_id, typeLitige_id, utilisateur_id) VALUES (1, "Je n'ai pas été remboursé", null, '2019-12-31', 1, 2, 1);
-
--- Insert Négociation
-INSERT INTO `negociation` (id, dateCloture, dateCreation, dateProposee, heureDbtProposee, heureFinProposee, isAccepted, createurNego_id, repondeurNego_id, service_id) VALUES (1, null, '2018-08-15', '2021-03-13', '15:45:00', '18:45:00', false, 1, 2, 1);
-
--- Insert Reponse Service
-INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (1, '2018-08-13', null, 1, 2);
-
--- Insert Suspension Compte
-INSERT INTO `suspension_compte` (id, dateDbtSuspension, dateFinSuspension, utilisateur_id) VALUES (1, '2021-08-15', '2021-08-25', 2);
-
 -- Insert Ville
 INSERT INTO `ville` (id, codePostal, villeNom) VALUES (1, '75001', 'Paris I');
 INSERT INTO `ville` (id, codePostal, villeNom) VALUES (2, '75002', 'Paris II');
@@ -156,6 +116,56 @@ INSERT INTO `ville` (id, codePostal, villeNom) VALUES (20, '75020', 'Paris XX');
 INSERT INTO `ville` (id, codePostal, villeNom) VALUES (21, '93400', 'St-Ouen-Sur-Seine');
 INSERT INTO `ville` (id, codePostal, villeNom) VALUES (22, '95380', 'Louvres');
 INSERT INTO `ville` (id, codePostal, villeNom) VALUES (23, '93600', 'Aulnay-sous-Bois');
+
+
+
+-- Insert Adresse
+-- INSERT INTO `adresse` (id, codePostale, nomVoie, numeroVoie, ville) VALUES (1, '93400', 'rue Emile Zola', '10', 'St-Ouen');
+-- INSERT INTO `adresse` (id, codePostale, nomVoie, numeroVoie, ville) VALUES (2, '93400', 'rue Alexandre Dumas', '22', 'St-Ouen');
+-- INSERT INTO `adresse` (id, codePostale, nomVoie, numeroVoie, ville) VALUES (3, '93400', 'rue Pasteur', '5', 'St-Ouen');
+-- INSERT INTO `adresse` (id, codePostale, nomVoie, numeroVoie, ville) VALUES (4, '93400', 'rue Farcot', '17', 'St-Ouen');
+-- INSERT INTO `adresse` (id, codePostale, nomVoie, numeroVoie, ville) VALUES (5, '93400', 'rue du Capitaine Glardner', '13', 'St-Ouen');
+
+
+
+
+-- Insert Utilisateur
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (1, null, '2018-01-12', '1985-01-04', 'to.toto@ecoleql.fr', 'Toto', '0102030401', 'toto', 'to', '10', 2, 1, '76 rue Emile Zola 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (2, null, '2018-01-12', '1986-01-08', 't', 'Tata', '0102030402', 't', 'ta', '15', 1, 1, '17 rue Alexandre Dumas 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (3, null, '2019-01-12', '1987-02-08', 'ti.titi@ecoleql.fr', 'Titi', '0102030403', 'titi', 'ti', '17', 1, 1, '25 rue Farcot 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (4, null, '2020-01-12', '1987-02-08', 'tutu', 'Tutu', '0102030405', 'tutu', 'tu', '27', 1, 1, '25 rue Pasteur 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (5, null, '2019-01-12', '1987-02-08', 'tete', 'Tete', '0102030406', 'tete', 'te', '32', 1, 1, '18 rue Arago 93400 St Ouen');
+
+-- Insert Utilisateur Admin
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (6, null, '2018-01-01', '1987-02-08', 'analyste.admin@pandami.fr', 'analyste', '0102030400', 'admin', 'admin_analyste', null, 3, 2, 'Siège Social PANDAMI');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (7, null, '2018-01-01', '1987-02-08', 'moderateur.admin@pandami.fr', 'moderateur', '0102030400', 'admin', 'admin_moderateur', null, 3, 3, 'Siège Social PANDAMI');
+
+-- Insert Disponibilite
+INSERT INTO `disponibilite` (id, dbtValiditeDispo, finValiditeDispo, heureDbtDispo, heureFinDispo, jourSemaine_id, utilisateur_id) VALUES (1, '2018-08-12', null, '14:30:00', '19:00:00', 1, 1);
+
+-- Insert Service
+INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (1, 'rue de toto', null, null, '2018-08-12', '2021-03-12', '14:30:00', '18:30:00', null, 2, 1); 
+INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (2, 'rue de tata', null, null, '2019-08-12', '2021-03-11', '15:30:00', '18:30:00', null, 18, 2); 
+INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (3, 'rue de titi', null, null, '2020-08-12', '2021-03-17', '08:00:00', '11:00:00', null, 35, 3); 
+INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (4, 'rue de titi', null, null, '2020-08-12', '2021-03-17', '08:00:00', '11:00:00', null, 35, 4); 
+INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (5, 'rue de titi', null, null, '2020-08-12', '2021-03-17', '08:00:00', '11:00:00', null, 35, 5); 
+INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (6, 'rue de titi', null, null, '2020-08-12', '2021-03-17', '08:00:00', '11:00:00', null, 35, 5); 
+INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (7, 'rue de titi', null, null, '2020-08-12', '2021-03-17', '08:00:00', '11:00:00', null, 35, 1); 
+
+-- Insert Reponse Service
+INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (1, '2018-08-13', null, 1, 2);
+INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (2, '2019-08-13', null, 2, 5);
+INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (3, '2018-08-13', null, 3, 5);
+INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (4, '2018-08-13', null, 4, 5);
+
+-- Insert Litige
+INSERT INTO `litige` (id, commentaires, dateCloture, dateCreation, service_id, typeLitige_id, utilisateur_id) VALUES (1, "Je n'ai pas été remboursé", null, '2019-12-31', 1, 2, 1);
+
+-- Insert Négociation
+INSERT INTO `negociation` (id, dateCloture, dateCreation, dateProposee, heureDbtProposee, heureFinProposee, isAccepted, createurNego_id, repondeurNego_id, service_id) VALUES (1, null, '2018-08-15', '2021-03-13', '15:45:00', '18:45:00', false, 1, 2, 1);
+
+-- Insert Suspension Compte
+INSERT INTO `suspension_compte` (id, dateDbtSuspension, dateFinSuspension, utilisateur_id) VALUES (1, '2021-08-15', '2021-08-25', 2);
 
 
 -- Insert Preference Ville

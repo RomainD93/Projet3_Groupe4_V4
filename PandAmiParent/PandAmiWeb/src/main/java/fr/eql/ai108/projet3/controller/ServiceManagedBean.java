@@ -53,6 +53,9 @@ public class ServiceManagedBean {
 	private ReponseService reponseService = new ReponseService();
 	private Service serviceSelected;
 	private Service detailService;
+	//Liste service
+	private List<Service> serviceBeneficiaire;
+	private List<Service> serviceVolontaire;
 
 	//Filtrage de la liste
 	private List<FilterMeta> filterBy;
@@ -85,7 +88,10 @@ public class ServiceManagedBean {
 
 		services = proxyServiceBu.displayService();
 		//		typesAide = proxyServiceBu.displayTypeAide();	
-		materiels = proxyServiceBu.displayMateriel();		
+		materiels = proxyServiceBu.displayMateriel();
+		
+		serviceBeneficiaire = proxyServiceBu.displayServiceBeneficiaire(userConnected);
+		serviceVolontaire = proxyServiceBu.displayServiceVolontaire(userConnected);
 
 		categoriesAide = proxyServiceBu.displayCategorieAide();
 		typesAideCat1 = proxyServiceBu.displayTypesAideCat1();
@@ -122,7 +128,7 @@ public class ServiceManagedBean {
 
 		filterBy.add(FilterMeta.builder()
 				.field("heureDbt")
-				.filterValue(Arrays.asList(LocalTime.now(), LocalTime.now().plusHours(8)))
+				.filterValue(Arrays.asList(LocalTime.now().minusHours(8), LocalTime.now()))
 				.matchMode(MatchMode.RANGE)
 				.build());
 
@@ -218,10 +224,21 @@ public class ServiceManagedBean {
 	// SE DESISTER DU SERVICE
 	public String seDesisterDuService() {
 		String retour = "";
+		reponseService = proxyServiceBu.updateDesistementService(detailService, userConnected);
 		reponseService.setDateDesistement(LocalDate.now());
+		proxyServiceBu.updateReponseService(reponseService);
 		return retour = "/home.xhtml?faces-redirect=true";
 	}
-
+	
+	// REQUETE UPDATE DES LISTES
+	public List<Service> recupListeServiceDemande() {
+		System.out.println("RECUP SERVICE DEMANDE");
+		return serviceBeneficiaire = proxyServiceBu.displayServiceBeneficiaire(userConnected);
+	}
+	public List<Service> recupListeServicePropose() {	
+		System.out.println("RECUP SERVICE PROPOSE");
+		return serviceVolontaire = proxyServiceBu.displayServiceVolontaire(userConnected);
+	}
 	// GETTERS SETTERS 
 
 	public List<Service> getServices() {
@@ -446,6 +463,26 @@ public class ServiceManagedBean {
 
 	public void setDetailService(Service detailService) {
 		this.detailService = detailService;
+	}
+
+
+	public List<Service> getServiceBeneficiaire() {
+		return serviceBeneficiaire;
+	}
+
+
+	public void setServiceBeneficiaire(List<Service> serviceBeneficiaire) {
+		this.serviceBeneficiaire = serviceBeneficiaire;
+	}
+
+
+	public List<Service> getServiceVolontaire() {
+		return serviceVolontaire;
+	}
+
+
+	public void setServiceVolontaire(List<Service> serviceVolontaire) {
+		this.serviceVolontaire = serviceVolontaire;
 	}
 
 

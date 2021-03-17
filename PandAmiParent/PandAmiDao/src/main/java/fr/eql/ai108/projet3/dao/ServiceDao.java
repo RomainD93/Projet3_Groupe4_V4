@@ -11,8 +11,10 @@ import javax.persistence.Query;
 import fr.eql.ai108.projet3.entity.CategorieAide;
 import fr.eql.ai108.projet3.entity.JourSemaine;
 import fr.eql.ai108.projet3.entity.Materiel;
+import fr.eql.ai108.projet3.entity.ReponseService;
 import fr.eql.ai108.projet3.entity.Service;
 import fr.eql.ai108.projet3.entity.TypeAide;
+import fr.eql.ai108.projet3.entity.Utilisateur;
 import fr.eql.ai108.projet3.idao.ServiceIDao;
 
 @Remote(ServiceIDao.class)
@@ -140,5 +142,30 @@ public class ServiceDao extends GenericDao<Service> implements ServiceIDao{
 		Query query = em.createQuery("SELECT t FROM TypeAide t WHERE t.categorieAide.id = 11");
 		List<TypeAide> typesAideCat11 = query.getResultList();
 		return typesAideCat11;
+	}
+
+	@Override
+	public ReponseService getReponseService(Service service, Utilisateur userConnected) {
+		Query query = em.createQuery("SELECT r FROM ReponseService r WHERE r.utilisateur = :paramUser AND r.service = :paramService ");
+		query.setParameter("paramUser", userConnected);
+		query.setParameter("paramService", service);
+		ReponseService rs = (ReponseService) query.getSingleResult();
+		return rs;
+	}
+
+	@Override
+	public List<Service> getServiceByBeneficiaire(Utilisateur userConnected) {
+		Query query = em.createQuery("SELECT s FROM Service s WHERE s.utilisateur = :paramUser");
+		query.setParameter("paramUser", userConnected);
+		List<Service> serviceBeneficiaire = query.getResultList();
+		return serviceBeneficiaire;
+	}
+
+	@Override
+	public List<Service> getServiceByVolontaire(Utilisateur userConnected) {
+		Query query = em.createQuery("SELECT r FROM ReponseService r WHERE r.utilisateur = :paramUser AND r.dateDesistement != null");
+		query.setParameter("paramUser", userConnected);
+		List<Service> serviceVolontaire = query.getResultList();
+		return serviceVolontaire;
 	}	
 }
