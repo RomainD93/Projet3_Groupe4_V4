@@ -96,12 +96,12 @@ function autocomplete(inp, arr) {
   }
   
 var arr = [];
-let urlAdresse = "";
+var urlAdresse2 = "";
 function getValuePostSuggest() {
     const xhttp = new XMLHttpRequest();
     const div = document.getElementById("myForm:adresse");
     div.addEventListener("keyup", function(event) {
-        urlAdresse = document.getElementById('myForm:adresse').value;
+        urlAdresse2 = document.getElementById('myForm:adresse').value;
 
     });
     xhttp.onreadystatechange = function(){
@@ -115,7 +115,7 @@ function getValuePostSuggest() {
             })             
             };
         }
-    xhttp.open("GET", `https://api-adresse.data.gouv.fr/search/?q=${urlAdresse}` ,true);
+    xhttp.open("GET", `https://api-adresse.data.gouv.fr/search/?q=${urlAdresse2}` ,true);
     xhttp.send();
     autocomplete(document.getElementById('myForm:adresse'), arr);  
 }

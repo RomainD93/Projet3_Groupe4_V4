@@ -39,6 +39,7 @@ public class Service implements Serializable{
 	private Float sommeAPrevoir;
 	private LocalDate dateAnnulation;
 	private String adresse;
+	private String adresse2;
 	
 	
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -63,10 +64,12 @@ public class Service implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
+	
+
 	public Service(Integer id, LocalDate dateCreation, LocalDate dateService, LocalTime heureDbt, LocalTime heureFin,
-			LocalDate dateCloture, Float sommeAPrevoir, LocalDate dateAnnulation, String adresse, TypeAide typeAide,
-			Set<ReponseService> reponses, Set<Litige> litiges, Set<Negociation> negociations, Utilisateur utilisateur,
-			Materiel materiel) {
+			LocalDate dateCloture, Float sommeAPrevoir, LocalDate dateAnnulation, String adresse, String adresse2,
+			TypeAide typeAide, Set<ReponseService> reponses, Set<Litige> litiges, Set<Negociation> negociations,
+			Utilisateur utilisateur, Materiel materiel) {
 		super();
 		this.id = id;
 		this.dateCreation = dateCreation;
@@ -77,6 +80,7 @@ public class Service implements Serializable{
 		this.sommeAPrevoir = sommeAPrevoir;
 		this.dateAnnulation = dateAnnulation;
 		this.adresse = adresse;
+		this.adresse2 = adresse2;
 		this.typeAide = typeAide;
 		this.reponses = reponses;
 		this.litiges = litiges;
@@ -84,22 +88,26 @@ public class Service implements Serializable{
 		this.utilisateur = utilisateur;
 		this.materiel = materiel;
 	}
-	
+
+
 
 	@Override
 	public String toString() {
 		return "Service [id=" + id + ", dateCreation=" + dateCreation + ", dateService=" + dateService + ", heureDbt="
 				+ heureDbt + ", heureFin=" + heureFin + ", dateCloture=" + dateCloture + ", sommeAPrevoir="
-				+ sommeAPrevoir + ", dateAnnulation=" + dateAnnulation + ", adresse=" + adresse + ", typeAide="
-				+ typeAide + ", reponses=" + reponses + ", litiges=" + litiges + ", negociations=" + negociations
-				+ ", utilisateur=" + utilisateur + ", materiel=" + materiel + "]";
+				+ sommeAPrevoir + ", dateAnnulation=" + dateAnnulation + ", adresse=" + adresse + ", adresse2="
+				+ adresse2 + ", typeAide=" + typeAide + ", reponses=" + reponses + ", litiges=" + litiges
+				+ ", negociations=" + negociations + ", utilisateur=" + utilisateur + ", materiel=" + materiel + "]";
 	}
+
+
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((adresse == null) ? 0 : adresse.hashCode());
+		result = prime * result + ((adresse2 == null) ? 0 : adresse2.hashCode());
 		result = prime * result + ((dateAnnulation == null) ? 0 : dateAnnulation.hashCode());
 		result = prime * result + ((dateCloture == null) ? 0 : dateCloture.hashCode());
 		result = prime * result + ((dateCreation == null) ? 0 : dateCreation.hashCode());
@@ -117,6 +125,8 @@ public class Service implements Serializable{
 		return result;
 	}
 
+
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -130,6 +140,11 @@ public class Service implements Serializable{
 			if (other.adresse != null)
 				return false;
 		} else if (!adresse.equals(other.adresse))
+			return false;
+		if (adresse2 == null) {
+			if (other.adresse2 != null)
+				return false;
+		} else if (!adresse2.equals(other.adresse2))
 			return false;
 		if (dateAnnulation == null) {
 			if (other.dateAnnulation != null)
@@ -203,6 +218,8 @@ public class Service implements Serializable{
 			return false;
 		return true;
 	}
+
+
 
 	public Integer getId() {
 		return id;
@@ -323,6 +340,14 @@ public class Service implements Serializable{
 
 	public void setDateAnnulation(LocalDate dateAnnulation) {
 		this.dateAnnulation = dateAnnulation;
+	}
+
+	public String getAdresse2() {
+		return adresse2;
+	}
+
+	public void setAdresse2(String adresse2) {
+		this.adresse2 = adresse2;
 	}
 
 	
