@@ -160,3 +160,8 @@ INSERT INTO `ville` (id, codePostal, villeNom) VALUES (23, '93600', 'Aulnay-sous
 
 -- Insert Preference Ville
 INSERT INTO `preference_ville` (id, utilisateur_id, ville_id) VALUES (1, 1, 1);
+INSERT INTO `preference_ville` (id, utilisateur_id, ville_id) VALUES (2, 5, 5);
+
+-- Insert Preference Aide
+INSERT INTO `preference_aide` (id, typeAide_id, utilisateur_id) VALUES (1,2,2);
+--INSERT INTO `preference_aide` (id, typeAide_id, utilisateur_id) VALUES (2,2,5);
