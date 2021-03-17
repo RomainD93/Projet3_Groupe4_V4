@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/masterPage.xhtml">
+	<ui:define name="title">Index</ui:define>
+	<ui:define name="content">
+		<h1>PREFS</h1>
+		<div class="card">
+			<h:form id="myForm">
+				<p:messages />
+				<h:panelGrid>
+					<h:panelGroup>
+						<!-- PREFERENCES TYPES DE SERVICE -->
+						<p:outputLabel value="Préférences Types de Service : " />
+					</h:panelGroup>
+
+					<h:panelGroup>
+						<!-- CATEGORIE 1 -->
+						<p:outputLabel value="Bricolage / Travaux : " />
+					</h:panelGroup>
+
+					<p:selectManyCheckbox id="categorie1"
+						value="#{mbUtilisateur.typesAideSelected1}" layout="grid"
+						converter="omnifaces.SelectItemsConverter" columns="3"
+						styleClass="grid-checkbox">
+						<f:selectItems value="#{mbUtilisateur.typesAideCat1}"
+							var="typeAide" itemLabel="#{typeAide.nomTypeAide}"
+							itemValue="#{typeAide}" />
+					</p:selectManyCheckbox>
+
+					<h:panelGroup>
+						CATEGORIE 2
+						<p:outputLabel value="Jardinage : " />
+					</h:panelGroup>
+
+					<p:selectManyCheckbox id="categorie2"
+						value="#{mbUtilisateur.typesAideSelected2}" layout="grid"
+						converter="omnifaces.SelectItemsConverter" columns="3"
+						styleClass="grid-checkbox">
+						<f:selectItems value="#{mbUtilisateur.typesAideCat2}"
+							var="typeAide" itemLabel="#{typeAide.nomTypeAide}"
+							itemValue="#{typeAide}" />
+					</p:selectManyCheckbox>
+
+
+
+				</h:panelGrid>
+				<p:commandButton action="#{mbUtilisateur.validerPrefsType()}"
+					value="Valider Villes" ajax="false" icon="pi pi-check"
+					validateClient="true" styleClass="p-mr-3" />
+			</h:form>
+
+
+
+		</div>
+
+
+
+
+	</ui:define>
+	<!-- 	<ui:define name="CSS"></ui:define> -->
+</ui:composition>
+</html>

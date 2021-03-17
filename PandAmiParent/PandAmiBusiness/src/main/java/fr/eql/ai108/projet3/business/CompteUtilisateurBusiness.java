@@ -8,6 +8,7 @@ import javax.ejb.Stateless;
 import fr.eql.ai108.projet3.entity.Disponibilite;
 import fr.eql.ai108.projet3.entity.Genre;
 import fr.eql.ai108.projet3.entity.JourSemaine;
+import fr.eql.ai108.projet3.entity.PreferenceAide;
 import fr.eql.ai108.projet3.entity.PreferenceVille;
 import fr.eql.ai108.projet3.entity.Utilisateur;
 import fr.eql.ai108.projet3.entity.Ville;
@@ -30,6 +31,9 @@ public class CompteUtilisateurBusiness implements CompteUtilisateurIBusiness {
 	private DisponibiliteIDao proxyDisponibilite;
 	@EJB
 	private PreferenceVilleIDao proxyPreferenceVille;
+	@EJB
+	private PreferenceAideIDao proxyPreferenceAide;
+
 	
 	@Override
 	public Utilisateur creerCompte(Utilisateur utilisateur) {
@@ -93,11 +97,27 @@ public class CompteUtilisateurBusiness implements CompteUtilisateurIBusiness {
 	}
 
 	@Override
-	public PreferenceVille creerPrefVille(PreferenceVille preferenceVille) {
-		
+	public PreferenceVille creerPrefVille(PreferenceVille preferenceVille) {	
 		return proxyPreferenceVille.add(preferenceVille);
 	}
-	
+
+	@Override
+	public List<PreferenceAide> displayPrefsTypeAideUser(Utilisateur utilisateur) {
+		return proxyPreferenceAide.getPrefsTypeAideByUser(utilisateur);
+	}
+
+	@Override
+	public PreferenceAide creerPrefTypeAide(PreferenceAide preferenceAide) {
+		return proxyPreferenceAide.add(preferenceAide);
+	}
+
+	@Override
+	public void supprimerPrefsTypeAideByUser(Utilisateur utilisateur) {
+		proxyPreferenceAide.deletePrefsTypeAideByUser(utilisateur);
+		
+	}
+
+
 	
 
 }

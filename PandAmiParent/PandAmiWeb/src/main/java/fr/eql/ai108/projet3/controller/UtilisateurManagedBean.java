@@ -14,6 +14,7 @@ import javax.faces.bean.ViewScoped;
 import fr.eql.ai108.projet3.entity.CategorieAide;
 import fr.eql.ai108.projet3.entity.Disponibilite;
 import fr.eql.ai108.projet3.entity.JourSemaine;
+import fr.eql.ai108.projet3.entity.PreferenceAide;
 import fr.eql.ai108.projet3.entity.PreferenceVille;
 import fr.eql.ai108.projet3.entity.TypeAide;
 import fr.eql.ai108.projet3.entity.Utilisateur;
@@ -49,16 +50,25 @@ public class UtilisateurManagedBean {
 	private List<PreferenceVille> preferencesVilleUserConnected;
 	
 	
-	
-	
-	
-	
+		
 	//Categorie __ Type Aide
-	private List<TypeAide> typesAide = new ArrayList<TypeAide>();
+	private List<TypeAide> prefsTypesAide = new ArrayList<TypeAide>();
 	private CategorieAide categorieSelected;
 	private TypeAide typeAideSelected;
+	private PreferenceAide prefTypeAide = new PreferenceAide();
+	private List<TypeAide> typesAideSelected = new ArrayList<TypeAide>();
+	private List<TypeAide> typesAideSelected1 = new ArrayList<TypeAide>();
+	private List<TypeAide> typesAideSelected2 = new ArrayList<TypeAide>();
+	private List<TypeAide> typesAideSelected3 = new ArrayList<TypeAide>();
+	private List<TypeAide> typesAideSelected4 = new ArrayList<TypeAide>();
+	private List<TypeAide> typesAideSelected5 = new ArrayList<TypeAide>();
+	private List<TypeAide> typesAideSelected6 = new ArrayList<TypeAide>();
+	private List<TypeAide> typesAideSelected7 = new ArrayList<TypeAide>();
+	private List<TypeAide> typesAideSelected8 = new ArrayList<TypeAide>();
+	private List<TypeAide> typesAideSelected9 = new ArrayList<TypeAide>();
+	private List<TypeAide> typesAideSelected10 = new ArrayList<TypeAide>();
+	private List<TypeAide> typesAideSelected11 = new ArrayList<TypeAide>();
 
-	
 	private Map<Integer, List<TypeAide>> mapTypesAide = new HashMap<Integer, List<TypeAide>>();
 	
 	private List<CategorieAide> categoriesAide;
@@ -139,9 +149,10 @@ public class UtilisateurManagedBean {
 		return retour;
 	}
 	
-	public String modifierPrefs() {
+	public String modifierPrefsType() {
 		String retour ="";
-		retour = "/modificationUtilisateurPrefs.xhtml?faces-redirect=true";
+		System.out.println("PAGE MODIFICATION PREFS TYPE");
+		retour = "/modificationUtilisateurPrefsType.xhtml?faces-redirect=true";
 		return retour;
 	}
 	
@@ -171,23 +182,54 @@ public class UtilisateurManagedBean {
 	}
 	
 	public String validerPrefsVille() {
-		System.out.println("Entrée Méthode");
 		String retour ="";
 		if(villesSelected == null) {
 			retour = "/home.xhtml?faces-redirect=true";	
 		}else {
-			System.out.println("ENTREE ELSE ON EST Là");
 			proxyUtilisateurBu.supprimerPrefsVilleUser(userConnected);
 			for (Ville ville : villesSelected) {
-				System.out.println(ville);
 				preferenceVille.setVille(ville);
 				preferenceVille.setUtilisateur(userConnected);
 				preferenceVille = proxyUtilisateurBu.creerPrefVille(preferenceVille);
 				preferenceVille = new PreferenceVille();
 			}
 			retour = "/detailsUtilisateur.xhtml?faces-redirect=true";	
-		}
+		}	
+		return retour;
+	}
+	
+	public String validerPrefsType() {
+		System.out.println("Entrée Méthode");
+		String retour ="";
 		
+		
+		prefsTypesAide.addAll(typesAideSelected1);
+		prefsTypesAide.addAll(typesAideSelected2);
+		prefsTypesAide.addAll(typesAideSelected3);
+		prefsTypesAide.addAll(typesAideSelected4);
+		prefsTypesAide.addAll(typesAideSelected5);
+		prefsTypesAide.addAll(typesAideSelected6);
+		prefsTypesAide.addAll(typesAideSelected7);
+		prefsTypesAide.addAll(typesAideSelected8);
+		prefsTypesAide.addAll(typesAideSelected9);
+		prefsTypesAide.addAll(typesAideSelected10);
+		prefsTypesAide.addAll(typesAideSelected11);
+		
+		if(prefsTypesAide == null) {
+			System.out.println("Liste Nulle");
+			retour = "/home.xhtml?faces-redirect=true";
+		}else{
+			System.out.println("ENTREE ELSE ON EST Là");
+			proxyUtilisateurBu.supprimerPrefsTypeAideByUser(userConnected);
+			System.out.println("Suppression OK");
+			for (TypeAide typeAide : prefsTypesAide) {
+				prefTypeAide.setTypeAide(typeAide);
+				prefTypeAide.setUtilisateur(userConnected);
+				prefTypeAide = proxyUtilisateurBu.creerPrefTypeAide(prefTypeAide);
+				prefTypeAide = new PreferenceAide();
+			}
+			retour = "/detailsUtilisateur.xhtml?faces-redirect=true";
+		}
 		
 		return retour;
 	}
@@ -212,13 +254,21 @@ public class UtilisateurManagedBean {
 		this.joursSemaine = joursSemaine;
 	}
 
-	public List<TypeAide> getTypesAide() {
-		return typesAide;
+
+
+	public List<TypeAide> getPrefsTypesAide() {
+		return prefsTypesAide;
 	}
 
-	public void setTypesAide(List<TypeAide> typesAide) {
-		this.typesAide = typesAide;
+
+
+
+	public void setPrefsTypesAide(List<TypeAide> prefsTypesAide) {
+		this.prefsTypesAide = prefsTypesAide;
 	}
+
+
+
 
 	public CategorieAide getCategorieSelected() {
 		return categorieSelected;
@@ -520,10 +570,194 @@ public class UtilisateurManagedBean {
 	}
 
 
-
-
 	public void setPreferencesVilleUserConnected(List<PreferenceVille> preferencesVilleUserConnected) {
 		this.preferencesVilleUserConnected = preferencesVilleUserConnected;
+	}
+
+
+
+
+
+
+
+
+	public PreferenceAide getPrefTypeAide() {
+		return prefTypeAide;
+	}
+
+
+
+
+	public void setPrefTypeAide(PreferenceAide prefTypeAide) {
+		this.prefTypeAide = prefTypeAide;
+	}
+
+
+
+
+	public List<TypeAide> getTypesAideSelected3() {
+		return typesAideSelected3;
+	}
+
+
+
+
+	public void setTypesAideSelected3(List<TypeAide> typesAideSelected3) {
+		this.typesAideSelected3 = typesAideSelected3;
+	}
+
+
+
+
+	public List<TypeAide> getTypesAideSelected4() {
+		return typesAideSelected4;
+	}
+
+
+
+
+	public void setTypesAideSelected4(List<TypeAide> typesAideSelected4) {
+		this.typesAideSelected4 = typesAideSelected4;
+	}
+
+
+
+
+	public List<TypeAide> getTypesAideSelected5() {
+		return typesAideSelected5;
+	}
+
+
+
+
+	public void setTypesAideSelected5(List<TypeAide> typesAideSelected5) {
+		this.typesAideSelected5 = typesAideSelected5;
+	}
+
+
+
+
+	public List<TypeAide> getTypesAideSelected6() {
+		return typesAideSelected6;
+	}
+
+
+
+
+	public void setTypesAideSelected6(List<TypeAide> typesAideSelected6) {
+		this.typesAideSelected6 = typesAideSelected6;
+	}
+
+
+
+
+	public List<TypeAide> getTypesAideSelected7() {
+		return typesAideSelected7;
+	}
+
+
+
+
+	public void setTypesAideSelected7(List<TypeAide> typesAideSelected7) {
+		this.typesAideSelected7 = typesAideSelected7;
+	}
+
+
+
+
+	public List<TypeAide> getTypesAideSelected8() {
+		return typesAideSelected8;
+	}
+
+
+
+
+	public void setTypesAideSelected8(List<TypeAide> typesAideSelected8) {
+		this.typesAideSelected8 = typesAideSelected8;
+	}
+
+
+
+
+	public List<TypeAide> getTypesAideSelected9() {
+		return typesAideSelected9;
+	}
+
+
+
+
+	public void setTypesAideSelected9(List<TypeAide> typesAideSelected9) {
+		this.typesAideSelected9 = typesAideSelected9;
+	}
+
+
+
+
+	public List<TypeAide> getTypesAideSelected10() {
+		return typesAideSelected10;
+	}
+
+
+
+
+	public void setTypesAideSelected10(List<TypeAide> typesAideSelected10) {
+		this.typesAideSelected10 = typesAideSelected10;
+	}
+
+
+
+
+	public List<TypeAide> getTypesAideSelected11() {
+		return typesAideSelected11;
+	}
+
+
+
+
+	public void setTypesAideSelected11(List<TypeAide> typesAideSelected11) {
+		this.typesAideSelected11 = typesAideSelected11;
+	}
+
+
+
+
+	public List<TypeAide> getTypesAideSelected1() {
+		return typesAideSelected1;
+	}
+
+
+
+
+	public void setTypesAideSelected1(List<TypeAide> typesAideSelected1) {
+		this.typesAideSelected1 = typesAideSelected1;
+	}
+
+
+
+
+	public List<TypeAide> getTypesAideSelected2() {
+		return typesAideSelected2;
+	}
+
+
+
+
+	public void setTypesAideSelected2(List<TypeAide> typesAideSelected2) {
+		this.typesAideSelected2 = typesAideSelected2;
+	}
+
+
+
+
+	public List<TypeAide> getTypesAideSelected() {
+		return typesAideSelected;
+	}
+
+
+
+
+	public void setTypesAideSelected(List<TypeAide> typesAideSelected) {
+		this.typesAideSelected = typesAideSelected;
 	}
 
 	
