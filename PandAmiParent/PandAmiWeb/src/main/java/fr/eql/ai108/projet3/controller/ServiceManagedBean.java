@@ -122,7 +122,7 @@ public class ServiceManagedBean {
 
 		filterBy.add(FilterMeta.builder()
 				.field("heureDbt")
-				.filterValue(Arrays.asList(LocalTime.now(), LocalTime.now()))
+				.filterValue(Arrays.asList(LocalTime.now(), LocalTime.now().plusHours(8)))
 				.matchMode(MatchMode.RANGE)
 				.build());
 
@@ -192,17 +192,34 @@ public class ServiceManagedBean {
 
 	// LOAD UN SERVICE DE LA PAGE HOME A DETAILS SERVICE
 	public String load(Service service) {	
-		System.out.println("methode load");
 		String retour = "";
 		detailService = new Service();
 		this.detailService = service;
-		System.out.println("detailService" + detailService);
+		this.detailService.setSommeAPrevoir(0.0f);		
 		return retour = "/detailsService.xhtml?faces-redirect=true";	
 	}
 
 	//	MODIFIER LE SERVICE
-	public void modifierService() {
-		System.out.println("Modifier service ");
+	public void modifierService() {	
+		this.detailService.setMateriel(materielSelected);
+		this.detailService.setTypeAide(typeAideSelected);
+		proxyServiceBu.updateService(detailService);				
+	}
+	
+	// ANNULER LE SERVICE
+	public String annulerService() {
+		String retour = "";
+		System.out.println("ANNULER SERVICE");
+		this.detailService.setDateAnnulation(LocalDate.now());
+		proxyServiceBu.updateService(detailService);
+		return retour = "/home.xhtml?faces-redirect=true";
+	}
+	
+	// SE DESISTER DU SERVICE
+	public String seDesisterDuService() {
+		String retour = "";
+		reponseService.setDateDesistement(LocalDate.now());
+		return retour = "/home.xhtml?faces-redirect=true";
 	}
 
 	// GETTERS SETTERS 
