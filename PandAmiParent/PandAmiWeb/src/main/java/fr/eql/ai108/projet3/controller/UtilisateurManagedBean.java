@@ -50,13 +50,16 @@ public class UtilisateurManagedBean {
 	private List<PreferenceVille> preferencesVilleUserConnected;
 	
 	
+	//Prefereances Auide
+	private PreferenceAide prefTypeAide = new PreferenceAide();
+	private List<PreferenceAide> preferencesAideUserConnected;
 		
 	//Categorie __ Type Aide
-	private List<TypeAide> prefsTypesAide = new ArrayList<TypeAide>();
+	private List<TypeAide> typesAideSelected = new ArrayList<TypeAide>();
 	private CategorieAide categorieSelected;
 	private TypeAide typeAideSelected;
-	private PreferenceAide prefTypeAide = new PreferenceAide();
-	private List<TypeAide> typesAideSelected = new ArrayList<TypeAide>();
+	
+
 	private List<TypeAide> typesAideSelected1 = new ArrayList<TypeAide>();
 	private List<TypeAide> typesAideSelected2 = new ArrayList<TypeAide>();
 	private List<TypeAide> typesAideSelected3 = new ArrayList<TypeAide>();
@@ -130,6 +133,7 @@ public class UtilisateurManagedBean {
 		
 		disposUserConnected = proxyUtilisateurBu.displayDisposUser(userConnected);		
 		preferencesVilleUserConnected = proxyUtilisateurBu.displayPrefsVilleUser(userConnected);
+		preferencesAideUserConnected = proxyUtilisateurBu.displayPrefsTypeAideUser(userConnected);
 		
 	}
 	
@@ -203,26 +207,26 @@ public class UtilisateurManagedBean {
 		String retour ="";
 		
 		
-		prefsTypesAide.addAll(typesAideSelected1);
-		prefsTypesAide.addAll(typesAideSelected2);
-		prefsTypesAide.addAll(typesAideSelected3);
-		prefsTypesAide.addAll(typesAideSelected4);
-		prefsTypesAide.addAll(typesAideSelected5);
-		prefsTypesAide.addAll(typesAideSelected6);
-		prefsTypesAide.addAll(typesAideSelected7);
-		prefsTypesAide.addAll(typesAideSelected8);
-		prefsTypesAide.addAll(typesAideSelected9);
-		prefsTypesAide.addAll(typesAideSelected10);
-		prefsTypesAide.addAll(typesAideSelected11);
+		typesAideSelected.addAll(typesAideSelected1);
+		typesAideSelected.addAll(typesAideSelected2);
+		typesAideSelected.addAll(typesAideSelected3);
+		typesAideSelected.addAll(typesAideSelected4);
+		typesAideSelected.addAll(typesAideSelected5);
+		typesAideSelected.addAll(typesAideSelected6);
+		typesAideSelected.addAll(typesAideSelected7);
+		typesAideSelected.addAll(typesAideSelected8);
+		typesAideSelected.addAll(typesAideSelected9);
+		typesAideSelected.addAll(typesAideSelected10);
+		typesAideSelected.addAll(typesAideSelected11);
 		
-		if(prefsTypesAide == null) {
+		if(typesAideSelected == null) {
 			System.out.println("Liste Nulle");
 			retour = "/home.xhtml?faces-redirect=true";
 		}else{
 			System.out.println("ENTREE ELSE ON EST Là");
 			proxyUtilisateurBu.supprimerPrefsTypeAideByUser(userConnected);
 			System.out.println("Suppression OK");
-			for (TypeAide typeAide : prefsTypesAide) {
+			for (TypeAide typeAide : typesAideSelected) {
 				prefTypeAide.setTypeAide(typeAide);
 				prefTypeAide.setUtilisateur(userConnected);
 				prefTypeAide = proxyUtilisateurBu.creerPrefTypeAide(prefTypeAide);
@@ -257,14 +261,14 @@ public class UtilisateurManagedBean {
 
 
 	public List<TypeAide> getPrefsTypesAide() {
-		return prefsTypesAide;
+		return typesAideSelected;
 	}
 
 
 
 
 	public void setPrefsTypesAide(List<TypeAide> prefsTypesAide) {
-		this.prefsTypesAide = prefsTypesAide;
+		this.typesAideSelected = prefsTypesAide;
 	}
 
 
@@ -749,16 +753,17 @@ public class UtilisateurManagedBean {
 
 
 
-	public List<TypeAide> getTypesAideSelected() {
-		return typesAideSelected;
+	public List<PreferenceAide> getPreferencesAideUserConnected() {
+		return preferencesAideUserConnected;
 	}
 
 
 
 
-	public void setTypesAideSelected(List<TypeAide> typesAideSelected) {
-		this.typesAideSelected = typesAideSelected;
+	public void setPreferencesAideUserConnected(List<PreferenceAide> preferencesAideUserConnected) {
+		this.preferencesAideUserConnected = preferencesAideUserConnected;
 	}
+
 
 	
 }
