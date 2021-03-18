@@ -50,21 +50,23 @@ PrimeFaces.locales['fr'] = {
 
 					<h:panelGroup>
 						<!-- TYPE AIDE -->
-						<p:outputLabel value="Catégorie Aide :" />
+						<p:outputLabel value="Catégorie " />
 
 					</h:panelGroup>
 
 
-					<p:selectOneMenu id="categorie__aide" value="#{mbService.categorieSelected}" style="width: 150px" converter="omnifaces.SelectItemsConverter">
+					<p:selectOneMenu id="categorie__aide" value="#{mbService.categorieSelected}" style="width: auto" converter="omnifaces.SelectItemsConverter" filter="true"
+						filterMatchMode="contains">
 						<p:ajax listener="#{mbService.onCategorieChange()}" update="type__aide"/>
-						<f:selectItem itemLabel="Select Catégorie" itemValue="" noSelectionOption="True"/>
+						<f:selectItem itemLabel="Choix d'une catégorie" itemValue="" noSelectionOption="True"/>
 						<f:selectItems value="#{mbService.categoriesAide}" var="categorieAide" 
 						itemLabel="#{categorieAide.nomCategorieAide}" itemValue="#{categorieAide}"/>
 						
 					</p:selectOneMenu>
-					<p:outputLabel for="type__aide" value="Tye d'aide :  "/>
-					<p:selectOneMenu id="type__aide" value="#{mbService.typeAideSelected}" style="width: 150px" converter="omnifaces.SelectItemsConverter">
-						<f:selectItem itemLabel="Select Type Aide" itemValue="" noSelectionOption="true"/>
+					<p:outputLabel for="type__aide" value="Type de service "/>
+					<p:selectOneMenu id="type__aide" value="#{mbService.typeAideSelected}" style="width: auto" converter="omnifaces.SelectItemsConverter" filter="true"
+						filterMatchMode="contains">
+						<f:selectItem itemLabel="Choix d'un type" itemValue="" noSelectionOption="true"/>
 						<f:selectItems value="#{mbService.typesAide}" var="typeAide"
 						itemLabel="#{typeAide.nomTypeAide}" itemValue="#{typeAide}" />
 					</p:selectOneMenu>
@@ -113,7 +115,7 @@ PrimeFaces.locales['fr'] = {
 						converter="omnifaces.SelectItemsConverter"
 						panelStyle="width:180px" effect="fade" var="c" filter="true"
 						filterMatchMode="contains">
-						<f:selectItem itemValue="" itemLabel="Matériel nécessaire"
+						<f:selectItem itemValue="" itemLabel="Choix de matériel"
 							noSelectionOption="true" />
 						<f:selectItems value="#{mbService.materiels}" var="materiel"
 							itemLabel="#{materiel.nomMateriel}" itemValue="#{materiel}"></f:selectItems>
