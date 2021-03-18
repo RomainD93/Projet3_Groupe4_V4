@@ -27,7 +27,6 @@ import fr.eql.ai108.projet3.ibusiness.ServiceIBusiness;
 public class UtilisateurManagedBean {
 	
 	
-	
 	//Dispos
 	private List<JourSemaine> joursSemaine;
 	private JourSemaine jourSemaineSelected;
@@ -50,7 +49,7 @@ public class UtilisateurManagedBean {
 	private List<PreferenceVille> preferencesVilleUserConnected;
 	
 	
-	//Prefereances Auide
+	//Prefereances Aide
 	private PreferenceAide prefTypeAide = new PreferenceAide();
 	private List<PreferenceAide> preferencesAideUserConnected;
 		
@@ -133,13 +132,9 @@ public class UtilisateurManagedBean {
 		
 		disposUserConnected = proxyUtilisateurBu.displayDisposUser(userConnected);		
 		preferencesVilleUserConnected = proxyUtilisateurBu.displayPrefsVilleUser(userConnected);
-		preferencesAideUserConnected = proxyUtilisateurBu.displayPrefsTypeAideUser(userConnected);
-		
+		preferencesAideUserConnected = proxyUtilisateurBu.displayPrefsTypeAideUser(userConnected);	
 	}
-	
-	
-	
-	
+
 	//METHODES
 	public String modifierInfos() {
 		String retour ="";
