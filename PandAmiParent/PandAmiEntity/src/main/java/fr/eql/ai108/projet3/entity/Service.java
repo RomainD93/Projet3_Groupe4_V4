@@ -40,6 +40,7 @@ public class Service implements Serializable{
 	private LocalDate dateAnnulation;
 	private String adresse;
 	private String adresse2;
+	private Integer jourService;
 	
 	
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -64,12 +65,10 @@ public class Service implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-	
-
 	public Service(Integer id, LocalDate dateCreation, LocalDate dateService, LocalTime heureDbt, LocalTime heureFin,
 			LocalDate dateCloture, Float sommeAPrevoir, LocalDate dateAnnulation, String adresse, String adresse2,
-			TypeAide typeAide, Set<ReponseService> reponses, Set<Litige> litiges, Set<Negociation> negociations,
-			Utilisateur utilisateur, Materiel materiel) {
+			Integer jourService, TypeAide typeAide, Set<ReponseService> reponses, Set<Litige> litiges,
+			Set<Negociation> negociations, Utilisateur utilisateur, Materiel materiel) {
 		super();
 		this.id = id;
 		this.dateCreation = dateCreation;
@@ -81,6 +80,7 @@ public class Service implements Serializable{
 		this.dateAnnulation = dateAnnulation;
 		this.adresse = adresse;
 		this.adresse2 = adresse2;
+		this.jourService = jourService;
 		this.typeAide = typeAide;
 		this.reponses = reponses;
 		this.litiges = litiges;
@@ -89,18 +89,17 @@ public class Service implements Serializable{
 		this.materiel = materiel;
 	}
 
-
+	
 
 	@Override
 	public String toString() {
 		return "Service [id=" + id + ", dateCreation=" + dateCreation + ", dateService=" + dateService + ", heureDbt="
 				+ heureDbt + ", heureFin=" + heureFin + ", dateCloture=" + dateCloture + ", sommeAPrevoir="
 				+ sommeAPrevoir + ", dateAnnulation=" + dateAnnulation + ", adresse=" + adresse + ", adresse2="
-				+ adresse2 + ", typeAide=" + typeAide + ", reponses=" + reponses + ", litiges=" + litiges
-				+ ", negociations=" + negociations + ", utilisateur=" + utilisateur + ", materiel=" + materiel + "]";
+				+ adresse2 + ", jourService=" + jourService + "]";
 	}
 
-
+	
 
 	@Override
 	public int hashCode() {
@@ -115,17 +114,10 @@ public class Service implements Serializable{
 		result = prime * result + ((heureDbt == null) ? 0 : heureDbt.hashCode());
 		result = prime * result + ((heureFin == null) ? 0 : heureFin.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((litiges == null) ? 0 : litiges.hashCode());
-		result = prime * result + ((materiel == null) ? 0 : materiel.hashCode());
-		result = prime * result + ((negociations == null) ? 0 : negociations.hashCode());
-		result = prime * result + ((reponses == null) ? 0 : reponses.hashCode());
+		result = prime * result + ((jourService == null) ? 0 : jourService.hashCode());
 		result = prime * result + ((sommeAPrevoir == null) ? 0 : sommeAPrevoir.hashCode());
-		result = prime * result + ((typeAide == null) ? 0 : typeAide.hashCode());
-		result = prime * result + ((utilisateur == null) ? 0 : utilisateur.hashCode());
 		return result;
 	}
-
-
 
 	@Override
 	public boolean equals(Object obj) {
@@ -181,45 +173,18 @@ public class Service implements Serializable{
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (litiges == null) {
-			if (other.litiges != null)
+		if (jourService == null) {
+			if (other.jourService != null)
 				return false;
-		} else if (!litiges.equals(other.litiges))
-			return false;
-		if (materiel == null) {
-			if (other.materiel != null)
-				return false;
-		} else if (!materiel.equals(other.materiel))
-			return false;
-		if (negociations == null) {
-			if (other.negociations != null)
-				return false;
-		} else if (!negociations.equals(other.negociations))
-			return false;
-		if (reponses == null) {
-			if (other.reponses != null)
-				return false;
-		} else if (!reponses.equals(other.reponses))
+		} else if (!jourService.equals(other.jourService))
 			return false;
 		if (sommeAPrevoir == null) {
 			if (other.sommeAPrevoir != null)
 				return false;
 		} else if (!sommeAPrevoir.equals(other.sommeAPrevoir))
 			return false;
-		if (typeAide == null) {
-			if (other.typeAide != null)
-				return false;
-		} else if (!typeAide.equals(other.typeAide))
-			return false;
-		if (utilisateur == null) {
-			if (other.utilisateur != null)
-				return false;
-		} else if (!utilisateur.equals(other.utilisateur))
-			return false;
 		return true;
 	}
-
-
 
 	public Integer getId() {
 		return id;
@@ -348,6 +313,18 @@ public class Service implements Serializable{
 
 	public void setAdresse2(String adresse2) {
 		this.adresse2 = adresse2;
+	}
+
+
+
+	public Integer getJourService() {
+		return jourService;
+	}
+
+
+
+	public void setJourService(Integer jourService) {
+		this.jourService = jourService;
 	}
 
 	

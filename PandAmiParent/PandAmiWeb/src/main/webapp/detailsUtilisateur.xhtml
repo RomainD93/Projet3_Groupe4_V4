@@ -12,7 +12,7 @@
 
 		<script type="text/javascript" src="resources/JS/onglet.js"></script>
 		<div>
-			<ul class="onglets">
+			<ul class="onglets" id="onglets_details">
 				<li class="onglet"><span class="onglet_0" id="onglet_infos"
 					onclick="change_onglet('infos')">Mes Infos</span></li>
 				<li class="onglet"><span class="onglet_1" id="onglet_dispos"
@@ -118,8 +118,8 @@
 
 			<div class="contenu_onglet" id="contenu_onglet_prefs"
 				style="display: none;">
-				<h:dataTable var="preferencesTypeAide" 
-				value="#{mbUtilisateur.preferencesAideUserConnected}">
+				<h:dataTable var="preferencesTypeAide"
+					value="#{mbUtilisateur.preferencesAideUserConnected}">
 					<f:facet name="header">
 						<span>Types d'aide</span>
 					</f:facet>
@@ -131,8 +131,8 @@
 				<p:commandButton action="#{mbUtilisateur.modifierPrefsType()}"
 					value="Modifier" styleClass="p-mr-3"></p:commandButton>
 			</div>
-			
-				<!-- ONGLET VILLES -->
+
+			<!-- ONGLET VILLES -->
 
 
 			<div class="contenu_onglet" id="contenu_onglet_villes"
@@ -153,15 +153,10 @@
 			</div>
 
 		</div>
-
-
 		<script>
-var anc_onglet = 'infos';
-change_onglet(anc_onglet);
-</script>
-
-
-
+			var anc_onglet = 'infos';
+			change_onglet(anc_onglet);
+		</script>
 	</ui:define>
 	<!-- 	<ui:define name="CSS"></ui:define> -->
 </ui:composition>

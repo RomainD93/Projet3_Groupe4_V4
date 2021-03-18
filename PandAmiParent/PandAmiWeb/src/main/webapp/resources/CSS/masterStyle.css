@@ -1,113 +1,187 @@
-
-
-#footer{
-	border: 1px solid black;
+#footer {
 	background-image: white;
 	color: #000000;
 	text-align: center;
 }
 
-#center{
-	height: 80vh;
+#center {
+	flex-grow: 1;
 	width: 75vw;
 	margin-left: auto;
 	margin-right: auto;
-	border: 1px solid hotpink;
+	margin-left: auto;
+	background-color: #ffffff;
+	position: center;
 }
 
 * {
-    box-sizing: border-box;
-  }
-  
-  
-  
-  body {
-    font: 16px Arial;  
-  }
-  
-  /*the container must be positioned relative:*/
-  .autocomplete {
-    position: relative;
-    display: inline-block;
-  }
-  
-  input {
-    border: 1px solid transparent;
-    background-color: #f1f1f1;
-    padding: 10px;
-    font-size: 16px;
-  }
-  
-  input[type=text] {
-    background-color: #f1f1f1;
-    width: 100%;
-  }
-  
-  input[type=submit] {
-    background-color: DodgerBlue;
-    color: #fff;
-    cursor: pointer;
-  }
-  
-  .autocomplete-items {
-    position: absolute;
-    border: 1px solid #d4d4d4;
-    border-bottom: none;
-    border-top: none;
-    z-index: 99;
-    /*position the autocomplete items to be the same width as the container:*/
-    top: 100%;
-    left: 0;
-    right: 0;
-  }
-  
-  .autocomplete-items div {
-    padding: 10px;
-    cursor: pointer;
-    background-color: #fff; 
-    border-bottom: 1px solid #d4d4d4; 
-  }
-  
-  /*when hovering an item:*/
-  .autocomplete-items div:hover {
-    background-color: #e9e9e9; 
-  }
-  
-  /*when navigating through the items using the arrow keys:*/
-  .autocomplete-active {
-    background-color: DodgerBlue !important; 
-    color: #ffffff; 
-  }
-  
-    .onglets{
-    display: table;
-background: linear-gradient(deepskyblue, dodgerblue);
-    padding: 0.2em;
-    border-radius: 3px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, .3),
-                0 3px 5px rgba(0, 0, 0, .2),
-                0 5px 10px rgba(0, 0, 0, .2),
-                0 20px 20px rgba(0, 0, 0, .15);
+	font-family: "Helvetica";
+	font-size: 20px;
+	box-sizing: border-box;
 }
 
-.onglet{
-    display: table-cell;
-text-shadow: 0 1px 0 rgba(255, 255, 255, .4);
-    text-align: center;
-    color: rgba(0, 0, 0, .7); 
- 
-    padding: 8px 8px 17px 8px;
-    
+body {
+	margin: 0;
+	background-color: #97E5D7;
 }
- 
-li:hover{
- background: rgba(255,255,255,.2);
-    box-shadow: 0 1px 0 rgba(255, 255, 255, .7) inset, 
-                0 -1px 0 hsl(210, 100%, 42%) inset, 
-                0 -2px 0 hsl(210, 100%, 48%) inset, 
-                0 -3px 0 hsl(210, 100%, 54%) inset, 
-                0 -4px 0 hsl(210, 100%, 60%) inset, 
-                0 -5px 0 hsl(210, 100%, 70%) inset;
-     padding: 0px 25px 0px 25px;
- }
- 
+
+body .ui-toolbar {
+	background: #000000;
+	color: #495057;
+	padding: 1rem;
+	border: none;
+}
+
+body .ui-tabmenu .ui-tabmenu-nav {
+	margin: 0;
+	padding: 0;
+	background: transparent;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	position: relative;
+}
+
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem a {
+	color: #97E5D7;
+	padding: 1rem;
+	font-weight: 700;
+	display: block;
+	line-height: 1;
+	outline: 0 none;
+	background-color: #888888;
+}
+
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active a {
+	color: #97E5D7;
+	background-color: black;
+}
+
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem:hover {
+	background-color: #97E5D7;
+	color: black;
+}
+
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem {
+	background: #888888;
+	border-color: #888888;
+}
+
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active {
+	background: #888888;
+	border-color: #97E5D7;
+}
+
+
+.pi-sign-out:before {
+	content: "\e971";
+	color: #888888;
+}
+
+.pi-home:before {
+    content: "\e925";
+    color: #97E5D7;
+}
+
+body .ui-button {
+    background: #000000;
+    color: #97E5D7;
+    margin: 0;
+    outline: 0 none;
+    border-radius: none;
+    border: none;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+body .Logout{
+	background-color: #97E5D7;
+	margin-top: 5px;
+	color:  #888888;
+}
+
+#container {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	box-sizing: border-box;
+	padding: 10px;
+}
+
+/*the container must be positioned relative:*/
+.autocomplete {
+	position: relative;
+	display: inline-block;
+}
+
+input {
+	border: 1px solid transparent;
+	background-color: #f1f1f1;
+	padding: 10px;
+	font-size: 16px;
+}
+
+input[type=text] {
+	background-color: #f1f1f1;
+	width: 250px;
+}
+
+input[type=submit] {
+	background-color: DodgerBlue;
+	color: #fff;
+	cursor: pointer;
+}
+
+.autocomplete-items {
+	position: absolute;
+	border: 1px solid #d4d4d4;
+	border-bottom: none;
+	border-top: none;
+	z-index: 99;
+	/*position the autocomplete items to be the same width as the container:*/
+	top: 100%;
+	left: 0;
+	right: 0;
+}
+
+.autocomplete-items div {
+	padding: 10px;
+	cursor: pointer;
+	background-color: #fff;
+	border-bottom: 1px solid #d4d4d4;
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+	background-color: #e9e9e9;
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+	background-color: DodgerBlue !important;
+	color: #ffffff;
+}
+
+.onglets {
+	display: table;
+	background-color: #97E5D7;
+	/*background: linear-gradient(deepskyblue, dodgerblue);*/
+	padding: 0.2em;
+	border-radius: 3px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0
+		5px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
+	padding: 0.2em
+}
+
+.onglet {
+	display: table-cell;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, .4);
+	text-align: center;
+	color: rgba(0, 0, 0, .7);
+	padding: 8px 8px 17px 8px;
+}
+
+li:hover {
+	background: rgba(255, 255, 255, .2);
+	padding: 0px 25px 0px 25px;
+}

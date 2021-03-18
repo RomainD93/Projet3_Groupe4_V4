@@ -22,13 +22,9 @@ public class PreferenceAideDao extends GenericDao<PreferenceAide> implements Pre
 	
 	@Override
 	public void deletePrefsTypeAideByUser(Utilisateur utilisateur) {
-		Query query = em.createQuery("SELECT p FROM PreferenceAide p WHERE p.utilisateur.id = :paramUserId");
+		Query query = em.createQuery("DELETE FROM PreferenceAide p WHERE p.utilisateur.id = :paramUserId");
 		query.setParameter("paramUserId", utilisateur.getId());
-		List<PreferenceAide> prefsUser = query.getResultList();
-		for (PreferenceAide preferenceAide : prefsUser) {
-			preferenceAide = em.merge(preferenceAide);
-			em.remove(preferenceAide);
-		}
+		query.executeUpdate();
 	}
 
 	@Override

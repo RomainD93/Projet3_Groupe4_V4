@@ -163,9 +163,21 @@ public class ServiceDao extends GenericDao<Service> implements ServiceIDao{
 
 	@Override
 	public List<Service> getServiceByVolontaire(Utilisateur userConnected) {
-		Query query = em.createQuery("SELECT r FROM ReponseService r WHERE r.utilisateur = :paramUser AND r.dateDesistement != null");
+		Query query = em.createQuery("SELECT r FROM ReponseService r WHERE r.utilisateur = :paramUser AND r.dateDesistement IS null");
 		query.setParameter("paramUser", userConnected);
 		List<Service> serviceVolontaire = query.getResultList();
 		return serviceVolontaire;
+	}
+
+	@Override
+	public List<Service> getServiceByPref(Utilisateur userConnected) {
+		Query query = em.createQuery("SELECT s FROM Service s, PreferenceAide p, PreferenceVille pv "
+				+ "WHERE s.typeAide = p.typeAide "
+				+ "AND s.adresse LIKE ('%' || pv.ville.codePostal || '%')"	
+				+ "AND pv.utilisateur = :paramUser "
+				+ "AND p.utilisateur = :paramUser");
+		query.setParameter("paramUser", userConnected);
+		List<Service> servicePref = query.getResultList();
+		return servicePref;
 	}	
 }

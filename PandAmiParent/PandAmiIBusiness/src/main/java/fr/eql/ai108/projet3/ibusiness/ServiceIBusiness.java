@@ -34,5 +34,6 @@ public interface ServiceIBusiness {
 	ReponseService updateDesistementService(Service service, Utilisateur userConnected);
 	List<Service> displayServiceBeneficiaire(Utilisateur userConnected);
 	List<Service> displayServiceVolontaire(Utilisateur userConnected);
+	List<Service> displayServicePref(Utilisateur userConnected);
 	
 }

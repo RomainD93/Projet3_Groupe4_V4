@@ -33,4 +33,5 @@ public interface ServiceIDao extends GenericIDao<Service> {
 	
 	List<Service> getServiceByBeneficiaire(Utilisateur userConnected);
 	List<Service> getServiceByVolontaire(Utilisateur userConnected);
+	List<Service> getServiceByPref(Utilisateur userConnected);
 }
