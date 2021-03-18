@@ -56,6 +56,7 @@ public class ServiceManagedBean {
 	//Liste service
 	private List<Service> serviceBeneficiaire;
 	private List<Service> serviceVolontaire;
+	private List<Service> servicesPref;
 
 	//Filtrage de la liste
 	private List<FilterMeta> filterBy;
@@ -90,9 +91,6 @@ public class ServiceManagedBean {
 		//		typesAide = proxyServiceBu.displayTypeAide();	
 		materiels = proxyServiceBu.displayMateriel();
 		
-		serviceBeneficiaire = proxyServiceBu.displayServiceBeneficiaire(userConnected);
-		serviceVolontaire = proxyServiceBu.displayServiceVolontaire(userConnected);
-
 		categoriesAide = proxyServiceBu.displayCategorieAide();
 		typesAideCat1 = proxyServiceBu.displayTypesAideCat1();
 		typesAideCat2 = proxyServiceBu.displayTypesAideCat2();
@@ -117,18 +115,16 @@ public class ServiceManagedBean {
 		mapTypesAide.put(9, typesAideCat9);
 		mapTypesAide.put(10, typesAideCat10);
 		mapTypesAide.put(11, typesAideCat11);
+		
+		serviceBeneficiaire = proxyServiceBu.displayServiceBeneficiaire(userConnected);
+		serviceVolontaire = proxyServiceBu.displayServiceVolontaire(userConnected);
+		servicesPref = proxyServiceBu.displayServicePref(userConnected);	
 
 		filterBy = new ArrayList<>();
-
+		
 		filterBy.add(FilterMeta.builder()
 				.field("dateService")
 				.filterValue(Arrays.asList(LocalDate.now().minusDays(24), LocalDate.now().plusDays(14)))
-				.matchMode(MatchMode.RANGE)
-				.build());
-
-		filterBy.add(FilterMeta.builder()
-				.field("heureDbt")
-				.filterValue(Arrays.asList(LocalTime.now().minusHours(8), LocalTime.now()))
 				.matchMode(MatchMode.RANGE)
 				.build());
 
@@ -151,12 +147,10 @@ public class ServiceManagedBean {
 		//return "/testListe.xhtml?faces-redirect=true";
 	}
 
-
-
 	//CREATION D'UN SERVICE
 	public String demanderService() {
 		String retour ="";
-
+		
 		if(service == null) {
 			message = "Désolé, votre demande n'a pas été enregistrée, veuillez réessayer";
 			retour = "/creationService.xhtml?faces-redirect=true";
@@ -169,6 +163,9 @@ public class ServiceManagedBean {
 			service.setTypeAide(typeAideSelected);
 			service.setMateriel(materielSelected);
 			service = proxyServiceBu.creerService(service);
+			services.add(service);
+			serviceBeneficiaire.add(service);
+			service = new Service();
 			message = "Votre demande a été enregistrée";
 			retour = "/home.xhtml?faces-redirect=true";		// Avec filtrage pour afficher services demandeur
 		}
@@ -185,7 +182,8 @@ public class ServiceManagedBean {
 			reponseService.setService(serviceSelected);
 			reponseService.setDateAcceptation(LocalDate.now());
 			reponseService = proxyServiceBu.creerReponseService(reponseService);
-			reponseService = new ReponseService();
+			reponseService = new ReponseService();			
+			serviceVolontaire.add(serviceSelected);
 		}
 	}
 
@@ -206,9 +204,8 @@ public class ServiceManagedBean {
 	}
 
 	//	MODIFIER LE SERVICE
-	public void modifierService() {	
+	public void modifierService() {			
 		this.detailService.setMateriel(materielSelected);
-		this.detailService.setTypeAide(typeAideSelected);
 		proxyServiceBu.updateService(detailService);				
 	}
 	
@@ -222,22 +219,21 @@ public class ServiceManagedBean {
 	}
 	
 	// SE DESISTER DU SERVICE
-	public String seDesisterDuService() {
+	public String seDesisterDuService(Service service) {
 		String retour = "";
-		reponseService = proxyServiceBu.updateDesistementService(detailService, userConnected);
+		reponseService = proxyServiceBu.updateDesistementService(service, userConnected);
 		reponseService.setDateDesistement(LocalDate.now());
 		proxyServiceBu.updateReponseService(reponseService);
 		return retour = "/home.xhtml?faces-redirect=true";
 	}
 	
 	// REQUETE UPDATE DES LISTES
-	public List<Service> recupListeServiceDemande() {
-		System.out.println("RECUP SERVICE DEMANDE");
-		return serviceBeneficiaire = proxyServiceBu.displayServiceBeneficiaire(userConnected);
-	}
-	public List<Service> recupListeServicePropose() {	
-		System.out.println("RECUP SERVICE PROPOSE");
-		return serviceVolontaire = proxyServiceBu.displayServiceVolontaire(userConnected);
+	public void recupListeService() {
+		System.out.println("RECUP LISTE");
+		serviceBeneficiaire = proxyServiceBu.displayServiceBeneficiaire(userConnected);
+		serviceVolontaire = proxyServiceBu.displayServiceVolontaire(userConnected);
+		servicesPref = proxyServiceBu.displayServicePref(userConnected);
+		services = proxyServiceBu.displayService();
 	}
 	// GETTERS SETTERS 
 
@@ -483,6 +479,16 @@ public class ServiceManagedBean {
 
 	public void setServiceVolontaire(List<Service> serviceVolontaire) {
 		this.serviceVolontaire = serviceVolontaire;
+	}
+
+
+	public List<Service> getServicesPref() {
+		return servicesPref;
+	}
+
+
+	public void setServicesPref(List<Service> servicesPref) {
+		this.servicesPref = servicesPref;
 	}
 
 

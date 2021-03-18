@@ -77,7 +77,6 @@
 							<p:resetInput target=":myForm:manage-modification-content" />
 						</p:commandButton>
 					</p:column>
-					<p:commandButton value="Se désister du service" action="#{mbService.seDesisterDuService()}"/>
 					<p:commandButton value="Annuler le service" action="#{mbService.annulerService()}"/>
 					<p:commandButton value="Litige" />
 
@@ -137,7 +136,7 @@
 					<f:facet name="footer">
 						<p:commandButton value="Accepter modification" icon="pi pi-check"
 							actionListener="#{mbService.modifierService()}"
-							oncomplete="PF('manageModificationDialog').hide(); location.reload();" />
+							oncomplete="PF('manageModificationDialog').hide()" />
 					</f:facet>
 				</p:dialog>
 			</h:form>
