@@ -160,6 +160,11 @@ public class ServiceBusiness implements ServiceIBusiness {
 		return proxyServiceDao.getServiceByVolontaire(userConnected);
 	}
 
+	@Override
+	public List<Service> displayServicePref(Utilisateur userConnected) {
+		return proxyServiceDao.getServiceByPref(userConnected);
+	}
+
 
 
 	

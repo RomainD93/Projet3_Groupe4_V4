@@ -9,7 +9,7 @@
 <ui:composition template="/masterPage.xhtml">
 	<ui:define name="title">Index</ui:define>
 	<ui:define name="content">
-	
+
 		<script type="text/javascript" src="resources/JS/onglet.js"></script>
 		<div class="onglets">
 			<span class="onglet_0 onglet" id="onglet_mesServicesDemandes"
@@ -21,7 +21,7 @@
 		</div>
 
 		<div class="contenu_onglets">
-							<!-- LISTE DES SERVICES DEMANDES-->	
+			<!-- LISTE DES SERVICES DEMANDES-->
 			<div class="contenu_onglet" id="contenu_onglet_mesServicesDemandes"
 				style="display: none;">
 				<h:form id="ServiceDemandeform">
@@ -67,17 +67,6 @@
 							</f:facet>
 						</p:column>
 						<p:column>
-							<p:column exportable="false">
-								<p:commandButton value="Accepter"
-									update=":ServiceDemandeform:manage-product-content"
-									oncomplete="PF('manageProductDialog').show()"
-									styleClass="edit-button rounded-button ui-button-success"
-									process="@this">
-									<f:setPropertyActionListener value="#{service}"
-										target="#{mbService.serviceSelected}" />
-									<p:resetInput target=":ServiceDemandeform:manage-product-content" />
-								</p:commandButton>
-							</p:column>
 							<p:commandButton value="Détails"
 								action="#{mbService.load(service)}"></p:commandButton>
 						</p:column>
@@ -138,7 +127,7 @@
 					</p:dialog>
 				</h:form>
 			</div>
-									<!-- LISTE DES SERVICES PROPOSES -->
+			<!-- LISTE DES SERVICES PROPOSES -->
 			<div class="contenu_onglet" id="contenu_onglet_mesServicesProposes"
 				style="display: none;">
 				<h:form id="ServiceProposeform">
@@ -184,19 +173,10 @@
 							</f:facet>
 						</p:column>
 						<p:column>
-							<p:column exportable="false">
-								<p:commandButton value="Accepter"
-									update=":ServiceProposeform:manage-product-content"
-									oncomplete="PF('manageProductDialog').show()"
-									styleClass="edit-button rounded-button ui-button-success"
-									process="@this">
-									<f:setPropertyActionListener value="#{service}"
-										target="#{mbService.serviceSelected}" />
-									<p:resetInput target=":ServiceProposeform:manage-product-content" />
-								</p:commandButton>
-							</p:column>
 							<p:commandButton value="Détails"
 								action="#{mbService.load(service)}"></p:commandButton>
+							<p:commandButton value="Se désister du service"
+								action="#{mbService.seDesisterDuService(service)}" />
 						</p:column>
 					</p:dataTable>
 					<!-- POPUP DETAILS -->
@@ -256,7 +236,7 @@
 				</h:form>
 			</div>
 		</div>
-				<script>
+		<script>
 var anc_onglet = 'mesServicesDemandes';
 change_onglet(anc_onglet);
 </script>

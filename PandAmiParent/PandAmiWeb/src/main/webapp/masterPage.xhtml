@@ -12,6 +12,7 @@
 	<title><ui:insert name="title"></ui:insert></title>
 	<!-- Insert de la feuille de style de chaque composition -->
 	<ui:insert name="CSS"></ui:insert>
+	<ui:insert name="meta"></ui:insert>
 	<!-- Titre des pages enfants -->
 	<title><ui:insert name="title"></ui:insert></title>
 </h:head>
@@ -29,7 +30,6 @@
 								<f:param name="i" value="0" />
 							</p:menuitem>
 							<p:menuitem value="Mes services"
-								action="#{mbService.recupListeServicePropose()}"
 								outcome="/mesServices.xhtml">
 								<f:param name="i" value="1" />
 							</p:menuitem>

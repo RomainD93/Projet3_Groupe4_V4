@@ -35,13 +35,9 @@ public class DisponibiliteDao extends GenericDao<Disponibilite> implements Dispo
 
 	@Override
 	public void deleteDisposByUser(Utilisateur utilisateurConnected) {
-		Query query = em.createQuery("SELECT d FROM Disponibilite d WHERE d.utilisateur.id = :paramUserId");
+		Query query = em.createQuery("DELETE FROM Disponibilite d WHERE d.utilisateur.id = :paramUserId");
 		query.setParameter("paramUserId", utilisateurConnected.getId());
-		List<Disponibilite> disposUserId = query.getResultList();
-		for (Disponibilite disponibilite : disposUserId) {
-			disponibilite = em.merge(disponibilite);
-			em.remove(disponibilite);
-		}		
+		query.executeUpdate();
 	}
 
 	@Override

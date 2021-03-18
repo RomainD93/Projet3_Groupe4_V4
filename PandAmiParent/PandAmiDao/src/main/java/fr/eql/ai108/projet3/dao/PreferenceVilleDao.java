@@ -21,14 +21,9 @@ public class PreferenceVilleDao extends GenericDao<PreferenceVille> implements P
 
 	@Override
 	public void deletePreferencesVilleByUser(Utilisateur utilisateur) {
-		Query query = em.createQuery("SELECT p FROM PreferenceVille p WHERE p.utilisateur.id = :paramUserId");
+		Query query = em.createQuery("DELETE FROM PreferenceVille p WHERE p.utilisateur.id = :paramUserId");
 		query.setParameter("paramUserId", utilisateur.getId());
-		List<PreferenceVille> prefsUser = query.getResultList();
-		for (PreferenceVille preferenceVille : prefsUser) {
-			preferenceVille = em.merge(preferenceVille);
-			em.remove(preferenceVille);
-		}
-
+		query.executeUpdate();
 	}
 
 	@Override

@@ -51,7 +51,6 @@ public class Disponibilite implements Serializable{
 
 
 
-
 	public Disponibilite(Integer id, LocalTime heureDbtDispo, LocalTime heureFinDispo, Date dbtValiditeDispo,
 			Date finValiditeDispo, Utilisateur utilisateur, JourSemaine jourSemaine) {
 		super();
