@@ -38,7 +38,4 @@ public class PreferenceAideDao extends GenericDao<PreferenceAide> implements Pre
 		List<PreferenceAide> prefsUser = query.getResultList();
 		return prefsUser;
 	}
-
-
-
 }

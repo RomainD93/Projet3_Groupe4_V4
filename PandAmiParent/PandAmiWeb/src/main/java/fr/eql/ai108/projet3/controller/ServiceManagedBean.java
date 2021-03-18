@@ -131,9 +131,7 @@ public class ServiceManagedBean {
 				.filterValue(Arrays.asList(LocalTime.now().minusHours(8), LocalTime.now()))
 				.matchMode(MatchMode.RANGE)
 				.build());
-
 	}
-
 
 	//AFFICHER TYPES AIDE SELON CATEGORIE AIDE
 	public void onCategorieChange() {
@@ -150,8 +148,6 @@ public class ServiceManagedBean {
 		services = proxyServiceBu.displayServiceSsVolontaire();		
 		//return "/testListe.xhtml?faces-redirect=true";
 	}
-
-
 
 	//CREATION D'UN SERVICE
 	public String demanderService() {
@@ -188,7 +184,6 @@ public class ServiceManagedBean {
 			reponseService = new ReponseService();
 		}
 	}
-
 
 	// NOMBRE DE SERVICES
 	public Long getNbServices() {

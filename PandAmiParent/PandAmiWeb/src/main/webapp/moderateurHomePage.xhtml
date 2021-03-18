@@ -6,15 +6,43 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="/masterPage.xhtml">
-	<ui:define name="title">Outils d'analyse</ui:define>
+	<ui:define name="title">Page Modérateur</ui:define>
 	<ui:define name="content">
-<h1>PAGE ADMIN MODERATEUR</h1>
-
-
-
-
-
+		<div>
+			<h:form id="homeform">
+				<p:dataTable var="litige" value="#{mbModerateur.allLitiges}">
+					<f:facet name="header">
+						<span>Liste Des litiges</span>
+					</f:facet>
+					<p:column headerText="Id du Litige">
+						<h:outputText style="vertical-align: middle; margin-left: .5rem"
+							value="#{litige.id}" />
+					</p:column>
+					<p:column headerText="Type du Litige">
+						<h:outputText style="vertical-align: middle; margin-left: .5rem"
+							value="#{litige.typeLitige.nomTypeLitige}" />
+					</p:column>
+					<p:column headerText="Créateur">
+						<h:outputText style="vertical-align: middle; margin-left: .5rem"
+							value="#{litige.utilisateur.email}" />
+					</p:column>
+					<p:column headerText="Date de Création">
+						<h:outputText style="vertical-align: middle; margin-left: .5rem"
+							value="#{litige.dateCreation}" />
+					</p:column>
+					<p:column headerText="Date de clôture" >
+						<h:outputText style="vertical-align: middle; margin-left: .5rem"
+							value="#{litige.dateCloture}"/>
+					</p:column>
+					<p:column>
+						<h:commandButton action="#{mbModerateur.loadLitige(litige)}"
+							value="Détails" />
+					</p:column>
+				</p:dataTable>
+		
+			</h:form>
+		</div>
 	</ui:define>
-<!-- 	<ui:define name="CSS"></ui:define> -->
+	<!-- 	<ui:define name="CSS"></ui:define> -->
 </ui:composition>
 </html>

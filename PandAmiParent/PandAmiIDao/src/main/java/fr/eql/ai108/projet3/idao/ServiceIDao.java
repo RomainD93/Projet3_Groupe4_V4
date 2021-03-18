@@ -4,6 +4,7 @@ import java.util.List;
 
 import fr.eql.ai108.projet3.entity.CategorieAide;
 import fr.eql.ai108.projet3.entity.JourSemaine;
+import fr.eql.ai108.projet3.entity.Litige;
 import fr.eql.ai108.projet3.entity.Materiel;
 import fr.eql.ai108.projet3.entity.ReponseService;
 import fr.eql.ai108.projet3.entity.Service;
@@ -29,6 +30,7 @@ public interface ServiceIDao extends GenericIDao<Service> {
 	List<TypeAide> getTypesAideCat10();
 	List<TypeAide> getTypesAideCat11();
 	ReponseService getReponseService(Service service, Utilisateur userConnected);
+	
 	List<Service> getServiceByBeneficiaire(Utilisateur userConnected);
 	List<Service> getServiceByVolontaire(Utilisateur userConnected);
 }

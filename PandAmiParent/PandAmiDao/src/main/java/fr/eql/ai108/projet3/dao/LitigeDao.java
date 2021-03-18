@@ -9,6 +9,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import fr.eql.ai108.projet3.entity.Litige;
+import fr.eql.ai108.projet3.entity.ReponseService;
 import fr.eql.ai108.projet3.idao.LitigeIDao;
 
 @Remote(LitigeIDao.class)
@@ -21,7 +22,7 @@ public class LitigeDao extends GenericDao<Litige> implements LitigeIDao {
 	
 	@Override
 	public List<Litige> getAll() {
-		Query query = em.createQuery("SELECT l FROM Litige l");
+		Query query = em.createQuery("SELECT l FROM Litige l ORDER BY l.dateCloture");
 		List<Litige> litiges = query.getResultList();
 		return litiges;
 	}
@@ -73,6 +74,14 @@ public class LitigeDao extends GenericDao<Litige> implements LitigeIDao {
 		Query query = em.createQuery("SELECT l FROM Litige l WHERE l.typeLitige.id = 5");
 		List<Litige> litiges = query.getResultList();
 		return litiges;
+	}
+
+	@Override
+	public ReponseService getLastReponseServiceByLitige(Litige litige) {
+		Query query = em.createQuery("SELECT r FROM ReponseService r WHERE r.service = :paramLitige AND r.dateDesistement IS NULL");
+		query.setParameter("paramLitige", litige.getService());
+		ReponseService reponseServiceDuVolontaire = (ReponseService) query.getSingleResult();	
+		return reponseServiceDuVolontaire;
 	}
 
 }

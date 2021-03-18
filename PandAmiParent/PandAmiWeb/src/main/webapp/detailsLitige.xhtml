@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/masterPage.xhtml">
+	<ui:define name="title">Details litige</ui:define>
+	<ui:define name="content">
+		<h:form class="formulaire">
+		<h:panelGrid columns="2" cellpadding="7" styleClass="p-mb-3">
+
+			<h:panelGroup>
+				<!-- 			ID LITIGE -->
+				<p:outputLabel value="Litige n° : " />
+			</h:panelGroup>
+			<p:outputLabel value="#{mbModerateur.detailLitige.id}" />
+
+			<h:panelGroup>
+				<!-- 			TYPE DE LITIGE -->
+				<p:outputLabel value="Type : " />
+			</h:panelGroup>
+			<p:outputLabel
+				value="#{mbModerateur.detailLitige.typeLitige.nomTypeLitige}" />
+
+			<h:panelGroup>
+				<!-- 			CREATEUR DU LITIGE -->
+				<p:outputLabel value="Créateur : " />
+			</h:panelGroup>
+			<p:outputLabel value="#{mbModerateur.detailLitige.utilisateur.email}" />
+
+			<h:panelGroup>
+				<!-- 			DATE DU LITIGE -->
+				<p:outputLabel value="Litige créée le : " />
+			</h:panelGroup>
+			<p:outputLabel value="#{mbModerateur.detailLitige.dateCreation}" />
+
+			<h:panelGroup>
+				<!-- 			COMMENTAIRES DU LITIGE -->
+				<p:outputLabel value="Commentaires : " />
+			</h:panelGroup>
+			<p:outputLabel value="#{mbModerateur.detailLitige.commentaires}" />
+
+			<h:panelGroup>
+				<!-- 			ID DU SERVICE -->
+				<p:outputLabel value="Service n° : " />
+			</h:panelGroup>
+			<p:outputLabel value="#{mbModerateur.detailLitige.service.id}" />
+
+			<h:panelGroup>
+				<!-- 			TYPE DE SERVICE -->
+				<p:outputLabel value="Type de service : " />
+			</h:panelGroup>
+			<p:outputLabel
+				value="#{mbModerateur.detailLitige.service.typeAide.nomTypeAide}" />
+
+			<h:panelGroup>
+				<!-- 			DATE DU SERVICE -->
+				<p:outputLabel value="Date du service : " />
+			</h:panelGroup>
+			<p:outputLabel
+				value="#{mbModerateur.detailLitige.service.dateService}" />
+
+			<h:panelGroup>
+				<!-- 			ADRESSE DU SERVICE -->
+				<p:outputLabel value="Adresse du service : " />
+			</h:panelGroup>
+			<p:outputLabel value="#{mbModerateur.detailLitige.service.adresse}" />
+
+			<h:panelGroup>
+				<!-- 			SOMME DU SERVICE -->
+				<p:outputLabel value="Somme à prévoir en Euros : " />
+			</h:panelGroup>
+			<p:outputLabel
+				value="#{mbModerateur.detailLitige.service.sommeAPrevoir}" />
+
+			<h:panelGroup>
+				<!-- 			CREATEUR DU SERVICE -->
+				<p:outputLabel value="Login - Bénéficiare du service : " />
+			</h:panelGroup>
+			<p:outputLabel
+				value="#{mbModerateur.detailLitige.service.utilisateur.email}" />
+
+			<h:panelGroup>
+				<!-- 			TEL CREATEUR SERVICE -->
+				<p:outputLabel value="Tel - Bénéficiaire service : " />
+			</h:panelGroup>
+			<p:outputLabel
+				value="#{mbModerateur.detailLitige.service.utilisateur.numTelephone}" />
+
+			<h:panelGroup>
+				<!-- 			VOLONTAIRE DU SERVICE -->
+				<p:outputLabel value="Login - Volontaire du service : " />
+			</h:panelGroup>
+			<p:outputLabel
+				value="#{mbModerateur.reponseServiceSelected.utilisateur.nom}" />
+
+			<h:panelGroup>
+				<!-- 			TEL VOLONTAIRE DU SERVICE -->
+				<p:outputLabel value="Tel - Volontaire du service : " />
+			</h:panelGroup>
+			<p:outputLabel
+				value="#{mbModerateur.reponseServiceSelected.utilisateur.numTelephone}" />
+		</h:panelGrid>
+			<p:commandButton value="Clôturer Litige" action="#{mbModerateur.cloturerLitige()}"/>
+			<p:commandButton value="Retour Home" action="#{mbModerateur.annulerClotureLitige()}"/>		
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>
+
