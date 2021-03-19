@@ -1,5 +1,6 @@
 package fr.eql.ai108.projet3.dao;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -29,8 +30,9 @@ public class ServiceDao extends GenericDao<Service> implements ServiceIDao{
 	
 	@Override
 	public List<Service> getAll(Utilisateur userConnected) {
-		Query query = em.createQuery("SELECT s FROM Service s WHERE s.dateAnnulation IS null AND s.dateAcceptation IS null AND s.utilisateur != :paramUser");
+		Query query = em.createQuery("SELECT s FROM Service s WHERE s.dateAnnulation IS null AND s.dateAcceptation IS null AND s.utilisateur != :paramUser AND s.dateCloture IS null AND s.dateService >= :paramDate");
 		query.setParameter("paramUser", userConnected);
+		query.setParameter("paramDate", LocalDate.now());
 		List<Service> services = query.getResultList();
 		return services;
 	}
@@ -159,34 +161,45 @@ public class ServiceDao extends GenericDao<Service> implements ServiceIDao{
 
 	@Override
 	public List<Service> getServiceByBeneficiaire(Utilisateur userConnected) {
-		Query query = em.createQuery("SELECT s FROM Service s WHERE s.utilisateur = :paramUser AND s.dateAnnulation IS null");
+		Query query = em.createQuery("SELECT s FROM Service s WHERE s.utilisateur = :paramUser AND s.dateAnnulation IS null AND s.dateService >= :paramDate");
 		query.setParameter("paramUser", userConnected);
+		query.setParameter("paramDate", LocalDate.now());
 		List<Service> serviceBeneficiaire = query.getResultList();
 		return serviceBeneficiaire;
 	}
 
 	@Override
 	public List<Service> getServiceByVolontaire(Utilisateur userConnected) {
-		Query query = em.createQuery("SELECT s FROM Service s, ReponseService r "
-				+ "WHERE s.id = r.service.id "
-				+ "AND r.dateDesistement IS null "
-				+ "AND r.utilisateur = :paramUser "
-				+ "AND s.dateAnnulation IS null");
+		Query query = em.createQuery("SELECT s FROM Service s, ReponseService r WHERE s.id = r.service.id AND s.dateService >= :paramDate AND r.dateDesistement IS null AND r.utilisateur = :paramUser AND s.dateAnnulation IS null");
 		query.setParameter("paramUser", userConnected);
+		query.setParameter("paramDate", LocalDate.now());
 		List<Service> serviceVolontaire = query.getResultList();
 		return serviceVolontaire;
 	}
 
 	@Override
 	public List<Service> getServiceByPref(Utilisateur userConnected) {
-		Query query = em.createQuery("SELECT s FROM Service s, PreferenceAide p, PreferenceVille pv "
-				+ "WHERE s.typeAide = p.typeAide "
-				+ "AND s.adresse LIKE ('%' || pv.ville.codePostal || '%')"	
-				+ "AND pv.utilisateur = :paramUser "
-				+ "AND p.utilisateur = :paramUser "
-				+ "AND s.dateAnnulation IS null");
+		Query query = em.createQuery("SELECT s FROM Service s, PreferenceAide p, PreferenceVille pv WHERE s.typeAide = p.typeAide AND s.dateAcceptation IS null AND s.adresse LIKE ('%' || pv.ville.codePostal || '%')	AND pv.utilisateur = :paramUser  AND p.utilisateur = :paramUser AND s.dateAnnulation IS null AND s.dateService >= :paramDate");
 		query.setParameter("paramUser", userConnected);
+		query.setParameter("paramDate", LocalDate.now());
 		List<Service> servicePref = query.getResultList();
 		return servicePref;
+	}
+
+	@Override
+	public List<Service> getServiceTermine(Utilisateur userConnected) {
+		Query query = em.createQuery("SELECT s FROM Service s, ReponseService r WHERE r.utilisateur = :paramUser AND r.service.id = s.id AND r.dateAcceptation IS NOT null AND r.dateDesistement IS null AND s.dateService < :paramDate");
+		Query query2 = em.createQuery("SELECT s FROM Service s WHERE s.utilisateur = :paramUser AND s.dateService < :paramDate AND s.dateAnnulation IS null");
+		query.setParameter("paramUser", userConnected);
+		query.setParameter("paramDate", LocalDate.now());
+		query2.setParameter("paramUser", userConnected);
+		query2.setParameter("paramDate", LocalDate.now());
+		List<Service> serviceTermine1 = query.getResultList();
+		List<Service> serviceTermine2 = query2.getResultList();
+		List<Service> serviceTermine = new ArrayList<Service>();
+		serviceTermine.addAll(serviceTermine1);
+		serviceTermine.addAll(serviceTermine2);
+
+		return serviceTermine;
 	}	
 }

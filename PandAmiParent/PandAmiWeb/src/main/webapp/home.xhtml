@@ -69,7 +69,6 @@
 							<h:outputText style="vertical-align: middle; margin-left: .5rem"
 								value="#{service.heureDbt}" />
 						</p:column>
-						<p:column>
 							<p:column exportable="false">
 								<p:commandButton value="Accepter"
 									update=":homeform:manage-product-content"
@@ -80,10 +79,7 @@
 										target="#{mbService.serviceSelected}" />
 									<p:resetInput target=":homeform:manage-product-content" />
 								</p:commandButton>
-							</p:column>
-							<p:commandButton value="Détails"
-								action="#{mbService.load(service)}"></p:commandButton>
-						</p:column>
+							</p:column>	
 					</p:dataTable>
 					<!-- POPUP DETAILS -->
 					<p:dialog header="Service Details" showEffect="fade" modal="true"
@@ -136,7 +132,7 @@
 						<f:facet name="footer">
 							<p:commandButton value="Accepter le service" icon="pi pi-check"
 								actionListener="#{mbService.accepterService()}"
-								onsuccess="PF('manageProductDialog').hide()" />
+								onsuccess="PF('manageProductDialog').hide(); location.reload()" />
 						</f:facet>
 					</p:dialog>
 				</h:form>
@@ -183,7 +179,6 @@
 							<h:outputText style="vertical-align: middle; margin-left: .5rem"
 								value="#{service.heureDbt}" />
 						</p:column>
-						<p:column>
 							<p:column exportable="false">
 								<p:commandButton value="Accepter"
 									update=":formTousLesServices:manage-product-content"
@@ -196,9 +191,6 @@
 										target=":formTousLesServices:manage-product-content" />
 								</p:commandButton>
 							</p:column>
-							<p:commandButton value="Détails"
-								action="#{mbService.load(service)}"></p:commandButton>
-						</p:column>
 					</p:dataTable>
 					<!-- POPUP DETAILS -->
 					<p:dialog header="Service Details" showEffect="fade" modal="true"
@@ -251,7 +243,7 @@
 						<f:facet name="footer">
 							<p:commandButton value="Accepter le service" icon="pi pi-check"
 								actionListener="#{mbService.accepterService()}"
-								onsuccess="PF('manageProductDialog').hide()" />
+								onsuccess="PF('manageProductDialog').hide(); location.reload()" />
 						</f:facet>
 					</p:dialog>
 				</h:form>
