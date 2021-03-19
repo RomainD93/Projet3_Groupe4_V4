@@ -11,13 +11,17 @@
 	<ui:define name="content">
 
 		<script type="text/javascript" src="resources/JS/onglet.js"></script>
-		<div class="onglets">
+		<div>
+		<ul class="onglets" id="onglets_service">
+		<li class="onglet">
 			<span class="onglet_0 onglet" id="onglet_mesServicesDemandes"
 				onclick="change_onglet('mesServicesDemandes')">Mes services
-				demandés</span> <span class="onglet_0 onglet"
+				demandés</span> </li>
+				<li class="onglet"><span class="onglet_0 onglet"
 				id="onglet_mesServicesProposes"
 				onclick="change_onglet('mesServicesProposes')">Mes services
-				proposés</span>
+				proposés</span></li>
+				</ul>
 		</div>
 
 		<div class="contenu_onglets">
