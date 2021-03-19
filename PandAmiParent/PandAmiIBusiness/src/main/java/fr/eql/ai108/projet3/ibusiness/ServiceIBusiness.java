@@ -35,5 +35,6 @@ public interface ServiceIBusiness {
 	List<Service> displayServiceBeneficiaire(Utilisateur userConnected);
 	List<Service> displayServiceVolontaire(Utilisateur userConnected);
 	List<Service> displayServicePref(Utilisateur userConnected);
+	List<Service> displayServiceTermine(Utilisateur userConnected);
 	
 }
