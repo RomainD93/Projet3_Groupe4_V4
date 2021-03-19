@@ -8,7 +8,7 @@
 <ui:composition template="/masterPage.xhtml">
 	<ui:define name="title">Index</ui:define>
 	<ui:define name="content">
-		<h1>INFOS</h1>
+		<h2>INFOS</h2>
 		<div class="card">
 			<h:form id="myForm">
 				<p:messages />
@@ -88,7 +88,7 @@
 					</h:panelGroup>
 					<p:inputText value="#{mbCompte.utilisateur.numTelephone}"></p:inputText>
 
-					<p:commandButton value="Modifier" />
+					<p:commandButton value="Valider" class="btn-accepter"  icon="pi pi-check"/>
 
 
 				</h:panelGrid>

@@ -9,22 +9,22 @@
 <ui:composition template="/masterPage.xhtml">
 	<ui:define name="meta">
 		<f:metadata>
-			<f:event listener="#{mbService.recupListeService()}" type="preRenderView"></f:event>
+			<f:event listener="#{mbService.recupListeService()}"
+				type="preRenderView"></f:event>
 		</f:metadata>
 	</ui:define>
 	<ui:define name="title">Index</ui:define>
 	<ui:define name="content">
 		<script type="text/javascript" src="resources/JS/onglet.js"></script>
 		<div>
-		<ul class="onglets" id="onglets_service">
-		<li class="onglet">
-			<span class="onglet_0 onglet" id="onglet_ServicesPref"
-				onclick="change_onglet('ServicesPref')">Les services en
-				fonction des préférences </span> </li>
+			<ul class="onglets" id="onglets_service">
 				<li class="onglet"><span class="onglet_0 onglet"
-				id="onglet_tousLesServices"
-				onclick="change_onglet('tousLesServices')">Tous les services</span></li>
-				</ul>
+					id="onglet_ServicesPref" onclick="change_onglet('ServicesPref')">Les
+						services en fonction des préférences </span></li>
+				<li class="onglet"><span class="onglet_0 onglet"
+					id="onglet_tousLesServices"
+					onclick="change_onglet('tousLesServices')">Tous les services</span></li>
+			</ul>
 		</div>
 		<div class="contenu_onglets">
 			<!-- LISTE DES SERVICES EN FONCTION DES PREFS-->
@@ -73,8 +73,7 @@
 							<p:column exportable="false">
 								<p:commandButton value="Accepter"
 									update=":homeform:manage-product-content"
-									oncomplete="PF('manageAccepter').show()"
-									styleClass="edit-button rounded-button ui-button-success"
+									oncomplete="PF('manageAccepter').show()" class="btn-accepter"
 									process="@this">
 									<f:setPropertyActionListener value="#{service}"
 										target="#{mbService.serviceSelected}" />
@@ -82,7 +81,7 @@
 								</p:commandButton>
 							</p:column>
 							<p:commandButton value="Détails"
-								action="#{mbService.load(service)}"></p:commandButton>
+								action="#{mbService.load(service)}" class="btn-details"></p:commandButton>
 						</p:column>
 					</p:dataTable>
 					<!-- POPUP DETAILS -->
@@ -136,7 +135,8 @@
 						<f:facet name="footer">
 							<p:commandButton value="Accepter le service" icon="pi pi-check"
 								actionListener="#{mbService.accepterService()}"
-								onsuccess="PF('manageProductDialog').hide()" />
+								onsuccess="PF('manageProductDialog').hide()"
+								class="btn-accepter" />
 						</f:facet>
 					</p:dialog>
 				</h:form>
@@ -188,8 +188,7 @@
 								<p:commandButton value="Accepter"
 									update=":formTousLesServices:manage-product-content"
 									oncomplete="PF('manageProductDialog').show()"
-									styleClass="edit-button rounded-button ui-button-success"
-									process="@this">
+									class="btn-accepter" process="@this">
 									<f:setPropertyActionListener value="#{service}"
 										target="#{mbService.serviceSelected}" />
 									<p:resetInput
@@ -197,7 +196,7 @@
 								</p:commandButton>
 							</p:column>
 							<p:commandButton value="Détails"
-								action="#{mbService.load(service)}"></p:commandButton>
+								action="#{mbService.load(service)}" class="btn-details"></p:commandButton>
 						</p:column>
 					</p:dataTable>
 					<!-- POPUP DETAILS -->
@@ -251,7 +250,8 @@
 						<f:facet name="footer">
 							<p:commandButton value="Accepter le service" icon="pi pi-check"
 								actionListener="#{mbService.accepterService()}"
-								onsuccess="PF('manageProductDialog').hide()" />
+								onsuccess="PF('manageProductDialog').hide()"
+								class="btn-accepter" />
 						</f:facet>
 					</p:dialog>
 				</h:form>

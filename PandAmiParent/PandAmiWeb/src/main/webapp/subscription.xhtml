@@ -12,11 +12,10 @@
 		<h:form id="myForm">
 			<p:outputLabel value="Genre" />
 			<p:selectOneMenu value="#{mbCompte.genreSelected}"
-				converter="omnifaces.SelectItemsConverter" 
-				effect="fade" var="c"  >
+				converter="omnifaces.SelectItemsConverter" effect="fade" var="c">
 				<f:selectItem itemValue="" itemLabel="Genres"
 					noSelectionOption="true" />
-					<!-- TODO virer var genre et mettre itemvalue=#{genreSelected} -->
+				<!-- TODO virer var genre et mettre itemvalue=#{genreSelected} -->
 				<f:selectItems value="#{mbCompte.genres}" var="genre"
 					itemLabel="#{genre.genre}" itemValue="#{genre}"></f:selectItems>
 				<p:column>
@@ -31,7 +30,8 @@
 			<p:inputText value="#{mbCompte.utilisateur.prenom}"></p:inputText>
 			<br />
 			<p:outputLabel value="Date de naissance" />
-			<p:datePicker class="p-field p-col-12 p-md-4" value="#{mbCompte.utilisateur.dateNaissance}"></p:datePicker>
+			<p:datePicker class="p-field p-col-12 p-md-4"
+				value="#{mbCompte.utilisateur.dateNaissance}"></p:datePicker>
 			<br />
 			<p:outputLabel value="Email" />
 			<p:inputText value="#{mbCompte.utilisateur.email}"></p:inputText>
@@ -48,12 +48,14 @@
 			<p:outputLabel value="Adresse" />
 			<script type="text/javascript" src="resources/JS/adresse3.js"></script>
 			<div class="autocomplete" style="width: 300px;">
-				<p:inputText id="adresse" type="text" value="#{mbCompte.utilisateur.adresse}"
+				<p:inputText id="adresse" type="text"
+					value="#{mbCompte.utilisateur.adresse}"
 					onkeypress="getValuePostSuggest()" placeholder="Entrer une adresse" />
 			</div>
 			<br />
 
-			<h:commandButton value="Soumettre" action="#{mbCompte.inscription()}" />
+			<h:commandButton value="Je m'inscris" action="#{mbCompte.inscription()}"
+				class="btn-accepter" />
 		</h:form>
 	</ui:define>
 

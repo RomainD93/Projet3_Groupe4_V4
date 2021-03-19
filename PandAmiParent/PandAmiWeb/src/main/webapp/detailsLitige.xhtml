@@ -103,8 +103,8 @@
 			<p:outputLabel
 				value="#{mbModerateur.reponseServiceSelected.utilisateur.numTelephone}" />
 		</h:panelGrid>
-			<p:commandButton value="Clôturer Litige" action="#{mbModerateur.cloturerLitige()}"/>
-			<p:commandButton value="Retour Home" action="#{mbModerateur.annulerClotureLitige()}"/>		
+			<p:commandButton value="Clôturer Litige" action="#{mbModerateur.cloturerLitige()}" class="btn-valider"/>
+			<p:commandButton value="Retour Home" action="#{mbModerateur.annulerClotureLitige()}" class="btn-retour"/>		
 		</h:form>
 	</ui:define>
 </ui:composition>
