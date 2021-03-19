@@ -91,6 +91,11 @@ body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active {
     color: #000000;
 }
 
+.pi-sign-out:hover:before {
+	content: "\e971";
+	color: #000000;
+}
+
 .pi-home:before {
 	content: "\e925";
 	color: #97E5D7;
@@ -116,6 +121,12 @@ body .Logout {
 	background-color: #97E5D7;
 	margin-top: 5px;
 	color: #888888;
+}
+
+body .Logout:hover {
+	background-color: #97E5D7;
+	margin-top: 5px;
+	color: #000000;
 }
 
 body .Logout:hover {
