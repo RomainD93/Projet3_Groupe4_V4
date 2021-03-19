@@ -27,6 +27,7 @@ import org.primefaces.model.MatchMode;
 
 
 import fr.eql.ai108.projet3.entity.CategorieAide;
+import fr.eql.ai108.projet3.entity.Litige;
 import fr.eql.ai108.projet3.entity.Materiel;
 import fr.eql.ai108.projet3.entity.ReponseService;
 import fr.eql.ai108.projet3.entity.Service;
@@ -49,6 +50,8 @@ public class ServiceManagedBean {
 	private String message;
 	private Materiel materielSelected;
 	private Map<Integer, List<TypeAide>> mapTypesAide = new HashMap<Integer, List<TypeAide>>();
+	
+	private Litige litige;
 
 	private ReponseService reponseService = new ReponseService();
 	private Service serviceSelected;
@@ -241,6 +244,11 @@ public class ServiceManagedBean {
 		proxyServiceBu.updateService(service);
 		proxyServiceBu.updateReponseService(reponseService);
 		return retour = "/mesServices.xhtml?faces-redirect=true";
+	}
+	
+	// OUVRIR UN LITIGE
+	public void ouvrirLitige() {
+		
 	}
 	
 	// REQUETE UPDATE DES LISTES
@@ -515,6 +523,14 @@ public class ServiceManagedBean {
 
 	public void setServicesTermine(List<Service> servicesTermine) {
 		this.servicesTermine = servicesTermine;
+	}
+
+	public Litige getLitige() {
+		return litige;
+	}
+
+	public void setLitige(Litige litige) {
+		this.litige = litige;
 	}
 
 
