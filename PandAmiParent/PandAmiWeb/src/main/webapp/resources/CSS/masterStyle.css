@@ -58,7 +58,7 @@ body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active a {
 	background-color: black;
 }
 
-body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem:hover {
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem a:hover {
 	background-color: #97E5D7;
 	color: black;
 }
@@ -73,31 +73,47 @@ body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active {
 	border-color: #97E5D7;
 }
 
-
 .pi-sign-out:before {
 	content: "\e971";
 	color: #888888;
 }
 
+.pi-sign-out:hover:before {
+	content: "\e971";
+	color: #000000;
+}
+
 .pi-home:before {
-    content: "\e925";
-    color: #97E5D7;
+	content: "\e925";
+	color: #97E5D7;
+}
+
+.pi-home:hover:before {
+	content: "\e925";
+	color: black;
 }
 
 body .ui-button {
-    background: #000000;
-    color: #97E5D7;
-    margin: 0;
-    outline: 0 none;
-    border-radius: none;
-    border: none;
-    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+	background: #000000;
+	color: #97E5D7;
+	margin: 0;
+	outline: 0 none;
+	border-radius: none;
+	border: none;
+	transition: background-color 0.2s, color 0.2s, border-color 0.2s,
+		box-shadow 0.2s;
 }
 
-body .Logout{
+body .Logout {
 	background-color: #97E5D7;
 	margin-top: 5px;
-	color:  #888888;
+	color: #888888;
+}
+
+body .Logout:hover {
+	background-color: #97E5D7;
+	margin-top: 5px;
+	color: #000000;
 }
 
 #container {
@@ -165,12 +181,11 @@ input[type=submit] {
 .onglets {
 	display: table;
 	background-color: #97E5D7;
-	/*background: linear-gradient(deepskyblue, dodgerblue);*/
-	padding: 0.2em;
 	border-radius: 3px;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0
 		5px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
-	padding: 0.2em
+	width: 100%;
+	position: top;
 }
 
 .onglet {
@@ -178,10 +193,10 @@ input[type=submit] {
 	text-shadow: 0 1px 0 rgba(255, 255, 255, .4);
 	text-align: center;
 	color: rgba(0, 0, 0, .7);
-	padding: 8px 8px 17px 8px;
+	height: 40px;
+	vertical-align: middle;
 }
 
 li:hover {
 	background: rgba(255, 255, 255, .2);
-	padding: 0px 25px 0px 25px;
 }
