@@ -117,6 +117,12 @@ public class CompteUtilisateurBusiness implements CompteUtilisateurIBusiness {
 		
 	}
 
+	@Override
+	public Integer displayNumberServicesCat1() {
+		
+		return (Integer) proxyUtilisateur.getServicesClosedCat1();
+	}
+
 
 	
 

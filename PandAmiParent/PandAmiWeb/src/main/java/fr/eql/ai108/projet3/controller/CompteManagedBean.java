@@ -10,6 +10,8 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpSession;
 
 import fr.eql.ai108.projet3.entity.Genre;
 import fr.eql.ai108.projet3.entity.TypeUtilisateur;
@@ -58,7 +60,9 @@ public class CompteManagedBean implements Serializable{
 	}
 	
 	public String logout() {
-		utilisateur = new Utilisateur();
+		HttpSession session = (HttpSession) FacesContext
+				.getCurrentInstance().getExternalContext().getSession(true);
+		session.invalidate();
 		System.out.println(utilisateur.getNom());
 		return "/connection.xhtml?faces-redirect=true";
 	}

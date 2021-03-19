@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<h:outputStylesheet name="CSS/masterStyle.css" />
+	<!-- Insert du titre de chaque composition -->
+	<title><ui:insert name="title"></ui:insert></title>
+	<!-- Insert de la feuille de style de chaque composition -->
+	<ui:insert name="CSS"></ui:insert>
+	<ui:insert name="meta"></ui:insert>
+	<!-- Titre des pages enfants -->
+	<title><ui:insert name="title"></ui:insert></title>
+</h:head>
+<h:body>
+	<div id="container">
+		<h:form>
+			<div id="header">
+
+
+				<p:toolbar>
+					<f:facet name="left">
+						<p:tabMenu activeIndex="#{param.i}">
+							<p:menuitem value="Accueil" outcome="/analysteHomePage.xhtml"
+								icon="pi pi-fw pi-home">
+								<f:param name="i" value="0" />
+							</p:menuitem>
+							<p:menuitem value="Analyse Services"
+								outcome="/analysteHomePage.xhtml">
+								<f:param name="i" value="1" />
+							</p:menuitem>
+							<p:menuitem value="Analyse Utilisateurs"
+								outcome="/analyseUtilisateurs.xhtml">
+								<f:param name="i" value="2" />
+							</p:menuitem>
+						</p:tabMenu>
+					</f:facet>
+					<f:facet name="right">
+						<p:commandButton value="Logout" class="Logout" icon="pi pi-fw pi-sign-out"
+							action="#{mbCompte.logout()}" />
+					</f:facet>
+				</p:toolbar>
+
+			</div>
+
+		</h:form>
+		<div id="center">
+			<!-- 	Je veux que les autres pages s'affichent ici -->
+			<ui:insert name="content"></ui:insert>
+		</div>
+		<div id="footer">
+			<h4>The Krew</h4>
+		</div>
+	</div>
+</h:body>
+</html>

@@ -26,4 +26,5 @@ public interface CompteUtilisateurIBusiness {
 	List<PreferenceAide> displayPrefsTypeAideUser (Utilisateur utilisateur);
 	PreferenceAide creerPrefTypeAide (PreferenceAide preferenceAide);
 	void supprimerPrefsTypeAideByUser (Utilisateur utilisateur);
+	Integer displayNumberServicesCat1();
 }
