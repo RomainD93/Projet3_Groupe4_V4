@@ -88,6 +88,7 @@ public class ServiceManagedBean {
 	public void init (){
 
 		services = proxyServiceBu.displayService();
+		System.out.println("services" + services);
 		//		typesAide = proxyServiceBu.displayTypeAide();	
 		materiels = proxyServiceBu.displayMateriel();
 		
@@ -162,6 +163,9 @@ public class ServiceManagedBean {
 			service.setTypeAide(typeAideSelected);
 			service.setMateriel(materielSelected);
 			service = proxyServiceBu.creerService(service);
+			reponseService = new ReponseService();
+			reponseService.setService(service);
+			proxyServiceBu.creerReponseService(reponseService);
 			services.add(service);
 			serviceBeneficiaire.add(service);
 			service = new Service();
@@ -180,7 +184,7 @@ public class ServiceManagedBean {
 			reponseService.setUtilisateur(userConnected);
 			reponseService.setService(serviceSelected);
 			reponseService.setDateAcceptation(LocalDate.now());
-			reponseService = proxyServiceBu.creerReponseService(reponseService);
+			reponseService = proxyServiceBu.updateDesistementService(serviceSelected, userConnected);
 			reponseService = new ReponseService();			
 			serviceVolontaire.add(serviceSelected);
 		}
@@ -222,7 +226,7 @@ public class ServiceManagedBean {
 		reponseService = proxyServiceBu.updateDesistementService(service, userConnected);
 		reponseService.setDateDesistement(LocalDate.now());
 		proxyServiceBu.updateReponseService(reponseService);
-		return retour = "/home.xhtml?faces-redirect=true";
+		return retour = "/mesServices.xhtml?faces-redirect=true";
 	}
 	
 	// REQUETE UPDATE DES LISTES
@@ -233,6 +237,7 @@ public class ServiceManagedBean {
 		servicesPref = proxyServiceBu.displayServicePref(userConnected);
 		services = proxyServiceBu.displayService();
 	}
+	
 	// GETTERS SETTERS 
 
 	public List<Service> getServices() {

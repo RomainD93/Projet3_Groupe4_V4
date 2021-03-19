@@ -1,6 +1,8 @@
 package fr.eql.ai108.projet3.dao;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import javax.ejb.Remote;
 import javax.ejb.Stateless;
@@ -26,9 +28,21 @@ public class ServiceDao extends GenericDao<Service> implements ServiceIDao{
 	
 	@Override
 	public List<Service> getAll() {
-		Query query = em.createQuery("SELECT s FROM Service s");
+		Query query = em.createQuery("SELECT s FROM Service s "
+				+ "WHERE s.dateAnnulation IS null");
 		List<Service> services = query.getResultList();
-		return services;
+		List<Service> services2 = new ArrayList<Service>();
+		for (Service service : services) {
+			Set<ReponseService> reponses = service.getReponses();
+			for (ReponseService rep : reponses) {
+				if(rep.getDateAcceptation() == null && rep.getDateDesistement() == null || rep.getDateAcceptation() != null && rep.getDateDesistement() != null) {
+					services2.add(service);
+				}
+						
+			}
+			
+		}
+		return services2;
 	}
 
 	@Override
@@ -155,7 +169,7 @@ public class ServiceDao extends GenericDao<Service> implements ServiceIDao{
 
 	@Override
 	public List<Service> getServiceByBeneficiaire(Utilisateur userConnected) {
-		Query query = em.createQuery("SELECT s FROM Service s WHERE s.utilisateur = :paramUser");
+		Query query = em.createQuery("SELECT s FROM Service s WHERE s.utilisateur = :paramUser AND s.dateAnnulation IS null");
 		query.setParameter("paramUser", userConnected);
 		List<Service> serviceBeneficiaire = query.getResultList();
 		return serviceBeneficiaire;
@@ -164,9 +178,10 @@ public class ServiceDao extends GenericDao<Service> implements ServiceIDao{
 	@Override
 	public List<Service> getServiceByVolontaire(Utilisateur userConnected) {
 		Query query = em.createQuery("SELECT s FROM Service s, ReponseService r "
-				+ "WHERE s.utilisateur = :paramUser "
+				+ "WHERE s.id = r.service.id "
 				+ "AND r.dateDesistement IS null "
-				+ "AND r.utilisateur = :paramUser");
+				+ "AND r.utilisateur = :paramUser "
+				+ "AND s.dateAnnulation IS null");
 		query.setParameter("paramUser", userConnected);
 		List<Service> serviceVolontaire = query.getResultList();
 		return serviceVolontaire;
@@ -178,7 +193,8 @@ public class ServiceDao extends GenericDao<Service> implements ServiceIDao{
 				+ "WHERE s.typeAide = p.typeAide "
 				+ "AND s.adresse LIKE ('%' || pv.ville.codePostal || '%')"	
 				+ "AND pv.utilisateur = :paramUser "
-				+ "AND p.utilisateur = :paramUser");
+				+ "AND p.utilisateur = :paramUser "
+				+ "AND s.dateAnnulation IS null");
 		query.setParameter("paramUser", userConnected);
 		List<Service> servicePref = query.getResultList();
 		return servicePref;
