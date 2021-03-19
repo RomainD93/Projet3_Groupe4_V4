@@ -1,6 +1,7 @@
 package fr.eql.ai108.projet3.dao;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -27,22 +28,11 @@ public class ServiceDao extends GenericDao<Service> implements ServiceIDao{
 	private EntityManager em;
 	
 	@Override
-	public List<Service> getAll() {
-		Query query = em.createQuery("SELECT s FROM Service s "
-				+ "WHERE s.dateAnnulation IS null");
+	public List<Service> getAll(Utilisateur userConnected) {
+		Query query = em.createQuery("SELECT s FROM Service s WHERE s.dateAnnulation IS null AND s.dateAcceptation IS null AND s.utilisateur != :paramUser");
+		query.setParameter("paramUser", userConnected);
 		List<Service> services = query.getResultList();
-		List<Service> services2 = new ArrayList<Service>();
-		for (Service service : services) {
-			Set<ReponseService> reponses = service.getReponses();
-			for (ReponseService rep : reponses) {
-				if(rep.getDateAcceptation() == null && rep.getDateDesistement() == null || rep.getDateAcceptation() != null && rep.getDateDesistement() != null) {
-					services2.add(service);
-				}
-						
-			}
-			
-		}
-		return services2;
+		return services;
 	}
 
 	@Override

@@ -7,6 +7,12 @@
 
 
 <ui:composition template="/masterPage.xhtml">
+	<ui:define name="meta">
+		<f:metadata>
+			<f:event listener="#{mbService.recupListeService()}"
+				type="preRenderView"></f:event> 
+		</f:metadata>
+	</ui:define>
 	<ui:define name="title">Index</ui:define>
 	<ui:define name="content">
 
@@ -28,9 +34,12 @@
 					<p:dataTable var="service" value="#{mbService.serviceBeneficiaire}"
 						filteredValue="#{mbService.filteredServices}"
 						filterBy="#{mbService.filterBy}" widgetVar="servicesTable">
-						<f:facet name="header">
-							<span>Liste des services</span>
-						</f:facet>
+						<p:column headerText="ID" sortBy="#{service.id}"
+							filterBy="#{service.id}">
+
+							<h:outputText style="vertical-align: middle; margin-left: .5rem"
+								value="#{service.id}" />
+						</p:column>
 						<p:column headerText="Nom" sortBy="#{service.utilisateur.nom}"
 							filterBy="#{service.utilisateur.nom}">
 
@@ -132,9 +141,12 @@
 					<p:dataTable var="service" value="#{mbService.serviceVolontaire}"
 						filteredValue="#{mbService.filteredServices}"
 						filterBy="#{mbService.filterBy}" widgetVar="servicesTable">
-						<f:facet name="header">
-							<span>Liste des services</span>
-						</f:facet>
+						<p:column headerText="ID" sortBy="#{service.id}"
+							filterBy="#{service.id}">
+
+							<h:outputText style="vertical-align: middle; margin-left: .5rem"
+								value="#{service.id}" />
+						</p:column>
 						<p:column headerText="Nom" sortBy="#{service.utilisateur.nom}"
 							filterBy="#{service.utilisateur.nom}">
 
