@@ -28,9 +28,9 @@ public class ServiceBusiness implements ServiceIBusiness {
 	
 	
 	@Override
-	public List<Service> displayService() {
+	public List<Service> displayService(Utilisateur userConnected) {
 		
-		return proxyServiceDao.getAll();
+		return proxyServiceDao.getAll(userConnected);
 	}
 	
 	@Override
@@ -149,6 +149,7 @@ public class ServiceBusiness implements ServiceIBusiness {
 		// TODO Auto-generated method stub
 		return proxyServiceDao.getReponseService(service, userConnected);
 	}
+	
 
 	@Override
 	public List<Service> displayServiceBeneficiaire(Utilisateur userConnected) {

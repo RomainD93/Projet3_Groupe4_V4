@@ -136,7 +136,7 @@
 					<f:facet name="footer">
 						<p:commandButton value="Accepter modification" icon="pi pi-check"
 							actionListener="#{mbService.modifierService()}"
-							oncomplete="PF('manageModificationDialog').hide()" />
+							oncomplete="PF('manageModificationDialog').hide(); location.reload()" />
 					</f:facet>
 				</p:dialog>
 			</h:form>

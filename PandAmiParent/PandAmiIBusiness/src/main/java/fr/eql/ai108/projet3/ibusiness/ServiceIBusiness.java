@@ -10,7 +10,7 @@ import fr.eql.ai108.projet3.entity.TypeAide;
 import fr.eql.ai108.projet3.entity.Utilisateur;
 
 public interface ServiceIBusiness {
-	List<Service> displayService();
+	List<Service> displayService(Utilisateur userConnected);
 	List<Service> displayServiceSsVolontaire();
 	Long numServices();
 	Service creerService(Service service);
