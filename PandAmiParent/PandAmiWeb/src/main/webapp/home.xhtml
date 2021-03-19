@@ -34,6 +34,12 @@
 					<p:dataTable var="service" value="#{mbService.servicesPref}"
 						filteredValue="#{mbService.filteredServices}"
 						filterBy="#{mbService.filterBy}" widgetVar="servicesTable">
+						<p:column headerText="ID" sortBy="#{service.id}"
+							filterBy="#{service.id}">
+
+							<h:outputText style="vertical-align: middle; margin-left: .5rem"
+								value="#{service.id}" />
+						</p:column>
 						<p:column headerText="Nom" sortBy="#{service.utilisateur.nom}"
 							filterBy="#{service.utilisateur.nom}">
 
@@ -142,6 +148,12 @@
 					<p:dataTable var="service" value="#{mbService.services}"
 						filteredValue="#{mbService.filteredServices}"
 						filterBy="#{mbService.filterBy}" widgetVar="servicesTable">
+						<p:column headerText="ID" sortBy="#{service.id}"
+							filterBy="#{service.id}">
+
+							<h:outputText style="vertical-align: middle; margin-left: .5rem"
+								value="#{service.id}" />
+						</p:column>
 						<p:column headerText="Nom" sortBy="#{service.utilisateur.nom}"
 							filterBy="#{service.utilisateur.nom}">
 

@@ -8,11 +8,13 @@
 <ui:composition template="/masterPageAnalyste.xhtml">
 	<ui:define name="title">Outils d'analyse</ui:define>
 	<ui:define name="content">
+	
+	
 
-		<h3>Services cloturés par catégorie de service depuis la création de l'application</h3>
-		<p:donutChart model="#{mbCharts.donutModel}"
-			style="width: 100%; height: 500px;" />
+				<p:barChart model="#{mbCharts.barModel}"
+					style="width: 100%; height: 500px;" />
 
+		
 	</ui:define>
 	<!-- 	<ui:define name="CSS"></ui:define> -->
 </ui:composition>

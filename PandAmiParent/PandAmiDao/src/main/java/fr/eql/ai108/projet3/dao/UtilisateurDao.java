@@ -14,6 +14,7 @@ import fr.eql.ai108.projet3.entity.PreferenceVille;
 import fr.eql.ai108.projet3.entity.Utilisateur;
 import fr.eql.ai108.projet3.entity.Ville;
 import fr.eql.ai108.projet3.idao.UtilisateurIDao;
+import fr.eql.ai108.projet3.entity.Service;
 
 @Remote(UtilisateurIDao.class)
 @Stateless
@@ -82,6 +83,14 @@ public class UtilisateurDao extends GenericDao<Utilisateur> implements Utilisate
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Integer getServicesClosedCat1() {
+		Query query = em.createQuery("SELECT COUNT(s) FROM Service s WHERE s.typeAide.categorieAide.id = 1");
+		Integer result = (Integer) query.getSingleResult();
+		return result;
+	}
+
 
 	
 }
