@@ -25,6 +25,15 @@ body {
 	background-color: #97E5D7;
 }
 
+#container {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	box-sizing: border-box;
+	padding: 10px;
+}
+
+
 body .ui-toolbar {
 	background: #000000;
 	color: #495057;
@@ -77,6 +86,10 @@ body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active {
 	content: "\e971";
 	color: #888888;
 }
+.pi-sign-out:hover:before {
+    content: "\e971";
+    color: #000000;
+}
 
 .pi-sign-out:hover:before {
 	content: "\e971";
@@ -116,13 +129,12 @@ body .Logout:hover {
 	color: #000000;
 }
 
-#container {
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
-	box-sizing: border-box;
-	padding: 10px;
+body .Logout:hover {
+	background-color: #97E5D7;
+	margin-top: 5px;
+	color: #000000;
 }
+
 
 /*the container must be positioned relative:*/
 .autocomplete {

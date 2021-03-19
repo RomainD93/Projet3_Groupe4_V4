@@ -12,7 +12,7 @@ import fr.eql.ai108.projet3.entity.TypeAide;
 import fr.eql.ai108.projet3.entity.Utilisateur;
 
 public interface ServiceIDao extends GenericIDao<Service> {
-	List<Service> getAll();
+	List<Service> getAll(Utilisateur userConnected);
 	List<Service> getAllNoVolontaire();
 	Long getNbServices();
 	List<TypeAide> typesAide();

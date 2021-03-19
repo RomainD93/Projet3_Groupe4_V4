@@ -87,7 +87,8 @@ public class ServiceManagedBean {
 	@PostConstruct
 	public void init (){
 
-		services = proxyServiceBu.displayService();
+		services = proxyServiceBu.displayService(userConnected);
+		System.out.println("services" + services);
 		//		typesAide = proxyServiceBu.displayTypeAide();	
 		materiels = proxyServiceBu.displayMateriel();
 		
@@ -162,6 +163,9 @@ public class ServiceManagedBean {
 			service.setTypeAide(typeAideSelected);
 			service.setMateriel(materielSelected);
 			service = proxyServiceBu.creerService(service);
+//			reponseService = new ReponseService();
+//			reponseService.setService(service);
+//			proxyServiceBu.creerReponseService(reponseService);
 			services.add(service);
 			serviceBeneficiaire.add(service);
 			service = new Service();
@@ -181,7 +185,9 @@ public class ServiceManagedBean {
 			reponseService.setService(serviceSelected);
 			reponseService.setDateAcceptation(LocalDate.now());
 			reponseService = proxyServiceBu.creerReponseService(reponseService);
-			reponseService = new ReponseService();			
+			reponseService = new ReponseService();	
+			serviceSelected.setDateAcceptation(LocalDate.now());
+			proxyServiceBu.updateService(serviceSelected);
 			serviceVolontaire.add(serviceSelected);
 		}
 	}
@@ -213,7 +219,7 @@ public class ServiceManagedBean {
 		System.out.println("ANNULER SERVICE");
 		this.detailService.setDateAnnulation(LocalDate.now());
 		proxyServiceBu.updateService(detailService);
-		return retour = "/home.xhtml?faces-redirect=true";
+		return retour = "/mesServices.xhtml?faces-redirect=true";
 	}
 	
 	// SE DESISTER DU SERVICE
@@ -222,7 +228,7 @@ public class ServiceManagedBean {
 		reponseService = proxyServiceBu.updateDesistementService(service, userConnected);
 		reponseService.setDateDesistement(LocalDate.now());
 		proxyServiceBu.updateReponseService(reponseService);
-		return retour = "/home.xhtml?faces-redirect=true";
+		return retour = "/mesServices.xhtml?faces-redirect=true";
 	}
 	
 	// REQUETE UPDATE DES LISTES
@@ -231,8 +237,9 @@ public class ServiceManagedBean {
 		serviceBeneficiaire = proxyServiceBu.displayServiceBeneficiaire(userConnected);
 		serviceVolontaire = proxyServiceBu.displayServiceVolontaire(userConnected);
 		servicesPref = proxyServiceBu.displayServicePref(userConnected);
-		services = proxyServiceBu.displayService();
+		services = proxyServiceBu.displayService(userConnected);
 	}
+	
 	// GETTERS SETTERS 
 
 	public List<Service> getServices() {

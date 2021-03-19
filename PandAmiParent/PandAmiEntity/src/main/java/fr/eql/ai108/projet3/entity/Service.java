@@ -39,8 +39,8 @@ public class Service implements Serializable{
 	private Float sommeAPrevoir;
 	private LocalDate dateAnnulation;
 	private String adresse;
-	private String adresse2;
 	private Integer jourService;
+	private LocalDate dateAcceptation;
 	
 	
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -65,9 +65,10 @@ public class Service implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
+	
 	public Service(Integer id, LocalDate dateCreation, LocalDate dateService, LocalTime heureDbt, LocalTime heureFin,
-			LocalDate dateCloture, Float sommeAPrevoir, LocalDate dateAnnulation, String adresse, String adresse2,
-			Integer jourService, TypeAide typeAide, Set<ReponseService> reponses, Set<Litige> litiges,
+			LocalDate dateCloture, Float sommeAPrevoir, LocalDate dateAnnulation, String adresse, Integer jourService,
+			LocalDate dateAcceptation, TypeAide typeAide, Set<ReponseService> reponses, Set<Litige> litiges,
 			Set<Negociation> negociations, Utilisateur utilisateur, Materiel materiel) {
 		super();
 		this.id = id;
@@ -79,8 +80,8 @@ public class Service implements Serializable{
 		this.sommeAPrevoir = sommeAPrevoir;
 		this.dateAnnulation = dateAnnulation;
 		this.adresse = adresse;
-		this.adresse2 = adresse2;
 		this.jourService = jourService;
+		this.dateAcceptation = dateAcceptation;
 		this.typeAide = typeAide;
 		this.reponses = reponses;
 		this.litiges = litiges;
@@ -89,24 +90,13 @@ public class Service implements Serializable{
 		this.materiel = materiel;
 	}
 
-	
-
-	@Override
-	public String toString() {
-		return "Service [id=" + id + ", dateCreation=" + dateCreation + ", dateService=" + dateService + ", heureDbt="
-				+ heureDbt + ", heureFin=" + heureFin + ", dateCloture=" + dateCloture + ", sommeAPrevoir="
-				+ sommeAPrevoir + ", dateAnnulation=" + dateAnnulation + ", adresse=" + adresse + ", adresse2="
-				+ adresse2 + ", jourService=" + jourService + "]";
-	}
-
-	
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((adresse == null) ? 0 : adresse.hashCode());
-		result = prime * result + ((adresse2 == null) ? 0 : adresse2.hashCode());
+		result = prime * result + ((dateAcceptation == null) ? 0 : dateAcceptation.hashCode());
 		result = prime * result + ((dateAnnulation == null) ? 0 : dateAnnulation.hashCode());
 		result = prime * result + ((dateCloture == null) ? 0 : dateCloture.hashCode());
 		result = prime * result + ((dateCreation == null) ? 0 : dateCreation.hashCode());
@@ -118,6 +108,7 @@ public class Service implements Serializable{
 		result = prime * result + ((sommeAPrevoir == null) ? 0 : sommeAPrevoir.hashCode());
 		return result;
 	}
+
 
 	@Override
 	public boolean equals(Object obj) {
@@ -133,10 +124,10 @@ public class Service implements Serializable{
 				return false;
 		} else if (!adresse.equals(other.adresse))
 			return false;
-		if (adresse2 == null) {
-			if (other.adresse2 != null)
+		if (dateAcceptation == null) {
+			if (other.dateAcceptation != null)
 				return false;
-		} else if (!adresse2.equals(other.adresse2))
+		} else if (!dateAcceptation.equals(other.dateAcceptation))
 			return false;
 		if (dateAnnulation == null) {
 			if (other.dateAnnulation != null)
@@ -185,6 +176,16 @@ public class Service implements Serializable{
 			return false;
 		return true;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Service [id=" + id + ", dateCreation=" + dateCreation + ", dateService=" + dateService + ", heureDbt="
+				+ heureDbt + ", heureFin=" + heureFin + ", dateCloture=" + dateCloture + ", sommeAPrevoir="
+				+ sommeAPrevoir + ", dateAnnulation=" + dateAnnulation + ", adresse=" + adresse + ", jourService="
+				+ jourService + ", dateAcceptation=" + dateAcceptation + "]";
+	}
+
 
 	public Integer getId() {
 		return id;
@@ -307,24 +308,20 @@ public class Service implements Serializable{
 		this.dateAnnulation = dateAnnulation;
 	}
 
-	public String getAdresse2() {
-		return adresse2;
-	}
-
-	public void setAdresse2(String adresse2) {
-		this.adresse2 = adresse2;
-	}
-
-
-
 	public Integer getJourService() {
 		return jourService;
 	}
 
-
-
 	public void setJourService(Integer jourService) {
 		this.jourService = jourService;
+	}
+
+	public LocalDate getDateAcceptation() {
+		return dateAcceptation;
+	}
+
+	public void setDateAcceptation(LocalDate dateAcceptation) {
+		this.dateAcceptation = dateAcceptation;
 	}
 
 	

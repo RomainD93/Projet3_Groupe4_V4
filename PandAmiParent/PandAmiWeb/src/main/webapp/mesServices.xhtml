@@ -7,17 +7,27 @@
 
 
 <ui:composition template="/masterPage.xhtml">
+	<ui:define name="meta">
+		<f:metadata>
+			<f:event listener="#{mbService.recupListeService()}"
+				type="preRenderView"></f:event> 
+		</f:metadata>
+	</ui:define>
 	<ui:define name="title">Index</ui:define>
 	<ui:define name="content">
 
 		<script type="text/javascript" src="resources/JS/onglet.js"></script>
-		<div class="onglets">
+		<div>
+		<ul class="onglets" id="onglets_service">
+		<li class="onglet">
 			<span class="onglet_0 onglet" id="onglet_mesServicesDemandes"
 				onclick="change_onglet('mesServicesDemandes')">Mes services
-				demandés</span> <span class="onglet_0 onglet"
+				demandés</span> </li>
+				<li class="onglet"><span class="onglet_0 onglet"
 				id="onglet_mesServicesProposes"
 				onclick="change_onglet('mesServicesProposes')">Mes services
-				proposés</span>
+				proposés</span></li>
+				</ul>
 		</div>
 
 		<div class="contenu_onglets">
@@ -28,9 +38,12 @@
 					<p:dataTable var="service" value="#{mbService.serviceBeneficiaire}"
 						filteredValue="#{mbService.filteredServices}"
 						filterBy="#{mbService.filterBy}" widgetVar="servicesTable">
-						<f:facet name="header">
-							<span>Liste des services</span>
-						</f:facet>
+						<p:column headerText="ID" sortBy="#{service.id}"
+							filterBy="#{service.id}">
+
+							<h:outputText style="vertical-align: middle; margin-left: .5rem"
+								value="#{service.id}" />
+						</p:column>
 						<p:column headerText="Nom" sortBy="#{service.utilisateur.nom}"
 							filterBy="#{service.utilisateur.nom}">
 
@@ -132,9 +145,12 @@
 					<p:dataTable var="service" value="#{mbService.serviceVolontaire}"
 						filteredValue="#{mbService.filteredServices}"
 						filterBy="#{mbService.filterBy}" widgetVar="servicesTable">
-						<f:facet name="header">
-							<span>Liste des services</span>
-						</f:facet>
+						<p:column headerText="ID" sortBy="#{service.id}"
+							filterBy="#{service.id}">
+
+							<h:outputText style="vertical-align: middle; margin-left: .5rem"
+								value="#{service.id}" />
+						</p:column>
 						<p:column headerText="Nom" sortBy="#{service.utilisateur.nom}"
 							filterBy="#{service.utilisateur.nom}">
 

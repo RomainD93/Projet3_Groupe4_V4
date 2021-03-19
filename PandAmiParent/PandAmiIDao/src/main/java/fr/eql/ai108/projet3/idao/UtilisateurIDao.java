@@ -17,6 +17,7 @@ public interface UtilisateurIDao extends GenericIDao<Utilisateur> {
 	List<Disponibilite> getDisponibilites();
 	List<Ville> getVilles();
 	List<PreferenceVille> getPrefsVille();
+	Integer getServicesClosedCat1();
 	
 
 }

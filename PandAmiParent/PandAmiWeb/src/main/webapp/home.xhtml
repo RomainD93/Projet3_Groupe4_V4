@@ -15,12 +15,16 @@
 	<ui:define name="title">Index</ui:define>
 	<ui:define name="content">
 		<script type="text/javascript" src="resources/JS/onglet.js"></script>
-		<div class="onglets">
+		<div>
+		<ul class="onglets" id="onglets_service">
+		<li class="onglet">
 			<span class="onglet_0 onglet" id="onglet_ServicesPref"
 				onclick="change_onglet('ServicesPref')">Les services en
-				fonction des préférences </span> <span class="onglet_0 onglet"
+				fonction des préférences </span> </li>
+				<li class="onglet"><span class="onglet_0 onglet"
 				id="onglet_tousLesServices"
-				onclick="change_onglet('tousLesServices')">Tous les services</span>
+				onclick="change_onglet('tousLesServices')">Tous les services</span></li>
+				</ul>
 		</div>
 		<div class="contenu_onglets">
 			<!-- LISTE DES SERVICES EN FONCTION DES PREFS-->
@@ -30,6 +34,12 @@
 					<p:dataTable var="service" value="#{mbService.servicesPref}"
 						filteredValue="#{mbService.filteredServices}"
 						filterBy="#{mbService.filterBy}" widgetVar="servicesTable">
+						<p:column headerText="ID" sortBy="#{service.id}"
+							filterBy="#{service.id}">
+
+							<h:outputText style="vertical-align: middle; margin-left: .5rem"
+								value="#{service.id}" />
+						</p:column>
 						<p:column headerText="Nom" sortBy="#{service.utilisateur.nom}"
 							filterBy="#{service.utilisateur.nom}">
 
@@ -138,6 +148,12 @@
 					<p:dataTable var="service" value="#{mbService.services}"
 						filteredValue="#{mbService.filteredServices}"
 						filterBy="#{mbService.filterBy}" widgetVar="servicesTable">
+						<p:column headerText="ID" sortBy="#{service.id}"
+							filterBy="#{service.id}">
+
+							<h:outputText style="vertical-align: middle; margin-left: .5rem"
+								value="#{service.id}" />
+						</p:column>
 						<p:column headerText="Nom" sortBy="#{service.utilisateur.nom}"
 							filterBy="#{service.utilisateur.nom}">
 
