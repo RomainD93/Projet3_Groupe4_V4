@@ -124,6 +124,58 @@ body .Logout:hover {
 	color: #000000;
 }
 
+body .btn-accepter {
+    background: #97E5D7;
+    color: #000000;
+}
+
+body .btn-accepter:hover {
+    background: #000000;
+    color: #97E5D7;
+}
+
+body .btn-details {
+    background: #FEC8D8;
+    color: #000000;
+}
+
+body .btn-details:hover {
+    background: #000000;
+    color: #FEC8D8;
+}
+
+body .btn-annulation {
+    background: #E18AAA;
+    color: #000000;
+}
+
+body .btn-annulation:hover {
+    background: #000000;
+    color: #E18AAA;
+}
+
+body .btn-litige {
+    background: #957DAD;
+    color: #000000;
+}
+
+body .btn-litige:hover {
+    background: #000000;
+    color: #957DAD;
+}
+
+body .ui-dialog .ui-dialog-titlebar .ui-dialog-title {
+    font-family: 'Chango', cursive;
+    font-size: 48px;
+    color: #97E5D7;
+    text-align: center;
+}
+
+body .ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-icon .ui-icon-closethick:before {
+    content: "";
+    color: #97E5D7;
+}
+
 
 /*the container must be positioned relative:*/
 .autocomplete {
