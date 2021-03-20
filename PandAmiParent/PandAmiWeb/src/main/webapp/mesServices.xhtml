@@ -244,7 +244,6 @@
 					update=":ServiceTerminesform:manage-litige-content"
 					oncomplete="PF('manageLitige').show()" class="btn-litige"
 					process="@this">
-						<f:setPropertyActionListener value="#{service}" target="#{mbService.ouvrirLitige()}" />
 						<p:resetInput target=":ServiceTerminesform:manage-litige-content"></p:resetInput>
 					</p:commandButton>
 				</p:column>
@@ -256,12 +255,22 @@
 			<p:outputPanel id="manage-litige-content" class="ui-fluid">
 				<p:outputPanel rendered="#{not empty mbService.serviceSelected}">
 					<div class="p-field">
-						<p:outputLabel value="Demandeur du service :" />
+						<p:outputLabel value="Demandeur du service : " />
 						<p:outputLabel value="#{mbService.serviceSelected.utilisateur.nom}; #{mbService.serviceSelected.utilisateur.prenom}" />
 					</div>
-				
+					<div class="p-field">
+						<p:outputLabel>
+							Volontaire du service : 
+						</p:outputLabel>
+						<p:outputLabel  />						
+					</div>
 				</p:outputPanel>
 			</p:outputPanel>
+			<f:facet name="footer">
+					<p:commandButton value="Ourvir un litige" icon="pi pi-check"
+						actionListener="#{mbService.ouvrirLitige()}"
+						onsuccess="PF('manageLitige').hide()" class="btn-accepter" />
+				</f:facet>
 			</p:dialog>
 
 		</h:form> </div> </div>

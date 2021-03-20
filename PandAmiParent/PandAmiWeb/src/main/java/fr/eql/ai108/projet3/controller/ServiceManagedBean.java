@@ -33,6 +33,7 @@ import fr.eql.ai108.projet3.entity.ReponseService;
 import fr.eql.ai108.projet3.entity.Service;
 import fr.eql.ai108.projet3.entity.TypeAide;
 import fr.eql.ai108.projet3.entity.Utilisateur;
+import fr.eql.ai108.projet3.ibusiness.LitigeIBusiness;
 import fr.eql.ai108.projet3.ibusiness.ServiceIBusiness;
 
 @ManagedBean(name = "mbService")
@@ -85,6 +86,9 @@ public class ServiceManagedBean {
 
 	@EJB
 	private ServiceIBusiness proxyServiceBu;
+	
+	@EJB
+	private LitigeIBusiness proxyLitigeBu;
 
 	// INITIALISATION DES LISTES AND CO
 
@@ -251,6 +255,7 @@ public class ServiceManagedBean {
 		litige.setUtilisateur(userConnected);
 		litige.setService(serviceSelected);
 		litige.setDateCreation(new Date());
+		litige = proxyLitigeBu.creerLitige(litige);
 	}
 	
 	// REQUETE UPDATE DES LISTES
