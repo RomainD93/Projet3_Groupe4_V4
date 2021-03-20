@@ -32,6 +32,7 @@ import fr.eql.ai108.projet3.entity.Materiel;
 import fr.eql.ai108.projet3.entity.ReponseService;
 import fr.eql.ai108.projet3.entity.Service;
 import fr.eql.ai108.projet3.entity.TypeAide;
+import fr.eql.ai108.projet3.entity.TypeLitige;
 import fr.eql.ai108.projet3.entity.Utilisateur;
 import fr.eql.ai108.projet3.ibusiness.LitigeIBusiness;
 import fr.eql.ai108.projet3.ibusiness.ServiceIBusiness;
@@ -53,6 +54,7 @@ public class ServiceManagedBean {
 	private Map<Integer, List<TypeAide>> mapTypesAide = new HashMap<Integer, List<TypeAide>>();
 	
 	private Litige litige;
+	private TypeLitige selectedTypeLitige;
 
 	private ReponseService reponseService = new ReponseService();
 	private Service serviceSelected;
@@ -538,6 +540,14 @@ public class ServiceManagedBean {
 
 	public void setLitige(Litige litige) {
 		this.litige = litige;
+	}
+
+	public TypeLitige getSelectedTypeLitige() {
+		return selectedTypeLitige;
+	}
+
+	public void setSelectedTypeLitige(TypeLitige selectedTypeLitige) {
+		this.selectedTypeLitige = selectedTypeLitige;
 	}
 
 

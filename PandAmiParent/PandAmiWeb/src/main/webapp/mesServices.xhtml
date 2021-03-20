@@ -16,14 +16,14 @@
 
 		<script type="text/javascript" src="resources/JS/onglet.js"></script>
 		<div> <ul class="onglets" id="onglets_service"> <li
-			class="onglet">
-		<span class="onglet_0 onglet" id="onglet_mesServicesDemandes"
+			class="onglet"> <span class="onglet_0 onglet"
+			id="onglet_mesServicesDemandes"
 			onclick="change_onglet('mesServicesDemandes')">Mes services
-		demandés</span></li> <li class="onglet">
-		<span class="onglet_1 onglet" id="onglet_mesServicesProposes"
+		demandés</span></li> <li class="onglet"> <span class="onglet_1 onglet"
+			id="onglet_mesServicesProposes"
 			onclick="change_onglet('mesServicesProposes')">Mes services
-		proposés</span></li> <li class="onglet">
-		<span class="onglet_2 onglet" id="onglet_mesServicesTermines"
+		proposés</span></li> <li class="onglet"> <span class="onglet_2 onglet"
+			id="onglet_mesServicesTermines"
 			onclick="change_onglet('mesServicesTermines')">Mes services
 		terminés</span></li> </ul> </div>
 
@@ -238,35 +238,64 @@
 							onchange="PF('servicesTable').filter()" timeOnly="true" />
 					</f:facet>
 				</p:column>
-				
+
 				<p:column exportable="false">
 					<p:commandButton value="Litige"
-					update=":ServiceTerminesform:manage-litige-content"
-					oncomplete="PF('manageLitige').show()" class="btn-litige"
-					process="@this">
+						update=":ServiceTerminesform:manage-litige-content"
+						oncomplete="PF('manageLitige').show()" class="btn-litige"
+						process="@this">
 						<p:resetInput target=":ServiceTerminesform:manage-litige-content"></p:resetInput>
 					</p:commandButton>
 				</p:column>
-
 			</p:dataTable>
 			<!-- POPUP LITIGE -->
-			<p:dialog header="Ouverture d'un litige" showEffect="fade" modal="true"
-			widgetVar="manageLitige" responsive="false">
-			<p:outputPanel id="manage-litige-content" class="ui-fluid">
-				<p:outputPanel rendered="#{not empty mbService.serviceSelected}">
-					<div class="p-field">
-						<p:outputLabel value="Demandeur du service : " />
-						<p:outputLabel value="#{mbService.serviceSelected.utilisateur.nom}; #{mbService.serviceSelected.utilisateur.prenom}" />
-					</div>
-					<div class="p-field">
-						<p:outputLabel>
+			<p:dialog header="Ouverture d'un litige" showEffect="fade"
+				modal="true" widgetVar="manageLitige" responsive="false">
+				<p:outputPanel id="manage-litige-content" class="ui-fluid">
+					<p:outputPanel rendered="#{not empty mbService.serviceSelected}">
+					<h:panelGrid cellspacing="2">
+						<div class="p-field"> <p:outputLabel
+							value="Demandeur du service : " /> <p:outputLabel
+							value="#{mbService.serviceSelected.utilisateur.nom} #{mbService.serviceSelected.utilisateur.prenom}" />
+						</div>
+						<div class="p-field"> <p:outputLabel>
 							Volontaire du service : 
-						</p:outputLabel>
-						<p:outputLabel  />						
-					</div>
+						</p:outputLabel> <p:outputLabel /> </div>
+						<div class="p-field"> <p:outputLabel
+							value="Service concernée : " /> <p:outputLabel
+							value="#{mbService.serviceSelected.typeAide.nomTypeAide}" /> </div>
+						<div class="p-field"> <p:outputLabel
+							value="Lieu du service : " /> <p:outputLabel
+							value="#{mbService.serviceSelected.adresse}" /> </div>
+						<div class="p-field"> <p:outputLabel
+							value="Date du service : " /> <p:outputLabel
+							value="#{mbService.serviceSelected.dateService}" /> </div>
+						<div class="p-field"> <p:outputLabel
+							value="Heure de début du service : " /> <p:outputLabel
+							value="#{mbService.serviceSelected.heureDbt}" /> </div>
+						<div class="p-field"> <p:outputLabel
+							value="Matériel prévu : " /> <p:outputLabel
+							value="#{mbService.serviceSelected.materiel.nomMateriel}" /> </div>
+						<div class="p-field"> <p:outputLabel
+							value="Somme prévue : " /> <p:outputLabel
+							value="#{mbService.serviceSelected.sommeAPrevoir}" /> </div>
+					</h:panelGrid>
+					<h:panelGrid cellspacing="2">
+						<div class="p-field">
+							<p:outputLabel value="Motif du litige : " />
+						</div>
+						<div>
+							<p:selectManyCheckbox value="#{mbModerateur.allLitiges}" styleClass="grid-checkbox" >
+								<f:selectItems value="#{mbService.selectedTypeLitige}" />
+							</p:selectManyCheckbox>
+						</div>
+						<div>
+							<p:inputTextarea rows="20" cols="35" />
+						</div>
+					</h:panelGrid>
+					</p:outputPanel>
 				</p:outputPanel>
-			</p:outputPanel>
-			<f:facet name="footer">
+				<f:facet name="footer">
 					<p:commandButton value="Ourvir un litige" icon="pi pi-check"
 						actionListener="#{mbService.ouvrirLitige()}"
 						onsuccess="PF('manageLitige').hide()" class="btn-accepter" />
