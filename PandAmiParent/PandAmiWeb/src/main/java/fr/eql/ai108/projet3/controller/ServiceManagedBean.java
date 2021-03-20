@@ -248,7 +248,9 @@ public class ServiceManagedBean {
 	
 	// OUVRIR UN LITIGE
 	public void ouvrirLitige() {
-		
+		litige.setUtilisateur(userConnected);
+		litige.setService(serviceSelected);
+		litige.setDateCreation(new Date());
 	}
 	
 	// REQUETE UPDATE DES LISTES
