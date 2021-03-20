@@ -2,19 +2,49 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
 
 <h:head>
 <h:outputStylesheet name="CSS/masterStyle.css" />
 </h:head> 
 <h:body> 
-	<h:form>
-		Email / Login <h:inputText value="#{mbCompte.utilisateur.email}" /><br/>
-		Password <h:inputSecret value="#{mbCompte.utilisateur.password}"/><br/>
-		<h:commandButton action="#{mbCompte.connection()}" value="Connexion" styleClass="p-mr-3"/>
-		<h:outputText value="#{mbCompte.message}" />
-		<h:commandButton action="#{mbCompte.afficherSubscription()}" value="Création d'un compte" styleClass="p-mr-3" />
-	</h:form>
-	
+	<div>
+    <h2 class="bienvenue">Bienvenue sur Pand'Ami</h2>
+    
+    <div class="p-grid box">
+     <h:panelGrid columns="3" cellpadding="7" styleClass="p-mb-3">
+     <h:panelGroup >
+    <h:form >
+   
+        <div class="p-col-5 p-d-flex p-ai-center p-jc-center">
+            <div class="ui-fluid">
+            <h:panelGrid columns="2" cellpadding="4">
+                
+                    <p:outputLabel value="Email" for="username" style="text-decoration: none"/>
+                    <p:inputText id="username" type="text" value="#{mbCompte.utilisateur.email}"/>
+              
+                
+                    <p:outputLabel value="Password" for="password" style="text-decoration: none"/>
+                    <p:inputText id="password" type="password" value="#{mbCompte.utilisateur.password}"/>
+              
+                </h:panelGrid>
+                <h:commandButton action="#{mbCompte.connection()}" value="Connexion" class="btn-accepter"/>
+            </div>
+        </div>
+        </h:form></h:panelGroup>
+        <h:panelGroup>
+        <div class="p-col-2">
+            <p:divider layout="vertical">
+                <b>OU</b>
+            </p:divider>
+        </div></h:panelGroup>
+        <h:panelGroup><h:form>
+        <div class="p-col-5 p-d-flex p-ai-center p-jc-center">
+            <p:commandButton class="btn-inscrire" action="#{mbCompte.afficherSubscription()}" value="Création d'un compte" styleClass="p-mr-3" icon="pi pi-user-plus" />
+        </div></h:form></h:panelGroup>
+        </h:panelGrid>
+    </div>
+</div>
 </h:body> 
 </html>

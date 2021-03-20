@@ -9,14 +9,14 @@
 	width: 75vw;
 	margin-left: auto;
 	margin-right: auto;
-	margin-left: auto;
 	background-color: #ffffff;
 	position: center;
+	
 }
 
 * {
 	font-family: "Helvetica";
-	font-size: 20px;
+	font-size: 20px ;
 	box-sizing: border-box;
 }
 
@@ -26,17 +26,10 @@ body {
 }
 
 #container {
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
-	box-sizing: border-box;
-}
-
-h2 {
-	font-family: 'Chango', cursive;
-	font-size: 48px;
-	color: #97E5D7;
-	text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    box-sizing: border-box;
 }
 
 body .ui-toolbar {
@@ -54,7 +47,7 @@ body .ui-tabmenu .ui-tabmenu-nav {
 	display: flex;
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
-	position: relative;
+	
 }
 
 body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem a {
@@ -91,15 +84,9 @@ body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active {
 	content: "\e971";
 	color: #888888;
 }
-
 .pi-sign-out:hover:before {
-	content: "\e971";
-	color: #000000;
-}
-
-.pi-sign-out:hover:before {
-	content: "\e971";
-	color: #000000;
+    content: "\e971";
+    color: #000000;
 }
 
 .pi-home:before {
@@ -115,54 +102,14 @@ body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active {
 body .ui-button {
 	background: #000000;
 	color: #97E5D7;
-	margin: 0;
 	outline: 0 none;
 	border-radius: none;
 	border: none;
 	transition: background-color 0.2s, color 0.2s, border-color 0.2s,
 		box-shadow 0.2s;
-	padding: 8px;
-	margin: 10px;
-}
-
-body .btn-accepter {
-	background: #97E5D7;
-	color: #000000;
-}
-
-body .btn-accepter:hover {
-	background: #000000;
-	color: #97E5D7;
-}
-
-body .btn-details {
-	background: #FEC8D8;
-	color: #000000;
-}
-
-body .btn-details:hover {
-	background: #000000;
-	color: #FEC8D8;
-}
-
-body .btn-annulation {
-	background: #E18AAA;
-	color: #000000;
-}
-
-body .btn-annulation:hover {
-	background: #000000;
-	color: #E18AAA;
-}
-
-body .btn-litige {
-	background: #957DAD;
-	color: #000000;
-}
-
-body .btn-litige:hover {
-	background: #000000;
-	color: #957DAD;
+		padding: 0.4em;
+    margin: 0.5em;
+		
 }
 
 body .Logout {
@@ -177,24 +124,6 @@ body .Logout:hover {
 	color: #000000;
 }
 
-body .Logout:hover {
-	background-color: #97E5D7;
-	margin-top: 5px;
-	color: #000000;
-}
-
-body .ui-dialog .ui-dialog-titlebar .ui-dialog-title {
-	font-family: 'Chango', cursive;
-	font-size: 48px;
-	color: #97E5D7;
-	text-align: center;
-}
-
-body .ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-icon .ui-icon-closethick:before
-	{
-	content: "";
-	color: #97E5D7;
-}
 
 /*the container must be positioned relative:*/
 .autocomplete {
@@ -202,22 +131,30 @@ body .ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-icon .ui-icon-closethick
 	display: inline-block;
 }
 
-input {
+input .ui-inputfield .ui-fluid{
 	border: 1px solid transparent;
 	background-color: #f1f1f1;
 	padding: 10px;
 	font-size: 16px;
+	width: 15vw !important;
 }
 
 input[type=text] {
 	background-color: #f1f1f1;
-	width: 250px;
+	
 }
 
 input[type=submit] {
 	background-color: DodgerBlue;
 	color: #fff;
 	cursor: pointer;
+}
+.ui-fluid .ui-inputtext {
+    width: 15vw !important;
+    }
+    
+.ui-fluid .ui-calendar, .ui-fluid .ui-calendar input {
+    width: 15vw !important;
 }
 
 .autocomplete-items {
@@ -258,22 +195,89 @@ input[type=submit] {
 		5px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
 	width: 100%;
 	margin-top: 0px;
+	align-content: center;
+	
 }
 
 .onglet {
 	display: table-cell;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, .4);
+	text-align: center;
 	color: rgba(0, 0, 0, .7);
 	height: 40px;
 	vertical-align: middle;
+}
+
+body .onglet_0{
+	display: table-cell;
+	text-shadow: 0 1px 0 rgba(255, 255, 255, .4);
 	text-align: center;
+	color: rgba(0, 0, 0, .7);
+	height: 40px;
+	vertical-align: middle;
 }
 
 li:hover {
-	background-color: #000000;
-	color: #97E5D7;
+	background: rgba(255, 255, 255, .2);
 }
 
-ul {
-	padding-inline-start: 0px;
+.p-mb-3 {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+h2{
+	text-align: center;
+}
+
+.padding10{
+padding-bottom:1.5em;
+}
+
+.marginBot{
+	padding-bottom: 20px;
+}
+
+body .ui-widget{
+	size: 1rem;
+	text-decoration: underline #888888;
+}
+
+body .ui-chkbox{
+	width: 1rem;
+    height: 1rem;
+}
+
+.ui-selectmanycheckbox .ui-chkbox .ui-chkbox-box {
+    display: block;
+    width: 1rem;
+    height: 1rem;
+}
+
+body .ui-chkbox .ui-chkbox-box.ui-state-active {
+    border-color: #97E5D7;
+    background: #97E5D7;
+    color: #000000;
+}
+
+body .ui-chkbox .ui-chkbox-box.ui-state-active.ui-state-hover {
+    border-color: #97E5D7;
+    background: #888888;
+    color: #97E5D7;
+}
+
+.ui-selectmanycheckbox .ui-chkbox .ui-chkbox-box:hover {
+	 border-color: #97E5D7;
+}
+.bienvenue{
+	margin-top: 20vh;
+}
+
+.p-grid.box {
+	display:flex;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    margin-top: 15vh;
+    padding: 10px;
+	background-color: white;
 }

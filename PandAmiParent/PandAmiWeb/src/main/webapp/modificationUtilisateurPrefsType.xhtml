@@ -6,7 +6,7 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="/masterPage.xhtml">
-	<ui:define name="title">Index</ui:define>
+	<ui:define name="title">Modifier préférences</ui:define>
 	<ui:define name="content">
 
 		<script type="text/javascript" src="resources/JS/onglet.js"></script>
@@ -23,20 +23,17 @@
 			</ul>
 		</div>
 		
-		<h2>PREFS</h2>
+		<h2>Mes préferences</h2>
 		
 		<div class="card">
-			<h:form id="myForm">
+			<h:form id="myForm" styleClass="p-mb-3">
 				<p:messages />
-				<h:panelGrid>
-					<h:panelGroup>
-						<!-- PREFERENCES TYPES DE SERVICE -->
-						<p:outputLabel value="Préférences Types de Service : " />
-					</h:panelGroup>
+				<h:panelGrid styleClass="p-mb-3">
+					
 
 					<h:panelGroup>
 						<!-- CATEGORIE 1 -->
-						<p:outputLabel value="Bricolage / Travaux : " />
+						<p:outputLabel class="padding10" value="Bricolage / Travaux : " />
 					</h:panelGroup>
 
 					<p:selectManyCheckbox id="categorie1"
@@ -50,7 +47,7 @@
 
 					<h:panelGroup>
 						<!-- CATEGORIE 2 -->
-						<p:outputLabel value="Jardinage : " />
+						<p:outputLabel class="padding10" value="Jardinage : " />
 					</h:panelGroup>
 
 					<p:selectManyCheckbox id="categorie2"
@@ -64,7 +61,7 @@
 
 					<h:panelGroup>
 						<!-- CATEGORIE 3 -->
-						<p:outputLabel value="Déménagement : " />
+						<p:outputLabel class="padding10" value="Déménagement : " />
 					</h:panelGroup>
 
 					<p:selectManyCheckbox id="categorie3"
@@ -78,7 +75,7 @@
 
 					<h:panelGroup>
 						<!-- CATEGORIE 4 -->
-						<p:outputLabel value="Dépannage : " />
+						<p:outputLabel class="padding10" value="Dépannage : " />
 					</h:panelGroup>
 
 					<p:selectManyCheckbox id="categorie4"
@@ -92,7 +89,7 @@
 
 					<h:panelGroup>
 						<!-- CATEGORIE 5 -->
-						<p:outputLabel value="Entretien / Réparation Véhicules : " />
+						<p:outputLabel class="padding10" value="Entretien / Réparation Véhicules : " />
 					</h:panelGroup>
 
 					<p:selectManyCheckbox id="categorie5"
@@ -106,7 +103,7 @@
 
 					<h:panelGroup>
 						<!-- CATEGORIE 6 -->
-						<p:outputLabel value="Services véhiculés : " />
+						<p:outputLabel class="padding10" value="Services véhiculés : " />
 					</h:panelGroup>
 
 					<p:selectManyCheckbox id="categorie6"
@@ -134,7 +131,7 @@
 
 					<h:panelGroup>
 						<!-- CATEGORIE 8 -->
-						<p:outputLabel value="Enfants : " />
+						<p:outputLabel class="padding10" value="Enfants : " />
 					</h:panelGroup>
 
 					<p:selectManyCheckbox id="categorie8"
@@ -148,7 +145,7 @@
 
 					<h:panelGroup>
 						<!-- CATEGORIE 9 -->
-						<p:outputLabel value="Animaux : " />
+						<p:outputLabel class="padding10" value="Animaux : " />
 					</h:panelGroup>
 
 					<p:selectManyCheckbox id="categorie9"
@@ -162,7 +159,7 @@
 
 					<h:panelGroup>
 						<!-- CATEGORIE 10 -->
-						<p:outputLabel value="Informatique - Web : " />
+						<p:outputLabel class="padding10" value="Informatique - Web : " />
 					</h:panelGroup>
 
 					<p:selectManyCheckbox id="categorie10"
@@ -176,7 +173,7 @@
 
 					<h:panelGroup>
 						<!-- CATEGORIE 11 -->
-						<p:outputLabel value="Cours - Formations : " />
+						<p:outputLabel class="marginBot" value="Cours - Formations : " />
 					</h:panelGroup>
 
 					<p:selectManyCheckbox id="categorie11"

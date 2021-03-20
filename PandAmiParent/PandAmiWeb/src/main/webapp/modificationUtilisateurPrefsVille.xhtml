@@ -6,20 +6,19 @@
 	xmlns:p="http://primefaces.org/ui">
 
 <ui:composition template="/masterPage.xhtml">
-	<ui:define name="title">Disponibilites</ui:define>
+	<ui:define name="title">Modifier secteur</ui:define>
 	<ui:define name="content">
 
 
-		<h2>VILLES</h2>
+		<h2>Mon secteur</h2>
 		<div class="card">
-			<h:form id="myForm">
+			<h:form id="myForm" styleClass="p-mb-3">
 				<p:messages />
-				<h:panelGrid>
+				<h:panelGrid styleClass="p-mb-3">
 					<h:panelGroup>
 						<!-- VILLES -->
-						<p:outputLabel value="Villes : " />
+						<p:outputLabel class="padding10" value="Villes : "/>
 					</h:panelGroup>
-
 					<p:selectManyCheckbox id="villes"
 						value="#{mbUtilisateur.villesSelected}" layout="grid"
 						converter="omnifaces.SelectItemsConverter" columns="3"
