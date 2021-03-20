@@ -13,4 +13,18 @@ public interface ChartsIBusiness {
 	Long displayNumberServicesCat9();
 	Long displayNumberServicesCat10();
 	Long displayNumberServicesCat11();
+	
+	Long displayNbreInscriptionsAvril2020();
+	Long displayNbreInscriptionsMai2020();
+	Long displayNbreInscriptionsJuin2020();
+	Long displayNbreInscriptionsJuillet2020();
+	Long displayNbreInscriptionsAout2020();
+	Long displayNbreInscriptionsSeptembre2020();
+	Long displayNbreInscriptionsOctobre2020();
+	Long displayNbreInscriptionsNovembre2020();
+	Long displayNbreInscriptionsDecembre2020();
+	Long displayNbreInscriptionsJanvier2021();
+	Long displayNbreInscriptionsFevrier2021();
+	Long displayNbreInscriptionsMars2021();
+	Long displayNbreInscriptionsAvril2021();
 }

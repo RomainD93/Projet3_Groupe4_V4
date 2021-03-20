@@ -105,7 +105,21 @@ public class ChartJsView implements Serializable{
 	    private Long numberOfCat10;
 	    private Long numberOfCat11;
 	    
-
+	    
+	    private Long inscriptionsAvril2020;
+	    private Long inscriptionsMai2020;
+	    private Long inscriptionsJuin2020;
+	    private Long inscriptionsJuillet2020;
+	    private Long inscriptionsAout2020;
+	    private Long inscriptionsSeptembre2020;
+	    private Long inscriptionsOctobre2020;
+	    private Long inscriptionsNovembre2020;
+	    private Long inscriptionsDecembre2020;
+	    private Long inscriptionsJanvier2021;
+	    private Long inscriptionsFevrier2021;
+	    private Long inscriptionsMars2021;
+	    private Long inscriptionsAvril2021;
+	    
 
 	    @EJB
 	    private ChartsIBusiness proxyChartsBusiness;
@@ -123,7 +137,20 @@ public class ChartJsView implements Serializable{
 	    	numberOfCat9 = proxyChartsBusiness.displayNumberServicesCat9();
 	    	numberOfCat10 = proxyChartsBusiness.displayNumberServicesCat10();
 	    	numberOfCat11 = proxyChartsBusiness.displayNumberServicesCat11();
-	    	    	
+	    	
+	    	inscriptionsAvril2020 = proxyChartsBusiness.displayNbreInscriptionsAvril2020();
+	    	inscriptionsMai2020 = proxyChartsBusiness.displayNbreInscriptionsMai2020();
+	    	inscriptionsJuin2020 = proxyChartsBusiness.displayNbreInscriptionsJuin2020();
+	    	inscriptionsJuillet2020 = proxyChartsBusiness.displayNbreInscriptionsJuillet2020();
+	    	inscriptionsAout2020 = proxyChartsBusiness.displayNbreInscriptionsAout2020();
+	    	inscriptionsSeptembre2020 = proxyChartsBusiness.displayNbreInscriptionsSeptembre2020();
+	    	inscriptionsOctobre2020 = proxyChartsBusiness.displayNbreInscriptionsOctobre2020();
+	    	inscriptionsNovembre2020 = proxyChartsBusiness.displayNbreInscriptionsNovembre2020();
+	    	inscriptionsDecembre2020 = proxyChartsBusiness.displayNbreInscriptionsDecembre2020();
+	    	inscriptionsJanvier2021 = proxyChartsBusiness.displayNbreInscriptionsJanvier2021();
+	    	inscriptionsFevrier2021 = proxyChartsBusiness.displayNbreInscriptionsFevrier2021();
+	    	inscriptionsMars2021 = proxyChartsBusiness.displayNbreInscriptionsMars2021();
+	    	inscriptionsAvril2021 = proxyChartsBusiness.displayNbreInscriptionsAvril2021();
 	    	
 	        createPieModel();
 	        createPolarAreaModel();
@@ -201,16 +228,24 @@ public class ChartJsView implements Serializable{
 	        ChartData data = new ChartData();
 
 	        BarChartDataSet barDataSet = new BarChartDataSet();
-	        barDataSet.setLabel("My First Dataset");
+	        barDataSet.setLabel("Historique des inscriptions");
 
-	        List<Number> values = new ArrayList<>();
-	        values.add(65);
-	        values.add(59);
-	        values.add(80);
-	        values.add(81);
-	        values.add(56);
-	        values.add(55);
-	        values.add(40);
+	        List<Number> values = new ArrayList<>();	        
+	        
+	        values.add(inscriptionsAvril2020);
+	        values.add(inscriptionsMai2020);
+	        values.add(inscriptionsJuin2020);
+	        values.add(inscriptionsJuillet2020);
+	        values.add(inscriptionsAout2020);
+	        values.add(inscriptionsSeptembre2020);
+	        values.add(inscriptionsOctobre2020);
+	        values.add(inscriptionsNovembre2020);
+	        values.add(inscriptionsDecembre2020);
+	        values.add(inscriptionsJanvier2021);
+	        values.add(inscriptionsFevrier2021);
+	        values.add(inscriptionsMars2021);
+	        values.add(inscriptionsAvril2021);
+
 	        barDataSet.setData(values);
 
 	        List<String> bgColor = new ArrayList<>();
@@ -226,7 +261,7 @@ public class ChartJsView implements Serializable{
 	        bgColor.add("rgb(128, 0, 128, 0.2)");
 	        bgColor.add("rgb(76, 166, 107, 0.2)");
 	        bgColor.add("rgb(1, 121, 111, 0.2)");
-	        bgColor.add("rgb(212, 115, 212, 0.2)");
+	        bgColor.add("rgba(255, 99, 132, 0.2)");
 	        barDataSet.setBackgroundColor(bgColor);
 
 	        List<String> borderColor = new ArrayList<>();
@@ -242,25 +277,27 @@ public class ChartJsView implements Serializable{
 	        borderColor.add("rgb(128, 0, 128)");
 	        borderColor.add("rgb(76, 166, 107)");
 	        borderColor.add("rgb(1, 121, 111)");
-	        borderColor.add("rgb(212, 115, 212)");
+	        borderColor.add("rgb(255, 99, 132)");
+	        
 	        barDataSet.setBorderColor(borderColor);
 	        barDataSet.setBorderWidth(1);
 
 	        data.addChartDataSet(barDataSet);
 
 	        List<String> labels = new ArrayList<>();
-	        labels.add("Janvier");
-	        labels.add("Février");
-	        labels.add("Mars");
-	        labels.add("Avril");
-	        labels.add("Mai");
-	        labels.add("Juin");
-	        labels.add("Juillet");
-	        labels.add("Août");
-	        labels.add("Septembre");
-	        labels.add("Octobre");
-	        labels.add("Novembre");
-	        labels.add("Décembre");
+	        labels.add("Avril 2020");
+	        labels.add("Mai 2020");
+	        labels.add("Juin 2020");
+	        labels.add("Juillet 2020");
+	        labels.add("Août 2020");
+	        labels.add("Septembre 2020");
+	        labels.add("Octobre 2020");
+	        labels.add("Novembre 2020");
+	        labels.add("Décembre 2020");
+	        labels.add("Janvier 2021");
+	        labels.add("Février 2021");
+	        labels.add("Mars 2021");
+	        labels.add("Avril 2020");
 	        data.setLabels(labels);
 	        barModel.setData(data);
 
@@ -277,7 +314,7 @@ public class ChartJsView implements Serializable{
 
 	        Title title = new Title();
 	        title.setDisplay(true);
-	        title.setText("Bar Chart");
+	        title.setText("Analyse");
 	        options.setTitle(title);
 
 	        Legend legend = new Legend();
@@ -298,6 +335,63 @@ public class ChartJsView implements Serializable{
 	        barModel.setOptions(options);
 	    }
 
+	    public void createBarModel2() {
+	        barModel2 = new BarChartModel();
+	        ChartData data = new ChartData();
+
+	        BarChartDataSet barDataSet = new BarChartDataSet();
+	        barDataSet.setLabel("My First Dataset");
+	        barDataSet.setBackgroundColor("rgba(255, 99, 132, 0.2)");
+	        barDataSet.setBorderColor("rgb(255, 99, 132)");
+	        barDataSet.setBorderWidth(1);
+	        List<Number> values = new ArrayList<>();
+	        values.add(65);
+	        values.add(59);
+	        values.add(80);
+	        values.add(81);
+	        barDataSet.setData(values);
+
+	        BarChartDataSet barDataSet2 = new BarChartDataSet();
+	        barDataSet2.setLabel("My Second Dataset");
+	        barDataSet2.setBackgroundColor("rgba(255, 159, 64, 0.2)");
+	        barDataSet2.setBorderColor("rgb(255, 159, 64)");
+	        barDataSet2.setBorderWidth(1);
+	        List<Number> values2 = new ArrayList<>();
+	        values2.add(85);
+	        values2.add(69);
+	        values2.add(20);
+	        values2.add(51);
+	        barDataSet2.setData(values2);
+
+	        data.addChartDataSet(barDataSet);
+	        data.addChartDataSet(barDataSet2);
+
+	        List<String> labels = new ArrayList<>();
+	        labels.add("Janvier 2021");
+	        labels.add("Février 2021");
+	        labels.add("Mars 2021");
+	        labels.add("Avril 2021");
+	        data.setLabels(labels);
+	        barModel2.setData(data);
+
+	        //Options
+	        BarChartOptions options = new BarChartOptions();
+	        CartesianScales cScales = new CartesianScales();
+	        CartesianLinearAxes linearAxes = new CartesianLinearAxes();
+	        linearAxes.setOffset(true);
+	        CartesianLinearTicks ticks = new CartesianLinearTicks();
+	        ticks.setBeginAtZero(true);
+	        linearAxes.setTicks(ticks);
+	        cScales.addYAxesData(linearAxes);
+	        options.setScales(cScales);
+
+	        Title title = new Title();
+	        title.setDisplay(true);
+	        title.setText("Bar Chart");
+	        options.setTitle(title);
+
+	        barModel2.setOptions(options);
+	    }
 	    
 	    
 	    private void createPieModel() {
@@ -496,72 +590,7 @@ public class ChartJsView implements Serializable{
 	    }
 
 	   
-	    public void createBarModel2() {
-	        barModel2 = new BarChartModel();
-	        ChartData data = new ChartData();
-
-	        BarChartDataSet barDataSet = new BarChartDataSet();
-	        barDataSet.setLabel("My First Dataset");
-	        barDataSet.setBackgroundColor("rgba(255, 99, 132, 0.2)");
-	        barDataSet.setBorderColor("rgb(255, 99, 132)");
-	        barDataSet.setBorderWidth(1);
-	        List<Number> values = new ArrayList<>();
-	        values.add(65);
-	        values.add(59);
-	        values.add(80);
-	        values.add(81);
-	        values.add(56);
-	        values.add(55);
-	        values.add(40);
-	        barDataSet.setData(values);
-
-	        BarChartDataSet barDataSet2 = new BarChartDataSet();
-	        barDataSet2.setLabel("My Second Dataset");
-	        barDataSet2.setBackgroundColor("rgba(255, 159, 64, 0.2)");
-	        barDataSet2.setBorderColor("rgb(255, 159, 64)");
-	        barDataSet2.setBorderWidth(1);
-	        List<Number> values2 = new ArrayList<>();
-	        values2.add(85);
-	        values2.add(69);
-	        values2.add(20);
-	        values2.add(51);
-	        values2.add(76);
-	        values2.add(75);
-	        values2.add(10);
-	        barDataSet2.setData(values2);
-
-	        data.addChartDataSet(barDataSet);
-	        data.addChartDataSet(barDataSet2);
-
-	        List<String> labels = new ArrayList<>();
-	        labels.add("January");
-	        labels.add("February");
-	        labels.add("March");
-	        labels.add("April");
-	        labels.add("May");
-	        labels.add("June");
-	        labels.add("July");
-	        data.setLabels(labels);
-	        barModel2.setData(data);
-
-	        //Options
-	        BarChartOptions options = new BarChartOptions();
-	        CartesianScales cScales = new CartesianScales();
-	        CartesianLinearAxes linearAxes = new CartesianLinearAxes();
-	        linearAxes.setOffset(true);
-	        CartesianLinearTicks ticks = new CartesianLinearTicks();
-	        ticks.setBeginAtZero(true);
-	        linearAxes.setTicks(ticks);
-	        cScales.addYAxesData(linearAxes);
-	        options.setScales(cScales);
-
-	        Title title = new Title();
-	        title.setDisplay(true);
-	        title.setText("Bar Chart");
-	        options.setTitle(title);
-
-	        barModel2.setOptions(options);
-	    }
+	    
 
 	    public void createHorizontalBarModel() {
 	        hbarModel = new HorizontalBarChartModel();
@@ -1231,6 +1260,125 @@ public class ChartJsView implements Serializable{
 			this.numberOfCat11 = numberOfCat11;
 		}
 
+
+
+		public Long getInscriptionsAvril2020() {
+			return inscriptionsAvril2020;
+		}
+
+		public Long getInscriptionsMai2020() {
+			return inscriptionsMai2020;
+		}
+
+		public Long getInscriptionsJuin2020() {
+			return inscriptionsJuin2020;
+		}
+
+		public Long getInscriptionsJuillet2020() {
+			return inscriptionsJuillet2020;
+		}
+
+		public Long getInscriptionsAout2020() {
+			return inscriptionsAout2020;
+		}
+
+		public Long getInscriptionsSeptembre2020() {
+			return inscriptionsSeptembre2020;
+		}
+
+		public Long getInscriptionsOctobre2020() {
+			return inscriptionsOctobre2020;
+		}
+
+		public Long getInscriptionsNovembre2020() {
+			return inscriptionsNovembre2020;
+		}
+
+
+		public Long getInscriptionsJanvier2021() {
+			return inscriptionsJanvier2021;
+		}
+
+
+		public Long getInscriptionsMars2021() {
+			return inscriptionsMars2021;
+		}
+
+		public ChartsIBusiness getProxyChartsBusiness() {
+			return proxyChartsBusiness;
+		}
+
+		public void setInscriptionsAvril2020(Long inscriptionsAvril2020) {
+			this.inscriptionsAvril2020 = inscriptionsAvril2020;
+		}
+
+		public void setInscriptionsMai2020(Long inscriptionsMai2020) {
+			this.inscriptionsMai2020 = inscriptionsMai2020;
+		}
+
+		public void setInscriptionsJuin2020(Long inscriptionsJuin2020) {
+			this.inscriptionsJuin2020 = inscriptionsJuin2020;
+		}
+
+		public void setInscriptionsJuillet2020(Long inscriptionsJuillet2020) {
+			this.inscriptionsJuillet2020 = inscriptionsJuillet2020;
+		}
+
+		public void setInscriptionsAout2020(Long inscriptionsAout2020) {
+			this.inscriptionsAout2020 = inscriptionsAout2020;
+		}
+
+		public void setInscriptionsSeptembre2020(Long inscriptionsSeptembre2020) {
+			this.inscriptionsSeptembre2020 = inscriptionsSeptembre2020;
+		}
+
+		public void setInscriptionsOctobre2020(Long inscriptionsOctobre2020) {
+			this.inscriptionsOctobre2020 = inscriptionsOctobre2020;
+		}
+
+		public void setInscriptionsNovembre2020(Long inscriptionsNovembre2020) {
+			this.inscriptionsNovembre2020 = inscriptionsNovembre2020;
+		}
+
+
+		public void setInscriptionsJanvier2021(Long inscriptionsJanvier2021) {
+			this.inscriptionsJanvier2021 = inscriptionsJanvier2021;
+		}
+
+
+		public void setInscriptionsMars2021(Long inscriptionsMars2021) {
+			this.inscriptionsMars2021 = inscriptionsMars2021;
+		}
+
+		public void setProxyChartsBusiness(ChartsIBusiness proxyChartsBusiness) {
+			this.proxyChartsBusiness = proxyChartsBusiness;
+		}
+
+		public Long getInscriptionsFevrier2021() {
+			return inscriptionsFevrier2021;
+		}
+
+		public void setInscriptionsFevrier2021(Long inscriptionsFevrier2021) {
+			this.inscriptionsFevrier2021 = inscriptionsFevrier2021;
+		}
+
+		public Long getInscriptionsDecembre2020() {
+			return inscriptionsDecembre2020;
+		}
+
+		public void setInscriptionsDecembre2020(Long inscriptionsDecembre2020) {
+			this.inscriptionsDecembre2020 = inscriptionsDecembre2020;
+		}
+
+		public Long getInscriptionsAvril2021() {
+			return inscriptionsAvril2021;
+		}
+
+		public void setInscriptionsAvril2021(Long inscriptionsAvril2021) {
+			this.inscriptionsAvril2021 = inscriptionsAvril2021;
+		}
+		
+		
 
 		
 

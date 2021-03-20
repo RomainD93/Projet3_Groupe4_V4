@@ -13,7 +13,7 @@ public class ChartsBusiness implements ChartsIBusiness{
 
 	@EJB
 	private ChartsIDao proxyChartsDao;
-	
+
 	@Override
 	public Long displayNumberServicesCat1() {		
 		return proxyChartsDao.getServicesClosedCat1();
@@ -68,6 +68,71 @@ public class ChartsBusiness implements ChartsIBusiness{
 	@Override
 	public Long displayNumberServicesCat11() {
 		return proxyChartsDao.getServicesClosedCat11();
+	}
+
+
+	@Override
+	public Long displayNbreInscriptionsAvril2020() {
+		return proxyChartsDao.getInscriptionsAvril();
+	}
+
+	@Override
+	public Long displayNbreInscriptionsMai2020() {
+		return proxyChartsDao.getInscriptionsMai();
+	}
+
+	@Override
+	public Long displayNbreInscriptionsJuin2020() {
+		return proxyChartsDao.getInscriptionsJuin();
+	}
+
+	@Override
+	public Long displayNbreInscriptionsJuillet2020() {
+		return proxyChartsDao.getInscriptionsJuillet();
+	}
+	@Override
+	public Long displayNbreInscriptionsAout2020() {
+		return proxyChartsDao.getInscriptionsAout();
+	}
+
+	@Override
+	public Long displayNbreInscriptionsSeptembre2020() {
+		return proxyChartsDao.getInscriptionsSeptembre();
+	}
+
+	@Override
+	public Long displayNbreInscriptionsOctobre2020() {
+		return proxyChartsDao.getInscriptionsOctobre();
+	}
+
+	@Override
+	public Long displayNbreInscriptionsNovembre2020() {
+		return proxyChartsDao.getInscriptionsNovembre();
+	}
+
+	@Override
+	public Long displayNbreInscriptionsDecembre2020() {
+		return proxyChartsDao.getInscriptionsDecembre();
+	}
+
+	@Override
+	public Long displayNbreInscriptionsJanvier2021() {	
+		return proxyChartsDao.getInscriptionsJanvier();
+	}
+
+	@Override
+	public Long displayNbreInscriptionsFevrier2021() {
+		return proxyChartsDao.getInscriptionsFevrier();
+	}
+
+	@Override
+	public Long displayNbreInscriptionsMars2021() {
+		return proxyChartsDao.getInscriptionsMars();
+	}
+
+	@Override
+	public Long displayNbreInscriptionsAvril2021() {
+		return proxyChartsDao.getInscriptionsAvril2021();
 	}
 
 

@@ -127,14 +127,68 @@ INSERT INTO `ville` (id, codePostal, villeNom) VALUES (23, '93600', 'Aulnay-sous
 -- INSERT INTO `adresse` (id, codePostale, nomVoie, numeroVoie, ville) VALUES (5, '93400', 'rue du Capitaine Glardner', '13', 'St-Ouen');
 
 
-
-
 -- Insert Utilisateur
 INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (1, null, '2018-01-12', '1985-01-04', 'to.toto@ecoleql.fr', 'Toto', '0102030401', 'toto', 'to', '10', 2, 1, '76 rue Emile Zola 93400 St Ouen');
 INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (2, null, '2018-01-12', '1986-01-08', 't', 'Tata', '0102030402', 't', 'ta', '15', 1, 1, '17 rue Alexandre Dumas 93400 St Ouen');
 INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (3, null, '2019-01-12', '1987-02-08', 'ti.titi@ecoleql.fr', 'Titi', '0102030403', 'titi', 'ti', '17', 1, 1, '25 rue Farcot 93400 St Ouen');
 INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (4, null, '2020-01-12', '1987-02-08', 'tutu', 'Tutu', '0102030405', 'tutu', 'tu', '27', 1, 1, '25 rue Pasteur 93400 St Ouen');
 INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (5, null, '2019-01-12', '1987-02-08', 'tete', 'Tete', '0102030406', 'tete', 'te', '32', 1, 1, '18 rue Arago 93400 St Ouen');
+
+-- Insert Utilsateur Analyse
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (201, null, '2020-03-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 1, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (202, null, '2020-03-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (203, null, '2020-03-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 1, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (204, null, '2020-03-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 1, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (205, null, '2020-03-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (206, null, '2020-03-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (207, null, '2020-04-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 1, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (208, null, '2020-04-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 1, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (209, null, '2020-04-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (210, null, '2020-04-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 1, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (211, null, '2020-04-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (212, null, '2020-05-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 1, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (213, null, '2020-05-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (214, null, '2020-05-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 1, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (215, null, '2020-06-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 1, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (216, null, '2020-06-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (217, null, '2020-07-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 1, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (218, null, '2020-08-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (219, null, '2020-08-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 1, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (220, null, '2020-09-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (221, null, '2020-09-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 1, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (222, null, '2020-09-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (223, null, '2020-10-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 1, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (224, null, '2020-10-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (225, null, '2020-10-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 1, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (226, null, '2020-10-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (227, null, '2020-10-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 1, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (228, null, '2020-10-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (229, null, '2020-11-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (230, null, '2020-11-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 1, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (231, null, '2020-11-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (232, null, '2020-12-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (233, null, '2020-12-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (234, null, '2020-12-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (235, null, '2021-01-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (236, null, '2021-01-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (237, null, '2021-01-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (238, null, '2021-01-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (239, null, '2021-01-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (240, null, '2021-01-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (241, null, '2021-01-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (242, null, '2021-02-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (243, null, '2021-02-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (244, null, '2021-02-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (245, null, '2021-02-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (246, null, '2021-03-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (247, null, '2021-03-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (248, null, '2021-03-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (249, null, '2021-03-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (250, null, '2021-03-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (251, null, '2021-03-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (252, null, '2021-03-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (253, null, '2021-03-15', '1987-02-08', 'stat', 'StatGuy', '0102030406', 'stat', 'te', '32', 1, 2, '18 rue Arago 93400 St Ouen');
+
 
 -- Insert Utilisateur Admin
 INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissance, email, nom, numTelephone, password, prenom, rayonAction, genre_id, typeUtilisateur_id, adresse) VALUES (6, null, '2018-01-01', '1987-02-08', 'analyste.admin@pandami.fr', 'analyste', '0102030400', 'admin', 'admin_analyste', null, 3, 2, 'Siège Social PANDAMI');
@@ -144,7 +198,6 @@ INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissanc
 INSERT INTO `disponibilite` (id, dbtValiditeDispo, finValiditeDispo, heureDbtDispo, heureFinDispo, jourSemaine_id, utilisateur_id) VALUES (1, '2018-08-12', null, '14:30:00', '19:00:00', 1, 1);
 
 -- Insert Service
-
 INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (1, 'rue de titi', null, null, '2020-08-12', '2021-03-17', '08:00:00', '11:00:00', null, 35, 1); 
 INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (2, 'rue de titi', null, null, '2020-08-12', '2021-03-17', '08:00:00', '11:00:00', null, 34, 1); 
 INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (3, 'rue de titi', null, null, '2020-08-12', '2021-03-17', '08:00:00', '11:00:00', null, 33, 1); 
@@ -229,9 +282,22 @@ INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, d
 INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (169, 'rue de titi', null, '2020-08-19', '2020-08-12', '2021-03-18', '08:00:00', '11:00:00', null, 40, 1); 
 
 
+-- Insert Service Pour Litiges
+INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (200, '20 Avenue de Ségur 75007 Paris', null, '2020-08-19', '2020-08-12', '2021-03-18', '08:00:00', '11:00:00', null, 40, 1); 
+INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (201, '17 Rue Lecourbe 75015 Paris', null, '2020-08-19', '2020-08-12', '2021-03-18', '08:00:00', '11:00:00', null, 18, 1); 
+INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (202, '17 Rue Lecourbe 75015 Paris', null, '2020-08-19', '2020-08-12', '2021-03-18', '08:00:00', '11:00:00', null, 37, 1); 
+INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (203, '25 Rue des Pyrénées 75020 Paris', null, '2020-08-19', '2020-08-12', '2021-03-18', '08:00:00', '11:00:00', null, 25, 1); 
+INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (204, '25 Rue des Pyrénées 75020 Paris', null, '2020-08-19', '2020-08-12', '2021-03-18', '08:00:00', '11:00:00', null, 3, 2); 
+INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (205, '10 Rue d’Alésia 75014 Paris', null, '2020-08-19', '2020-08-12', '2021-03-18', '08:00:00', '11:00:00', null, 20, 2); 
+INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (206, '10 Rue d’Alésia 75014 Paris', null, '2020-08-19', '2020-08-12', '2021-03-18', '08:00:00', '11:00:00', null, 11, 3); 
+INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (207, '22 Rue Marcadet 75018 Paris', null, '2020-08-19', '2020-08-12', '2021-03-18', '08:00:00', '11:00:00', null, 9, 3); 
+INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (208, '2 Avenue Jean Jaurès 75019 Paris', null, '2020-08-19', '2020-08-12', '2021-03-18', '08:00:00', '11:00:00', null, 7, 4); 
+INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (209, '2 Avenue Jean Jaurès 75019 Paris', null, '2020-08-19', '2020-08-12', '2021-03-18', '08:00:00', '11:00:00', null, 4, 4); 
+INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (210, '20 Avenue de Ségur 75007 Paris', null, '2020-08-19', '2020-08-12', '2021-03-18', '08:00:00', '11:00:00', null, 12, 4); 
+
 
 -- Insert Reponse Service
-INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (1, '2020-08-12','2020-08-12', 1, 1);
+INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (1, '2020-08-12',null, 1, 1);
 INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (2, '2020-08-12','2020-08-12', 2, 1);
 INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (3, '2020-08-12','2020-08-12', 3, 1);
 INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (4, '2020-08-12','2020-08-12', 4, 1);
@@ -245,20 +311,37 @@ INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id,
 INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (12, '2020-08-12', null, 12, 5);
 
 
+-- Insert Reponse Service pour Litiges
+INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (200, '2020-08-12', null, 200, 2);
+INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (201, '2020-08-12', null, 201, 2);
+INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (202, '2020-08-12', null, 202, 3);
+INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (203, '2020-08-12', null, 203, 3);
+INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (204, '2020-08-12', null, 204, 4);
+INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (205, '2020-08-12', null, 205, 3);
+INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (206, '2020-08-12', null, 206, 1);
+INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (207, '2020-08-12', null, 207, 4);
+INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (208, '2020-08-12', null, 208, 3);
+INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (209, '2020-08-12', null, 209, 1);
+INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (210, '2020-08-12', null, 210, 2);
 
 
--- Insert Litige
-INSERT INTO `litige` (id, commentaires, dateCloture, dateCreation, service_id, typeLitige_id, utilisateur_id) VALUES (1, "Je n'ai pas été remboursé", null, '2019-12-31', 1, 2, 1);
-INSERT INTO `litige` (id, commentaires, dateCloture, dateCreation, service_id, typeLitige_id, utilisateur_id) VALUES (2, "Je n'ai pas été remboursé", null, '2019-12-31', 1, 1, 1);
-INSERT INTO `litige` (id, commentaires, dateCloture, dateCreation, service_id, typeLitige_id, utilisateur_id) VALUES (3, "Je n'ai pas été remboursé", null, '2019-12-31', 1, 2, 1);
-INSERT INTO `litige` (id, commentaires, dateCloture, dateCreation, service_id, typeLitige_id, utilisateur_id) VALUES (4, "Je n'ai pas été remboursé", '2019-12-31', '2019-12-30', 1, 3, 1);
-INSERT INTO `litige` (id, commentaires, dateCloture, dateCreation, service_id, typeLitige_id, utilisateur_id) VALUES (5, "Je n'ai pas été remboursé", null, '2019-12-31', 1, 4, 1);
-INSERT INTO `litige` (id, commentaires, dateCloture, dateCreation, service_id, typeLitige_id, utilisateur_id) VALUES (6, "Je n'ai pas été remboursé", '2019-12-31', '2019-12-29', 1, 5, 1);
-INSERT INTO `litige` (id, commentaires, dateCloture, dateCreation, service_id, typeLitige_id, utilisateur_id) VALUES (7, "Je n'ai pas été remboursé", null, '2019-12-31', 1, 2, 1);
-INSERT INTO `litige` (id, commentaires, dateCloture, dateCreation, service_id, typeLitige_id, utilisateur_id) VALUES (8, "Je n'ai pas été remboursé", null, '2019-12-31', 1, 2, 1);
+-- Insert Litiges
+INSERT INTO `litige` (id, commentaires, dateCloture, dateCreation, service_id, typeLitige_id, utilisateur_id) VALUES (1, "10 minutes de retard", null, '2019-12-31', 200, 1, 1);
+INSERT INTO `litige` (id, commentaires, dateCloture, dateCreation, service_id, typeLitige_id, utilisateur_id) VALUES (2, null, null, '2019-12-31', 201, 5, 2);
+INSERT INTO `litige` (id, commentaires, dateCloture, dateCreation, service_id, typeLitige_id, utilisateur_id) VALUES (3, null, null, '2019-12-31', 202, 1, 3);
+INSERT INTO `litige` (id, commentaires, dateCloture, dateCreation, service_id, typeLitige_id, utilisateur_id) VALUES (4, null, '2019-12-31', '2019-12-30', 203, 1, 1);
+INSERT INTO `litige` (id, commentaires, dateCloture, dateCreation, service_id, typeLitige_id, utilisateur_id) VALUES (5, null, null, '2019-12-31', 204, 4, 2);
+INSERT INTO `litige` (id, commentaires, dateCloture, dateCreation, service_id, typeLitige_id, utilisateur_id) VALUES (6, "Je n'ai pas été remboursé", '2019-12-31', '2019-12-29', 205, 2, 3);
+INSERT INTO `litige` (id, commentaires, dateCloture, dateCreation, service_id, typeLitige_id, utilisateur_id) VALUES (7, null, null, '2019-12-31', 206, 3, 3);
+INSERT INTO `litige` (id, commentaires, dateCloture, dateCreation, service_id, typeLitige_id, utilisateur_id) VALUES (8, "Il a cassé un rétroviseur", null, '2019-12-31', 207, 5, 3);
+INSERT INTO `litige` (id, commentaires, dateCloture, dateCreation, service_id, typeLitige_id, utilisateur_id) VALUES (9, null, null, '2019-12-31', 208, 4, 4);
+INSERT INTO `litige` (id, commentaires, dateCloture, dateCreation, service_id, typeLitige_id, utilisateur_id) VALUES (10, "Personne impolie", null, '2019-12-31', 209, 5, 1);
+INSERT INTO `litige` (id, commentaires, dateCloture, dateCreation, service_id, typeLitige_id, utilisateur_id) VALUES (11, "Très désagrébale", null, '2019-12-31', 210, 5, 2);
+
 
 -- Insert Négociation
 INSERT INTO `negociation` (id, dateCloture, dateCreation, dateProposee, heureDbtProposee, heureFinProposee, isAccepted, createurNego_id, repondeurNego_id, service_id) VALUES (1, null, '2018-08-15', '2021-03-13', '15:45:00', '18:45:00', false, 1, 2, 1);
+
 
 -- Insert Suspension Compte
 INSERT INTO `suspension_compte` (id, dateDbtSuspension, dateFinSuspension, utilisateur_id) VALUES (1, '2021-08-15', '2021-08-25', 2);
@@ -269,6 +352,7 @@ INSERT INTO `preference_ville` (id, utilisateur_id, ville_id) VALUES (1, 1, 1);
 INSERT INTO `preference_ville` (id, utilisateur_id, ville_id) VALUES (2, 5, 5);
 INSERT INTO `preference_ville` (id, utilisateur_id, ville_id) VALUES (3, 5, 4);
 INSERT INTO `preference_ville` (id, utilisateur_id, ville_id) VALUES (4, 5, 22);
+
 
 -- Insert Preference Aide
 INSERT INTO `preference_aide` (id, typeAide_id, utilisateur_id) VALUES (1,2,2);

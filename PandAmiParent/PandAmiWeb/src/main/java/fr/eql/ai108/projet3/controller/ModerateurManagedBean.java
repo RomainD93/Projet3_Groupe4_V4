@@ -49,9 +49,12 @@ public class ModerateurManagedBean {
 	//LOAD LITIGE POUR LES DETAILS 
 	public String loadLitige(Litige litige) {
 		String retour = "";
+		System.out.println("sdfsdfsdfsdfsdfsdfsdsdf");
 		detailLitige = new Litige();
-		this.detailLitige = litige;
+		detailLitige = litige;
+		System.out.println("sdfsdfsdfsdfsdfsdfsdsdf");
 		reponseServiceSelected = proxyLitigeBu.displayReponseServiceDuLitige(litige);
+		System.out.println("sdfsdfsdfsdfsdfsdfsdsdf");
 		retour = "/detailsLitige.xhtml?faces-redirect=true";	
 		return retour;
 	}

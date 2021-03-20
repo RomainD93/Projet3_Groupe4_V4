@@ -93,4 +93,110 @@ public class ChartsDao implements ChartsIDao{
 		return result;
 	}
 
+
+
+	@Override
+	public Long getInscriptionsAvril() {
+		Query query = em.createQuery("SELECT COUNT(u) FROM Utilisateur u WHERE u.dateInscription >=  '2020-04-01' AND u.dateInscription <= '2020-04-30'");	
+		Long result = (Long) query.getSingleResult();
+		System.out.println("Result dao" + result);
+		return result;
+	}
+
+	@Override
+	public Long getInscriptionsMai() {
+		Query query = em.createQuery("SELECT COUNT(u) FROM Utilisateur u WHERE u.dateInscription >=  '2020-05-01' AND u.dateInscription <= '2020-05-31'");	
+		Long result = (Long) query.getSingleResult();
+		System.out.println("Result dao" + result);
+		return result;
+	}
+
+	@Override
+	public Long getInscriptionsJuin() {
+		Query query = em.createQuery("SELECT COUNT(u) FROM Utilisateur u WHERE u.dateInscription >=  '2020-06-01' AND u.dateInscription <= '2020-06-30'");	
+		Long result = (Long) query.getSingleResult();
+		System.out.println("Result dao" + result);
+		return result;
+	}
+
+	@Override
+	public Long getInscriptionsJuillet() {
+		Query query = em.createQuery("SELECT COUNT(u) FROM Utilisateur u WHERE u.dateInscription >=  '2020-07-01' AND u.dateInscription <= '2020-07-31'");	
+		Long result = (Long) query.getSingleResult();
+		System.out.println("Result dao" + result);
+		return result;
+	}
+
+	@Override
+	public Long getInscriptionsAout() {
+		Query query = em.createQuery("SELECT COUNT(u) FROM Utilisateur u WHERE u.dateInscription >=  '2020-08-01' AND u.dateInscription <= '2020-08-31'");	
+		Long result = (Long) query.getSingleResult();
+		System.out.println("Result dao" + result);
+		return result;
+	}
+
+	@Override
+	public Long getInscriptionsSeptembre() {
+		Query query = em.createQuery("SELECT COUNT(u) FROM Utilisateur u WHERE u.dateInscription >=  '2020-09-01' AND u.dateInscription <= '2020-09-30'");	
+		Long result = (Long) query.getSingleResult();
+		System.out.println("Result dao" + result);
+		return result;
+	}
+
+	@Override
+	public Long getInscriptionsOctobre() {
+		Query query = em.createQuery("SELECT COUNT(u) FROM Utilisateur u WHERE u.dateInscription >=  '2020-10-01' AND u.dateInscription <= '2020-10-31'");	
+		Long result = (Long) query.getSingleResult();
+		System.out.println("Result dao" + result);
+		return result;
+	}
+
+	@Override
+	public Long getInscriptionsNovembre() {
+		Query query = em.createQuery("SELECT COUNT(u) FROM Utilisateur u WHERE u.dateInscription >=  '2020-11-01' AND u.dateInscription <= '2020-11-30'");	
+		Long result = (Long) query.getSingleResult();
+		System.out.println("Result dao" + result);
+		return result;
+	}
+
+	@Override
+	public Long getInscriptionsDecembre() {
+		Query query = em.createQuery("SELECT COUNT(u) FROM Utilisateur u WHERE u.dateInscription >=  '2020-12-01' AND u.dateInscription <= '2020-12-31'");	
+		Long result = (Long) query.getSingleResult();
+		System.out.println("Result dao" + result);
+		return result;
+	}
+	
+	@Override
+	public Long getInscriptionsJanvier() {
+		Query query = em.createQuery("SELECT COUNT(u) FROM Utilisateur u WHERE u.dateInscription >=  '2021-01-01' AND u.dateInscription <= '2021-01-31'");	
+		Long result = (Long) query.getSingleResult();
+		System.out.println("Result dao" + result);
+		return result;
+	}
+
+	@Override
+	public Long getInscriptionsFevrier() {
+		Query query = em.createQuery("SELECT COUNT(u) FROM Utilisateur u WHERE u.dateInscription >=  '2021-02-01' AND u.dateInscription <= '2021-02-28'");	
+		Long result = (Long) query.getSingleResult();
+		System.out.println("Result dao" + result);
+		return result;
+	}
+
+	@Override
+	public Long getInscriptionsMars() {
+		Query query = em.createQuery("SELECT COUNT(u) FROM Utilisateur u WHERE u.dateInscription >=  '2021-03-01' AND u.dateInscription <= '2021-03-31'");	
+		Long result = (Long) query.getSingleResult();
+		System.out.println("Result dao" + result);
+		return result;
+	}
+
+	@Override
+	public Long getInscriptionsAvril2021() {
+		Query query = em.createQuery("SELECT COUNT(u) FROM Utilisateur u WHERE u.dateInscription >=  '2021-04-01' AND u.dateInscription <= '2021-04-30'");	
+		Long result = (Long) query.getSingleResult();
+		System.out.println("Result dao" + result);
+		return result;
+	}
+
 }

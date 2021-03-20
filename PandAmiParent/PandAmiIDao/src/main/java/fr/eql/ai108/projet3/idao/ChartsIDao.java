@@ -12,4 +12,19 @@ public interface ChartsIDao {
 	Long getServicesClosedCat9();
 	Long getServicesClosedCat10();
 	Long getServicesClosedCat11();
+	
+	
+	Long getInscriptionsAvril();
+	Long getInscriptionsMai();
+	Long getInscriptionsJuin();
+	Long getInscriptionsJuillet();
+	Long getInscriptionsAout();
+	Long getInscriptionsSeptembre();
+	Long getInscriptionsOctobre();
+	Long getInscriptionsNovembre();
+	Long getInscriptionsDecembre();
+	Long getInscriptionsJanvier();
+	Long getInscriptionsFevrier();
+	Long getInscriptionsMars();
+	Long getInscriptionsAvril2021();
 }

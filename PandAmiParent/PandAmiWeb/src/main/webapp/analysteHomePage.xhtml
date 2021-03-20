@@ -9,9 +9,22 @@
 	<ui:define name="title">Outils d'analyse</ui:define>
 	<ui:define name="content">
 
-		<h3>Services cloturés par catégorie de service depuis la création de l'application</h3>
+		<h3>Services cloturés par catégorie de service (depuis
+			01/01/2018)</h3>
 		<p:donutChart model="#{mbCharts.donutModel}"
 			style="width: 100%; height: 500px;" />
+
+		<div class="card">
+			<h3>Services demandés / Services clôturés (depuis 01/01/2020)</h3>
+			<h:form>
+				<p:growl id="growl" showDetail="true" />
+				<p:barChart model="#{mbCharts.barModel2}"
+					style="width: 100%; height: 500px;">
+					<p:ajax event="itemSelect" listener="#{chartJsView.itemSelect}"
+						update="growl" />
+				</p:barChart>
+			</h:form>
+		</div>
 
 	</ui:define>
 	<!-- 	<ui:define name="CSS"></ui:define> -->

@@ -253,21 +253,13 @@ public class UtilisateurManagedBean {
 		this.joursSemaine = joursSemaine;
 	}
 
-
-
 	public List<TypeAide> getPrefsTypesAide() {
 		return typesAideSelected;
 	}
 
-
-
-
 	public void setPrefsTypesAide(List<TypeAide> prefsTypesAide) {
 		this.typesAideSelected = prefsTypesAide;
 	}
-
-
-
 
 	public CategorieAide getCategorieSelected() {
 		return categorieSelected;
