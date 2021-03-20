@@ -27,4 +27,13 @@ public interface ChartsIDao {
 	Long getInscriptionsFevrier();
 	Long getInscriptionsMars();
 	Long getInscriptionsAvril2021();
+	
+	Long getNbServicesCloturesJanv();
+	Long getNbServicesCloturesFev();
+	Long getNbServicesCloturesMars();
+	Long getNbServicesCloturesAvril();
+	Long getNbServicesNonCloturesJanv();
+	Long getNbServicesNonCloturesFev();
+	Long getNbServicesNonCloturesMars();
+	Long getNbServicesNonCloturesAvril();
 }

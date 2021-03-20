@@ -121,6 +121,8 @@ body .ui-button {
 	border: none;
 	transition: background-color 0.2s, color 0.2s, border-color 0.2s,
 		box-shadow 0.2s;
+	padding: 8px;
+	margin: 10px;
 }
 
 body .btn-accepter {
@@ -162,6 +164,7 @@ body .btn-litige:hover {
 	background: #000000;
 	color: #957DAD;
 }
+
 body .Logout {
 	background-color: #97E5D7;
 	margin-top: 5px;
@@ -181,14 +184,15 @@ body .Logout:hover {
 }
 
 body .ui-dialog .ui-dialog-titlebar .ui-dialog-title {
-    font-family: 'Chango', cursive;
+	font-family: 'Chango', cursive;
 	font-size: 48px;
 	color: #97E5D7;
 	text-align: center;
 }
 
-body .ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-icon .ui-icon-closethick:before {
-    content: "";   
+body .ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-icon .ui-icon-closethick:before
+	{
+	content: "";
 	color: #97E5D7;
 }
 

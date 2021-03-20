@@ -3,9 +3,10 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jstl/core">
 
-<ui:composition template="/masterPage.xhtml">
+<ui:composition template="/masterPageModerateur.xhtml">
 	<ui:define name="title">Details litige</ui:define>
 	<ui:define name="content">
 		<h:form class="formulaire">
@@ -103,7 +104,12 @@
 			<p:outputLabel
 				value="#{mbModerateur.reponseServiceSelected.utilisateur.numTelephone}" />
 		</h:panelGrid>
-			<p:commandButton value="Clôturer Litige" action="#{mbModerateur.cloturerLitige()}" class="btn-valider"/>
+	<c:if test="#{mbModerateur.detailLitige.dateCloture eq null}">
+		<p:commandButton value="Clôturer Litige" action="#{mbModerateur.cloturerLitige()}" class="btn-valider"/>
+		
+	</c:if>
+	
+			
 			<p:commandButton value="Retour Home" action="#{mbModerateur.annulerClotureLitige()}" class="btn-retour"/>		
 		</h:form>
 	</ui:define>

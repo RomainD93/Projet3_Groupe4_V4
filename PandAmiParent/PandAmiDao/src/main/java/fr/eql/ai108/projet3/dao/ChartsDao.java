@@ -99,7 +99,6 @@ public class ChartsDao implements ChartsIDao{
 	public Long getInscriptionsAvril() {
 		Query query = em.createQuery("SELECT COUNT(u) FROM Utilisateur u WHERE u.dateInscription >=  '2020-04-01' AND u.dateInscription <= '2020-04-30'");	
 		Long result = (Long) query.getSingleResult();
-		System.out.println("Result dao" + result);
 		return result;
 	}
 
@@ -107,7 +106,6 @@ public class ChartsDao implements ChartsIDao{
 	public Long getInscriptionsMai() {
 		Query query = em.createQuery("SELECT COUNT(u) FROM Utilisateur u WHERE u.dateInscription >=  '2020-05-01' AND u.dateInscription <= '2020-05-31'");	
 		Long result = (Long) query.getSingleResult();
-		System.out.println("Result dao" + result);
 		return result;
 	}
 
@@ -115,7 +113,6 @@ public class ChartsDao implements ChartsIDao{
 	public Long getInscriptionsJuin() {
 		Query query = em.createQuery("SELECT COUNT(u) FROM Utilisateur u WHERE u.dateInscription >=  '2020-06-01' AND u.dateInscription <= '2020-06-30'");	
 		Long result = (Long) query.getSingleResult();
-		System.out.println("Result dao" + result);
 		return result;
 	}
 
@@ -123,7 +120,6 @@ public class ChartsDao implements ChartsIDao{
 	public Long getInscriptionsJuillet() {
 		Query query = em.createQuery("SELECT COUNT(u) FROM Utilisateur u WHERE u.dateInscription >=  '2020-07-01' AND u.dateInscription <= '2020-07-31'");	
 		Long result = (Long) query.getSingleResult();
-		System.out.println("Result dao" + result);
 		return result;
 	}
 
@@ -131,7 +127,6 @@ public class ChartsDao implements ChartsIDao{
 	public Long getInscriptionsAout() {
 		Query query = em.createQuery("SELECT COUNT(u) FROM Utilisateur u WHERE u.dateInscription >=  '2020-08-01' AND u.dateInscription <= '2020-08-31'");	
 		Long result = (Long) query.getSingleResult();
-		System.out.println("Result dao" + result);
 		return result;
 	}
 
@@ -139,7 +134,6 @@ public class ChartsDao implements ChartsIDao{
 	public Long getInscriptionsSeptembre() {
 		Query query = em.createQuery("SELECT COUNT(u) FROM Utilisateur u WHERE u.dateInscription >=  '2020-09-01' AND u.dateInscription <= '2020-09-30'");	
 		Long result = (Long) query.getSingleResult();
-		System.out.println("Result dao" + result);
 		return result;
 	}
 
@@ -147,7 +141,6 @@ public class ChartsDao implements ChartsIDao{
 	public Long getInscriptionsOctobre() {
 		Query query = em.createQuery("SELECT COUNT(u) FROM Utilisateur u WHERE u.dateInscription >=  '2020-10-01' AND u.dateInscription <= '2020-10-31'");	
 		Long result = (Long) query.getSingleResult();
-		System.out.println("Result dao" + result);
 		return result;
 	}
 
@@ -155,7 +148,6 @@ public class ChartsDao implements ChartsIDao{
 	public Long getInscriptionsNovembre() {
 		Query query = em.createQuery("SELECT COUNT(u) FROM Utilisateur u WHERE u.dateInscription >=  '2020-11-01' AND u.dateInscription <= '2020-11-30'");	
 		Long result = (Long) query.getSingleResult();
-		System.out.println("Result dao" + result);
 		return result;
 	}
 
@@ -163,7 +155,6 @@ public class ChartsDao implements ChartsIDao{
 	public Long getInscriptionsDecembre() {
 		Query query = em.createQuery("SELECT COUNT(u) FROM Utilisateur u WHERE u.dateInscription >=  '2020-12-01' AND u.dateInscription <= '2020-12-31'");	
 		Long result = (Long) query.getSingleResult();
-		System.out.println("Result dao" + result);
 		return result;
 	}
 	
@@ -171,7 +162,6 @@ public class ChartsDao implements ChartsIDao{
 	public Long getInscriptionsJanvier() {
 		Query query = em.createQuery("SELECT COUNT(u) FROM Utilisateur u WHERE u.dateInscription >=  '2021-01-01' AND u.dateInscription <= '2021-01-31'");	
 		Long result = (Long) query.getSingleResult();
-		System.out.println("Result dao" + result);
 		return result;
 	}
 
@@ -179,7 +169,6 @@ public class ChartsDao implements ChartsIDao{
 	public Long getInscriptionsFevrier() {
 		Query query = em.createQuery("SELECT COUNT(u) FROM Utilisateur u WHERE u.dateInscription >=  '2021-02-01' AND u.dateInscription <= '2021-02-28'");	
 		Long result = (Long) query.getSingleResult();
-		System.out.println("Result dao" + result);
 		return result;
 	}
 
@@ -187,7 +176,6 @@ public class ChartsDao implements ChartsIDao{
 	public Long getInscriptionsMars() {
 		Query query = em.createQuery("SELECT COUNT(u) FROM Utilisateur u WHERE u.dateInscription >=  '2021-03-01' AND u.dateInscription <= '2021-03-31'");	
 		Long result = (Long) query.getSingleResult();
-		System.out.println("Result dao" + result);
 		return result;
 	}
 
@@ -195,7 +183,62 @@ public class ChartsDao implements ChartsIDao{
 	public Long getInscriptionsAvril2021() {
 		Query query = em.createQuery("SELECT COUNT(u) FROM Utilisateur u WHERE u.dateInscription >=  '2021-04-01' AND u.dateInscription <= '2021-04-30'");	
 		Long result = (Long) query.getSingleResult();
-		System.out.println("Result dao" + result);
+		return result;
+	}
+
+	@Override
+	public Long getNbServicesCloturesJanv() {
+		Query query = em.createQuery("SELECT COUNT(s) FROM Service s WHERE s.dateService >= '2021-01-01' AND s.dateService <= '2021-01-31' AND s.dateCloture IS NOT NULL");
+		Long result = (Long) query.getSingleResult();
+		return result;
+	}
+
+	@Override
+	public Long getNbServicesCloturesFev() {
+		Query query = em.createQuery("SELECT COUNT(s) FROM Service s WHERE s.dateService >= '2021-02-01' AND s.dateService <= '2021-02-28' AND s.dateCloture IS NOT NULL");
+		Long result = (Long) query.getSingleResult();
+		return result;
+	}
+
+	@Override
+	public Long getNbServicesCloturesMars() {
+		Query query = em.createQuery("SELECT COUNT(s) FROM Service s WHERE s.dateService >= '2021-03-01' AND s.dateService <= '2021-03-31' AND s.dateCloture IS NOT NULL");
+		Long result = (Long) query.getSingleResult();
+		return result;
+	}
+
+	@Override
+	public Long getNbServicesCloturesAvril() {
+		Query query = em.createQuery("SELECT COUNT(s) FROM Service s WHERE s.dateService >= '2021-04-01' AND s.dateService <= '2021-04-30' AND s.dateCloture IS NOT NULL");
+		Long result = (Long) query.getSingleResult();
+		return result;
+	}
+
+	@Override
+	public Long getNbServicesNonCloturesJanv() {
+		Query query = em.createQuery("SELECT COUNT(s) FROM Service s WHERE s.dateService >= '2021-01-01' AND s.dateService <= '2021-01-31' AND s.dateCloture IS NULL");
+		Long result = (Long) query.getSingleResult();
+		return result;
+	}
+
+	@Override
+	public Long getNbServicesNonCloturesFev() {
+		Query query = em.createQuery("SELECT COUNT(s) FROM Service s WHERE s.dateService >= '2021-02-01' AND s.dateService <= '2021-02-28' AND s.dateCloture IS NULL");
+		Long result = (Long) query.getSingleResult();
+		return result;
+	}
+
+	@Override
+	public Long getNbServicesNonCloturesMars() {
+		Query query = em.createQuery("SELECT COUNT(s) FROM Service s WHERE s.dateService >= '2021-03-01' AND s.dateService <= '2021-03-31' AND s.dateCloture IS NULL");
+		Long result = (Long) query.getSingleResult();
+		return result;
+	}
+
+	@Override
+	public Long getNbServicesNonCloturesAvril() {
+		Query query = em.createQuery("SELECT COUNT(s) FROM Service s WHERE s.dateService >= '2021-04-01' AND s.dateService <= '2021-04-30' AND s.dateCloture IS NULL");
+		Long result = (Long) query.getSingleResult();
 		return result;
 	}
 

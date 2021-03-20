@@ -26,23 +26,15 @@
 				<p:toolbar>
 					<f:facet name="left">
 						<p:tabMenu activeIndex="#{param.i}">
-							<p:menuitem value="Accueil" outcome="/analysteHomePage.xhtml"
+							<p:menuitem value="Accueil" outcome="/moderateurHomePage.xhtml"
 								icon="pi pi-fw pi-home">
 								<f:param name="i" value="0" />
-							</p:menuitem>
-							<p:menuitem value="Analyse Services"
-								outcome="/analysteHomePage.xhtml">
-								<f:param name="i" value="1" />
-							</p:menuitem>
-							<p:menuitem value="Analyse Utilisateurs"
-								outcome="/analyseUtilisateurs.xhtml">
-								<f:param name="i" value="2" />
 							</p:menuitem>
 						</p:tabMenu>
 					</f:facet>
 					<f:facet name="right">
-						<p:commandButton value="Logout" class="Logout" icon="pi pi-fw pi-sign-out"
-							action="#{mbCompte.logout()}" />
+						<p:commandButton value="Logout" class="Logout"
+							icon="pi pi-fw pi-sign-out" action="#{mbCompte.logout()}" />
 					</f:facet>
 				</p:toolbar>
 
@@ -54,7 +46,7 @@
 			<ui:insert name="content"></ui:insert>
 		</div>
 		<div id="footer">
-			<h4>Pandami / ANALYSE (accès admin)</h4>
+			<h4>Pandami / LITIGES (accès admin)</h4>
 		</div>
 	</div>
 </h:body>

@@ -254,7 +254,7 @@ public class ServiceManagedBean {
 	public void ouvrirLitige() {
 		litige.setUtilisateur(userConnected);
 		litige.setService(serviceSelected);
-		litige.setDateCreation(new Date());
+		litige.setDateCreation(LocalDate.now());
 		litige = proxyLitigeBu.creerLitige(litige);
 	}
 	

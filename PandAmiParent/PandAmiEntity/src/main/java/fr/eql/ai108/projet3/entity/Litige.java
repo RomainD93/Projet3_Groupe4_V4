@@ -1,6 +1,7 @@
 package fr.eql.ai108.projet3.entity;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -23,8 +24,8 @@ public class Litige implements Serializable {
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	@Column(name = "id")
 	private Integer id;
-	private Date dateCreation;
-	private Date dateCloture;
+	private LocalDate dateCreation;
+	private LocalDate dateCloture;
 	private String commentaires;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
@@ -44,7 +45,9 @@ public class Litige implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Litige(Integer id, Date dateCreation, Date dateCloture, String commentaires, TypeLitige typeLitige,
+
+
+	public Litige(Integer id, LocalDate dateCreation, LocalDate dateCloture, String commentaires, TypeLitige typeLitige,
 			Service service, Utilisateur utilisateur) {
 		super();
 		this.id = id;
@@ -55,6 +58,8 @@ public class Litige implements Serializable {
 		this.service = service;
 		this.utilisateur = utilisateur;
 	}
+
+
 
 	@Override
 	public int hashCode() {
@@ -108,18 +113,31 @@ public class Litige implements Serializable {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Date getDateCreation() {
+
+	public LocalDate getDateCreation() {
 		return dateCreation;
 	}
-	public void setDateCreation(Date dateCreation) {
+
+
+
+	public void setDateCreation(LocalDate dateCreation) {
 		this.dateCreation = dateCreation;
 	}
-	public Date getDateCloture() {
+
+
+
+	public LocalDate getDateCloture() {
 		return dateCloture;
 	}
-	public void setDateCloture(Date dateCloture) {
+
+
+
+	public void setDateCloture(LocalDate dateCloture) {
 		this.dateCloture = dateCloture;
 	}
+
+
+
 	public String getCommentaires() {
 		return commentaires;
 	}

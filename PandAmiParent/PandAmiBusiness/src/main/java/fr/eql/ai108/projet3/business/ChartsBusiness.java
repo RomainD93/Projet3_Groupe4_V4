@@ -135,5 +135,52 @@ public class ChartsBusiness implements ChartsIBusiness{
 		return proxyChartsDao.getInscriptionsAvril2021();
 	}
 
+	@Override
+	public Long displayNbServicesCloturesJanv() {
+		return proxyChartsDao.getNbServicesCloturesJanv();
+	}
+
+	@Override
+	public Long displayNbServicesCloturesFev() {
+		// TODO Auto-generated method stub
+		return proxyChartsDao.getNbServicesCloturesFev();
+	}
+
+	@Override
+	public Long displayNbServicesCloturesMars() {
+		// TODO Auto-generated method stub
+		return proxyChartsDao.getNbServicesCloturesMars();
+	}
+
+	@Override
+	public Long displayNbServicesCloturesAvril() {
+		// TODO Auto-generated method stub
+		return proxyChartsDao.getNbServicesCloturesAvril();
+	}
+
+	@Override
+	public Long displayNbServicesNonCloturesJanv() {
+		// TODO Auto-generated method stub
+		return proxyChartsDao.getNbServicesNonCloturesJanv();
+	}
+
+	@Override
+	public Long displayNbServicesNonCloturesFev() {
+		// TODO Auto-generated method stub
+		return proxyChartsDao.getNbServicesNonCloturesFev();
+	}
+
+	@Override
+	public Long displayNbServicesNonCloturesMars() {
+		// TODO Auto-generated method stub
+		return proxyChartsDao.getNbServicesNonCloturesMars();
+	}
+
+	@Override
+	public Long displayNbServicesNonCloturesAvril() {
+		// TODO Auto-generated method stub
+		return proxyChartsDao.getNbServicesNonCloturesAvril();
+	}
+
 
 }

@@ -27,4 +27,13 @@ public interface ChartsIBusiness {
 	Long displayNbreInscriptionsFevrier2021();
 	Long displayNbreInscriptionsMars2021();
 	Long displayNbreInscriptionsAvril2021();
+	
+	Long displayNbServicesCloturesJanv();
+	Long displayNbServicesCloturesFev();
+	Long displayNbServicesCloturesMars();
+	Long displayNbServicesCloturesAvril();
+	Long displayNbServicesNonCloturesJanv();
+	Long displayNbServicesNonCloturesFev();
+	Long displayNbServicesNonCloturesMars();
+	Long displayNbServicesNonCloturesAvril();
 }

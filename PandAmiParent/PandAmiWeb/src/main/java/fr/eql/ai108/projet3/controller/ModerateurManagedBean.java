@@ -1,5 +1,6 @@
 package fr.eql.ai108.projet3.controller;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -62,7 +63,7 @@ public class ModerateurManagedBean {
 	//CLOTURER LITIGE
 	public String  cloturerLitige() {
 		String retour = "";
-		this.detailLitige.setDateCloture(new Date());
+		this.detailLitige.setDateCloture(LocalDate.now());
 		proxyLitigeBu.updateLitige(detailLitige);
 		allLitiges = proxyLitigeBu.displayAllLitiges();
 		retour = "/moderateurHomePage.xhtml?faces-redirect=true";
