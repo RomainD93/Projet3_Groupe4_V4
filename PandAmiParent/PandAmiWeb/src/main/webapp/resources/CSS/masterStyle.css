@@ -25,6 +25,20 @@ body {
 	background-color: #97E5D7;
 }
 
+#container {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	box-sizing: border-box;
+}
+
+h2 {
+	font-family: 'Chango', cursive;
+	font-size: 48px;
+	color: #97E5D7;
+	text-align: center;
+}
+
 body .ui-toolbar {
 	background: #000000;
 	color: #495057;
@@ -58,7 +72,7 @@ body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active a {
 	background-color: black;
 }
 
-body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem:hover {
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem a:hover {
 	background-color: #97E5D7;
 	color: black;
 }
@@ -73,39 +87,109 @@ body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active {
 	border-color: #97E5D7;
 }
 
-
 .pi-sign-out:before {
 	content: "\e971";
 	color: #888888;
 }
 
+.pi-sign-out:hover:before {
+	content: "\e971";
+	color: #000000;
+}
+
+.pi-sign-out:hover:before {
+	content: "\e971";
+	color: #000000;
+}
+
 .pi-home:before {
-    content: "\e925";
-    color: #97E5D7;
+	content: "\e925";
+	color: #97E5D7;
+}
+
+.pi-home:hover:before {
+	content: "\e925";
+	color: black;
 }
 
 body .ui-button {
-    background: #000000;
-    color: #97E5D7;
-    margin: 0;
-    outline: 0 none;
-    border-radius: none;
-    border: none;
-    transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+	background: #000000;
+	color: #97E5D7;
+	margin: 0;
+	outline: 0 none;
+	border-radius: none;
+	border: none;
+	transition: background-color 0.2s, color 0.2s, border-color 0.2s,
+		box-shadow 0.2s;
 }
 
-body .Logout{
+body .btn-accepter {
+	background: #97E5D7;
+	color: #000000;
+}
+
+body .btn-accepter:hover {
+	background: #000000;
+	color: #97E5D7;
+}
+
+body .btn-details {
+	background: #FEC8D8;
+	color: #000000;
+}
+
+body .btn-details:hover {
+	background: #000000;
+	color: #FEC8D8;
+}
+
+body .btn-annulation {
+	background: #E18AAA;
+	color: #000000;
+}
+
+body .btn-annulation:hover {
+	background: #000000;
+	color: #E18AAA;
+}
+
+body .btn-litige {
+	background: #957DAD;
+	color: #000000;
+}
+
+body .btn-litige:hover {
+	background: #000000;
+	color: #957DAD;
+}
+body .Logout {
 	background-color: #97E5D7;
 	margin-top: 5px;
-	color:  #888888;
+	color: #888888;
 }
 
-#container {
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
-	box-sizing: border-box;
-	padding: 10px;
+body .Logout:hover {
+	background-color: #97E5D7;
+	margin-top: 5px;
+	color: #000000;
+}
+
+body .Logout:hover {
+	background-color: #97E5D7;
+	margin-top: 5px;
+	color: #000000;
+}
+
+body .ui-dialog .ui-dialog-titlebar .ui-dialog-title {
+    font-family: 'Chango', cursive;
+	font-size: 48px;
+	color: #97E5D7;
+	text-align: center;
+}
+
+body .ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-icon .ui-icon-closethick:before {
+    content: "";   
+	color: #97E5D7;
 }
 
 /*the container must be positioned relative:*/
@@ -165,23 +249,27 @@ input[type=submit] {
 .onglets {
 	display: table;
 	background-color: #97E5D7;
-	/*background: linear-gradient(deepskyblue, dodgerblue);*/
-	padding: 0.2em;
 	border-radius: 3px;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0
 		5px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
-	padding: 0.2em
+	width: 100%;
+	margin-top: 0px;
 }
 
 .onglet {
 	display: table-cell;
 	text-shadow: 0 1px 0 rgba(255, 255, 255, .4);
-	text-align: center;
 	color: rgba(0, 0, 0, .7);
-	padding: 8px 8px 17px 8px;
+	height: 40px;
+	vertical-align: middle;
+	text-align: center;
 }
 
 li:hover {
-	background: rgba(255, 255, 255, .2);
-	padding: 0px 25px 0px 25px;
+	background-color: #000000;
+	color: #97E5D7;
+}
+
+ul {
+	padding-inline-start: 0px;
 }

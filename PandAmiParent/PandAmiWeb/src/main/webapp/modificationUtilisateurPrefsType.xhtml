@@ -8,7 +8,23 @@
 <ui:composition template="/masterPage.xhtml">
 	<ui:define name="title">Index</ui:define>
 	<ui:define name="content">
-		<h1>PREFS</h1>
+
+		<script type="text/javascript" src="resources/JS/onglet.js"></script>
+		<div>
+			<ul class="onglets" id="onglets_details">
+				<li class="onglet"><span class="onglet_0" id="onglet_infos"
+					onclick="change_onglet('infos')">Mes Infos</span></li>
+				<li class="onglet"><span class="onglet_1" id="onglet_dispos"
+					onclick="change_onglet('dispos')">Mes Dispos</span></li>
+				<li class="onglet"><span class="onglet_2" id="onglet_prefs"
+					onclick="change_onglet('prefs')">Mes Préférences</span></li>
+				<li class="onglet"><span class="onglet_3" id="onglet_villes"
+					onclick="change_onglet('villes')">Mes Préférences Ville</span></li>
+			</ul>
+		</div>
+		
+		<h2>PREFS</h2>
+		
 		<div class="card">
 			<h:form id="myForm">
 				<p:messages />
@@ -177,7 +193,7 @@
 				</h:panelGrid>
 				<p:commandButton action="#{mbUtilisateur.validerPrefsType()}"
 					value="Valider" ajax="false" icon="pi pi-check"
-					validateClient="true" styleClass="p-mr-3" />
+					validateClient="true" class="btn-accepter" />
 			</h:form>
 
 

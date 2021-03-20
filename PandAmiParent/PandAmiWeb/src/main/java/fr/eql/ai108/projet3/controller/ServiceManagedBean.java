@@ -27,11 +27,13 @@ import org.primefaces.model.MatchMode;
 
 
 import fr.eql.ai108.projet3.entity.CategorieAide;
+import fr.eql.ai108.projet3.entity.Litige;
 import fr.eql.ai108.projet3.entity.Materiel;
 import fr.eql.ai108.projet3.entity.ReponseService;
 import fr.eql.ai108.projet3.entity.Service;
 import fr.eql.ai108.projet3.entity.TypeAide;
 import fr.eql.ai108.projet3.entity.Utilisateur;
+import fr.eql.ai108.projet3.ibusiness.LitigeIBusiness;
 import fr.eql.ai108.projet3.ibusiness.ServiceIBusiness;
 
 @ManagedBean(name = "mbService")
@@ -49,6 +51,8 @@ public class ServiceManagedBean {
 	private String message;
 	private Materiel materielSelected;
 	private Map<Integer, List<TypeAide>> mapTypesAide = new HashMap<Integer, List<TypeAide>>();
+	
+	private Litige litige;
 
 	private ReponseService reponseService = new ReponseService();
 	private Service serviceSelected;
@@ -57,6 +61,7 @@ public class ServiceManagedBean {
 	private List<Service> serviceBeneficiaire;
 	private List<Service> serviceVolontaire;
 	private List<Service> servicesPref;
+	private List<Service> servicesTermine;
 
 	//Filtrage de la liste
 	private List<FilterMeta> filterBy;
@@ -81,6 +86,9 @@ public class ServiceManagedBean {
 
 	@EJB
 	private ServiceIBusiness proxyServiceBu;
+	
+	@EJB
+	private LitigeIBusiness proxyLitigeBu;
 
 	// INITIALISATION DES LISTES AND CO
 
@@ -119,13 +127,14 @@ public class ServiceManagedBean {
 		
 		serviceBeneficiaire = proxyServiceBu.displayServiceBeneficiaire(userConnected);
 		serviceVolontaire = proxyServiceBu.displayServiceVolontaire(userConnected);
-		servicesPref = proxyServiceBu.displayServicePref(userConnected);	
+		servicesPref = proxyServiceBu.displayServicePref(userConnected);
+		servicesTermine = proxyServiceBu.displayServiceTermine(userConnected);
 
 		filterBy = new ArrayList<>();
 		
 		filterBy.add(FilterMeta.builder()
 				.field("dateService")
-				.filterValue(Arrays.asList(LocalDate.now().minusDays(24), LocalDate.now().plusDays(14)))
+				.filterValue(Arrays.asList(LocalDate.now().minusDays(24), LocalDate.now().plusDays(45)))
 				.matchMode(MatchMode.RANGE)
 				.build());
 
@@ -206,6 +215,14 @@ public class ServiceManagedBean {
 		this.detailService.setSommeAPrevoir(0.0f);		
 		return retour = "/detailsService.xhtml?faces-redirect=true";	
 	}
+	// LOAD UN SERVICE DE LA PAGE HOME A DETAILS SERVICE
+		public String loadBeneficiaire(Service service) {	
+			String retour = "";
+			detailService = new Service();
+			this.detailService = service;
+			this.detailService.setSommeAPrevoir(0.0f);		
+			return retour = "/detailsServiceBeneficiaire.xhtml?faces-redirect=true";	
+		}
 
 	//	MODIFIER LE SERVICE
 	public void modifierService() {			
@@ -227,8 +244,18 @@ public class ServiceManagedBean {
 		String retour = "";
 		reponseService = proxyServiceBu.updateDesistementService(service, userConnected);
 		reponseService.setDateDesistement(LocalDate.now());
+		service.setDateAcceptation(null);
+		proxyServiceBu.updateService(service);
 		proxyServiceBu.updateReponseService(reponseService);
 		return retour = "/mesServices.xhtml?faces-redirect=true";
+	}
+	
+	// OUVRIR UN LITIGE
+	public void ouvrirLitige() {
+		litige.setUtilisateur(userConnected);
+		litige.setService(serviceSelected);
+		litige.setDateCreation(new Date());
+		litige = proxyLitigeBu.creerLitige(litige);
 	}
 	
 	// REQUETE UPDATE DES LISTES
@@ -238,6 +265,7 @@ public class ServiceManagedBean {
 		serviceVolontaire = proxyServiceBu.displayServiceVolontaire(userConnected);
 		servicesPref = proxyServiceBu.displayServicePref(userConnected);
 		services = proxyServiceBu.displayService(userConnected);
+		servicesTermine = proxyServiceBu.displayServiceTermine(userConnected);
 	}
 	
 	// GETTERS SETTERS 
@@ -494,6 +522,22 @@ public class ServiceManagedBean {
 
 	public void setServicesPref(List<Service> servicesPref) {
 		this.servicesPref = servicesPref;
+	}
+
+	public List<Service> getServicesTermine() {
+		return servicesTermine;
+	}
+
+	public void setServicesTermine(List<Service> servicesTermine) {
+		this.servicesTermine = servicesTermine;
+	}
+
+	public Litige getLitige() {
+		return litige;
+	}
+
+	public void setLitige(Litige litige) {
+		this.litige = litige;
 	}
 
 

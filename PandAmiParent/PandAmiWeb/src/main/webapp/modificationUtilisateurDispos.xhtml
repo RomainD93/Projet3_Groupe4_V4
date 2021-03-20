@@ -9,7 +9,7 @@
 	<ui:define name="title">Disponibilites</ui:define>
 	<ui:define name="content">
 
-		<h1>DISPOS</h1>
+		<h2>DISPOS</h2>
 		<div class="card">
 			<h:form id="myForm">
 				<p:messages />
@@ -31,8 +31,8 @@
 				</h:panelGrid>
 
 				<p:commandButton action="#{mbUtilisateur.validerDispos()}"
-					value="Valider Dispos" ajax="false" icon="pi pi-check"
-					validateClient="true" styleClass="p-mr-3" />
+					value="Valider" ajax="false" icon="pi pi-check"
+					validateClient="true" class="btn-accepter" />
 			</h:form>
 		</div>
 

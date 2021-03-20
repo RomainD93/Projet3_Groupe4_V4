@@ -198,18 +198,31 @@ INSERT INTO `utilisateur` (id, dateDesinscription, dateInscription, dateNaissanc
 INSERT INTO `disponibilite` (id, dbtValiditeDispo, finValiditeDispo, heureDbtDispo, heureFinDispo, jourSemaine_id, utilisateur_id) VALUES (1, '2018-08-12', null, '14:30:00', '19:00:00', 1, 1);
 
 -- Insert Service
-INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (1, 'rue de titi', null, null, '2020-08-12', '2021-03-17', '08:00:00', '11:00:00', null, 35, 1); 
-INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (2, 'rue de titi', null, null, '2020-08-12', '2021-03-17', '08:00:00', '11:00:00', null, 34, 1); 
-INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (3, 'rue de titi', null, null, '2020-08-12', '2021-03-17', '08:00:00', '11:00:00', null, 33, 1); 
-INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (4, 'rue de titi', null, null, '2020-08-12', '2021-03-17', '08:00:00', '11:00:00', null, 32, 1); 
-INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (5, 'rue de titi', null, null, '2020-08-12', '2021-03-17', '08:00:00', '11:00:00', null, 31, 5); 
-INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (6, 'rue de titi', null, null, '2020-08-12', '2021-03-17', '08:00:00', '11:00:00', null, 30, 5); 
-INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (7, 'rue de titi', null, null, '2020-08-12', '2021-03-17', '08:00:00', '11:00:00', null, 29, 1); 
-INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (8, 'rue de titi', null, null, '2020-08-12', '2021-03-17', '08:00:00', '11:00:00', null, 28, 1); 
-INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (9, 'rue de titi', null, null, '2020-08-12', '2021-03-17', '08:00:00', '11:00:00', null, 27, 1); 
-INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (10, 'rue de titi', null, null, '2020-08-12', '2021-03-17', '08:00:00', '11:00:00', null, 26, 1); 
-INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (11, 'rue de titi', null, null, '2020-08-12', '2021-03-17', '08:00:00', '11:00:00', null, 25, 1); 
-INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (12, 'rue de titi', null, null, '2020-08-12', '2021-03-17', '08:00:00', '11:00:00', null, 24, 1); 
+INSERT INTO `service` (id, adresse, dateAcceptation, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (1, '20 Avenue de Ségur 75007 Paris','2020-08-12', null, null, '2021-01-12', '2021-03-17', '08:00:00', '11:00:00', null, 35, 1); 
+INSERT INTO `service` (id, adresse, dateAcceptation, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (2, 'Rue Cler 75007 Paris', null,null, null, '2021-01-12', '2021-03-17', '08:00:00', '11:00:00', null, 34, 2); 
+INSERT INTO `service` (id, adresse, dateAcceptation, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (3, '21 Rue Vernet 75008 Paris', null, null, null, '2021-01-12', '2021-03-17', '08:00:00', '11:00:00', null, 33, 1); 
+INSERT INTO `service` (id, adresse, dateAcceptation, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (4, '21 Rue Cadet 75009 Paris', null, null, null, '2021-01-12', '2021-03-17', '08:00:00', '11:00:00', null, 32, 1); 
+INSERT INTO `service` (id, adresse, dateAcceptation, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (5, '21 Rue Cail 75010 Paris', null, null, null, '2021-01-12', '2021-03-17', '08:00:00', '11:00:00', null, 31, 4); 
+INSERT INTO `service` (id, adresse, dateAcceptation, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (6, '21 Rue Chanzy 75011 Paris', null, null, null, '2021-01-12', '2021-03-17', '08:00:00', '11:00:00', null, 30, 5); 
+INSERT INTO `service` (id, adresse, dateAcceptation, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (7, '21 Avenue Parmentier 75011 Paris',null,  null, null, '2021-01-12', '2021-03-17', '08:00:00', '11:00:00', null, 29, 3); 
+INSERT INTO `service` (id, adresse, dateAcceptation, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (8, '21 Avenue Reille 75014 Paris', null,  null, null, '2021-01-12', '2021-03-17', '08:00:00', '11:00:00', null, 28, 4); 
+INSERT INTO `service` (id, adresse, dateAcceptation, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (9, '21 Avenue Emile Zola 75015 Paris', null, null, null, '2021-01-12', '2021-03-17', '08:00:00', '11:00:00', null, 27, 5); 
+INSERT INTO `service` (id, adresse, dateAcceptation, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (10, '2 Avenue Foch 75016 Paris', null, null, null, '2021-01-12', '2021-03-17', '08:00:00', '11:00:00', null, 26, 4); 
+INSERT INTO `service` (id, adresse, dateAcceptation, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (11, '67 Avenue Foch 75016 Paris','2020-08-12', null, null, '2021-01-12', '2021-03-17', '08:00:00', '11:00:00', null, 25, 2); 
+INSERT INTO `service` (id, adresse, dateAcceptation, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (12, '6 Avenue Gourgaud 75017 Paris','2020-08-12', null, null, '2021-01-12', '2021-03-17', '08:00:00', '11:00:00', null, 24, 1); 
+INSERT INTO `service` (id, adresse, dateAcceptation, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (13, '20 Avenue de Ségur 75007 Paris',null, null, null, '2021-01-12', '2021-04-17', '08:00:00', '11:00:00', null, 35, 1); 
+INSERT INTO `service` (id, adresse, dateAcceptation, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (14, 'Rue Cler 75007 Paris', null,null, null, '2021-01-12', '2021-04-17', '08:00:00', '11:00:00', null, 34, 2); 
+INSERT INTO `service` (id, adresse, dateAcceptation, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (15, '21 Rue Vernet 75008 Paris', null, null, null, '2021-01-12', '2021-04-17', '08:00:00', '11:00:00', null, 33, 1); 
+INSERT INTO `service` (id, adresse, dateAcceptation, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (16, '21 Rue Cadet 75009 Paris', null, null, null, '2021-01-12', '2021-04-17', '08:00:00', '11:00:00', null, 32, 1); 
+INSERT INTO `service` (id, adresse, dateAcceptation, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (17, '21 Rue Cail 75010 Paris', null, null, null, '2021-01-12', '2021-04-17', '08:00:00', '11:00:00', null, 31, 4); 
+INSERT INTO `service` (id, adresse, dateAcceptation, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (18, '21 Rue Chanzy 75011 Paris', null, null, null, '2021-01-12', '2021-04-17', '08:00:00', '11:00:00', null, 30, 5); 
+INSERT INTO `service` (id, adresse, dateAcceptation, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (19, '21 Avenue Parmentier 75011 Paris',null,  null, null, '2021-01-12', '2021-04-17', '08:00:00', '11:00:00', null, 29, 3); 
+INSERT INTO `service` (id, adresse, dateAcceptation, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (20, '21 Avenue Reille 75014 Paris', null,  null, null, '2021-01-12', '2021-04-17', '08:00:00', '11:00:00', null, 28, 4); 
+INSERT INTO `service` (id, adresse, dateAcceptation, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (21, '21 Avenue Emile Zola 75015 Paris', null, null, null, '2021-01-12', '2021-04-17', '08:00:00', '11:00:00', null, 27, 5); 
+INSERT INTO `service` (id, adresse, dateAcceptation, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (22, '2 Avenue Foch 75016 Paris', null, null, null, '2021-01-12', '2021-04-17', '08:00:00', '11:00:00', null, 26, 4); 
+INSERT INTO `service` (id, adresse, dateAcceptation, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (23, '67 Avenue Foch 75016 Paris',null, null, null, '2021-01-12', '2021-04-17', '08:00:00', '11:00:00', null, 25, 2); 
+INSERT INTO `service` (id, adresse, dateAcceptation, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (24, '6 Avenue Gourgaud 75017 Paris',null, null, null, '2021-01-12', '2021-04-17', '08:00:00', '11:00:00', null, 24, 1); 
+
 
 -- Services Pour Analyse
 INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, dateService, heureDbt, heureFin, sommeAPrevoir, typeAide_id, utilisateur_id) VALUES (100, 'rue de titi', null, '2020-08-19', '2020-08-12', '2021-03-18', '08:00:00', '11:00:00', null, 3, 1); 
@@ -299,13 +312,8 @@ INSERT INTO `service` (id, adresse, dateAnnulation, dateCloture, dateCreation, d
 -- Insert Reponse Service
 INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (1, '2020-08-12',null, 1, 1);
 INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (2, '2020-08-12','2020-08-12', 2, 1);
-INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (3, '2020-08-12','2020-08-12', 3, 1);
-INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (4, '2020-08-12','2020-08-12', 4, 1);
-INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (5, null, null, 5, 5);
-INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (6, '2020-08-12', null, 6, 5);
-INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (7, '2020-08-12','2020-08-12', 7, 1);
-INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (8, null, null, 8, 5);
-INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (9, '2020-08-12', null, 9, 5);
+INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (8, '2020-08-12', null, 8, 5);
+INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (9, '2020-08-12', null, 9, 2);
 INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (10, '2020-08-12','2020-08-12', 10, 1);
 INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (11, null, null, 11, 5);
 INSERT INTO `reponse_service` (id, dateAcceptation, dateDesistement, service_id, utilisateur_id) VALUES (12, '2020-08-12', null, 12, 5);
@@ -351,7 +359,8 @@ INSERT INTO `suspension_compte` (id, dateDbtSuspension, dateFinSuspension, utili
 INSERT INTO `preference_ville` (id, utilisateur_id, ville_id) VALUES (1, 1, 1);
 INSERT INTO `preference_ville` (id, utilisateur_id, ville_id) VALUES (2, 5, 5);
 INSERT INTO `preference_ville` (id, utilisateur_id, ville_id) VALUES (3, 5, 4);
-INSERT INTO `preference_ville` (id, utilisateur_id, ville_id) VALUES (4, 5, 22);
+INSERT INTO `preference_ville` (id, utilisateur_id, ville_id) VALUES (4, 5, 10);
+INSERT INTO `preference_ville` (id, utilisateur_id, ville_id) VALUES (5, 5, 7);
 
 
 -- Insert Preference Aide
@@ -359,4 +368,6 @@ INSERT INTO `preference_aide` (id, typeAide_id, utilisateur_id) VALUES (1,2,2);
 INSERT INTO `preference_aide` (id, typeAide_id, utilisateur_id) VALUES (2,5,5);
 INSERT INTO `preference_aide` (id, typeAide_id, utilisateur_id) VALUES (3,6,5);
 INSERT INTO `preference_aide` (id, typeAide_id, utilisateur_id) VALUES (4,7,5);
+INSERT INTO `preference_aide` (id, typeAide_id, utilisateur_id) VALUES (5,35,5);
+INSERT INTO `preference_aide` (id, typeAide_id, utilisateur_id) VALUES (6,34,5);
 --INSERT INTO `preference_aide` (id, typeAide_id, utilisateur_id) VALUES (2,2,5);

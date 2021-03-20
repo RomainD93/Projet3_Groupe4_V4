@@ -166,6 +166,11 @@ public class ServiceBusiness implements ServiceIBusiness {
 		return proxyServiceDao.getServiceByPref(userConnected);
 	}
 
+	@Override
+	public List<Service> displayServiceTermine(Utilisateur userConnected) {
+		return proxyServiceDao.getServiceTermine(userConnected);
+	}
+
 
 
 	

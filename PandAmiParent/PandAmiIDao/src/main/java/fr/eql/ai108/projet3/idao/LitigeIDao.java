@@ -15,5 +15,6 @@ public interface LitigeIDao extends GenericIDao<Litige> {
 	List<Litige> getAllLitiges4Violence();
 	List<Litige> getAllLitiges5Comportement();
 	ReponseService getLastReponseServiceByLitige(Litige litige);
+	
 
 }
