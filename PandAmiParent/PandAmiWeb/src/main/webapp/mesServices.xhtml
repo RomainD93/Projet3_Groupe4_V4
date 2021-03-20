@@ -285,8 +285,8 @@
 							<div class="p-field"> <p:outputLabel
 								value="Motif du litige : " /> </div>
 							<div> <p:selectManyCheckbox
-								value="#{mbModerateur.allLitiges}" styleClass="grid-checkbox">
-								<f:selectItems value="#{mbService.selectedTypeLitige}" />
+								value="#{mbService.selectedTypeLitige}" styleClass="grid-checkbox">
+								<f:selectItems value="#{mbModerateur.allLitiges.}" />
 							</p:selectManyCheckbox> </div>
 							<div> <p:inputTextarea rows="15" cols="15" /> </div>
 						</h:panelGrid>
