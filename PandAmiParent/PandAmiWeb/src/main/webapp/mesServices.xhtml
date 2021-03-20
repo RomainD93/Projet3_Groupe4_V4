@@ -244,6 +244,8 @@
 						update=":ServiceTerminesform:manage-litige-content"
 						oncomplete="PF('manageLitige').show()" class="btn-litige"
 						process="@this">
+						<f:setPropertyActionListener value="#{service}"
+							target="#{mbService.serviceSelected}" />
 						<p:resetInput target=":ServiceTerminesform:manage-litige-content"></p:resetInput>
 					</p:commandButton>
 				</p:column>
@@ -253,46 +255,41 @@
 				modal="true" widgetVar="manageLitige" responsive="false">
 				<p:outputPanel id="manage-litige-content" class="ui-fluid">
 					<p:outputPanel rendered="#{not empty mbService.serviceSelected}">
-					<h:panelGrid cellspacing="2">
-						<div class="p-field"> <p:outputLabel
-							value="Demandeur du service : " /> <p:outputLabel
-							value="#{mbService.serviceSelected.utilisateur.nom} #{mbService.serviceSelected.utilisateur.prenom}" />
-						</div>
-						<div class="p-field"> <p:outputLabel>
+						<h:panelGrid cellspacing="2">
+							<div> <p:outputLabel value="Demandeur du service : " /> <p:outputLabel
+								value="#{mbService.serviceSelected.utilisateur.nom} #{mbService.serviceSelected.utilisateur.prenom}" />
+							</div>
+							<div class="p-field"> <p:outputLabel>
 							Volontaire du service : 
 						</p:outputLabel> <p:outputLabel /> </div>
-						<div class="p-field"> <p:outputLabel
-							value="Service concernée : " /> <p:outputLabel
-							value="#{mbService.serviceSelected.typeAide.nomTypeAide}" /> </div>
-						<div class="p-field"> <p:outputLabel
-							value="Lieu du service : " /> <p:outputLabel
-							value="#{mbService.serviceSelected.adresse}" /> </div>
-						<div class="p-field"> <p:outputLabel
-							value="Date du service : " /> <p:outputLabel
-							value="#{mbService.serviceSelected.dateService}" /> </div>
-						<div class="p-field"> <p:outputLabel
-							value="Heure de début du service : " /> <p:outputLabel
-							value="#{mbService.serviceSelected.heureDbt}" /> </div>
-						<div class="p-field"> <p:outputLabel
-							value="Matériel prévu : " /> <p:outputLabel
-							value="#{mbService.serviceSelected.materiel.nomMateriel}" /> </div>
-						<div class="p-field"> <p:outputLabel
-							value="Somme prévue : " /> <p:outputLabel
-							value="#{mbService.serviceSelected.sommeAPrevoir}" /> </div>
-					</h:panelGrid>
-					<h:panelGrid cellspacing="2">
-						<div class="p-field">
-							<p:outputLabel value="Motif du litige : " />
-						</div>
-						<div>
-							<p:selectManyCheckbox value="#{mbModerateur.allLitiges}" styleClass="grid-checkbox" >
+							<div class="p-field"> <p:outputLabel
+								value="Service concernée : " /> <p:outputLabel
+								value="#{mbService.serviceSelected.typeAide.nomTypeAide}" /> </div>
+							<div class="p-field"> <p:outputLabel
+								value="Lieu du service : " /> <p:outputLabel
+								value="#{mbService.serviceSelected.adresse}" /> </div>
+							<div class="p-field"> <p:outputLabel
+								value="Date du service : " /> <p:outputLabel
+								value="#{mbService.serviceSelected.dateService}" /> </div>
+							<div class="p-field"> <p:outputLabel
+								value="Heure de début du service : " /> <p:outputLabel
+								value="#{mbService.serviceSelected.heureDbt}" /> </div>
+							<div class="p-field"> <p:outputLabel
+								value="Matériel prévu : " /> <p:outputLabel
+								value="#{mbService.serviceSelected.materiel.nomMateriel}" /> </div>
+							<div class="p-field"> <p:outputLabel
+								value="Somme prévue : " /> <p:outputLabel
+								value="#{mbService.serviceSelected.sommeAPrevoir}" /> </div>
+						</h:panelGrid>
+						<h:panelGrid cellspacing="2">
+							<div class="p-field"> <p:outputLabel
+								value="Motif du litige : " /> </div>
+							<div> <p:selectManyCheckbox
+								value="#{mbModerateur.allLitiges}" styleClass="grid-checkbox">
 								<f:selectItems value="#{mbService.selectedTypeLitige}" />
-							</p:selectManyCheckbox>
-						</div>
-						<div>
-							<p:inputTextarea rows="20" cols="35" />
-						</div>
-					</h:panelGrid>
+							</p:selectManyCheckbox> </div>
+							<div> <p:inputTextarea rows="15" cols="15" /> </div>
+						</h:panelGrid>
 					</p:outputPanel>
 				</p:outputPanel>
 				<f:facet name="footer">
