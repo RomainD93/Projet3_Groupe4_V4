@@ -7,6 +7,7 @@ import fr.eql.ai108.projet3.entity.Materiel;
 import fr.eql.ai108.projet3.entity.ReponseService;
 import fr.eql.ai108.projet3.entity.Service;
 import fr.eql.ai108.projet3.entity.TypeAide;
+import fr.eql.ai108.projet3.entity.TypeLitige;
 import fr.eql.ai108.projet3.entity.Utilisateur;
 
 public interface ServiceIBusiness {
@@ -36,5 +37,7 @@ public interface ServiceIBusiness {
 	List<Service> displayServiceVolontaire(Utilisateur userConnected);
 	List<Service> displayServicePref(Utilisateur userConnected);
 	List<Service> displayServiceTermine(Utilisateur userConnected);
+	
+	List<TypeLitige> displayTypesLitige();
 	
 }

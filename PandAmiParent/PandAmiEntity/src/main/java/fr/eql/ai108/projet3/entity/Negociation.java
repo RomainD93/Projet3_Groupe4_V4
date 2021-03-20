@@ -33,13 +33,13 @@ public class Negociation implements Serializable {
 	private LocalTime heureFinProposee;
 	private Boolean isAccepted;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(referencedColumnName = "id")
 	private Utilisateur createurNego;
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(referencedColumnName = "id")
 	private Utilisateur repondeurNego;
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(referencedColumnName = "id")
 	private Service service;
 	

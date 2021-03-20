@@ -59,17 +59,17 @@ public class UtilisateurManagedBean {
 	private TypeAide typeAideSelected;
 	
 
-	private List<TypeAide> typesAideSelected1 = new ArrayList<TypeAide>();
-	private List<TypeAide> typesAideSelected2 = new ArrayList<TypeAide>();
-	private List<TypeAide> typesAideSelected3 = new ArrayList<TypeAide>();
-	private List<TypeAide> typesAideSelected4 = new ArrayList<TypeAide>();
-	private List<TypeAide> typesAideSelected5 = new ArrayList<TypeAide>();
-	private List<TypeAide> typesAideSelected6 = new ArrayList<TypeAide>();
-	private List<TypeAide> typesAideSelected7 = new ArrayList<TypeAide>();
-	private List<TypeAide> typesAideSelected8 = new ArrayList<TypeAide>();
-	private List<TypeAide> typesAideSelected9 = new ArrayList<TypeAide>();
-	private List<TypeAide> typesAideSelected10 = new ArrayList<TypeAide>();
-	private List<TypeAide> typesAideSelected11 = new ArrayList<TypeAide>();
+	private List<TypeAide> typesAideSelected1;
+	private List<TypeAide> typesAideSelected2;
+	private List<TypeAide> typesAideSelected3;
+	private List<TypeAide> typesAideSelected4;
+	private List<TypeAide> typesAideSelected5;
+	private List<TypeAide> typesAideSelected6;
+	private List<TypeAide> typesAideSelected7;
+	private List<TypeAide> typesAideSelected8;
+	private List<TypeAide> typesAideSelected9;
+	private List<TypeAide> typesAideSelected10;
+	private List<TypeAide> typesAideSelected11;
 
 	private Map<Integer, List<TypeAide>> mapTypesAide = new HashMap<Integer, List<TypeAide>>();
 	
@@ -85,7 +85,6 @@ public class UtilisateurManagedBean {
 	private List<TypeAide> typesAideCat9;
 	private List<TypeAide> typesAideCat10;
 	private List<TypeAide> typesAideCat11;
-	
 	
 	
 	@ManagedProperty (value = "#{mbCompte.utilisateur}")

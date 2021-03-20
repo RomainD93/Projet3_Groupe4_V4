@@ -27,7 +27,7 @@ public class CategorieAide implements Serializable {
 	private String nomCategorieAide;
 	
 	
-	@OneToMany(mappedBy = "categorieAide", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "categorieAide")
 	private Set<TypeAide> typesAide;
 
 	

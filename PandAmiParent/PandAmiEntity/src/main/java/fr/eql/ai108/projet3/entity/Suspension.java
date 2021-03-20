@@ -26,7 +26,7 @@ public class Suspension implements Serializable{
 	private Date dateDbtSuspension;
 	private Date dateFinSuspension;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(referencedColumnName = "id")
 	private Utilisateur utilisateur;
 	

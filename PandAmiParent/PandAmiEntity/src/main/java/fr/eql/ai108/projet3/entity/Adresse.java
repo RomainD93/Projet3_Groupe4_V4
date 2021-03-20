@@ -29,9 +29,9 @@ public class Adresse implements Serializable{
 	private String ville;
 	
 	
-	@OneToMany(mappedBy = "adresse", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "adresse")
 	private Set<Utilisateur> utilisateurs;
-	@OneToMany(mappedBy = "adresse", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "adresse")
 	private Set<Service> services;
 	
 	

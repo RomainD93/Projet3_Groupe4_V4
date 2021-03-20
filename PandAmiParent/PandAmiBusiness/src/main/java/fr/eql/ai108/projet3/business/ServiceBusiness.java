@@ -11,8 +11,10 @@ import fr.eql.ai108.projet3.entity.Materiel;
 import fr.eql.ai108.projet3.entity.ReponseService;
 import fr.eql.ai108.projet3.entity.Service;
 import fr.eql.ai108.projet3.entity.TypeAide;
+import fr.eql.ai108.projet3.entity.TypeLitige;
 import fr.eql.ai108.projet3.entity.Utilisateur;
 import fr.eql.ai108.projet3.ibusiness.ServiceIBusiness;
+import fr.eql.ai108.projet3.idao.LitigeIDao;
 import fr.eql.ai108.projet3.idao.ReponseServiceIDao;
 import fr.eql.ai108.projet3.idao.ServiceIDao;
 
@@ -25,6 +27,9 @@ public class ServiceBusiness implements ServiceIBusiness {
 	
 	@EJB
 	ReponseServiceIDao proxyReponseServiceDao;
+	
+	@EJB
+	LitigeIDao proxyLitigeDao;
 	
 	
 	@Override
@@ -169,6 +174,11 @@ public class ServiceBusiness implements ServiceIBusiness {
 	@Override
 	public List<Service> displayServiceTermine(Utilisateur userConnected) {
 		return proxyServiceDao.getServiceTermine(userConnected);
+	}
+
+	@Override
+	public List<TypeLitige> displayTypesLitige() {
+		return proxyLitigeDao.getTypesLitiges();
 	}
 
 

@@ -25,10 +25,10 @@ public class PreferenceAide implements Serializable {
 	@Column(name = "id")
 	private Integer id;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(referencedColumnName = "id")
 	private TypeAide typeAide;
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(referencedColumnName = "id")
 	private Utilisateur utilisateur;
 	

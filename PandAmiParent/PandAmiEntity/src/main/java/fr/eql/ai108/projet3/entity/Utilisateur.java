@@ -44,27 +44,27 @@ public class Utilisateur implements Serializable{
 
 	@OneToMany(mappedBy = "utilisateur",fetch = FetchType.EAGER)
 	private Set<Suspension> suspensions;
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(referencedColumnName = "id")
 	private TypeUtilisateur typeUtilisateur;
 	@OneToMany(mappedBy = "utilisateur",fetch = FetchType.EAGER)
 	private Set<Disponibilite> disposUtilisateur;
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(referencedColumnName = "id")
 	private Genre genre;
-	@OneToMany(mappedBy = "createurNego",fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "createurNego")
 	private Set<Negociation> negosCreateur;
-	@OneToMany(mappedBy = "repondeurNego",fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "repondeurNego")
 	private Set<Negociation> negosRepondeur;
-	@OneToMany(mappedBy = "utilisateur",fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "utilisateur")
 	private Set<Litige> litigesUtilisateur;
-	@OneToMany(mappedBy = "utilisateur",fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "utilisateur")
 	private Set<Service> servicesUtilisateur;
-	@OneToMany(mappedBy = "utilisateur",fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "utilisateur")
 	private Set<ReponseService> reponsesServicesUtilsateur;
-	@OneToMany(mappedBy = "utilisateur",fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "utilisateur")
 	private Set<PreferenceAide> preferencesAideUtlisateur;
-	@OneToMany(mappedBy = "utilisateur",fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "utilisateur")
 	private Set<PreferenceVille> preferencesVilleUtilisateur;
 
 	

@@ -33,7 +33,8 @@
 				<h:form id="homeform">
 					<p:dataTable var="service" value="#{mbService.servicesPref}"
 						filteredValue="#{mbService.filteredServices}"
-						filterBy="#{mbService.filterBy}" widgetVar="servicesTable">
+						filterBy="#{mbService.filterBy}" widgetVar="servicesTable"
+						emptyMessage="Aucun service ne correspond à vos préférences">
 						<p:column headerText="Nom" sortBy="#{service.utilisateur.nom}"
 							filterBy="#{service.utilisateur.nom}">
 

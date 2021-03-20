@@ -35,10 +35,10 @@ public class Disponibilite implements Serializable{
 
 	private Date finValiditeDispo;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(referencedColumnName = "id")
 	private Utilisateur utilisateur;
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(referencedColumnName = "id")
 	private JourSemaine jourSemaine;
 

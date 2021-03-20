@@ -10,6 +10,7 @@ import javax.persistence.Query;
 
 import fr.eql.ai108.projet3.entity.Litige;
 import fr.eql.ai108.projet3.entity.ReponseService;
+import fr.eql.ai108.projet3.entity.TypeLitige;
 import fr.eql.ai108.projet3.idao.LitigeIDao;
 
 @Remote(LitigeIDao.class)
@@ -82,6 +83,13 @@ public class LitigeDao extends GenericDao<Litige> implements LitigeIDao {
 		query.setParameter("paramLitige", litige.getService());
 		ReponseService reponseServiceDuVolontaire = (ReponseService) query.getSingleResult();	
 		return reponseServiceDuVolontaire;
+	}
+
+	@Override
+	public List<TypeLitige> getTypesLitiges() {
+		Query query = em.createQuery("SELECT t FROM TypeLitige t");
+		List<TypeLitige> typesLitige = query.getResultList();
+		return typesLitige;
 	}
 
 }

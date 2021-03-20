@@ -25,7 +25,7 @@ public class Ville implements Serializable{
 	private String codePostal;
 	private String villeNom;
 	
-	@OneToMany(mappedBy = "ville", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "ville")
 	private Set<PreferenceVille> preferencesVille;
 	
 	

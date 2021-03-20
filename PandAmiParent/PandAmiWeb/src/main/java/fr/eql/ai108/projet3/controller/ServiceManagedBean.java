@@ -52,8 +52,8 @@ public class ServiceManagedBean {
 	private String message;
 	private Materiel materielSelected;
 	private Map<Integer, List<TypeAide>> mapTypesAide = new HashMap<Integer, List<TypeAide>>();
-	
-	private Litige litige;
+
+	private Litige litige = new Litige();
 	private TypeLitige selectedTypeLitige;
 
 	private ReponseService reponseService = new ReponseService();
@@ -83,12 +83,14 @@ public class ServiceManagedBean {
 	private List<TypeAide> typesAideCat10;
 	private List<TypeAide> typesAideCat11;
 
+	private List<TypeLitige> typesLitige;
+
 	@ManagedProperty (value = "#{mbCompte.utilisateur}")
 	private Utilisateur userConnected;
 
 	@EJB
 	private ServiceIBusiness proxyServiceBu;
-	
+
 	@EJB
 	private LitigeIBusiness proxyLitigeBu;
 
@@ -101,7 +103,8 @@ public class ServiceManagedBean {
 		System.out.println("services" + services);
 		//		typesAide = proxyServiceBu.displayTypeAide();	
 		materiels = proxyServiceBu.displayMateriel();
-		
+		typesLitige = proxyServiceBu.displayTypesLitige();
+
 		categoriesAide = proxyServiceBu.displayCategorieAide();
 		typesAideCat1 = proxyServiceBu.displayTypesAideCat1();
 		typesAideCat2 = proxyServiceBu.displayTypesAideCat2();
@@ -126,14 +129,14 @@ public class ServiceManagedBean {
 		mapTypesAide.put(9, typesAideCat9);
 		mapTypesAide.put(10, typesAideCat10);
 		mapTypesAide.put(11, typesAideCat11);
-		
+
 		serviceBeneficiaire = proxyServiceBu.displayServiceBeneficiaire(userConnected);
 		serviceVolontaire = proxyServiceBu.displayServiceVolontaire(userConnected);
 		servicesPref = proxyServiceBu.displayServicePref(userConnected);
 		servicesTermine = proxyServiceBu.displayServiceTermine(userConnected);
 
 		filterBy = new ArrayList<>();
-		
+
 		filterBy.add(FilterMeta.builder()
 				.field("dateService")
 				.filterValue(Arrays.asList(LocalDate.now().minusDays(24), LocalDate.now().plusDays(45)))
@@ -161,7 +164,7 @@ public class ServiceManagedBean {
 	//CREATION D'UN SERVICE
 	public String demanderService() {
 		String retour ="";
-		
+
 		if(service == null) {
 			message = "Désolé, votre demande n'a pas été enregistrée, veuillez réessayer";
 			retour = "/creationService.xhtml?faces-redirect=true";
@@ -174,9 +177,6 @@ public class ServiceManagedBean {
 			service.setTypeAide(typeAideSelected);
 			service.setMateriel(materielSelected);
 			service = proxyServiceBu.creerService(service);
-//			reponseService = new ReponseService();
-//			reponseService.setService(service);
-//			proxyServiceBu.creerReponseService(reponseService);
 			services.add(service);
 			serviceBeneficiaire.add(service);
 			service = new Service();
@@ -218,20 +218,20 @@ public class ServiceManagedBean {
 		return retour = "/detailsService.xhtml?faces-redirect=true";	
 	}
 	// LOAD UN SERVICE DE LA PAGE HOME A DETAILS SERVICE
-		public String loadBeneficiaire(Service service) {	
-			String retour = "";
-			detailService = new Service();
-			this.detailService = service;
-			this.detailService.setSommeAPrevoir(0.0f);		
-			return retour = "/detailsServiceBeneficiaire.xhtml?faces-redirect=true";	
-		}
+	public String loadBeneficiaire(Service service) {	
+		String retour = "";
+		detailService = new Service();
+		this.detailService = service;
+		this.detailService.setSommeAPrevoir(0.0f);		
+		return retour = "/detailsServiceBeneficiaire.xhtml?faces-redirect=true";	
+	}
 
 	//	MODIFIER LE SERVICE
 	public void modifierService() {			
 		this.detailService.setMateriel(materielSelected);
 		proxyServiceBu.updateService(detailService);				
 	}
-	
+
 	// ANNULER LE SERVICE
 	public String annulerService() {
 		String retour = "";
@@ -240,7 +240,7 @@ public class ServiceManagedBean {
 		proxyServiceBu.updateService(detailService);
 		return retour = "/mesServices.xhtml?faces-redirect=true";
 	}
-	
+
 	// SE DESISTER DU SERVICE
 	public String seDesisterDuService(Service service) {
 		String retour = "";
@@ -251,25 +251,36 @@ public class ServiceManagedBean {
 		proxyServiceBu.updateReponseService(reponseService);
 		return retour = "/mesServices.xhtml?faces-redirect=true";
 	}
-	
+
 	// OUVRIR UN LITIGE
 	public void ouvrirLitige() {
 		litige.setUtilisateur(userConnected);
 		litige.setService(serviceSelected);
 		litige.setDateCreation(LocalDate.now());
+		litige.setTypeLitige(selectedTypeLitige);
 		litige = proxyLitigeBu.creerLitige(litige);
+		litige = new Litige();
 	}
-	
+
 	// REQUETE UPDATE DES LISTES
 	public void recupListeService() {
-		System.out.println("RECUP LISTE");
 		serviceBeneficiaire = proxyServiceBu.displayServiceBeneficiaire(userConnected);
 		serviceVolontaire = proxyServiceBu.displayServiceVolontaire(userConnected);
 		servicesPref = proxyServiceBu.displayServicePref(userConnected);
 		services = proxyServiceBu.displayService(userConnected);
 		servicesTermine = proxyServiceBu.displayServiceTermine(userConnected);
 	}
-	
+
+	//CLOTURER UN SERVICE
+	public String cloturerService(Service serviceToClotured) {
+		String retour = "";
+		System.out.println("Entree methode cloture");
+		serviceToClotured.setDateCloture(LocalDate.now());
+		System.out.println("Id du service séléctionné"+serviceToClotured.getId());
+		proxyServiceBu.updateService(serviceToClotured);
+		return retour = "/mesServices.xhtml?faces-redirect=true";
+	}
+
 	// GETTERS SETTERS 
 
 	public List<Service> getServices() {
@@ -548,6 +559,22 @@ public class ServiceManagedBean {
 
 	public void setSelectedTypeLitige(TypeLitige selectedTypeLitige) {
 		this.selectedTypeLitige = selectedTypeLitige;
+	}
+
+	public List<TypeLitige> getTypesLitige() {
+		return typesLitige;
+	}
+
+	public void setTypesLitige(List<TypeLitige> typesLitige) {
+		this.typesLitige = typesLitige;
+	}
+
+	public void setTypesAide(List<TypeAide> typesAide) {
+		this.typesAide = typesAide;
+	}
+
+	public void setService(Service service) {
+		this.service = service;
 	}
 
 

@@ -4,6 +4,7 @@ import java.util.List;
 
 import fr.eql.ai108.projet3.entity.Litige;
 import fr.eql.ai108.projet3.entity.ReponseService;
+import fr.eql.ai108.projet3.entity.TypeLitige;
 
 public interface LitigeIDao extends GenericIDao<Litige> {
 	List<Litige> getAll();
@@ -15,6 +16,7 @@ public interface LitigeIDao extends GenericIDao<Litige> {
 	List<Litige> getAllLitiges4Violence();
 	List<Litige> getAllLitiges5Comportement();
 	ReponseService getLastReponseServiceByLitige(Litige litige);
+	List<TypeLitige> getTypesLitiges();
 	
 
 }

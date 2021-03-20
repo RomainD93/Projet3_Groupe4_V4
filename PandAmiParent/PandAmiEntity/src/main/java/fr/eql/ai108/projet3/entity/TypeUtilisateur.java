@@ -25,7 +25,7 @@ public class TypeUtilisateur implements Serializable{
 	private Integer id;
 	private String autorisation;
 	
-	@OneToMany(mappedBy = "typeUtilisateur",fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "typeUtilisateur")
 	private Set<Utilisateur> utilisateurs;
 	
 	

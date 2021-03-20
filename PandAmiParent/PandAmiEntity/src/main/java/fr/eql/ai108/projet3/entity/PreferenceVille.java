@@ -23,10 +23,10 @@ public class PreferenceVille implements Serializable{
 	@Column(name = "id")
 	private Integer id;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(referencedColumnName = "id")
 	private Ville ville;
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(referencedColumnName = "id")
 	private Utilisateur utilisateur;
 	

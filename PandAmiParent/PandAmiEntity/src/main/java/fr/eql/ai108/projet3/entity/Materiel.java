@@ -25,7 +25,7 @@ public class Materiel implements Serializable {
 	private Integer id;
 	private String nomMateriel;
 	
-	@OneToMany(mappedBy = "materiel",fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "materiel")
 	private Set<Service> services;
 	
 	

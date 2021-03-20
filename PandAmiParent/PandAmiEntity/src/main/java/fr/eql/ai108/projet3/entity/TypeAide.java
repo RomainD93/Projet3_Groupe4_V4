@@ -27,12 +27,12 @@ public class TypeAide implements Serializable{
 	private Integer id;
 	private String nomTypeAide;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(referencedColumnName = "id")
 	private CategorieAide categorieAide;
-	@OneToMany(mappedBy = "typeAide", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "typeAide")
 	private Set<PreferenceAide> preferencesAide;
-	@OneToMany(mappedBy = "typeAide", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "typeAide")
 	private Set<Service> services;
 	
 

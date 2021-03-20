@@ -26,7 +26,7 @@ public class JourSemaine implements Serializable{
 	private Integer id;
 	private String nomJour;
 	
-	@OneToMany (mappedBy = "jourSemaine", fetch = FetchType.EAGER)
+	@OneToMany (mappedBy = "jourSemaine")
 	private Set<Disponibilite> disponibilites;
 	
 	

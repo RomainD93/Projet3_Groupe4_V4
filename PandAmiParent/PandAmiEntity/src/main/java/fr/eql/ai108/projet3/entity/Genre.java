@@ -25,7 +25,7 @@ public class Genre implements Serializable{
 	private Integer id;
 	private String genre;
 	
-	@OneToMany(mappedBy = "genre", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "genre")
 	private Set<Utilisateur> utilisateurs;
 
 	

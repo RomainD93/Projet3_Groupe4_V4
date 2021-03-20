@@ -43,19 +43,19 @@ public class Service implements Serializable{
 	private LocalDate dateAcceptation;
 	
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(referencedColumnName = "id")
 	private TypeAide typeAide;
-	@OneToMany(mappedBy = "service", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "service")
 	private Set<ReponseService> reponses;
-	@OneToMany(mappedBy = "service", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "service")
 	private Set<Litige> litiges;
-	@OneToMany(mappedBy = "service", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "service")
 	private Set<Negociation> negociations;
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(referencedColumnName = "id")
 	private Utilisateur utilisateur;
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(referencedColumnName = "id")
 	private Materiel materiel;
 	

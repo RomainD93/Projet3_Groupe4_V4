@@ -188,8 +188,8 @@ public class ServiceDao extends GenericDao<Service> implements ServiceIDao{
 
 	@Override
 	public List<Service> getServiceTermine(Utilisateur userConnected) {
-		Query query = em.createQuery("SELECT s FROM Service s, ReponseService r WHERE r.utilisateur = :paramUser AND r.service.id = s.id AND r.dateAcceptation IS NOT null AND r.dateDesistement IS null AND s.dateService < :paramDate");
-		Query query2 = em.createQuery("SELECT s FROM Service s WHERE s.utilisateur = :paramUser AND s.dateService < :paramDate AND s.dateAnnulation IS null");
+		Query query = em.createQuery("SELECT s FROM Service s, ReponseService r WHERE r.utilisateur = :paramUser AND r.service.id = s.id AND r.dateAcceptation IS NOT null AND r.dateDesistement IS null AND s.dateService < :paramDate AND s.dateCloture IS NULL");
+		Query query2 = em.createQuery("SELECT s FROM Service s WHERE s.utilisateur = :paramUser AND s.dateService < :paramDate AND s.dateAnnulation IS null AND s.dateCloture IS NULL");
 		query.setParameter("paramUser", userConnected);
 		query.setParameter("paramDate", LocalDate.now());
 		query2.setParameter("paramUser", userConnected);

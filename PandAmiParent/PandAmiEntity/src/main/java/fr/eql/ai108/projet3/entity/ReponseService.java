@@ -27,10 +27,10 @@ public class ReponseService implements Serializable{
 	private LocalDate dateAcceptation;
 	private LocalDate dateDesistement;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(referencedColumnName = "id")
 	private Utilisateur utilisateur;
-	@ManyToOne(fetch = FetchType.EAGER)
+	@ManyToOne
 	@JoinColumn(referencedColumnName = "id")
 	private Service service;
 	
