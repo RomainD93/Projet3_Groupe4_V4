@@ -23,7 +23,7 @@
 				<li class="onglet"><span class="onglet_2" id="onglet_prefs"
 					onclick="change_onglet('prefs')">Mes Préférences</span></li>
 				<li class="onglet"><span class="onglet_3" id="onglet_villes"
-					onclick="change_onglet('villes')">Mes Préférences Villes</span></li>
+					onclick="change_onglet('villes')">Ma zone d'action</span></li>
 
 			</ul>
 		</div>
@@ -31,6 +31,8 @@
 		<div class="contenu_onglets">
 			<div class="contenu_onglet" id="contenu_onglet_infos"
 				style="display: none;">
+				<h2>MES INFORMATIONS</h2>
+				<h3>SI JAMAIS TU OUBLIES QUI TU ES...</h3>
 				<h:panelGrid columns="2" cellpadding="7" styleClass="p-mb-3">
 
 					<h:panelGroup>
@@ -101,10 +103,11 @@
 
 			<div class="contenu_onglet" id="contenu_onglet_dispos"
 				style="display: none;">
+				<h2>MES DISPONIBILITÉS</h2>
 				<h:dataTable var="disponibilites"
 					value="#{mbUtilisateur.disposUserConnected}" styleClass="p-mb-3">
 					<f:facet name="header">
-						<span>Je suis disponible le(s)</span>
+						<span>TU ES DISPO ENTRE DEUX BAMBOUS LE(S)</span>
 					</f:facet>
 					<p:column headerText="Jour de la semaine">
 						<h:outputText value="#{disponibilites.jourSemaine.nomJour}" />
@@ -122,11 +125,12 @@
 
 			<div class="contenu_onglet" id="contenu_onglet_prefs"
 				style="display: none;">
+				<h2>COUP D'PATTES POSSIBLES</h2>
 				<h:dataTable var="preferencesTypeAide"
 					value="#{mbUtilisateur.preferencesAideUserConnected}"
 					styleClass="p-mb-3">
 					<f:facet name="header">
-						<span>Types d'aide</span>
+						<span>TOUT CE QUE TU SAIS FAIRE</span>
 					</f:facet>
 					<p:column headerText="Type de service que je rends">
 						<h:outputText value="#{preferencesTypeAide.typeAide.nomTypeAide}" />
@@ -142,11 +146,12 @@
 
 			<div class="contenu_onglet" id="contenu_onglet_villes"
 				style="display: none;">
+				<h2>MA ZONE D'ACTION</h2>
 				<h:dataTable var="preferencesVille"
 					value="#{mbUtilisateur.preferencesVilleUserConnected}"
 					styleClass="p-mb-3">
 					<f:facet name="header">
-						<span>Villes d'action</span>
+						<span>PAND'AMI DE VILLE OU DE FORÊT ?</span>
 					</f:facet>
 					<p:column headerText="Villes où je peux rendre service">
 						<h:outputText value="#{preferencesVille.ville.villeNom}" />

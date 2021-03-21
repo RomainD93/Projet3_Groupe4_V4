@@ -39,6 +39,16 @@ h2 {
 	text-align: center;
 }
 
+h3 {
+	text-align: center;
+}
+
+.titre {
+	font-family: 'Chango', cursive;
+	font-size: 48px;
+	color: #97E5D7;
+}
+
 .bienvenue {
 	font-size: 55px;
 	color: #FFF;

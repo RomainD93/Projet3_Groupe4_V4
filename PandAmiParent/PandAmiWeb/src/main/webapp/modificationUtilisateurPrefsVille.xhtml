@@ -10,14 +10,15 @@
 	<ui:define name="content">
 
 
-		<h2>Mon secteur</h2>
+		<h2>MON SECTEUR</h2>
+		<h3>LÀ OÙ  TA MAGIE OPÈRE :</h3>
 		<div class="card">
 			<h:form id="myForm" styleClass="p-mb-3">
 				<p:messages />
 				<h:panelGrid styleClass="p-mb-3">
 					<h:panelGroup>
 						<!-- VILLES -->
-						<p:outputLabel class="padding10" value="Villes : "/>
+						<p:outputLabel class="padding10"/>
 					</h:panelGroup>
 					<p:selectManyCheckbox id="villes"
 						value="#{mbUtilisateur.villesSelected}" layout="grid"
@@ -29,7 +30,7 @@
 					</p:selectManyCheckbox>
 				</h:panelGrid>
 				<p:commandButton action="#{mbUtilisateur.validerPrefsVille()}"
-					value="Valider Villes" ajax="false" icon="pi pi-check"
+					value="Valider" ajax="false" icon="pi pi-check"
 					validateClient="true" class="btn-accepter" />
 			</h:form>
 
