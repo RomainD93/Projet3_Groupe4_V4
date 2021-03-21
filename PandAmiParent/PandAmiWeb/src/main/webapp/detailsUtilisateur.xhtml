@@ -13,6 +13,9 @@
 		<script type="text/javascript" src="resources/JS/onglet.js"></script>
 		<div>
 			<ul class="onglets" id="onglets_details">
+				<li class="onglet"><span class="onglet_4"
+					id="onglet_notifications" onclick="change_onglet('notifications')">Mon
+						Tableau de Bord</span></li>
 				<li class="onglet"><span class="onglet_0" id="onglet_infos"
 					onclick="change_onglet('infos')">Mes Infos</span></li>
 				<li class="onglet"><span class="onglet_1" id="onglet_dispos"
@@ -21,6 +24,7 @@
 					onclick="change_onglet('prefs')">Mes Préférences</span></li>
 				<li class="onglet"><span class="onglet_3" id="onglet_villes"
 					onclick="change_onglet('villes')">Mes Préférences Villes</span></li>
+
 			</ul>
 		</div>
 
@@ -119,7 +123,8 @@
 			<div class="contenu_onglet" id="contenu_onglet_prefs"
 				style="display: none;">
 				<h:dataTable var="preferencesTypeAide"
-					value="#{mbUtilisateur.preferencesAideUserConnected}" styleClass="p-mb-3">
+					value="#{mbUtilisateur.preferencesAideUserConnected}"
+					styleClass="p-mb-3">
 					<f:facet name="header">
 						<span>Types d'aide</span>
 					</f:facet>
@@ -138,7 +143,8 @@
 			<div class="contenu_onglet" id="contenu_onglet_villes"
 				style="display: none;">
 				<h:dataTable var="preferencesVille"
-					value="#{mbUtilisateur.preferencesVilleUserConnected}" styleClass="p-mb-3">
+					value="#{mbUtilisateur.preferencesVilleUserConnected}"
+					styleClass="p-mb-3">
 					<f:facet name="header">
 						<span>Villes d'action</span>
 					</f:facet>
@@ -152,9 +158,26 @@
 					value="Modifier" class="btn-accepter"></p:commandButton>
 			</div>
 
+
+			<!-- ONGLET NOTIFICATIONS -->
+			<div class="contenu_onglet" id="contenu_onglet_notifications"
+				style="display: none;">
+				<h:panelGrid columns="2" cellpadding="7" styleClass="p-mb-3">
+
+					<h:panelGroup>
+						<!-- 			Nombre de Services en attente de volontaires -->
+						<h:outputLabel value="Services en attente de volontaire : " />
+					</h:panelGroup>
+					<h:outputLabel value="#{mbUtilisateur.userConnected.genre.genre}" />
+
+				</h:panelGrid>
+
+			</div>
+
+
 		</div>
 		<script>
-			var anc_onglet = 'infos';
+			var anc_onglet = 'notifications';
 			change_onglet(anc_onglet);
 		</script>
 	</ui:define>

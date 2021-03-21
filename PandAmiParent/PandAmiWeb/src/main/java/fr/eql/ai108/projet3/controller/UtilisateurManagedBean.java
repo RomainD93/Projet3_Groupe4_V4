@@ -86,6 +86,14 @@ public class UtilisateurManagedBean {
 	private List<TypeAide> typesAideCat10;
 	private List<TypeAide> typesAideCat11;
 	
+	private Integer nbServicesEnAttenteDeVolontaireEnTantQueBeneficiaire;
+	private Integer nbServicesAvantRealEnTantQueBeneficiaire;
+	private Integer nbServicesTerminesEnTantQueBeneficiaire;
+	private Integer nbServicesAvantRealEnTantQueVolontaire;
+	private Integer nbServicesTerminesEnTantQueVolontaire;
+	private Integer nbLitigesOuverts;
+	private Integer nbLitigesFermes;
+	
 	
 	@ManagedProperty (value = "#{mbCompte.utilisateur}")
 	private Utilisateur userConnected;

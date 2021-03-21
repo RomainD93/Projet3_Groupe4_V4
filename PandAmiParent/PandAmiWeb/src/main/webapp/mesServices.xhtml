@@ -283,12 +283,7 @@
 									onchange="PF('servicesTable').filter()" timeOnly="true" />
 							</f:facet>
 						</p:column>
-						<p:column>
-							
-								<p:commandButton value="Clôturer le Service"
-									action="#{mbService.cloturerService(service)}" class="btn-cloturer"/>
-							
-						</p:column>
+
 						<p:column exportable="false">
 							<p:commandButton value="Litige"
 								update=":ServiceTerminesform:manage-litige-content"
@@ -300,6 +295,12 @@
 									target=":ServiceTerminesform:manage-litige-content"></p:resetInput>
 							</p:commandButton>
 
+						</p:column>
+
+						<p:column>					
+								<p:commandButton value="Clôturer"
+									action="#{mbService.cloturerService(service)}"
+									class="btn-annulation" rendered="#{service.dateCloture eq null}"/>					
 						</p:column>
 
 					</p:dataTable>
