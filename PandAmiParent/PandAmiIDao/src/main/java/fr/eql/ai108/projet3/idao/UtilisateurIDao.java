@@ -19,5 +19,12 @@ public interface UtilisateurIDao extends GenericIDao<Utilisateur> {
 	List<PreferenceVille> getPrefsVille();
 	Integer getServicesClosedCat1();
 	
+	Long getNbServicesEnAttenteDeVolontaireEnTantQueBeneficiaire(Utilisateur utilisateur);
+	Long getNbServicesAvantRealEnTantQueBeneficiaire(Utilisateur utilisateur);
+	Long getNbServicesTerminesEnTantQueBeneficiaire(Utilisateur utilisateur);
+	Long getNbServicesAvantRealEnTantQueVolontaire(Utilisateur utilisateur);
+	Long getNbServicesTerminesEnTantQueVolontaire(Utilisateur utilisateur);
+	Long getNbLitigesOuverts(Utilisateur utilisateur);
+	Long getNbLitigesFermes(Utilisateur utilisateur);
 
 }

@@ -30,9 +30,10 @@ public interface ServiceIDao extends GenericIDao<Service> {
 	List<TypeAide> getTypesAideCat10();
 	List<TypeAide> getTypesAideCat11();
 	ReponseService getReponseService(Service service, Utilisateur userConnected);
-	
+	ReponseService getReponseServiceByService(Service service);
 	List<Service> getServiceByBeneficiaire(Utilisateur userConnected);
 	List<Service> getServiceByVolontaire(Utilisateur userConnected);
 	List<Service> getServiceByPref(Utilisateur userConnected);
 	List<Service> getServiceTermine(Utilisateur userConnected);
+	Utilisateur getVolontaireByService(Service service);
 }

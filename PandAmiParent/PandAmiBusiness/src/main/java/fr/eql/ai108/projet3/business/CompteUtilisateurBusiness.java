@@ -118,9 +118,49 @@ public class CompteUtilisateurBusiness implements CompteUtilisateurIBusiness {
 	}
 
 	@Override
-	public Integer displayNumberServicesCat1() {
-		
+	public Integer displayNumberServicesCat1() {	
 		return (Integer) proxyUtilisateur.getServicesClosedCat1();
+	}
+
+	@Override
+	public Long displayNbServicesEnAttenteDeVolontaireEnTantQueBeneficiaire(Utilisateur utilisateur) {
+		return proxyUtilisateur.getNbServicesEnAttenteDeVolontaireEnTantQueBeneficiaire(utilisateur);
+	}
+
+	@Override
+	public Long displayNbServicesAvantRealEnTantQueBeneficiaire(Utilisateur utilisateur) {
+		// TODO Auto-generated method stub
+		return proxyUtilisateur.getNbServicesAvantRealEnTantQueBeneficiaire(utilisateur);
+	}
+
+	@Override
+	public Long displayNbServicesTerminesEnTantQueBeneficiaire(Utilisateur utilisateur) {
+		// TODO Auto-generated method stub
+		return proxyUtilisateur.getNbServicesTerminesEnTantQueBeneficiaire(utilisateur);
+	}
+
+	@Override
+	public Long displayNbServicesAvantRealEnTantQueVolontaire(Utilisateur utilisateur) {
+		// TODO Auto-generated method stub
+		return proxyUtilisateur.getNbServicesAvantRealEnTantQueVolontaire(utilisateur);
+	}
+
+	@Override
+	public Long displayNbServicesTerminesEnTantQueVolontaire(Utilisateur utilisateur) {
+		// TODO Auto-generated method stub
+		return proxyUtilisateur.getNbServicesTerminesEnTantQueVolontaire(utilisateur);
+	}
+
+	@Override
+	public Long displayNbLitigesOuverts(Utilisateur utilisateur) {
+		// TODO Auto-generated method stub
+		return proxyUtilisateur.getNbLitigesOuverts(utilisateur);
+	}
+
+	@Override
+	public Long displayNbLitigesFermes(Utilisateur utilisateur) {
+		// TODO Auto-generated method stub
+		return proxyUtilisateur.getNbLitigesFermes(utilisateur);
 	}
 
 

@@ -11,6 +11,15 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 
+import org.primefaces.model.charts.ChartData;
+import org.primefaces.model.charts.axes.cartesian.CartesianScales;
+import org.primefaces.model.charts.axes.cartesian.linear.CartesianLinearAxes;
+import org.primefaces.model.charts.axes.cartesian.linear.CartesianLinearTicks;
+import org.primefaces.model.charts.bar.BarChartDataSet;
+import org.primefaces.model.charts.bar.BarChartModel;
+import org.primefaces.model.charts.bar.BarChartOptions;
+import org.primefaces.model.charts.optionconfig.title.Title;
+
 import fr.eql.ai108.projet3.entity.CategorieAide;
 import fr.eql.ai108.projet3.entity.Disponibilite;
 import fr.eql.ai108.projet3.entity.JourSemaine;
@@ -86,13 +95,17 @@ public class UtilisateurManagedBean {
 	private List<TypeAide> typesAideCat10;
 	private List<TypeAide> typesAideCat11;
 	
-	private Integer nbServicesEnAttenteDeVolontaireEnTantQueBeneficiaire;
-	private Integer nbServicesAvantRealEnTantQueBeneficiaire;
-	private Integer nbServicesTerminesEnTantQueBeneficiaire;
-	private Integer nbServicesAvantRealEnTantQueVolontaire;
-	private Integer nbServicesTerminesEnTantQueVolontaire;
-	private Integer nbLitigesOuverts;
-	private Integer nbLitigesFermes;
+    private BarChartModel barModel2;
+    private BarChartModel barModelLitiges;
+    private BarChartModel barModelVolontaire;
+	
+	private Long nbServicesEnAttenteDeVolontaireEnTantQueBeneficiaire;
+	private Long nbServicesAvantRealEnTantQueBeneficiaire;
+	private Long nbServicesTerminesEnTantQueBeneficiaire;
+	private Long nbServicesAvantRealEnTantQueVolontaire;
+	private Long nbServicesTerminesEnTantQueVolontaire;
+	private Long nbLitigesOuverts;
+	private Long nbLitigesFermes;
 	
 	
 	@ManagedProperty (value = "#{mbCompte.utilisateur}")
@@ -140,6 +153,18 @@ public class UtilisateurManagedBean {
 		disposUserConnected = proxyUtilisateurBu.displayDisposUser(userConnected);		
 		preferencesVilleUserConnected = proxyUtilisateurBu.displayPrefsVilleUser(userConnected);
 		preferencesAideUserConnected = proxyUtilisateurBu.displayPrefsTypeAideUser(userConnected);	
+		
+		nbServicesEnAttenteDeVolontaireEnTantQueBeneficiaire = proxyUtilisateurBu.displayNbServicesEnAttenteDeVolontaireEnTantQueBeneficiaire(userConnected);
+		nbServicesAvantRealEnTantQueBeneficiaire = proxyUtilisateurBu.displayNbServicesAvantRealEnTantQueBeneficiaire(userConnected);
+		nbServicesTerminesEnTantQueBeneficiaire = proxyUtilisateurBu.displayNbServicesTerminesEnTantQueBeneficiaire(userConnected);
+		nbServicesAvantRealEnTantQueVolontaire = proxyUtilisateurBu.displayNbServicesAvantRealEnTantQueVolontaire(userConnected);
+		nbServicesTerminesEnTantQueVolontaire = proxyUtilisateurBu.displayNbServicesTerminesEnTantQueVolontaire(userConnected);
+		nbLitigesOuverts = proxyUtilisateurBu.displayNbLitigesOuverts(userConnected);
+		nbLitigesFermes = proxyUtilisateurBu.displayNbLitigesFermes(userConnected);
+		
+		createBarModelUser();
+		createBarModelLitiges();
+		createBarModelVolontaire();
 	}
 
 	//METHODES
@@ -239,8 +264,156 @@ public class UtilisateurManagedBean {
 		
 		return retour;
 	}
-	
-	
+	//GRAPH BENEFICIAIRE
+    public void createBarModelUser() {
+        barModel2 = new BarChartModel();
+        ChartData data = new ChartData();
+
+        BarChartDataSet barDataSet = new BarChartDataSet();
+        barDataSet.setLabel("COUPS D'PATTE en attente d'un volontaire");
+        barDataSet.setBackgroundColor("rgba(255, 99, 132, 0.2)");
+        barDataSet.setBorderColor("rgb(255, 99, 132)");
+        barDataSet.setBorderWidth(1);
+        List<Number> values = new ArrayList<>();
+        values.add(nbServicesEnAttenteDeVolontaireEnTantQueBeneficiaire);     
+        barDataSet.setData(values);
+
+        BarChartDataSet barDataSet2 = new BarChartDataSet();
+        barDataSet2.setLabel("COUPS D'PATTE prévus avec un volontaire");
+        barDataSet2.setBackgroundColor("rgba(255, 159, 64, 0.2)");
+        barDataSet2.setBorderColor("rgb(255, 159, 64)");
+        barDataSet2.setBorderWidth(1);
+        List<Number> values2 = new ArrayList<>();
+        values2.add(nbServicesAvantRealEnTantQueBeneficiaire);
+        barDataSet2.setData(values2);
+
+        data.addChartDataSet(barDataSet);
+        data.addChartDataSet(barDataSet2);
+
+        List<String> labels = new ArrayList<>();
+        labels.add("");
+        data.setLabels(labels);
+        barModel2.setData(data);
+
+        //Options
+        BarChartOptions options = new BarChartOptions();
+        CartesianScales cScales = new CartesianScales();
+        CartesianLinearAxes linearAxes = new CartesianLinearAxes();
+        linearAxes.setOffset(true);
+        CartesianLinearTicks ticks = new CartesianLinearTicks();
+        ticks.setBeginAtZero(true);
+        linearAxes.setTicks(ticks);
+        cScales.addYAxesData(linearAxes);
+        options.setScales(cScales);
+
+        Title title = new Title();
+        title.setDisplay(true);
+        title.setText("COUPS D'PATTE - bénéficiaire");
+        options.setTitle(title);
+
+        barModel2.setOptions(options);
+    }
+    
+  //GRAPH VOLONTAIRE
+    public void createBarModelVolontaire() {
+        barModelVolontaire = new BarChartModel();
+        ChartData data = new ChartData();
+
+        BarChartDataSet barDataSet = new BarChartDataSet();
+        barDataSet.setLabel("COUPS D'PATTE prévus - volontaire");
+        barDataSet.setBackgroundColor("rgba(187, 210, 225, 0.2)");
+        barDataSet.setBorderColor("rgb(187, 210, 225)");
+        barDataSet.setBorderWidth(1);
+        List<Number> values = new ArrayList<>();
+        values.add(nbServicesAvantRealEnTantQueVolontaire);     
+        barDataSet.setData(values);
+
+        BarChartDataSet barDataSet2 = new BarChartDataSet();
+        barDataSet2.setLabel("COUPS D'PATTE terminés - volontaire");
+        barDataSet2.setBackgroundColor("rgba(253, 191, 183, 0.2)");
+        barDataSet2.setBorderColor("rgb(253, 191, 183)");
+        barDataSet2.setBorderWidth(1);
+        List<Number> values2 = new ArrayList<>();
+        values2.add(nbServicesTerminesEnTantQueVolontaire);
+        barDataSet2.setData(values2);
+
+        data.addChartDataSet(barDataSet);
+        data.addChartDataSet(barDataSet2);
+
+        List<String> labels = new ArrayList<>();
+        labels.add("");
+        data.setLabels(labels);
+        barModelVolontaire.setData(data);
+
+        //Options
+        BarChartOptions options = new BarChartOptions();
+        CartesianScales cScales = new CartesianScales();
+        CartesianLinearAxes linearAxes = new CartesianLinearAxes();
+        linearAxes.setOffset(true);
+        CartesianLinearTicks ticks = new CartesianLinearTicks();
+        ticks.setBeginAtZero(true);
+        linearAxes.setTicks(ticks);
+        cScales.addYAxesData(linearAxes);
+        options.setScales(cScales);
+
+        Title title = new Title();
+        title.setDisplay(true);
+        title.setText("COUPS D'PATTE - volontaire");
+        options.setTitle(title);
+
+        barModelVolontaire.setOptions(options);
+    }
+    
+    
+    //GRAPH LITIGES
+    public void createBarModelLitiges() {
+        barModelLitiges = new BarChartModel();
+        ChartData data = new ChartData();
+
+        BarChartDataSet barDataSet = new BarChartDataSet();
+        barDataSet.setLabel("Litiges ouverts");
+        barDataSet.setBackgroundColor("rgba(1, 121, 111, 0.2)");
+        barDataSet.setBorderColor("rgb(1, 121, 111)");
+        barDataSet.setBorderWidth(1);
+        List<Number> values = new ArrayList<>();
+        values.add(nbLitigesOuverts);     
+        barDataSet.setData(values);
+
+        BarChartDataSet barDataSet2 = new BarChartDataSet();
+        barDataSet2.setLabel("Litiges fermés");
+        barDataSet2.setBackgroundColor("rgba(2212, 115, 212, 0.2)");
+        barDataSet2.setBorderColor("rgb(212, 115, 212)");
+        barDataSet2.setBorderWidth(1);
+        List<Number> values2 = new ArrayList<>();
+        values2.add(nbLitigesFermes);
+        barDataSet2.setData(values2);
+
+        data.addChartDataSet(barDataSet);
+        data.addChartDataSet(barDataSet2);
+
+        List<String> labels = new ArrayList<>();
+        labels.add("");
+        data.setLabels(labels);
+        barModelLitiges.setData(data);
+
+        //Options
+        BarChartOptions options = new BarChartOptions();
+        CartesianScales cScales = new CartesianScales();
+        CartesianLinearAxes linearAxes = new CartesianLinearAxes();
+        linearAxes.setOffset(true);
+        CartesianLinearTicks ticks = new CartesianLinearTicks();
+        ticks.setBeginAtZero(true);
+        linearAxes.setTicks(ticks);
+        cScales.addYAxesData(linearAxes);
+        options.setScales(cScales);
+
+        Title title = new Title();
+        title.setDisplay(true);
+        title.setText("LITIGES");
+        options.setTitle(title);
+
+        barModelLitiges.setOptions(options);
+    }
 	
 	
 	//GETTERS SETTERS
@@ -757,6 +930,96 @@ public class UtilisateurManagedBean {
 	public void setPreferencesAideUserConnected(List<PreferenceAide> preferencesAideUserConnected) {
 		this.preferencesAideUserConnected = preferencesAideUserConnected;
 	}
+
+	public List<TypeAide> getTypesAideSelected() {
+		return typesAideSelected;
+	}
+
+	public void setTypesAideSelected(List<TypeAide> typesAideSelected) {
+		this.typesAideSelected = typesAideSelected;
+	}
+
+	public BarChartModel getBarModel2() {
+		return barModel2;
+	}
+
+	public void setBarModel2(BarChartModel barModel2) {
+		this.barModel2 = barModel2;
+	}
+
+	public Long getNbServicesEnAttenteDeVolontaireEnTantQueBeneficiaire() {
+		return nbServicesEnAttenteDeVolontaireEnTantQueBeneficiaire;
+	}
+
+	public void setNbServicesEnAttenteDeVolontaireEnTantQueBeneficiaire(
+			Long nbServicesEnAttenteDeVolontaireEnTantQueBeneficiaire) {
+		this.nbServicesEnAttenteDeVolontaireEnTantQueBeneficiaire = nbServicesEnAttenteDeVolontaireEnTantQueBeneficiaire;
+	}
+
+	public Long getNbServicesAvantRealEnTantQueBeneficiaire() {
+		return nbServicesAvantRealEnTantQueBeneficiaire;
+	}
+
+	public void setNbServicesAvantRealEnTantQueBeneficiaire(Long nbServicesAvantRealEnTantQueBeneficiaire) {
+		this.nbServicesAvantRealEnTantQueBeneficiaire = nbServicesAvantRealEnTantQueBeneficiaire;
+	}
+
+	public Long getNbServicesTerminesEnTantQueBeneficiaire() {
+		return nbServicesTerminesEnTantQueBeneficiaire;
+	}
+
+	public void setNbServicesTerminesEnTantQueBeneficiaire(Long nbServicesTerminesEnTantQueBeneficiaire) {
+		this.nbServicesTerminesEnTantQueBeneficiaire = nbServicesTerminesEnTantQueBeneficiaire;
+	}
+
+	public Long getNbServicesAvantRealEnTantQueVolontaire() {
+		return nbServicesAvantRealEnTantQueVolontaire;
+	}
+
+	public void setNbServicesAvantRealEnTantQueVolontaire(Long nbServicesAvantRealEnTantQueVolontaire) {
+		this.nbServicesAvantRealEnTantQueVolontaire = nbServicesAvantRealEnTantQueVolontaire;
+	}
+
+	public Long getNbServicesTerminesEnTantQueVolontaire() {
+		return nbServicesTerminesEnTantQueVolontaire;
+	}
+
+	public void setNbServicesTerminesEnTantQueVolontaire(Long nbServicesTerminesEnTantQueVolontaire) {
+		this.nbServicesTerminesEnTantQueVolontaire = nbServicesTerminesEnTantQueVolontaire;
+	}
+
+	public Long getNbLitigesOuverts() {
+		return nbLitigesOuverts;
+	}
+
+	public void setNbLitigesOuverts(Long nbLitigesOuverts) {
+		this.nbLitigesOuverts = nbLitigesOuverts;
+	}
+
+	public Long getNbLitigesFermes() {
+		return nbLitigesFermes;
+	}
+
+	public void setNbLitigesFermes(Long nbLitigesFermes) {
+		this.nbLitigesFermes = nbLitigesFermes;
+	}
+
+	public BarChartModel getBarModelLitiges() {
+		return barModelLitiges;
+	}
+
+	public void setBarModelLitiges(BarChartModel barModelLitiges) {
+		this.barModelLitiges = barModelLitiges;
+	}
+
+	public BarChartModel getBarModelVolontaire() {
+		return barModelVolontaire;
+	}
+
+	public void setBarModelVolontaire(BarChartModel barModelVolontaire) {
+		this.barModelVolontaire = barModelVolontaire;
+	}
+
 
 
 	

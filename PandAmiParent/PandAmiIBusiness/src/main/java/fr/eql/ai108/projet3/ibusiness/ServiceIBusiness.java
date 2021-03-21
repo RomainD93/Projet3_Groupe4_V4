@@ -39,5 +39,7 @@ public interface ServiceIBusiness {
 	List<Service> displayServiceTermine(Utilisateur userConnected);
 	
 	List<TypeLitige> displayTypesLitige();
+	ReponseService displayReponseServiceByService(Service service);
+	Utilisateur displayVolontaireByService(Service service);
 	
 }

@@ -181,6 +181,16 @@ public class ServiceBusiness implements ServiceIBusiness {
 		return proxyLitigeDao.getTypesLitiges();
 	}
 
+	@Override
+	public ReponseService displayReponseServiceByService(Service service) {	
+		return proxyServiceDao.getReponseServiceByService(service);
+	}
+
+	@Override
+	public Utilisateur displayVolontaireByService(Service service) {
+		return proxyServiceDao.getVolontaireByService(service);
+	}
+
 
 
 	

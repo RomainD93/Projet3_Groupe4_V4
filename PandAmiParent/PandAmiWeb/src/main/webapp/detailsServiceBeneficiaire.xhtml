@@ -3,7 +3,8 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jstl/core">
 
 <ui:composition template="/masterPage.xhtml">
 	<ui:define name="title">Details</ui:define>
@@ -67,79 +68,108 @@
 			<h:panelGroup>
 				<p:outputLabel value="#{mbService.detailService.sommeAPrevoir}"></p:outputLabel>
 			</h:panelGroup>
-			</h:panelGrid>
-			<h:form id="myForm">			
-					<p:column exportable="false">
-						<p:commandButton value="Modifier le service"
-							update=":myForm:manage-modification-content"
-							oncomplete="PF('manageModificationDialog').show()"
-							styleClass="edit-button rounded-button ui-button-success">
-							<p:resetInput target=":myForm:manage-modification-content" />
-						</p:commandButton>
-					</p:column>
-					<p:commandButton value="Annuler le service" action="#{mbService.annulerService()}"/>
 
-				<p:dialog header="Modifier" showEffect="fade" modal="true"
-					widgetVar="manageModificationDialog" responsive="true">
-					<p:outputPanel id="manage-modification-content" class="ui-fluid">
-						<p:outputPanel rendered="#{not empty mbService.detailService}">
-							<div class="p-field">
-								<p:outputLabel value="Nom : " />
-								<p:outputLabel
-									value="#{mbService.detailService.utilisateur.nom}"></p:outputLabel>
-							</div>
-							<div class="p-field p-col">
-								<p:outputLabel value="Adresse du service" />
-								<script type="text/javascript" src="resources/JS/adresse2.js"></script>
-								<p:inputText class="autocomplete" style="width:250px;"
-									id="adresse" type="text" onkeypress="getValuePostSuggest()"
-									value="#{mbService.detailService.adresse}" />
-							</div>
-							<div class="p-field">
-								<p:outputLabel value="Catégorie Aide :" />
-								<p:outputLabel value="#{mbService.detailService.typeAide.categorieAide.nomCategorieAide}" />
-							</div>
-							<div class="p-field">
-								<p:outputLabel value="Type de service :  " />
-								<p:outputLabel value="#{mbService.detailService.typeAide.nomTypeAide}" />								
-							</div>
-							<div class="p-field p-col">
-								<p:outputLabel value="Date du service :" />
-								<p:datePicker value="#{mbService.detailService.dateService}" />
-							</div>
-							<div class="p-field p-col">
-								<p:outputLabel value="Heure de début :" />
-								<p:datePicker value="#{mbService.detailService.heureDbt}"
-									timeOnly="true" />
-							</div>
-							<div class="p-field p-col">
-								<p:outputLabel value="Heure de fin :" />
-								<p:datePicker value="#{mbService.detailService.heureFin}"
-									timeOnly="true" />
-							</div>
-							<div class="p-field p-col">
-								<p:outputLabel value="Matériel :" />
-								<p:selectOneRadio id="materiels"
-									value="#{mbService.materielSelected}"
-									converter="omnifaces.SelectItemsConverter">
-									<f:selectItems value="#{mbService.materiels}" var="materiel"
-										itemLabel="#{materiel.nomMateriel}" itemValue="#{materiel}" />
-								</p:selectOneRadio>
-							</div>
-							<div class="p-field p-col">
-								<p:outputLabel value="Somme à prévoir :" />
-								<p:inputText value="#{mbService.detailService.sommeAPrevoir}" />
-							</div>
-						</p:outputPanel>
+			<h:panelGroup>
+				<p:outputLabel value="Nom du volontaire"></p:outputLabel>
+			</h:panelGroup>
+
+			<h:panelGroup>
+				<p:outputLabel
+					value="#{mbService.reponseServiceSelected.utilisateur.nom}"></p:outputLabel>
+			</h:panelGroup>
+			<h:panelGroup>
+				<p:outputLabel value="Login du volontaire"></p:outputLabel>
+			</h:panelGroup>
+
+			<h:panelGroup>
+				<p:outputLabel
+					value="#{mbService.reponseServiceSelected.utilisateur.email}"></p:outputLabel>
+			</h:panelGroup>
+			<h:panelGroup>
+				<p:outputLabel value="Téléphone du volontaire"></p:outputLabel>
+			</h:panelGroup>
+
+			<h:panelGroup>
+				<p:outputLabel
+					value="#{mbService.reponseServiceSelected.utilisateur.numTelephone}"></p:outputLabel>
+			</h:panelGroup>
+
+
+		</h:panelGrid>
+		<h:form id="myForm">
+			<p:column exportable="false">
+				<p:commandButton value="Modifier le service"
+					update=":myForm:manage-modification-content"
+					oncomplete="PF('manageModificationDialog').show()"
+					styleClass="edit-button rounded-button ui-button-success">
+					<p:resetInput target=":myForm:manage-modification-content" />
+				</p:commandButton>
+			</p:column>
+			<p:commandButton value="Annuler le service"
+				action="#{mbService.annulerService()}" />
+
+			<p:dialog header="Modifier" showEffect="fade" modal="true"
+				widgetVar="manageModificationDialog" responsive="true">
+				<p:outputPanel id="manage-modification-content" class="ui-fluid">
+					<p:outputPanel rendered="#{not empty mbService.detailService}">
+						<div class="p-field">
+							<p:outputLabel value="Nom : " />
+							<p:outputLabel value="#{mbService.detailService.utilisateur.nom}"></p:outputLabel>
+						</div>
+						<div class="p-field p-col">
+							<p:outputLabel value="Adresse du service" />
+							<script type="text/javascript" src="resources/JS/adresse2.js"></script>
+							<p:inputText class="autocomplete" style="width:250px;"
+								id="adresse" type="text" onkeypress="getValuePostSuggest()"
+								value="#{mbService.detailService.adresse}" />
+						</div>
+						<div class="p-field">
+							<p:outputLabel value="Catégorie Aide :" />
+							<p:outputLabel
+								value="#{mbService.detailService.typeAide.categorieAide.nomCategorieAide}" />
+						</div>
+						<div class="p-field">
+							<p:outputLabel value="Type de service :  " />
+							<p:outputLabel
+								value="#{mbService.detailService.typeAide.nomTypeAide}" />
+						</div>
+						<div class="p-field p-col">
+							<p:outputLabel value="Date du service :" />
+							<p:datePicker value="#{mbService.detailService.dateService}" />
+						</div>
+						<div class="p-field p-col">
+							<p:outputLabel value="Heure de début :" />
+							<p:datePicker value="#{mbService.detailService.heureDbt}"
+								timeOnly="true" />
+						</div>
+						<div class="p-field p-col">
+							<p:outputLabel value="Heure de fin :" />
+							<p:datePicker value="#{mbService.detailService.heureFin}"
+								timeOnly="true" />
+						</div>
+						<div class="p-field p-col">
+							<p:outputLabel value="Matériel :" />
+							<p:selectOneRadio id="materiels"
+								value="#{mbService.materielSelected}"
+								converter="omnifaces.SelectItemsConverter">
+								<f:selectItems value="#{mbService.materiels}" var="materiel"
+									itemLabel="#{materiel.nomMateriel}" itemValue="#{materiel}" />
+							</p:selectOneRadio>
+						</div>
+						<div class="p-field p-col">
+							<p:outputLabel value="Somme à prévoir :" />
+							<p:inputText value="#{mbService.detailService.sommeAPrevoir}" />
+						</div>
 					</p:outputPanel>
-					<f:facet name="footer">
-						<p:commandButton value="Accepter modification" icon="pi pi-check"
-							actionListener="#{mbService.modifierService()}"
-							oncomplete="PF('manageModificationDialog').hide(); location.reload()" />
-					</f:facet>
-				</p:dialog>
-			</h:form>
-		
+				</p:outputPanel>
+				<f:facet name="footer">
+					<p:commandButton value="Accepter modification" icon="pi pi-check"
+						actionListener="#{mbService.modifierService()}"
+						oncomplete="PF('manageModificationDialog').hide(); location.reload()" />
+				</f:facet>
+			</p:dialog>
+		</h:form>
+
 	</ui:define>
 </ui:composition>
 </html>

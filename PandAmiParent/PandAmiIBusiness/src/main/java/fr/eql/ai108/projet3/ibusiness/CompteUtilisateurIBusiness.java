@@ -27,4 +27,12 @@ public interface CompteUtilisateurIBusiness {
 	PreferenceAide creerPrefTypeAide (PreferenceAide preferenceAide);
 	void supprimerPrefsTypeAideByUser (Utilisateur utilisateur);
 	Integer displayNumberServicesCat1();
-}
+	
+	Long displayNbServicesEnAttenteDeVolontaireEnTantQueBeneficiaire(Utilisateur utilisateur);
+	Long displayNbServicesAvantRealEnTantQueBeneficiaire(Utilisateur utilisateur);
+	Long displayNbServicesTerminesEnTantQueBeneficiaire(Utilisateur utilisateur);
+	Long displayNbServicesAvantRealEnTantQueVolontaire(Utilisateur utilisateur);
+	Long displayNbServicesTerminesEnTantQueVolontaire(Utilisateur utilisateur);
+	Long displayNbLitigesOuverts (Utilisateur utilisateur);
+	Long displayNbLitigesFermes (Utilisateur utilisateur);
+  } 
