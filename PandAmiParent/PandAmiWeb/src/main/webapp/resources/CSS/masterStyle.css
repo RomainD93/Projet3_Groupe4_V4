@@ -32,6 +32,13 @@ body {
     box-sizing: border-box;
 }
 
+h2 {
+	font-family: 'Chango', cursive;
+	font-size: 48px;
+	color: #97E5D7;
+	text-align: center;
+}
+
 body .ui-toolbar {
 	background: #000000;
 	color: #495057;
@@ -47,6 +54,7 @@ body .ui-tabmenu .ui-tabmenu-nav {
 	display: flex;
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
+	position: relative;
 	
 }
 
@@ -109,7 +117,46 @@ body .ui-button {
 		box-shadow 0.2s;
 		padding: 0.4em;
     margin: 0.5em;
-		
+}
+
+body .btn-accepter {
+	background: #97E5D7;
+	color: #000000;
+}
+
+body .btn-accepter:hover {
+	background: #000000;
+	color: #97E5D7;
+}
+
+body .btn-details {
+	background: #FEC8D8;
+	color: #000000;
+}
+
+body .btn-details:hover {
+	background: #000000;
+	color: #FEC8D8;
+}
+
+body .btn-annulation {
+	background: #E18AAA;
+	color: #000000;
+}
+
+body .btn-annulation:hover {
+	background: #000000;
+	color: #E18AAA;
+}
+
+body .btn-litige {
+	background: #957DAD;
+	color: #000000;
+}
+
+body .btn-litige:hover {
+	background: #000000;
+	color: #957DAD;
 }
 
 body .Logout {
@@ -124,59 +171,18 @@ body .Logout:hover {
 	color: #000000;
 }
 
-body .btn-accepter {
-    background: #97E5D7;
-    color: #000000;
-}
-
-body .btn-accepter:hover {
-    background: #000000;
-    color: #97E5D7;
-}
-
-body .btn-details {
-    background: #FEC8D8;
-    color: #000000;
-}
-
-body .btn-details:hover {
-    background: #000000;
-    color: #FEC8D8;
-}
-
-body .btn-annulation {
-    background: #E18AAA;
-    color: #000000;
-}
-
-body .btn-annulation:hover {
-    background: #000000;
-    color: #E18AAA;
-}
-
-body .btn-litige {
-    background: #957DAD;
-    color: #000000;
-}
-
-body .btn-litige:hover {
-    background: #000000;
-    color: #957DAD;
-}
-
 body .ui-dialog .ui-dialog-titlebar .ui-dialog-title {
     font-family: 'Chango', cursive;
-    font-size: 48px;
-    color: #97E5D7;
-    text-align: center;
+	font-size: 48px;
+	color: #97E5D7;
+	text-align: center;
 }
+
 
 body .ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-icon .ui-icon-closethick:before {
-    content: "";
-    color: #97E5D7;
+    content: "";   
+	color: #97E5D7;
 }
-
-
 /*the container must be positioned relative:*/
 .autocomplete {
 	position: relative;
@@ -201,6 +207,7 @@ input[type=submit] {
 	color: #fff;
 	cursor: pointer;
 }
+
 .ui-fluid .ui-inputtext {
     width: 15vw !important;
     }
@@ -239,39 +246,37 @@ input[type=submit] {
 	color: #ffffff;
 }
 
+li:hover {
+	background-color: #000000;
+	color: #97E5D7 !important;
+}
+
+ul{
+	padding-inline-start: 0px;
+}
+
 .onglets {
-	display: table;
+	display: flex;
 	background-color: #97E5D7;
 	border-radius: 3px;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, .3), 0 3px 5px rgba(0, 0, 0, .2), 0
 		5px 10px rgba(0, 0, 0, .2), 0 20px 20px rgba(0, 0, 0, .15);
 	width: 100%;
 	margin-top: 0px;
-	align-content: center;
 	
 }
 
 .onglet {
-	display: table-cell;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, .4);
-	text-align: center;
-	color: rgba(0, 0, 0, .7);
-	height: 40px;
-	vertical-align: middle;
+    display: flex;
+    text-shadow: 0 1px 0 rgb(255 255 255 / 40%);
+    text-align: center !important;
+    height: 40px;
+    vertical-align: middle;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
 }
 
-body .onglet_0{
-	display: table-cell;
-	text-shadow: 0 1px 0 rgba(255, 255, 255, .4);
-	text-align: center;
-	color: rgba(0, 0, 0, .7);
-	height: 40px;
-	vertical-align: middle;
-}
-
-li:hover {
-	background: rgba(255, 255, 255, .2);
-}
 
 .p-mb-3 {
 	margin-left: auto;
@@ -292,7 +297,10 @@ padding-bottom:1.5em;
 
 body .ui-widget{
 	size: 1rem;
-	text-decoration: underline #888888;
+}
+
+.labelPref{
+	text-decoration: underline #888888 !important;
 }
 
 body .ui-chkbox{
@@ -321,6 +329,7 @@ body .ui-chkbox .ui-chkbox-box.ui-state-active.ui-state-hover {
 .ui-selectmanycheckbox .ui-chkbox .ui-chkbox-box:hover {
 	 border-color: #97E5D7;
 }
+
 .bienvenue{
 	margin-top: 20vh;
 }
