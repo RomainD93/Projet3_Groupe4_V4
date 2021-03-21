@@ -1,6 +1,7 @@
 package fr.eql.ai108.projet3.entity;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Set;
 
@@ -34,10 +35,10 @@ public class Utilisateur implements Serializable{
 	private String password;
 	private String nom;
 	private String prenom;
-	private Date dateNaissance;
+	private LocalDate dateNaissance;
 	private String numTelephone;
-	private Date dateInscription;
-	private Date dateDesinscription;
+	private LocalDate dateInscription;
+	private LocalDate dateDesinscription;
 	private Integer rayonAction;
 	private String adresse;
 	
@@ -73,16 +74,11 @@ public class Utilisateur implements Serializable{
 		// TODO Auto-generated constructor stub
 	}
 
-
-
-
-
-
-	public Utilisateur(Integer id, String email, String password, String nom, String prenom, Date dateNaissance,
-			String numTelephone, Date dateInscription, Date dateDesinscription, Integer rayonAction, String adresse,
-			Set<Suspension> suspensions, TypeUtilisateur typeUtilisateur, Set<Disponibilite> disposUtilisateur,
-			Genre genre, Set<Negociation> negosCreateur, Set<Negociation> negosRepondeur,
-			Set<Litige> litigesUtilisateur, Set<Service> servicesUtilisateur,
+	public Utilisateur(Integer id, String email, String password, String nom, String prenom, LocalDate dateNaissance,
+			String numTelephone, LocalDate dateInscription, LocalDate dateDesinscription, Integer rayonAction,
+			String adresse, Set<Suspension> suspensions, TypeUtilisateur typeUtilisateur,
+			Set<Disponibilite> disposUtilisateur, Genre genre, Set<Negociation> negosCreateur,
+			Set<Negociation> negosRepondeur, Set<Litige> litigesUtilisateur, Set<Service> servicesUtilisateur,
 			Set<ReponseService> reponsesServicesUtilsateur, Set<PreferenceAide> preferencesAideUtlisateur,
 			Set<PreferenceVille> preferencesVilleUtilisateur) {
 		super();
@@ -109,10 +105,6 @@ public class Utilisateur implements Serializable{
 		this.preferencesAideUtlisateur = preferencesAideUtlisateur;
 		this.preferencesVilleUtilisateur = preferencesVilleUtilisateur;
 	}
-
-
-
-
 
 
 	@Override
@@ -253,15 +245,6 @@ public class Utilisateur implements Serializable{
 	}
 
 
-
-	public Date getDateNaissance() {
-		return dateNaissance;
-	}
-
-	public void setDateNaissance(Date dateNaissance) {
-		this.dateNaissance = dateNaissance;
-	}
-
 	public String getNumTelephone() {
 		return numTelephone;
 	}
@@ -270,21 +253,6 @@ public class Utilisateur implements Serializable{
 		this.numTelephone = numTelephone;
 	}
 
-	public Date getDateInscription() {
-		return dateInscription;
-	}
-
-	public void setDateInscription(Date dateInscription) {
-		this.dateInscription = dateInscription;
-	}
-
-	public Date getDateDesinscription() {
-		return dateDesinscription;
-	}
-
-	public void setDateDesinscription(Date dateDesinscription) {
-		this.dateDesinscription = dateDesinscription;
-	}
 
 	public Integer getRayonAction() {
 		return rayonAction;
@@ -396,5 +364,32 @@ public class Utilisateur implements Serializable{
 		this.preferencesVilleUtilisateur = preferencesVilleUtilisateur;
 	}
 
+	public LocalDate getDateNaissance() {
+		return dateNaissance;
+	}
+
+	public void setDateNaissance(LocalDate dateNaissance) {
+		this.dateNaissance = dateNaissance;
+	}
+
+	public LocalDate getDateInscription() {
+		return dateInscription;
+	}
+
+
+	public void setDateInscription(LocalDate dateInscription) {
+		this.dateInscription = dateInscription;
+	}
+
+	public LocalDate getDateDesinscription() {
+		return dateDesinscription;
+	}
+
+
+	public void setDateDesinscription(LocalDate dateDesinscription) {
+		this.dateDesinscription = dateDesinscription;
+	}
+
+	
 
 }

@@ -76,7 +76,7 @@ public class CompteManagedBean implements Serializable{
 		utilisateur.setGenre(genreSelected);
 		typeUtilisateur.setId(1);
 		utilisateur.setTypeUtilisateur(typeUtilisateur);
-		utilisateur.setDateInscription(new Date());
+		utilisateur.setDateInscription(LocalDate.now());
 		utilisateur = proxyCompteUtilisateurBu.creerCompte(utilisateur);
 
 		if(utilisateur == null) {

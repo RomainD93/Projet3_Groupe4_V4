@@ -178,6 +178,7 @@ body .ui-dialog .ui-dialog-titlebar .ui-dialog-title {
 	text-align: center;
 }
 
+
 body .ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-icon .ui-icon-closethick:before {
     content: "";   
 	color: #97E5D7;
