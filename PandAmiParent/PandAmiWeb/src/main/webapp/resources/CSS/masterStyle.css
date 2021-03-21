@@ -39,6 +39,11 @@ h2 {
 	text-align: center;
 }
 
+.bienvenue {
+	font-size: 55px;
+	color: #FFF;
+}
+
 body .ui-toolbar {
 	background: #000000;
 	color: #495057;
@@ -115,8 +120,39 @@ body .ui-button {
 	border: none;
 	transition: background-color 0.2s, color 0.2s, border-color 0.2s,
 		box-shadow 0.2s;
-		padding: 0.4em;
+	padding: 0.4em;
     margin: 0.5em;
+    display: flex;
+        margin-left: auto;
+    margin-right: auto;
+}
+
+body .btn-connexion{
+	display: flex;
+        margin-left: auto;
+    margin-right: auto;
+    background: #97E5D7 !important;
+	color: #000000 !important;
+	border:none;
+	padding: 0.4em;
+	transition: background-color 0.2s, color 0.2s, border-color 0.2s,
+		box-shadow 0.2s;
+	border-radius: 3px;
+}
+
+body .btn-connexion:hover{
+	background: #000000 !important;
+	color: #97E5D7 !important;
+	}
+
+body .btn-inscrire{
+	background: #000000;
+	color: #97E5D7;
+}
+
+body .btn-inscrire:hover{
+	background: #97E5D7;
+	color: #000000;
 }
 
 body .btn-accepter {

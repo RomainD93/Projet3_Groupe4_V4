@@ -29,7 +29,7 @@
                     <p:inputText id="password" type="password" value="#{mbCompte.utilisateur.password}"/>
               
                 </h:panelGrid>
-                <h:commandButton action="#{mbCompte.connection()}" value="Connexion" class="btn-accepter"/>
+                <h:commandButton action="#{mbCompte.connection()}" value="Connexion" class="btn-connexion"/>
             </div>
         </div>
         </h:form></h:panelGroup>
@@ -41,7 +41,7 @@
         </div></h:panelGroup>
         <h:panelGroup><h:form>
         <div class="p-col-5 p-d-flex p-ai-center p-jc-center">
-            <p:commandButton class="btn-inscrire" action="#{mbCompte.afficherSubscription()}" value="Création d'un compte" styleClass="p-mr-3" icon="pi pi-user-plus" />
+            <p:commandButton class="btn-inscrire" action="#{mbCompte.afficherSubscription()}" value="Création d'un compte" icon="pi pi-user-plus" />
         </div></h:form></h:panelGroup>
         </h:panelGrid>
     </div>
