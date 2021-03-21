@@ -40,7 +40,8 @@
 				<h:form id="ServiceDemandeform">
 					<p:dataTable var="service" value="#{mbService.serviceBeneficiaire}"
 						filteredValue="#{mbService.filteredServices}"
-						filterBy="#{mbService.filterBy}" widgetVar="servicesTable">
+						filterBy="#{mbService.filterBy}" widgetVar="servicesTable"
+						emptyMessage="Vous n'avez demandé aucun service pour l'instant">
 						<p:column headerText="Nom" sortBy="#{service.utilisateur.nom}"
 							filterBy="#{service.utilisateur.nom}">
 
@@ -143,7 +144,8 @@
 				<h:form id="ServiceProposeform">
 					<p:dataTable var="service" value="#{mbService.serviceVolontaire}"
 						filteredValue="#{mbService.filteredServices}"
-						filterBy="#{mbService.filterBy}" widgetVar="servicesTable">
+						filterBy="#{mbService.filterBy}" widgetVar="servicesTable"
+						emptyMessage="Vous n'avez encore rendu aucun service">
 						<p:column headerText="Nom" sortBy="#{service.utilisateur.nom}"
 							filterBy="#{service.utilisateur.nom}">
 
@@ -249,7 +251,8 @@
 				<h:form id="ServiceTerminesform">
 					<p:dataTable var="service" value="#{mbService.servicesTermine}"
 						filteredValue="#{mbService.filteredServices}"
-						filterBy="#{mbService.filterBy}" widgetVar="servicesTable">
+						filterBy="#{mbService.filterBy}" widgetVar="servicesTable"
+						emptyMessage="Vous n'avez encore terminé aucun service">
 						<p:column headerText="Nom" sortBy="#{service.utilisateur.nom}"
 							filterBy="#{service.utilisateur.nom}">
 

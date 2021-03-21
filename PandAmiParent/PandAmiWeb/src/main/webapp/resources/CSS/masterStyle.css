@@ -39,6 +39,16 @@ h2 {
 	text-align: center;
 }
 
+h3 {
+	text-align: center;
+}
+
+.titre {
+	font-family: 'Chango', cursive;
+	font-size: 48px;
+	color: #97E5D7;
+}
+
 .bienvenue {
 	font-size: 55px;
 	color: #FFF;
@@ -248,6 +258,10 @@ input[type=submit] {
     width: 15vw !important;
     }
     
+.ui-fluid .ui-inputfield{
+	background-color: #f1f1f1;
+}
+    
 .ui-fluid .ui-calendar, .ui-fluid .ui-calendar input {
     width: 15vw !important;
 }
@@ -258,10 +272,6 @@ input[type=submit] {
 	border-bottom: none;
 	border-top: none;
 	z-index: 99;
-	/*position the autocomplete items to be the same width as the container:*/
-	top: 100%;
-	left: 0;
-	right: 0;
 }
 
 .autocomplete-items div {
@@ -377,4 +387,49 @@ body .ui-chkbox .ui-chkbox-box.ui-state-active.ui-state-hover {
     margin-top: 15vh;
     padding: 10px;
 	background-color: white;
+}
+
+.p-field {
+    display: flex;
+    align-items: baseline;
+}
+
+body .ui-radiobutton .ui-radiobutton-box.ui-state-active .ui-icon-bullet {
+    background: #97E5D7;
+    border:none;
+}
+
+body .ui-radiobutton .ui-radiobutton-box.ui-state-active {
+    border-color: #97E5D7;
+    background-color: #97E5D7;
+}
+
+body .ui-radiobutton .ui-radiobutton-box:hover {
+    background: #000;
+    border-color: #97E5D7;
+}
+
+body .ui-radiobutton .ui-radiobutton-box.ui-state-active:hover {
+    border-color: #000;
+    background-color: #97E5D7;
+}
+
+body .ui-datatable tbody:hover {
+	background-color: #888888;
+}
+
+p{
+	font-size: 14px;
+}
+
+body .ui-datatable table{
+	table-layout: auto !important;
+}
+
+body .ui-datatable thead th{
+	text-align: center;
+}
+
+.separator{
+	padding: 0.2em;
 }

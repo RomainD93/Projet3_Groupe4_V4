@@ -9,7 +9,7 @@
 	<ui:define name="title">Modifier disponibilites</ui:define>
 	<ui:define name="content">
 
-		<h2>Mes disponibilités</h2>
+		<h2>MES DISPONIBILITÉS</h2>
 		<div class="card">
 			<h:form id="myForm" styleClass="p-mb-3">
 				<p:messages />
@@ -17,9 +17,10 @@
 
 					<h:panelGroup>
 						<!-- JOURS DE LA SEMAINE -->
-						<p:outputLabel value="Jours : " />
+						<h3>SI TU AS LE TEMPS ENTRE DEUX BAMBOUS</h3>
 					</h:panelGroup>
-
+					<br></br>
+					<br></br>
 					<p:selectManyCheckbox id="jours"
 						value="#{mbUtilisateur.joursSemaineSelected}" layout="grid"
 						converter="omnifaces.SelectItemsConverter" columns="3"

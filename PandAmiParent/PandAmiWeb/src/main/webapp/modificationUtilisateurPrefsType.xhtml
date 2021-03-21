@@ -23,7 +23,7 @@
 			</ul>
 		</div>
 		
-		<h2>Mes préferences</h2>
+		<h2>MES PRÉFÉRENCES</h2>
 		
 		<div class="card">
 			<h:form id="myForm" styleClass="p-mb-3">
@@ -35,7 +35,6 @@
 						<!-- CATEGORIE 1 -->
 						<p:outputLabel class="padding10 labelPref" value="Bricolage / Travaux : " />
 					</h:panelGroup>
-
 					<p:selectManyCheckbox id="categorie1"
 						value="#{mbUtilisateur.typesAideSelected1}" layout="grid"
 						converter="omnifaces.SelectItemsConverter" columns="3"
@@ -44,12 +43,12 @@
 							var="typeAide" itemLabel="#{typeAide.nomTypeAide}"
 							itemValue="#{typeAide}" />
 					</p:selectManyCheckbox>
-
+<div class="separator"></div>
+<div class="separator"></div>
 					<h:panelGroup>
 						<!-- CATEGORIE 2 -->
 						<p:outputLabel class="padding10 labelPref" value="Jardinage : " />
 					</h:panelGroup>
-
 					<p:selectManyCheckbox id="categorie2"
 						value="#{mbUtilisateur.typesAideSelected2}" layout="grid"
 						converter="omnifaces.SelectItemsConverter" columns="3"
@@ -58,7 +57,8 @@
 							var="typeAide" itemLabel="#{typeAide.nomTypeAide}"
 							itemValue="#{typeAide}" />
 					</p:selectManyCheckbox>
-
+<div class="separator"></div>
+<div class="separator"></div>
 					<h:panelGroup>
 						<!-- CATEGORIE 3 -->
 						<p:outputLabel class="padding10 labelPref" value="Déménagement : " />
@@ -72,7 +72,8 @@
 							var="typeAide" itemLabel="#{typeAide.nomTypeAide}"
 							itemValue="#{typeAide}" />
 					</p:selectManyCheckbox>
-
+<div class="separator"></div>
+<div class="separator"></div>
 					<h:panelGroup>
 						<!-- CATEGORIE 4 -->
 						<p:outputLabel class="padding10 labelPref" value="Dépannage : " />
@@ -86,7 +87,8 @@
 							var="typeAide" itemLabel="#{typeAide.nomTypeAide}"
 							itemValue="#{typeAide}" />
 					</p:selectManyCheckbox>
-
+<div class="separator"></div>
+<div class="separator"></div>
 					<h:panelGroup>
 						<!-- CATEGORIE 5 -->
 						<p:outputLabel class="padding10 labelPref" value="Entretien / Réparation Véhicules : " />
@@ -100,7 +102,8 @@
 							var="typeAide" itemLabel="#{typeAide.nomTypeAide}"
 							itemValue="#{typeAide}" />
 					</p:selectManyCheckbox>
-
+<div class="separator"></div>
+<div class="separator"></div>
 					<h:panelGroup>
 						<!-- CATEGORIE 6 -->
 						<p:outputLabel class="padding10 labelPref" value="Services véhiculés : " />
@@ -114,7 +117,8 @@
 							var="typeAide" itemLabel="#{typeAide.nomTypeAide}"
 							itemValue="#{typeAide}" />
 					</p:selectManyCheckbox>
-
+<div class="separator"></div>
+<div class="separator"></div>
 					<h:panelGroup>
 						<!-- CATEGORIE 7 -->
 						<p:outputLabel class="padding10 labelPref" value="Services à la personne : " />
@@ -128,7 +132,8 @@
 							var="typeAide" itemLabel="#{typeAide.nomTypeAide}"
 							itemValue="#{typeAide}" />
 					</p:selectManyCheckbox>
-
+<div class="separator"></div>
+<div class="separator"></div>
 					<h:panelGroup>
 						<!-- CATEGORIE 8 -->
 						<p:outputLabel class="padding10 labelPref" value="Enfants : " />
@@ -142,7 +147,8 @@
 							var="typeAide" itemLabel="#{typeAide.nomTypeAide}"
 							itemValue="#{typeAide}" />
 					</p:selectManyCheckbox>
-
+<div class="separator"></div>
+<div class="separator"></div>
 					<h:panelGroup>
 						<!-- CATEGORIE 9 -->
 						<p:outputLabel class="padding10 labelPref" value="Animaux : " />
@@ -156,7 +162,8 @@
 							var="typeAide" itemLabel="#{typeAide.nomTypeAide}"
 							itemValue="#{typeAide}" />
 					</p:selectManyCheckbox>
-
+<div class="separator"></div>
+<div class="separator"></div>
 					<h:panelGroup>
 						<!-- CATEGORIE 10 -->
 						<p:outputLabel class="padding10 labelPref" value="Informatique - Web : " />
@@ -170,7 +177,8 @@
 							var="typeAide" itemLabel="#{typeAide.nomTypeAide}"
 							itemValue="#{typeAide}" />
 					</p:selectManyCheckbox>
-
+<div class="separator"></div>
+<div class="separator"></div>
 					<h:panelGroup>
 						<!-- CATEGORIE 11 -->
 						<p:outputLabel class="padding10 labelPref" value="Cours - Formations : " />
@@ -184,8 +192,7 @@
 							var="typeAide" itemLabel="#{typeAide.nomTypeAide}"
 							itemValue="#{typeAide}" />
 					</p:selectManyCheckbox>
-
-
+<div class="separator"></div>
 
 				</h:panelGrid>
 				<p:commandButton action="#{mbUtilisateur.validerPrefsType()}"
