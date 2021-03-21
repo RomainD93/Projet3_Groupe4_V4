@@ -7,5 +7,8 @@ function change_onglet(name)
                         document.getElementById('contenu_onglet_'+anc_onglet).style.display = 'none';
                         document.getElementById('contenu_onglet_'+name).style.display = 'block';
                         anc_onglet = name;
+                        
+                        document.getElementById('contenu_onglet_'+anc_onglet).style.textAlign = "center";
+                        document.getElementById('contenu_onglet_'+name).style.textAlign = "center";
                 }
 
