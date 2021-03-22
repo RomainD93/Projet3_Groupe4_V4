@@ -294,8 +294,8 @@
 								update=":ServiceTerminesform:manage-litige-content"
 								oncomplete="PF('manageLitige').show()" class="btn-litige"
 								process="@this" onclick="disabled=true">
-								<f:setPropertyActionListener
-									value="#{service}  #{mbService.loadBeneficiaireLitige(service)}" />
+								<f:setPropertyActionListener value="#{service}  #{mbService.loadBeneficiaireLitige(service)}"
+									target="#{mbService.serviceSelected}" />
 
 
 								<p:resetInput
