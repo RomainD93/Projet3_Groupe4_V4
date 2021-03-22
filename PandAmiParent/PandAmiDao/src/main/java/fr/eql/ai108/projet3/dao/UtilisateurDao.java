@@ -119,14 +119,24 @@ public class UtilisateurDao extends GenericDao<Utilisateur> implements Utilisate
 
 	@Override
 	public Long getNbServicesAvantRealEnTantQueVolontaire(Utilisateur utilisateur) {
-		// TODO Auto-generated method stub
-		return null;
+		System.out.println("ENTREE AVANT REQUEST");
+		Query query = em.createQuery("SELECT COUNT(r) FROM ReponseService r WHERE r.utilisateur = :paramUser AND r.service.dateService > :paramDate AND r.dateDesistement IS NULL");
+		query.setParameter("paramUser", utilisateur);
+		query.setParameter("paramDate", LocalDate.now());
+		Long result =  (Long) query.getSingleResult();
+		System.out.println("resultat" + result);
+		return result;
 	}
 
 	@Override
 	public Long getNbServicesTerminesEnTantQueVolontaire(Utilisateur utilisateur) {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Query query = em.createQuery("SELECT COUNT(r) FROM ReponseService r WHERE r.utilisateur = :paramUser AND r.service.dateService < :paramDate AND r.dateDesistement IS NULL");
+		query.setParameter("paramUser", utilisateur);
+		query.setParameter("paramDate", LocalDate.now());
+		Long result =  (Long) query.getSingleResult();
+		
+		return result;
 	}
 
 	@Override

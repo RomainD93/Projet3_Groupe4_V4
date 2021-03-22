@@ -138,10 +138,10 @@
 				style="display: none;">
 				<h:form id="formTousLesServices">
 					<p:dataTable var="service" value="#{mbService.services}"
-						filteredValue="#{mbService.filteredServices}"
-						filterBy="#{mbService.filterBy}" widgetVar="servicesTable">
-						<p:column headerText="Nom" sortBy="#{service.utilisateur.nom}"
-							filterBy="#{service.utilisateur.nom}">
+						
+						>
+						<p:column headerText="Nom"
+							>
 
 							<h:outputText style="vertical-align: middle; margin-left: .5rem"
 								value="#{service.utilisateur.nom}" />

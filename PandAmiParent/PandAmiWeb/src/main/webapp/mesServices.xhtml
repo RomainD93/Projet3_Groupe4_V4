@@ -252,7 +252,7 @@
 					<p:dataTable var="service" value="#{mbService.servicesTermine}"
 						filteredValue="#{mbService.filteredServices}"
 						filterBy="#{mbService.filterBy}" widgetVar="servicesTable"
-						emptyMessage="Vous n'avez encore terminé aucun service">
+						emptyMessage="Vous n'avez encore terminé aucun service" converter="omnifaces.SelectItemsConverter">
 						<p:column headerText="Nom" sortBy="#{service.utilisateur.nom}"
 							filterBy="#{service.utilisateur.nom}">
 
@@ -292,12 +292,11 @@
 								update=":ServiceTerminesform:manage-litige-content"
 								oncomplete="PF('manageLitige').show()" class="btn-litige"
 								process="@this">
-								<f:setPropertyActionListener value="#{service}"
+								<f:setPropertyActionListener value="#{service}  #{mbService.loadBeneficiaireLitige(service)}"
 									target="#{mbService.serviceSelected}" />
 								<p:resetInput
 									target=":ServiceTerminesform:manage-litige-content"></p:resetInput>
 							</p:commandButton>
-
 						</p:column>
 
 						<p:column>					
@@ -319,10 +318,9 @@
 											value="#{mbService.serviceSelected.utilisateur.nom} #{mbService.serviceSelected.utilisateur.prenom}" />
 									</div>
 									<div class="p-field">
-										<p:outputLabel>
-							Volontaire du service : 
-						</p:outputLabel>
-										<p:outputLabel />
+										<p:outputLabel value="Volontaire du service : "/>
+
+									<p:outputLabel value="#{mbService.reponseServiceSelected.utilisateur.nom}" />
 									</div>
 									<div class="p-field">
 										<p:outputLabel value="Service concernée : " />
