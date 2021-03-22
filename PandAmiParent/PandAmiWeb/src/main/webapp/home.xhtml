@@ -19,11 +19,10 @@
 		<div>
 			<ul class="onglets" id="onglets_service">
 				<li class="onglet"><span class="onglet_0 onglet"
-					id="onglet_ServicesPref" onclick="change_onglet('ServicesPref')">Les
-						services en fonction des préférences </span></li>
+					id="onglet_ServicesPref" onclick="change_onglet('ServicesPref')">Des coups d'pattes rien que pour moi </span></li>
 				<li class="onglet"><span class="onglet_1 onglet"
 					id="onglet_tousLesServices"
-					onclick="change_onglet('tousLesServices')">Tous les services</span></li>
+					onclick="change_onglet('tousLesServices')">Tous les coups d'pattes</span></li>
 			</ul>
 		</div>
 		<div class="contenu_onglets">
@@ -34,7 +33,7 @@
 					<p:dataTable var="service" value="#{mbService.servicesPref}"
 						filteredValue="#{mbService.filteredServices}"
 						filterBy="#{mbService.filterBy}" widgetVar="servicesTable"
-						emptyMessage="Aucun service ne correspond à vos préférences" Class="tableau">
+						emptyMessage="Aucun coup d'patte ne correspond à vos préférences" Class="tableau">
 						<p:column headerText="Nom" sortBy="#{service.utilisateur.nom}"
 							filterBy="#{service.utilisateur.nom}">
 
@@ -47,19 +46,19 @@
 							<h:outputText value="#{service.typeAide.nomTypeAide}" />
 						</p:column>
 
-						<p:column headerText="Lieu" sortBy="#{service.adresse}"
+						<p:column headerText="Adresse" sortBy="#{service.adresse}"
 							filterBy="#{service.adresse}">
 							<h:outputText style="vertical-align: middle; margin-left: .5rem"
 								value="#{service.adresse}" />
 						</p:column>
-						<p:column field="dateService" headerText="DateService"
+						<p:column field="dateService" headerText="Période"
 							filterMatchMode="range">
 							<f:facet name="filter">
 								<p:datePicker selectionMode="range"
 									onchange="PF('servicesTable').filter()" />
 							</f:facet>
 						</p:column>
-						<p:column headerText="HeureDebut" sortBy="#{service.heureDbt}"
+						<p:column headerText="RDV à" sortBy="#{service.heureDbt}"
 							filterBy="#{service.heureDbt}">
 							<h:outputText style="vertical-align: middle; margin-left: .5rem"
 								value="#{service.heureDbt}" />
@@ -124,7 +123,7 @@
 							</p:outputPanel>
 						</p:outputPanel>
 						<f:facet name="footer">
-							<p:commandButton value="Accepter le service" icon="pi pi-check"
+							<p:commandButton value="Accepter" icon="pi pi-check"
 								actionListener="#{mbService.accepterService()}"
 								class="btn-accepter"
 								onsuccess="PF('manageProductDialog').hide(); location.reload()" />
@@ -152,19 +151,19 @@
 							<h:outputText value="#{service.typeAide.nomTypeAide}" />
 						</p:column>
 
-						<p:column headerText="Lieu" sortBy="#{service.adresse}"
+						<p:column headerText="Adresse" sortBy="#{service.adresse}"
 							filterBy="#{service.adresse}">
 							<h:outputText style="vertical-align: middle; margin-left: .5rem"
 								value="#{service.adresse}" />
 						</p:column>
-						<p:column field="dateService" headerText="DateService"
+						<p:column field="dateService" headerText="Période"
 							filterMatchMode="range">
 							<f:facet name="filter">
 								<p:datePicker selectionMode="range"
 									onchange="PF('servicesTable').filter()" />
 							</f:facet>
 						</p:column>
-						<p:column headerText="HeureDebut" sortBy="#{service.heureDbt}"
+						<p:column headerText="RDV à" sortBy="#{service.heureDbt}"
 							filterBy="#{service.heureDbt}">
 							<h:outputText style="vertical-align: middle; margin-left: .5rem"
 								value="#{service.heureDbt}" />
@@ -230,7 +229,7 @@
 							</p:outputPanel>
 						</p:outputPanel>
 						<f:facet name="footer">
-							<p:commandButton value="Accepter le service" icon="pi pi-check"
+							<p:commandButton value="Accepter" icon="pi pi-check"
 								actionListener="#{mbService.accepterService()}"
 								class="btn-accepter"
 								onsuccess="PF('manageProductDialog').hide(); location.reload()" />
