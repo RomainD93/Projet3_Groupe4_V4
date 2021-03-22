@@ -142,7 +142,7 @@ public class ServiceManagedBean {
 
 		filterBy.add(FilterMeta.builder()
 				.field("dateService")
-				.filterValue(Arrays.asList(LocalDate.now().minusDays(24), LocalDate.now().plusDays(45)))
+				.filterValue(Arrays.asList(LocalDate.now(), LocalDate.now().plusDays(31)))
 				.matchMode(MatchMode.RANGE)
 				.build());
 

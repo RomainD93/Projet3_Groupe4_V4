@@ -291,7 +291,7 @@
 							<p:commandButton value="Litige"
 								update=":ServiceTerminesform:manage-litige-content"
 								oncomplete="PF('manageLitige').show()" class="btn-litige"
-								process="@this">
+								process="@this" onclick="disabled=true">
 								<f:setPropertyActionListener value="#{service}"
 									target="#{mbService.serviceSelected}" />
 								<p:resetInput
@@ -300,10 +300,10 @@
 
 						</p:column>
 
-						<p:column>					
-								<p:commandButton value="Clôturer"
-									action="#{mbService.cloturerService(service)}"
-									class="btn-annulation" rendered="#{service.dateCloture eq null}"/>					
+						<p:column>
+							<p:commandButton value="Clôturer"
+								action="#{mbService.cloturerService(service)}"
+								class="btn-annulation" rendered="#{service.dateCloture eq null}" />
 						</p:column>
 
 					</p:dataTable>
@@ -312,69 +312,62 @@
 						modal="true" widgetVar="manageLitige" responsive="false">
 						<p:outputPanel id="manage-litige-content" class="ui-fluid">
 							<p:outputPanel rendered="#{not empty mbService.serviceSelected}">
-								<h:panelGrid cellspacing="2">
-									<div>
-										<p:outputLabel value="Demandeur du service : " />
-										<p:outputLabel
-											value="#{mbService.serviceSelected.utilisateur.nom} #{mbService.serviceSelected.utilisateur.prenom}" />
-									</div>
-									<div class="p-field">
-										<p:outputLabel>
-							Volontaire du service : 
-						</p:outputLabel>
-										<p:outputLabel />
-									</div>
-									<div class="p-field">
-										<p:outputLabel value="Service concernée : " />
-										<p:outputLabel
-											value="#{mbService.serviceSelected.typeAide.nomTypeAide}" />
-									</div>
-									<div class="p-field">
-										<p:outputLabel value="Lieu du service : " />
-										<p:outputLabel value="#{mbService.serviceSelected.adresse}" />
-									</div>
-									<div class="p-field">
-										<p:outputLabel value="Date du service : " />
-										<p:outputLabel
-											value="#{mbService.serviceSelected.dateService}" />
-									</div>
-									<div class="p-field">
-										<p:outputLabel value="Heure de début du service : " />
-										<p:outputLabel value="#{mbService.serviceSelected.heureDbt}" />
-									</div>
-									<div class="p-field">
-										<p:outputLabel value="Matériel prévu : " />
-										<p:outputLabel
-											value="#{mbService.serviceSelected.materiel.nomMateriel}" />
-									</div>
-									<div class="p-field">
-										<p:outputLabel value="Somme prévue : " />
-										<p:outputLabel
-											value="#{mbService.serviceSelected.sommeAPrevoir}" />
-									</div>
+								<h:panelGrid cellspacing="2" columns="2">
+
+									<p:outputLabel value="Demandeur du service : " />
+									<p:outputLabel
+										value="#{mbService.serviceSelected.utilisateur.nom} #{mbService.serviceSelected.utilisateur.prenom}" />
+
+
+									<p:outputLabel>
+											Volontaire du service : 
+										</p:outputLabel>
+									<p:outputLabel />
+
+
+									<p:outputLabel value="Service concernée : " />
+									<p:outputLabel
+										value="#{mbService.serviceSelected.typeAide.nomTypeAide}" />
+
+									<p:outputLabel value="Lieu du service : " />
+									<p:outputLabel value="#{mbService.serviceSelected.adresse}" />
+
+									<p:outputLabel value="Date du service : " />
+									<p:outputLabel value="#{mbService.serviceSelected.dateService}" />
+
+									<p:outputLabel value="Heure de début du service : " />
+									<p:outputLabel value="#{mbService.serviceSelected.heureDbt}" />
+
+									<p:outputLabel value="Matériel prévu : " />
+									<p:outputLabel
+										value="#{mbService.serviceSelected.materiel.nomMateriel}" />
+
+									<p:outputLabel value="Somme prévue : " />
+									<p:outputLabel
+										value="#{mbService.serviceSelected.sommeAPrevoir}" />
+
 								</h:panelGrid>
 								<h:panelGrid cellspacing="2">
-									<div class="p-field">
-										<p:outputLabel value="Motif du litige : " />
-									</div>
+
+									<p:outputLabel value="Motif du litige : " />
+
 									<!-- 							<div> <p:selectManyCheckbox -->
 									<!-- 								value="#{mbService.selectedTypeLitige}" styleClass="grid-checkbox"> -->
 									<!-- 								<f:selectItems value="#{mbService.typesLitige}" var="typeLitige" itemLabel="#{typeLitige.nomTypeLitige}" itemValue="#{typeLitige}" />				 -->
 									<!-- 							</p:selectManyCheckbox> </div> -->
-									<div>
-										<p:selectOneRadio id="typesLitiges"
-											value="#{mbService.selectedTypeLitige}"
-											converter="omnifaces.SelectItemsConverter">
-											<f:selectItems value="#{mbService.typesLitige}"
-												var="typeLitige" itemLabel="#{typeLitige.nomTypeLitige}"
-												itemValue="#{typeLitige}" />
 
-										</p:selectOneRadio>
-									</div>
-									<div>
-										<p:inputTextarea value="#{mbService.litige.commentaires}"
-											rows="5" cols="5" />
-									</div>
+									<p:selectOneRadio id="typesLitiges"
+										value="#{mbService.selectedTypeLitige}"
+										converter="omnifaces.SelectItemsConverter">
+										<f:selectItems value="#{mbService.typesLitige}"
+											var="typeLitige" itemLabel="#{typeLitige.nomTypeLitige}"
+											itemValue="#{typeLitige}" />
+
+									</p:selectOneRadio>
+
+									<p:inputTextarea value="#{mbService.litige.commentaires}"
+										rows="5" cols="5" />
+
 								</h:panelGrid>
 							</p:outputPanel>
 						</p:outputPanel>

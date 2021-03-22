@@ -32,35 +32,23 @@
 				style="display: none;">
 				<h:form id="homeform">
 					<p:dataTable var="service" value="#{mbService.servicesPref}"
-						filteredValue="#{mbService.filteredServices}"
-						filterBy="#{mbService.filterBy}" widgetVar="servicesTable"
-						emptyMessage="Aucun service ne correspond à vos préférences" >
-						<p:column headerText="Nom" sortBy="#{service.utilisateur.nom}"
-							filterBy="#{service.utilisateur.nom}">
-
+						emptyMessage="Aucun service ne correspond à vos préférences">
+						<p:column headerText="Nom">
 							<h:outputText style="vertical-align: middle; margin-left: .5rem"
 								value="#{service.utilisateur.nom}" />
 						</p:column>
-						<p:column headerText="Service"
-							sortBy="#{service.typeAide.nomTypeAide}"
-							filterBy="#{service.typeAide.nomTypeAide}">
+						<p:column headerText="Service">
 							<h:outputText value="#{service.typeAide.nomTypeAide}" />
 						</p:column>
 
-						<p:column headerText="Lieu" sortBy="#{service.adresse}"
-							filterBy="#{service.adresse}">
+						<p:column headerText="Lieu">
 							<h:outputText style="vertical-align: middle; margin-left: .5rem"
 								value="#{service.adresse}" />
 						</p:column>
-						<p:column field="dateService" headerText="DateService"
-							filterMatchMode="range">
-							<f:facet name="filter">
-								<p:datePicker selectionMode="range"
-									onchange="PF('servicesTable').filter()" />
-							</f:facet>
+						<p:column headerText="DateService">
+							<h:outputText value="#{service.dateService}" />
 						</p:column>
-						<p:column headerText="HeureDebut" sortBy="#{service.heureDbt}"
-							filterBy="#{service.heureDbt}">
+						<p:column headerText="HeureDebut">
 							<h:outputText style="vertical-align: middle; margin-left: .5rem"
 								value="#{service.heureDbt}" />
 						</p:column>
@@ -80,47 +68,45 @@
 						widgetVar="manageAccepter" responsive="true">
 						<p:outputPanel id="manage-product-content" class="ui-fluid">
 							<p:outputPanel rendered="#{not empty mbService.serviceSelected}">
-								<div class="p-field">
-									<p:outputLabel value="Nom" />
+
+								<h:panelGrid columns="2" cellpadding="7" styleClass="p-mb-3">
+
+									<p:outputLabel value="Nom :" />
 									<p:outputLabel
 										value="#{mbService.serviceSelected.utilisateur.nom}" />
-								</div>
-								<div class="p-field">
-									<p:outputLabel value="Type de service" />
+
+
+									<p:outputLabel value="Type de service :" />
 									<p:outputLabel
 										value="#{mbService.serviceSelected.typeAide.nomTypeAide}" />
-								</div>
 
-								<div class="p-field p-col">
-									<p:outputLabel value="Date du service" />
+									<p:outputLabel value="Date du service :" />
 									<p:outputLabel value="#{mbService.serviceSelected.dateService}" />
-								</div>
-								<div class="p-field p-col">
-									<p:outputLabel value="Heure de début" />
+
+
+									<p:outputLabel value="Heure de début :" />
 									<p:outputLabel value="#{mbService.serviceSelected.heureDbt}" />
-								</div>
-								<div class="p-field p-col">
-									<p:outputLabel value="Heure de fin" />
+
+
+									<p:outputLabel value="Heure de fin :" />
 									<p:outputLabel value="#{mbService.serviceSelected.heureFin}" />
-								</div>
-								<div class="p-field p-col">
-									<p:outputLabel value="Adresse" />
+
+									<p:outputLabel value="Adresse :" />
 									<p:outputLabel value="#{mbService.serviceSelected.adresse}" />
-								</div>
-								<div class="p-field p-col">
-									<p:outputLabel value="Heure de début" />
+
+
+									<p:outputLabel value="Heure de début :" />
 									<p:outputLabel value="#{mbService.serviceSelected.heureDbt}" />
-								</div>
-								<div class="p-field p-col">
-									<p:outputLabel value="Matériel à prévoir" />
+
+									<p:outputLabel value="Matériel à prévoir :" />
 									<p:outputLabel
 										value="#{mbService.serviceSelected.materiel.nomMateriel}" />
-								</div>
-								<div class="p-field p-col">
-									<p:outputLabel value="Somme à prévoir" />
+
+									<p:outputLabel value="Somme à prévoir :" />
 									<p:outputLabel
 										value="#{mbService.serviceSelected.sommeAPrevoir}" />
-								</div>
+
+								</h:panelGrid>
 							</p:outputPanel>
 						</p:outputPanel>
 						<f:facet name="footer">
@@ -186,47 +172,39 @@
 						widgetVar="manageProductDialog" responsive="true">
 						<p:outputPanel id="manage-product-content" class="ui-fluid">
 							<p:outputPanel rendered="#{not empty mbService.serviceSelected}">
-								<div class="p-field">
+								<h:panelGrid columns="2" cellpadding="7" styleClass="p-mb-3">
+
 									<p:outputLabel value="Nom" />
 									<p:outputLabel
 										value="#{mbService.serviceSelected.utilisateur.nom}" />
-								</div>
-								<div class="p-field">
+
 									<p:outputLabel value="Type de service" />
 									<p:outputLabel
 										value="#{mbService.serviceSelected.typeAide.nomTypeAide}" />
-								</div>
 
-								<div class="p-field p-col">
 									<p:outputLabel value="Date du service" />
 									<p:outputLabel value="#{mbService.serviceSelected.dateService}" />
-								</div>
-								<div class="p-field p-col">
+
 									<p:outputLabel value="Heure de début" />
 									<p:outputLabel value="#{mbService.serviceSelected.heureDbt}" />
-								</div>
-								<div class="p-field p-col">
+
 									<p:outputLabel value="Heure de fin" />
 									<p:outputLabel value="#{mbService.serviceSelected.heureFin}" />
-								</div>
-								<div class="p-field p-col">
+
 									<p:outputLabel value="Adresse" />
 									<p:outputLabel value="#{mbService.serviceSelected.adresse}" />
-								</div>
-								<div class="p-field p-col">
+
 									<p:outputLabel value="Heure de début" />
 									<p:outputLabel value="#{mbService.serviceSelected.heureDbt}" />
-								</div>
-								<div class="p-field p-col">
+
 									<p:outputLabel value="Matériel à prévoir" />
 									<p:outputLabel
 										value="#{mbService.serviceSelected.materiel.nomMateriel}" />
-								</div>
-								<div class="p-field p-col">
+
 									<p:outputLabel value="Somme à prévoir" />
 									<p:outputLabel
 										value="#{mbService.serviceSelected.sommeAPrevoir}" />
-								</div>
+								</h:panelGrid>
 							</p:outputPanel>
 						</p:outputPanel>
 						<f:facet name="footer">
