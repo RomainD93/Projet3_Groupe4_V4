@@ -20,15 +20,15 @@
 			<ul class="onglets" id="onglets_service">
 				<li class="onglet"><span class="onglet_0 onglet"
 					id="onglet_mesServicesDemandes"
-					onclick="change_onglet('mesServicesDemandes')">Mes services
+					onclick="change_onglet('mesServicesDemandes')">Mes coups d'pattes
 						demandés</span></li>
 				<li class="onglet"><span class="onglet_1 onglet"
 					id="onglet_mesServicesProposes"
-					onclick="change_onglet('mesServicesProposes')">Mes services
+					onclick="change_onglet('mesServicesProposes')">Mes coups d'pattes
 						proposés</span></li>
 				<li class="onglet"><span class="onglet_2 onglet"
 					id="onglet_mesServicesTermines"
-					onclick="change_onglet('mesServicesTermines')">Mes services
+					onclick="change_onglet('mesServicesTermines')">Mes coups d'pattes
 						terminés</span></li>
 			</ul>
 		</div>
@@ -45,7 +45,7 @@
 						<p:column headerText="Nom" sortBy="#{service.utilisateur.nom}"
 							filterBy="#{service.utilisateur.nom}">
 
-							<h:outputText style="vertical-align: middle; margin-left: .5rem"
+							<h:outputText style="vertical-align: middle; margin-left: .5rem; text-align: center;"
 								value="#{service.utilisateur.nom}" />
 						</p:column>
 						<p:column headerText="Service"
@@ -54,20 +54,20 @@
 							<h:outputText value="#{service.typeAide.nomTypeAide}" />
 						</p:column>
 
-						<p:column headerText="Lieu" sortBy="#{service.adresse}"
+						<p:column headerText="Adresse" sortBy="#{service.adresse}"
 							filterBy="#{service.adresse}">
 
 							<h:outputText style="vertical-align: middle; margin-left: .5rem"
 								value="#{service.adresse}" />
 						</p:column>
-						<p:column field="dateService" headerText="DateService"
+						<p:column field="dateService" headerText="Période"
 							filterMatchMode="range">
 							<f:facet name="filter">
 								<p:datePicker selectionMode="range"
 									onchange="PF('servicesTable').filter()" />
 							</f:facet>
 						</p:column>
-						<p:column field="heureDbt" headerText="HeureDebut"
+						<p:column field="heureDbt" headerText="Rendez-vous à"
 							filterMatchMode="range">
 
 							<f:facet name="filter">
