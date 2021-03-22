@@ -34,7 +34,7 @@
 					<p:dataTable var="service" value="#{mbService.servicesPref}"
 						filteredValue="#{mbService.filteredServices}"
 						filterBy="#{mbService.filterBy}" widgetVar="servicesTable"
-						emptyMessage="Aucun service ne correspond à vos préférences" Class="tableau">
+						emptyMessage="Aucun service ne correspond à vos préférences" Class="tableau" reflow="true">
 						<p:column headerText="Nom" sortBy="#{service.utilisateur.nom}"
 							filterBy="#{service.utilisateur.nom}">
 

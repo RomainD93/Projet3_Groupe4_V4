@@ -445,3 +445,75 @@ body .ui-datatable tbody td{
 .separator{
 	padding: 0.2em;
 }
+
+@media (max-width: 700px){
+.datatable thead {
+display: none;
+}
+.datatable tr{
+display: block;
+margin-bottom: 40px;
+}
+.datatable td {
+display: block;
+text-align: right;
+}
+.datatable td:before {
+content: attr(data-label);
+float: left;
+font-weight: bold;
+}
+
+body .ui-toolbar {
+	background: #000000;
+	color: #495057;
+	padding: 1rem;
+	border: none;
+	display: flex;
+	flex-direction: column;
+}
+
+
+body .ui-tabmenu .ui-tabmenu-nav {
+	margin: 0;
+	padding: 0;
+	background: transparent;
+	display: -ms-flexbox;
+	display: flex;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	position: relative;
+	height: 10px !important;
+	
+}
+
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem a {
+	color: #97E5D7;
+	padding: 1rem;
+	font-weight: 700;
+	line-height: 1;
+	outline: 0 none;
+	background-color: #888888;
+}
+
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active a {
+	color: #97E5D7;
+	background-color: black;
+}
+
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem a:hover {
+	background-color: #97E5D7;
+	color: black;
+}
+
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem {
+	background: #888888;
+	border-color: #888888;
+}
+
+body .ui-tabmenu .ui-tabmenu-nav .ui-tabmenuitem.ui-state-active {
+	background: #888888;
+	border-color: #97E5D7;
+}
+
+}
