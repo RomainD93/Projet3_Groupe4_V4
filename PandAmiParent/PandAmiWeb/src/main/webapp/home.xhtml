@@ -36,8 +36,6 @@
 						emptyMessage="Aucun coup d'patte ne correspond à vos préférences"
 						Class="tableau" reflow="true">
 						<p:column headerText="Nom">
-							<p:column headerText="Nom" sortBy="#{service.utilisateur.nom}"
-								filterBy="#{service.utilisateur.nom}">
 								<h:outputText style="vertical-align: middle; margin-left: .5rem"
 									value="#{service.utilisateur.nom}" />
 							</p:column>
@@ -65,8 +63,6 @@
 										target="#{mbService.serviceSelected}" />
 									<p:resetInput target=":homeform:manage-product-content" />
 								</p:commandButton>
-							</p:column>
-
 						</p:column>
 					</p:dataTable>
 					<!-- POPUP DETAILS -->
@@ -127,7 +123,7 @@
 			<div class="contenu_onglet" id="contenu_onglet_tousLesServices"
 				style="display: none;">
 				<h:form id="formTousLesServices">
-					<p:dataTable var="service" value="#{mbService.services}">
+					<p:dataTable var="service" value="#{mbService.services}" reflow="true">
 						<p:column headerText="Nom">
 
 							<h:outputText style="vertical-align: middle; margin-left: .5rem"
