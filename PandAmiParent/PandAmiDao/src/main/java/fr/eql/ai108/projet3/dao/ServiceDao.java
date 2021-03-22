@@ -201,5 +201,31 @@ public class ServiceDao extends GenericDao<Service> implements ServiceIDao{
 		serviceTermine.addAll(serviceTermine2);
 
 		return serviceTermine;
+	}
+
+	@Override
+	public ReponseService getReponseServiceByService(Service service) {
+		//System.out.println("Entree methode Dao get beneficiaire");
+		ReponseService rs = new ReponseService();
+		if(service.getDateAcceptation() != null) {
+		Query query = em.createQuery("SELECT r FROM ReponseService r WHERE r.service = :paramService AND r.dateDesistement IS NULL");
+		query.setParameter("paramService", service);		
+			rs = (ReponseService) query.getSingleResult();		
+		}
+		return rs;
+	}
+
+	@Override
+	public Utilisateur getVolontaireByService(Service service) {
+		Query query = em.createQuery("SELECT r.utilisateur FROM ReponseService r WHERE r.service =:paramService");
+		query.setParameter("paramService", service);
+		if(query.getSingleResult() != null) {
+			Utilisateur volontaire = (Utilisateur) query.getSingleResult();
+		}
+		Utilisateur volontaire = new Utilisateur();
+		
+		
+		return volontaire;
 	}	
+	
 }

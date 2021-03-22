@@ -3,7 +3,8 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://java.sun.com/jstl/core">
 
 <ui:composition template="/masterPage.xhtml">
 	<ui:define name="title">Details</ui:define>
@@ -67,19 +68,51 @@
 			<h:panelGroup>
 				<p:outputLabel value="#{mbService.detailService.sommeAPrevoir}"></p:outputLabel>
 			</h:panelGroup>
+
+
+			<h:panelGroup>
+				<p:outputLabel value="Nom du volontaire"></p:outputLabel>
+			</h:panelGroup>
+
+			<h:panelGroup>
+				<p:outputLabel
+					value="#{mbService.reponseServiceSelected.utilisateur.nom}"></p:outputLabel>
+			</h:panelGroup>
+			<h:panelGroup>
+				<p:outputLabel value="Login du volontaire"></p:outputLabel>
+			</h:panelGroup>
+
+			<h:panelGroup>
+				<p:outputLabel
+					value="#{mbService.reponseServiceSelected.utilisateur.email}"></p:outputLabel>
+			</h:panelGroup>
+			<h:panelGroup>
+				<p:outputLabel value="Téléphone du volontaire"></p:outputLabel>
+			</h:panelGroup>
+
+			<h:panelGroup>
+				<p:outputLabel
+					value="#{mbService.reponseServiceSelected.utilisateur.numTelephone}"></p:outputLabel>
+			</h:panelGroup>
+
+
 		</h:panelGrid>
 		<h:form id="myForm">
 			<p:column exportable="false">
 
+
+
 				<p:commandButton class="btn-accepter" value="Modifier le service"
 					update=":myForm:manage-modification-content"
 					oncomplete="PF('manageModificationDialog').show()">
+
 
 					<p:resetInput target=":myForm:manage-modification-content" />
 				</p:commandButton>
 			</p:column>
 			<p:commandButton value="Annuler le service"
 				action="#{mbService.annulerService()}" class="btn-annulation" />
+
 
 			<p:dialog header="Modifier" showEffect="fade" modal="true"
 				widgetVar="manageModificationDialog" responsive="true">
@@ -90,15 +123,15 @@
 
 							<p:outputLabel value="Nom : " />
 							<p:outputLabel value="#{mbService.detailService.utilisateur.nom}"></p:outputLabel>
-							
+
 							<h:panelGroup>
 								<p:outputLabel value="Adresse du service" />
 								<script type="text/javascript" src="resources/JS/adresse2.js"></script>
-								</h:panelGroup>
-								<p:inputText class="autocomplete" style="width:250px;"
-									id="adresse" type="text" onkeypress="getValuePostSuggest()"
-									value="#{mbService.detailService.adresse}" />
-							
+							</h:panelGroup>
+							<p:inputText class="autocomplete" style="width:250px;"
+								id="adresse" type="text" onkeypress="getValuePostSuggest()"
+								value="#{mbService.detailService.adresse}" />
+
 							<p:outputLabel value="Catégorie Aide :" />
 							<p:outputLabel
 								value="#{mbService.detailService.typeAide.categorieAide.nomCategorieAide}" />
@@ -137,11 +170,9 @@
 				<f:facet name="footer">
 					<p:commandButton value="Accepter modification" icon="pi pi-check"
 						actionListener="#{mbService.modifierService()}"
-
 						oncomplete="PF('manageModificationDialog').hide(); location.reload()"
 						class="btn-accepter" />
 				</f:facet>
-
 
 			</p:dialog>
 		</h:form>

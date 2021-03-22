@@ -55,8 +55,11 @@ public class ServiceManagedBean {
 
 	private Litige litige = new Litige();
 	private TypeLitige selectedTypeLitige;
+	
+	private Utilisateur volontaire = new Utilisateur();
 
 	private ReponseService reponseService = new ReponseService();
+	private ReponseService reponseServiceSelected = new ReponseService();
 	private Service serviceSelected;
 	private Service detailService;
 	//Liste service
@@ -100,7 +103,7 @@ public class ServiceManagedBean {
 	public void init (){
 
 		services = proxyServiceBu.displayService(userConnected);
-		System.out.println("services" + services);
+		//System.out.println("services" + services);
 		//		typesAide = proxyServiceBu.displayTypeAide();	
 		materiels = proxyServiceBu.displayMateriel();
 		typesLitige = proxyServiceBu.displayTypesLitige();
@@ -214,15 +217,21 @@ public class ServiceManagedBean {
 		String retour = "";
 		detailService = new Service();
 		this.detailService = service;
-		this.detailService.setSommeAPrevoir(0.0f);		
+		this.detailService.setSommeAPrevoir(0.0f);
+
 		return retour = "/detailsService.xhtml?faces-redirect=true";	
 	}
 	// LOAD UN SERVICE DE LA PAGE HOME A DETAILS SERVICE
 	public String loadBeneficiaire(Service service) {	
+		reponseServiceSelected = new ReponseService();
 		String retour = "";
 		detailService = new Service();
-		this.detailService = service;
-		this.detailService.setSommeAPrevoir(0.0f);		
+		detailService = service;
+		//detailService.setSommeAPrevoir(0.0f);
+		if (detailService.getDateAcceptation() != null) {
+			reponseServiceSelected = proxyServiceBu.displayReponseServiceByService(detailService);
+		}
+		
 		return retour = "/detailsServiceBeneficiaire.xhtml?faces-redirect=true";	
 	}
 
@@ -235,7 +244,6 @@ public class ServiceManagedBean {
 	// ANNULER LE SERVICE
 	public String annulerService() {
 		String retour = "";
-		System.out.println("ANNULER SERVICE");
 		this.detailService.setDateAnnulation(LocalDate.now());
 		proxyServiceBu.updateService(detailService);
 		return retour = "/mesServices.xhtml?faces-redirect=true";
@@ -274,9 +282,7 @@ public class ServiceManagedBean {
 	//CLOTURER UN SERVICE
 	public String cloturerService(Service serviceToClotured) {
 		String retour = "";
-		System.out.println("Entree methode cloture");
 		serviceToClotured.setDateCloture(LocalDate.now());
-		System.out.println("Id du service séléctionné"+serviceToClotured.getId());
 		proxyServiceBu.updateService(serviceToClotured);
 		return retour = "/mesServices.xhtml?faces-redirect=true";
 	}
@@ -575,6 +581,22 @@ public class ServiceManagedBean {
 
 	public void setService(Service service) {
 		this.service = service;
+	}
+
+	public ReponseService getReponseServiceSelected() {
+		return reponseServiceSelected;
+	}
+
+	public void setReponseServiceSelected(ReponseService reponseServiceSelected) {
+		this.reponseServiceSelected = reponseServiceSelected;
+	}
+
+	public Utilisateur getVolontaire() {
+		return volontaire;
+	}
+
+	public void setVolontaire(Utilisateur volontaire) {
+		this.volontaire = volontaire;
 	}
 
 

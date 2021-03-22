@@ -1,5 +1,6 @@
 package fr.eql.ai108.projet3.dao;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.ejb.Remote;
@@ -88,6 +89,59 @@ public class UtilisateurDao extends GenericDao<Utilisateur> implements Utilisate
 	public Integer getServicesClosedCat1() {
 		Query query = em.createQuery("SELECT COUNT(s) FROM Service s WHERE s.typeAide.categorieAide.id = 1");
 		Integer result = (Integer) query.getSingleResult();
+		return result;
+	}
+
+	@Override
+	public Long getNbServicesEnAttenteDeVolontaireEnTantQueBeneficiaire(Utilisateur utilisateur) {
+		Query query = em.createQuery("SELECT COUNT(s) FROM Service s WHERE s.dateAcceptation IS NULL AND s.utilisateur = :paramUser AND s.dateService > :paramDate");
+		query.setParameter("paramUser", utilisateur);
+		query.setParameter("paramDate", LocalDate.now());
+		Long result =  (Long) query.getSingleResult();
+		return result;
+		
+	}
+
+	@Override
+	public Long getNbServicesAvantRealEnTantQueBeneficiaire(Utilisateur utilisateur) {
+		Query query = em.createQuery("SELECT COUNT(s) FROM Service s WHERE s.dateAcceptation IS NOT NULL AND s.utilisateur = :paramUser AND s.dateService > :paramDate");
+		query.setParameter("paramUser", utilisateur);
+		query.setParameter("paramDate", LocalDate.now());
+		Long result =  (Long) query.getSingleResult();
+		return result;
+	}
+
+	@Override
+	public Long getNbServicesTerminesEnTantQueBeneficiaire(Utilisateur utilisateur) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Long getNbServicesAvantRealEnTantQueVolontaire(Utilisateur utilisateur) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Long getNbServicesTerminesEnTantQueVolontaire(Utilisateur utilisateur) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Long getNbLitigesOuverts(Utilisateur utilisateur) {
+		Query query = em.createQuery("SELECT COUNT(l) FROM Litige l WHERE l.utilisateur = :paramUser AND l.dateCloture IS NULL");
+		query.setParameter("paramUser", utilisateur);
+		Long result =  (Long) query.getSingleResult();
+		return result;
+	}
+
+	@Override
+	public Long getNbLitigesFermes(Utilisateur utilisateur) {
+		Query query = em.createQuery("SELECT COUNT(l) FROM Litige l WHERE l.utilisateur = :paramUser AND l.dateCloture IS NOT NULL");
+		query.setParameter("paramUser", utilisateur);
+		Long result =  (Long) query.getSingleResult();
 		return result;
 	}
 
