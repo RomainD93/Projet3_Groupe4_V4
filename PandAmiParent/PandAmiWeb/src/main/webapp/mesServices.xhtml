@@ -20,16 +20,16 @@
 			<ul class="onglets" id="onglets_service">
 				<li class="onglet"><span class="onglet_0 onglet"
 					id="onglet_mesServicesDemandes"
-					onclick="change_onglet('mesServicesDemandes')">Mes services
-						demandés</span></li>
+					onclick="change_onglet('mesServicesDemandes')">Mes coups
+						d'pattes demandés</span></li>
 				<li class="onglet"><span class="onglet_1 onglet"
 					id="onglet_mesServicesProposes"
-					onclick="change_onglet('mesServicesProposes')">Mes services
-						proposés</span></li>
+					onclick="change_onglet('mesServicesProposes')">Mes coups
+						d'pattes proposés</span></li>
 				<li class="onglet"><span class="onglet_2 onglet"
 					id="onglet_mesServicesTermines"
-					onclick="change_onglet('mesServicesTermines')">Mes services
-						terminés</span></li>
+					onclick="change_onglet('mesServicesTermines')">Mes coups
+						d'pattes terminés</span></li>
 			</ul>
 		</div>
 
@@ -45,7 +45,8 @@
 						<p:column headerText="Nom" sortBy="#{service.utilisateur.nom}"
 							filterBy="#{service.utilisateur.nom}">
 
-							<h:outputText style="vertical-align: middle; margin-left: .5rem"
+							<h:outputText
+								style="vertical-align: middle; margin-left: .5rem; text-align: center;"
 								value="#{service.utilisateur.nom}" />
 						</p:column>
 						<p:column headerText="Service"
@@ -54,20 +55,20 @@
 							<h:outputText value="#{service.typeAide.nomTypeAide}" />
 						</p:column>
 
-						<p:column headerText="Lieu" sortBy="#{service.adresse}"
+						<p:column headerText="Adresse" sortBy="#{service.adresse}"
 							filterBy="#{service.adresse}">
 
 							<h:outputText style="vertical-align: middle; margin-left: .5rem"
 								value="#{service.adresse}" />
 						</p:column>
-						<p:column field="dateService" headerText="DateService"
+						<p:column field="dateService" headerText="Période"
 							filterMatchMode="range">
 							<f:facet name="filter">
 								<p:datePicker selectionMode="range"
 									onchange="PF('servicesTable').filter()" />
 							</f:facet>
 						</p:column>
-						<p:column field="heureDbt" headerText="HeureDebut"
+						<p:column field="heureDbt" headerText="Rendez-vous à"
 							filterMatchMode="range">
 
 							<f:facet name="filter">
@@ -252,7 +253,8 @@
 					<p:dataTable var="service" value="#{mbService.servicesTermine}"
 						filteredValue="#{mbService.filteredServices}"
 						filterBy="#{mbService.filterBy}" widgetVar="servicesTable"
-						emptyMessage="Vous n'avez encore terminé aucun service" converter="omnifaces.SelectItemsConverter">
+						emptyMessage="Vous n'avez encore terminé aucun service"
+						converter="omnifaces.SelectItemsConverter">
 						<p:column headerText="Nom" sortBy="#{service.utilisateur.nom}"
 							filterBy="#{service.utilisateur.nom}">
 
@@ -291,18 +293,20 @@
 							<p:commandButton value="Litige"
 								update=":ServiceTerminesform:manage-litige-content"
 								oncomplete="PF('manageLitige').show()" class="btn-litige"
-								process="@this">
-								<f:setPropertyActionListener value="#{service}  #{mbService.loadBeneficiaireLitige(service)}"
-									target="#{mbService.serviceSelected}" />
+								process="@this" onclick="disabled=true">
+								<f:setPropertyActionListener
+									value="#{service}  #{mbService.loadBeneficiaireLitige(service)}" />
+
+
 								<p:resetInput
 									target=":ServiceTerminesform:manage-litige-content"></p:resetInput>
 							</p:commandButton>
 						</p:column>
 
-						<p:column>					
-								<p:commandButton value="Clôturer"
-									action="#{mbService.cloturerService(service)}"
-									class="btn-annulation" rendered="#{service.dateCloture eq null}"/>					
+						<p:column>
+							<p:commandButton value="Clôturer"
+								action="#{mbService.cloturerService(service)}"
+								class="btn-annulation" rendered="#{service.dateCloture eq null}" />
 						</p:column>
 
 					</p:dataTable>
@@ -311,55 +315,44 @@
 						modal="true" widgetVar="manageLitige" responsive="false">
 						<p:outputPanel id="manage-litige-content" class="ui-fluid">
 							<p:outputPanel rendered="#{not empty mbService.serviceSelected}">
-								<h:panelGrid cellspacing="2">
-									<div>
+
+								<h:panelGrid columns="2" cellspacing="2">
+									
 										<p:outputLabel value="Demandeur du service : " />
 										<p:outputLabel
-											value="#{mbService.serviceSelected.utilisateur.nom} #{mbService.serviceSelected.utilisateur.prenom}" />
-									</div>
-									<div class="p-field">
-										<p:outputLabel value="Volontaire du service : "/>
-
-									<p:outputLabel value="#{mbService.reponseServiceSelected.utilisateur.nom}" />
-									</div>
-									<div class="p-field">
+											value="#{mbService.serviceSelected.utilisateur.prenom} #{mbService.serviceSelected.utilisateur.nom}" />
+																	
+										<p:outputLabel value="Volontaire du service : " />
+										<p:outputLabel
+											value="#{mbService.reponseServiceSelected.utilisateur.prenom} #{mbService.reponseServiceSelected.utilisateur.nom}" />
+									
+									
 										<p:outputLabel value="Service concernée : " />
 										<p:outputLabel
 											value="#{mbService.serviceSelected.typeAide.nomTypeAide}" />
-									</div>
-									<div class="p-field">
+									
 										<p:outputLabel value="Lieu du service : " />
 										<p:outputLabel value="#{mbService.serviceSelected.adresse}" />
-									</div>
-									<div class="p-field">
+									
 										<p:outputLabel value="Date du service : " />
 										<p:outputLabel
 											value="#{mbService.serviceSelected.dateService}" />
-									</div>
-									<div class="p-field">
+									
 										<p:outputLabel value="Heure de début du service : " />
 										<p:outputLabel value="#{mbService.serviceSelected.heureDbt}" />
-									</div>
-									<div class="p-field">
+									
 										<p:outputLabel value="Matériel prévu : " />
 										<p:outputLabel
 											value="#{mbService.serviceSelected.materiel.nomMateriel}" />
-									</div>
-									<div class="p-field">
+									
 										<p:outputLabel value="Somme prévue : " />
 										<p:outputLabel
 											value="#{mbService.serviceSelected.sommeAPrevoir}" />
-									</div>
+									
+
 								</h:panelGrid>
-								<h:panelGrid cellspacing="2">
-									<div class="p-field">
+									<h:panelGrid cellspacing="2">
 										<p:outputLabel value="Motif du litige : " />
-									</div>
-									<!-- 							<div> <p:selectManyCheckbox -->
-									<!-- 								value="#{mbService.selectedTypeLitige}" styleClass="grid-checkbox"> -->
-									<!-- 								<f:selectItems value="#{mbService.typesLitige}" var="typeLitige" itemLabel="#{typeLitige.nomTypeLitige}" itemValue="#{typeLitige}" />				 -->
-									<!-- 							</p:selectManyCheckbox> </div> -->
-									<div>
 										<p:selectOneRadio id="typesLitiges"
 											value="#{mbService.selectedTypeLitige}"
 											converter="omnifaces.SelectItemsConverter">
@@ -368,12 +361,11 @@
 												itemValue="#{typeLitige}" />
 
 										</p:selectOneRadio>
-									</div>
-									<div>
+
 										<p:inputTextarea value="#{mbService.litige.commentaires}"
 											rows="5" cols="5" />
-									</div>
-								</h:panelGrid>
+
+									</h:panelGrid>
 							</p:outputPanel>
 						</p:outputPanel>
 						<f:facet name="footer">
