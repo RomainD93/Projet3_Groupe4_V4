@@ -142,7 +142,7 @@ public class ServiceManagedBean {
 
 		filterBy.add(FilterMeta.builder()
 				.field("dateService")
-				.filterValue(Arrays.asList(LocalDate.now().minusDays(24), LocalDate.now().plusDays(45)))
+				.filterValue(Arrays.asList(LocalDate.now(), LocalDate.now().plusDays(31)))
 				.matchMode(MatchMode.RANGE)
 				.build());
 
@@ -234,7 +234,7 @@ public class ServiceManagedBean {
 		
 		return retour = "/detailsServiceBeneficiaire.xhtml?faces-redirect=true";	
 	}
-
+	
 	//	MODIFIER LE SERVICE
 	public void modifierService() {			
 		this.detailService.setMateriel(materielSelected);
@@ -285,6 +285,19 @@ public class ServiceManagedBean {
 		serviceToClotured.setDateCloture(LocalDate.now());
 		proxyServiceBu.updateService(serviceToClotured);
 		return retour = "/mesServices.xhtml?faces-redirect=true";
+	}
+	
+	//LOAD VOLONTAIRE SERVICE DEPUIS LITIGE
+	public void loadBeneficiaireLitige(Service service) {
+		System.out.println("ENTREE METHODE");
+		this.serviceSelected = service;
+		System.out.println("Service Selected "+ serviceSelected);
+		reponseServiceSelected = new ReponseService();
+		if(serviceSelected.getDateAcceptation() != null) {
+		reponseServiceSelected = proxyServiceBu.displayReponseServiceByService(serviceSelected);
+		}
+		
+		System.out.println(reponseServiceSelected);
 	}
 
 	// GETTERS SETTERS 
